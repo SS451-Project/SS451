@@ -440,7 +440,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/beaker
-	name = "Beaker"
+	name = "Пробирка"
 	id = "beaker"
 	build_type = AUTOLATHE
 	materials = list(MAT_GLASS = 500)
@@ -448,7 +448,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/large_beaker
-	name = "Large Beaker"
+	name = "Большая пробирка"
 	id = "large_beaker"
 	build_type = AUTOLATHE
 	materials = list(MAT_GLASS = 2500)
@@ -464,7 +464,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/pillbottle
-	name = "Pill Bottle"
+	name = "Флакон с таблетками"
 	id = "pillbottle"
 	build_type = AUTOLATHE
 	materials = list(MAT_METAL = 80, MAT_GLASS = 20)
