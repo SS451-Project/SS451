@@ -73,12 +73,12 @@
 			topiclimiter[MINUTE_COUNT] = 0
 		topiclimiter[MINUTE_COUNT] += 1
 		if (topiclimiter[MINUTE_COUNT] > mtl)
-			var/msg = "Your previous action was ignored because you've done too many in a minute."
+			var/msg = "Ваше предыдущее действие было проигнорировано, потому что вы сделали слишком много запросов за минуту."
 			if (minute != topiclimiter[ADMINSWARNED_AT]) //only one admin message per-minute. (if they spam the admins can just boot/ban them)
 				topiclimiter[ADMINSWARNED_AT] = minute
-				msg += " Administrators have been informed."
-				log_game("[key_name(src)] Has hit the per-minute topic limit of [mtl] topic calls in a given game minute")
-				message_admins("[ADMIN_LOOKUPFLW(usr)] Has hit the per-minute topic limit of [mtl] topic calls in a given game minute")
+				msg += " Администраторы были проинформированы."
+				log_game("[key_name(src)] достиг предела [mtl] запросов в минуту игры.")
+				message_admins("[ADMIN_LOOKUPFLW(usr)] достиг предела [mtl] запросов в минуту игры.")
 			to_chat(src, "<span class='danger'>[msg]</span>")
 			return
 
@@ -92,14 +92,14 @@
 			topiclimiter[SECOND_COUNT] = 0
 		topiclimiter[SECOND_COUNT] += 1
 		if (topiclimiter[SECOND_COUNT] > stl)
-			to_chat(src, "<span class='danger'>Your previous action was ignored because you've done too many in a second</span>")
+			to_chat(src, "<span class='danger'>Ваше предыдущее действие было проигнорировано, потому что вы сделали слишком много запросов за секунду.</span>")
 			return
 
 	//search the href for script injection
 	if( findtext(href,"<script",1,0) )
-		log_world("Attempted use of scripts within a topic call, by [src]")
-		log_runtime(EXCEPTION("Attempted use of scripts within a topic call, by [src]"), src)
-		message_admins("Attempted use of scripts within a topic call, by [src]")
+		log_world("Попытка использования скриптов в topic call, путем [src]")
+		log_runtime(EXCEPTION("Попытка использования скриптов в topic call, путем [src]"), src)
+		message_admins("Попытка использования скриптов в topic call, путём [src]")
 		return
 
 	//Admin PM
@@ -111,10 +111,10 @@
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) // Worse they can do is spam discord for 10 minutes
-			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>")
+			to_chat(usr, "<span class='warning'>Вы больше не можете использовать данную функцию, так как прошло более 10 минут с тех пор, как администратор Discord ответил вам.</span>")
 			return
 		if(prefs.muted & MUTE_ADMINHELP)
-			to_chat(usr, "<span class='warning'>You cannot use this as your client has been muted from sending messages to the admins on Discord</span>")
+			to_chat(usr, "<span class='warning'>Вы не можете использовать данную функцию, так как ваш клиент Discord отправил администратор в мут.</span>")
 			return
 		cmd_admin_discord_pm()
 		return
@@ -190,7 +190,7 @@
 
 	if(href_list["ssdwarning"])
 		ssd_warning_acknowledged = TRUE
-		to_chat(src, "<span class='notice'>SSD warning acknowledged.</span>")
+		to_chat(src, "<span class='notice'>Предупреждение SSD подтверждено.</span>")
 	if(href_list["link_forum_account"])
 		link_forum_account()
 		return // prevents a recursive loop where the ..() 5 lines after this makes the proc endlessly re-call itself
@@ -202,7 +202,7 @@
 
 /client/proc/is_content_unlocked()
 	if(!prefs.unlock_content)
-		to_chat(src, "Become a BYOND member to access member-perks and features, as well as support the engine that makes this game possible. <a href='http://www.byond.com/membership'>Click here to find out more</a>.")
+		to_chat(src, "Здесь была реклама BYOND. <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>Теперь здесь милый котик</a>.")
 		return 0
 	return 1
 
@@ -268,7 +268,7 @@
 		show_update_prompt = TRUE
 	// Actually sent to client much later, so it appears after MOTD.
 
-	to_chat(src, "<span class='warning'>Если экран черный, ресурсы все еще загружаются. Пожалуйста, наберись терпения, пока не появится титульный экран.</span>")
+	to_chat(src, "<span class='warning'>Если видишь черный экран - значит ресурсы прогружаются. Наберись терпения, друг.</span>")
 
 	GLOB.directory[ckey] = src
 	//Admin Authorisation
