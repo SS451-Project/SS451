@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(ticker)
 	priority = FIRE_PRIORITY_TICKER
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
-	offline_implications = "The game is no longer aware of when the round ends. Immediate server restart recommended."
+	offline_implications = "Игра больше не знает, когда закончится раунд. Рекомендуется перезагрузка сервера."
 
 	/// Time the world started, relative to world.time
 	var/round_start_time = 0
@@ -140,9 +140,9 @@ SUBSYSTEM_DEF(ticker)
 
 			spawn(50)
 				if(mode.station_was_nuked)
-					reboot_helper("Station destroyed by Nuclear Device.", "nuke")
+					reboot_helper("Станция, разрушенная Ядерным Устройством.", "nuke")
 				else
-					reboot_helper("Round ended.", "proper completion")
+					reboot_helper("Раунд завершился.", "proper completion")
 
 /datum/controller/subsystem/ticker/proc/setup()
 	cultdat = setupcult()
@@ -203,19 +203,19 @@ SUBSYSTEM_DEF(ticker)
 		for(var/datum/game_mode/M in runnable_modes)
 			modes += M.name
 		modes = sortList(modes)
-		to_chat(world, "<B>The current game mode is - Secret!</B>")
-		to_chat(world, "<B>Possibilities:</B> [english_list(modes)]")
+		to_chat(world, "<B>Текущий режим игры - Secret!</B>")
+		to_chat(world, "<B>Возможности:</B> [english_list(modes)]")
 	else
 		mode.announce()
 
 	// Behold, a rough way of figuring out what takes 10 years
 	var/watch = start_watch()
 	create_characters() // Create player characters and transfer clients
-	log_debug("Creating characters took [stop_watch(watch)]s")
+	log_debug("Создание персонажей заняло [stop_watch(watch)]секунд")
 
 	watch = start_watch()
 	populate_spawn_points() // Put mobs in their spawn locations
-	log_debug("Populating spawn points took [stop_watch(watch)]s")
+	log_debug("Заполнение точек спавна заняло [stop_watch(watch)]секунд")
 
 	// Gather everyones minds
 	for(var/mob/living/player in GLOB.player_list)
@@ -224,11 +224,11 @@ SUBSYSTEM_DEF(ticker)
 
 	watch = start_watch()
 	equip_characters() // Apply outfits and loadouts to the characters
-	log_debug("Equipping characters took [stop_watch(watch)]s")
+	log_debug("Экипировка персонажей заняло [stop_watch(watch)]секунд")
 
 	watch = start_watch()
 	GLOB.data_core.manifest() // Create the manifest
-	log_debug("Manifest creation took [stop_watch(watch)]s")
+	log_debug("Создание манифеста заняло [stop_watch(watch)]секунд")
 
 	// Update the MC and state to game playing
 	current_state = GAME_STATE_PLAYING
@@ -261,16 +261,16 @@ SUBSYSTEM_DEF(ticker)
 			qdel(S)
 
 	SSdbcore.SetRoundStart()
-	to_chat(world, "<span class='darkmblue'><B>Enjoy the game!</B></span>")
+	to_chat(world, "<span class='darkmblue'><B>Приятной игры!</B></span>")
 	world << sound('sound/AI/welcome.ogg')
 
 	if(SSholiday.holidays)
-		to_chat(world, "<span class='darkmblue'>and...</span>")
+		to_chat(world, "<span class='darkmblue'>и...</span>")
 		for(var/holidayname in SSholiday.holidays)
 			var/datum/holiday/holiday = SSholiday.holidays[holidayname]
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
 
-	SSdiscord.send2discord_simple_noadmins("**\[Info]** Round has started")
+	SSdiscord.send2discord_simple_noadmins("**\[Инфо]** Раунд начался")
 	auto_toggle_ooc(FALSE) // Turn it off
 	round_start_time = world.time
 
@@ -426,7 +426,7 @@ SUBSYSTEM_DEF(ticker)
 	if(captainless)
 		for(var/mob/M in GLOB.player_list)
 			if(!isnewplayer(M))
-				to_chat(M, "Captainship not forced on anyone.")
+				to_chat(M, "Капитанство никому не поставлено.")
 
 /datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
 	var/m
@@ -450,20 +450,20 @@ SUBSYSTEM_DEF(ticker)
 	ending_station_state.count()
 	var/station_integrity = min(round( 100.0 *  GLOB.start_state.score(ending_station_state), 0.1), 100.0)
 
-	to_chat(world, "<BR>[TAB]Shift Duration: <B>[round(ROUND_TIME / 36000)]:[add_zero("[ROUND_TIME / 600 % 60]", 2)]:[ROUND_TIME / 100 % 6][ROUND_TIME / 100 % 10]</B>")
-	to_chat(world, "<BR>[TAB]Station Integrity: <B>[mode.station_was_nuked ? "<font color='red'>Destroyed</font>" : "[station_integrity]%"]</B>")
+	to_chat(world, "<BR>[TAB]Продолжительность смены: <B>[round(ROUND_TIME / 36000)]:[add_zero("[ROUND_TIME / 600 % 60]", 2)]:[ROUND_TIME / 100 % 6][ROUND_TIME / 100 % 10]</B>")
+	to_chat(world, "<BR>[TAB]Целостность станции: <B>[mode.station_was_nuked ? "<font color='red'>Destroyed</font>" : "[station_integrity]%"]</B>")
 	to_chat(world, "<BR>")
 
 	//Silicon laws report
 	for(var/mob/living/silicon/ai/aiPlayer in GLOB.mob_list)
 		if(aiPlayer.stat != 2)
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws at the end of the game were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (В исполнении: [aiPlayer.key]) законы в конце игры были:</b>")
 		else
-			to_chat(world, "<b>[aiPlayer.name] (Played by: [aiPlayer.key])'s laws when it was deactivated were:</b>")
+			to_chat(world, "<b>[aiPlayer.name] (В исполнении: [aiPlayer.key]) законы, когда он был отключен, были:</b>")
 		aiPlayer.show_laws(TRUE)
 
 		if(aiPlayer.connected_robots.len)
-			var/robolist = "<b>The AI's loyal minions were:</b> "
+			var/robolist = "<b>Верными приспешниками ИИ были:</b> "
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
 				robolist += "[robo.name][robo.stat?" (Deactivated) (Played by: [robo.key]), ":" (Played by: [robo.key]), "]"
 			to_chat(world, "[robolist]")
@@ -478,15 +478,15 @@ SUBSYSTEM_DEF(ticker)
 
 		if(!robo.connected_ai)
 			if(robo.stat != 2)
-				to_chat(world, "<b>[robo.name] (Played by: [robo.key]) survived as an AI-less borg! Its laws were:</b>")
+				to_chat(world, "<b>[robo.name] (В исполнении: [robo.key]) выжил как киборг без искусственного интеллекта! Его законы были:</b>")
 			else
-				to_chat(world, "<b>[robo.name] (Played by: [robo.key]) was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
+				to_chat(world, "<b>[robo.name] (В исполнении: [robo.key]) не смог пережить тяготы бытия киборга без искусственного интеллекта. Его законы были:</b>")
 
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
 
 	if(dronecount)
-		to_chat(world, "<b>There [dronecount>1 ? "were" : "was"] [dronecount] industrious maintenance [dronecount>1 ? "drones" : "drone"] this round.")
+		to_chat(world, "<b>В этом раунде [dronecount>1 ? "было" : "был"] [dronecount] [dronecount>1 ? "дронов" : "дрон"] для технического обслуживания.")
 
 	if(mode.eventmiscs.len)
 		var/emobtext = ""
@@ -514,9 +514,9 @@ SUBSYSTEM_DEF(ticker)
 	SSevents.RoundEnd()
 
 	//make big obvious note in game logs that round ended
-	log_game("///////////////////////////////////////////////////////")
-	log_game("///////////////////// ROUND ENDED /////////////////////")
-	log_game("///////////////////////////////////////////////////////")
+	log_game("//////////////////////////////////////////////////////////")
+	log_game("///////////////////// РАУНД ЗАВЕРШЁН /////////////////////")
+	log_game("//////////////////////////////////////////////////////////")
 
 	// Add AntagHUD to everyone, see who was really evil the whole time!
 	for(var/datum/atom_hud/antag/H in GLOB.huds)
@@ -571,7 +571,7 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/proc/reboot_helper(reason, end_string, delay)
 	// Admins delayed round end. Just alert and dont bother with anything else.
 	if(delay_end)
-		to_chat(world, "<span class='boldannounce'>An admin has delayed the round end.</span>")
+		to_chat(world, "<span class='boldannounce'>Администратор отложил завершение раунда.</span>")
 		return
 
 	if(!isnull(delay))
@@ -581,14 +581,14 @@ SUBSYSTEM_DEF(ticker)
 		// Use default restart timeout
 		delay = restart_timeout
 
-	to_chat(world, "<span class='boldannounce'>Rebooting world in [delay/10] [delay > 10 ? "seconds" : "second"]. [reason]</span>")
+	to_chat(world, "<span class='boldannounce'>Перезагрузка мира через [delay/10] [delay > 10 ? "seconds" : "second"]. [reason]</span>")
 
 	real_reboot_time = world.time + delay
 	UNTIL(world.time > real_reboot_time) // Hold it here
 
 	// And if we re-delayed, bail again
 	if(delay_end)
-		to_chat(world, "<span class='boldannounce'>Reboot was cancelled by an admin.</span>")
+		to_chat(world, "<span class='boldannounce'>Перезагрузка была отменена администратором.</span>")
 		return
 
 	if(end_string)

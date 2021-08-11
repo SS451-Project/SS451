@@ -114,8 +114,8 @@
 		return ..()
 
 /obj/item/reagent_containers/glass/beaker
-	name = "beaker"
-	desc = "A beaker. Can hold up to 50 units."
+	name = "Пробирка"
+	desc = "Пробирка. Может содержать 50 едениц."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"
@@ -223,8 +223,8 @@
 	container_type = OPENCONTAINER
 
 /obj/item/reagent_containers/glass/beaker/vial
-	name = "vial"
-	desc = "A small glass vial. Can hold up to 25 units."
+	name = "флакончик"
+	desc = "Маленький стеклянный флакончик. Может вместить до 25 юнитов."
 	icon_state = "vial"
 	materials = list(MAT_GLASS=250)
 	volume = 25
@@ -234,8 +234,8 @@
 	can_assembly = 0
 
 /obj/item/reagent_containers/glass/beaker/drugs
-	name = "baggie"
-	desc = "A baggie. Can hold up to 10 units."
+	name = "Пакетик"
+	desc = "Пакетик. Может вместить до 10 юнитов."
 	icon_state = "baggie"
 	amount_per_transfer_from_this = 2
 	possible_transfer_amounts = 2
@@ -244,8 +244,8 @@
 	can_assembly = 0
 
 /obj/item/reagent_containers/glass/beaker/thermite
-	name = "Thermite load"
-	desc = "A baggie. Can hold up to 20 units."
+	name = "Термитная нагрузка"
+	desc = "Пакетик. Может вместить до 20 юнитов."
 	icon_state = "baggie"
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = 20
@@ -255,8 +255,8 @@
 	list_reagents = list("thermite" = 20)
 
 /obj/item/reagent_containers/glass/beaker/noreact
-	name = "cryostasis beaker"
-	desc = "A cryostasis beaker that allows for chemical storage without reactions. Can hold up to 50 units."
+	name = "Пробирка для криостаза"
+	desc = "Пробирка для криостаза, которая позволяет хранить химические вещества без реакций. Может вместить до 50 юнитов."
 	icon_state = "beakernoreact"
 	materials = list(MAT_METAL=3000)
 	volume = 50
@@ -269,8 +269,8 @@
 	reagents.set_reacting(FALSE)
 
 /obj/item/reagent_containers/glass/beaker/bluespace
-	name = "bluespace beaker"
-	desc = "A bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 300 units."
+	name = "Bluespace пробирка"
+	desc = "Bluespace пробирка, работает на основе экспериментальной технологии Bluespace и Element Cuban в сочетании с соединениями Пита. Может вместить до 300 юнитов."
 	icon_state = "beakerbluespace"
 	materials = list(MAT_GLASS=3000)
 	volume = 300
@@ -294,8 +294,8 @@
 
 
 /obj/item/reagent_containers/glass/bucket
-	desc = "It's a bucket."
-	name = "bucket"
+	desc = "Это ведро."
+	name = "Ведро"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	item_state = "bucket"
@@ -310,7 +310,7 @@
 	container_type = OPENCONTAINER
 
 /obj/item/reagent_containers/glass/bucket/wooden
-	name = "wooden bucket"
+	name = "Деревянное ведро"
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	materials = null
@@ -320,13 +320,13 @@
 /obj/item/reagent_containers/glass/bucket/equipped(mob/user, slot)
     ..()
     if(slot == slot_head && reagents.total_volume)
-        to_chat(user, "<span class='userdanger'>[src]'s contents spill all over you!</span>")
+        to_chat(user, "<span class='userdanger'>Содержимое [src] выливается на тебя!</span>")
         reagents.reaction(user, REAGENT_TOUCH)
         reagents.clear_reagents()
 
 /obj/item/reagent_containers/glass/bucket/attackby(obj/D, mob/user, params)
 	if(isprox(D))
-		to_chat(user, "You add [D] to [src].")
+		to_chat(user, "Ты добавил [D] к [src].")
 		qdel(D)
 		user.put_in_hands(new /obj/item/bucket_sensor)
 		user.unEquip(src)
@@ -335,8 +335,8 @@
 		..()
 
 /obj/item/reagent_containers/glass/beaker/waterbottle
-	name = "bottle of water"
-	desc = "A bottle of water filled at an old Earth bottling facility."
+	name = "Бутылка воды"
+	desc = "Бутылка воды, наполненная на заводе по розливу старой Земли."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "smallbottle"
 	item_state = "bottle"
@@ -349,7 +349,7 @@
 	list_reagents = list()
 
 /obj/item/reagent_containers/glass/beaker/waterbottle/large
-	desc = "A fresh commercial-sized bottle of water."
+	desc = "Свежая бутылка воды коммерческого размера."
 	icon_state = "largebottle"
 	materials = list(MAT_GLASS = 0)
 	list_reagents = list("water" = 100)
