@@ -23,14 +23,14 @@
 /obj/item/reagent_containers/glass/examine(mob/user)
 	. = ..()
 	if(get_dist(user, src) <= 2 && !is_open_container())
-		. += "<span class='notice'>Airtight lid seals it completely.</span>"
+		. += "<span class='notice'>Воздухонепроницаемая крышка полностью герметизирует его.</span>"
 
 /obj/item/reagent_containers/glass/attack(mob/M, mob/user, def_zone)
 	if(!is_open_container())
 		return ..()
 
 	if(!reagents || !reagents.total_volume)
-		to_chat(user, "<span class='warning'>[src] is empty!</span>")
+		to_chat(user, "<span class='warning'>[src] пуста!</span>")
 		return
 
 	if(istype(M))
@@ -40,27 +40,27 @@
 		var/contained = english_list(transferred)
 
 		if(user.a_intent == INTENT_HARM)
-			M.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [M]!</span>", \
-							"<span class='userdanger'>[user] splashes the contents of [src] onto [M]!</span>")
-			add_attack_logs(user, M, "Splashed with [name] containing [contained]", !!M.ckey ? null : ATKLOG_ALL)
+			M.visible_message("<span class='danger'>[user] разбрызгивает содержимое [src] на [M]!</span>", \
+							"<span class='userdanger'>[user] разбрызгивает содержимое [src] на [M]!</span>")
+			add_attack_logs(user, M, "Обрызгал [name] содержащее: [contained]", !!M.ckey ? null : ATKLOG_ALL)
 
 			reagents.reaction(M, REAGENT_TOUCH)
 			reagents.clear_reagents()
 		else
 			if(!iscarbon(M)) // Non-carbons can't process reagents
-				to_chat(user, "<span class='warning'>You cannot find a way to feed [M].</span>")
+				to_chat(user, "<span class='warning'>Ты не можешь найти способ, как напоить [M].</span>")
 				return
 			if(M != user)
-				M.visible_message("<span class='danger'>[user] attempts to feed something to [M].</span>", \
-							"<span class='userdanger'>[user] attempts to feed something to you.</span>")
+				M.visible_message("<span class='danger'>[user] пытается чем-то напоить [M].</span>", \
+							"<span class='userdanger'>[user] пытается чем-то вас напоить.</span>")
 				if(!do_mob(user, M))
 					return
 				if(!reagents || !reagents.total_volume)
 					return // The drink might be empty after the delay, such as by spam-feeding
-				M.visible_message("<span class='danger'>[user] feeds something to [M].</span>", "<span class='userdanger'>[user] feeds something to you.</span>")
-				add_attack_logs(user, M, "Fed with [name] containing [contained]", !!M.ckey ? null : ATKLOG_ALL)
+				M.visible_message("<span class='danger'>[user] чем-то напоил [M].</span>", "<span class='userdanger'>[user] чем-то тебя напоил.</span>")
+				add_attack_logs(user, M, "напоил [name] содержащее: [contained]", !!M.ckey ? null : ATKLOG_ALL)
 			else
-				to_chat(user, "<span class='notice'>You swallow a gulp of [src].</span>")
+				to_chat(user, "<span class='notice'> Ты делаешь глоток [src].</span>")
 
 			var/fraction = min(5 / reagents.total_volume, 1)
 			reagents.reaction(M, REAGENT_INGEST, fraction)
@@ -76,32 +76,32 @@
 
 	if(target.is_refillable()) //Something like a glass. Player probably wants to transfer TO it.
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
+			to_chat(user, "<span class='warning'>[src] пуст!</span>")
 			return
 
 		if(target.reagents.holder_full())
-			to_chat(user, "<span class='warning'>[target] is full.</span>")
+			to_chat(user, "<span class='warning'>[target] заполнен.</span>")
 			return
 
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>You transfer [trans] unit\s of the solution to [target].</span>")
+		to_chat(user, "<span class='notice'>Вы перегнали [trans] юнит\ов в [target].</span>")
 
 	else if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if(!target.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[target] is empty and can't be refilled!</span>")
+			to_chat(user, "<span class='warning'>[target] пуст и не может быть наполнен снова!</span>")
 			return
 
 		if(reagents.holder_full())
-			to_chat(user, "<span class='warning'>[src] is full.</span>")
+			to_chat(user, "<span class='warning'>[src] заполнен.</span>")
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>You fill [src] with [trans] unit\s of the contents of [target].</span>")
+		to_chat(user, "<span class='notice'>Ты заполняешь [src] с [trans] юнит\ов содержимого [target].</span>")
 
 	else if(reagents.total_volume)
 		if(user.a_intent == INTENT_HARM)
-			user.visible_message("<span class='danger'>[user] splashes the contents of [src] onto [target]!</span>", \
-								"<span class='notice'>You splash the contents of [src] onto [target].</span>")
+			user.visible_message("<span class='danger'>[user] разбрызгивает содержимое [src] на [target]!</span>", \
+								"<span class='notice'>Ты выплескиваешь содержимое [src] на [target].</span>")
 			reagents.reaction(target, REAGENT_TOUCH)
 			reagents.clear_reagents()
 
@@ -166,13 +166,13 @@
 	if(usr.incapacitated())
 		return
 	if(assembly)
-		to_chat(usr, "<span class='notice'>You detach [assembly] from [src]</span>")
+		to_chat(usr, "<span class='notice'>Вы отделяете [assembly] от [src]</span>")
 		usr.put_in_hands(assembly)
 		assembly = null
 		qdel(GetComponent(/datum/component/proximity_monitor))
 		update_icon()
 	else
-		to_chat(usr, "<span class='notice'>There is no assembly to remove.</span>")
+		to_chat(usr, "<span class='notice'>Нет сборки, которую нужно удалить.</span>")
 
 /obj/item/reagent_containers/glass/beaker/proc/heat_beaker()
 	if(reagents)
@@ -181,7 +181,7 @@
 /obj/item/reagent_containers/glass/beaker/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/assembly_holder) && can_assembly)
 		if(assembly)
-			to_chat(usr, "<span class='warning'>[src] already has an assembly.</span>")
+			to_chat(usr, "<span class='warning'>[src] уже собран.</span>")
 			return ..()
 		assembly = W
 		user.drop_item()
@@ -213,8 +213,8 @@
 		assembly.hear_message(M, msg)
 
 /obj/item/reagent_containers/glass/beaker/large
-	name = "large beaker"
-	desc = "A large beaker. Can hold up to 100 units."
+	name = "Большая пробирка"
+	desc = "Большой пробирка. Может вместить до 100 юнитов."
 	icon_state = "beakerlarge"
 	materials = list(MAT_GLASS=2500)
 	volume = 100
@@ -223,7 +223,7 @@
 	container_type = OPENCONTAINER
 
 /obj/item/reagent_containers/glass/beaker/vial
-	name = "флакончик"
+	name = "Флакон"
 	desc = "Маленький стеклянный флакончик. Может вместить до 25 юнитов."
 	icon_state = "vial"
 	materials = list(MAT_GLASS=250)
@@ -244,8 +244,8 @@
 	can_assembly = 0
 
 /obj/item/reagent_containers/glass/beaker/thermite
-	name = "Термитная нагрузка"
-	desc = "Пакетик. Может вместить до 20 юнитов."
+	name = "Термит"
+	desc = "Пакетик термита. Может содержать до 20 юнитов."
 	icon_state = "baggie"
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = 20
