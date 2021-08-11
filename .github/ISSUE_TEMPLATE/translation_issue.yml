@@ -1,0 +1,12 @@
+name: Локализация
+description: Ошибки перевода/дополнения - пишите здесь.
+title: "Feat: "
+labels: [enhancement, triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Проблема
+      description: Опишите в чем заключается проблема. Можно приложить скриншоты.
+    validations:
+      required: true
