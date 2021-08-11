@@ -1,13 +1,13 @@
 /obj/item/organ/internal/liver/skrell
 	species_type = /datum/species/skrell
-	name = "skrell liver"
+	name = "печень скрелла"
 	icon = 'icons/obj/species_organs/skrell.dmi'
 	alcohol_intensity = 4
 
 /obj/item/organ/internal/headpocket
 	species_type = /datum/species/skrell
-	name = "headpocket"
-	desc = "Allows Skrell to hide tiny objects within their head tentacles."
+	name = "головной карман"
+	desc = "Позволяет Скреллу прятать крошечные предметы в своих головных щупальцах."
 	icon = 'icons/obj/species_organs/skrell.dmi'
 	icon_state = "skrell_headpocket"
 	origin_tech = "biotech=2"
@@ -31,8 +31,8 @@
 	..()
 	var/obj/item/organ/external/head/head = owner.get_organ("head")
 	if(pocket.contents.len && !findtextEx(head.h_style, "Tentacles"))
-		owner.visible_message("<span class='notice'>Something falls from [owner]'s head!</span>",
-													"<span class='notice'>Something falls from your head!</span>")
+		owner.visible_message("<span class='notice'>Что-то падает с головы [owner]!</span>",
+													"<span class='notice'>Что-то упало из твоей головы!</span>")
 		empty_contents()
 
 /obj/item/organ/internal/headpocket/ui_action_click()
@@ -68,30 +68,30 @@
 
 /obj/item/organ/internal/heart/skrell
 	species_type = /datum/species/skrell
-	name = "skrell heart"
-	desc = "A stream lined heart"
+	name = "сердце скрелла"
+	desc = "Обтекаемое кровью сердце."
 	icon = 'icons/obj/species_organs/skrell.dmi'
 
 /obj/item/organ/internal/brain/skrell
 	species_type = /datum/species/skrell
 	icon = 'icons/obj/species_organs/skrell.dmi'
-	desc = "A brain with a odd division in the middle."
+	desc = "Мозг со странным делением посередине."
 	icon_state = "brain2"
 	mmi_icon = 'icons/obj/species_organs/skrell.dmi'
 	mmi_icon_state = "mmi_full"
 
 /obj/item/organ/internal/lungs/skrell
 	species_type = /datum/species/skrell
-	name = "skrell lungs"
+	name = "легкие скрелла"
 	icon = 'icons/obj/species_organs/skrell.dmi'
 
 /obj/item/organ/internal/kidneys/skrell
 	species_type = /datum/species/skrell
-	name = "skrell kidneys"
+	name = "почки скрелла"
 	icon = 'icons/obj/species_organs/skrell.dmi'
-	desc = "The smallest kidneys you have ever seen, it probably doesn't even work."
+	desc = "Самые маленькие почки, которые ты когда-либо видели, вероятно, даже не работают."
 
 /obj/item/organ/internal/eyes/skrell
 	species_type = /datum/species/skrell
-	name = "skrell eyeballs"
+	name = "глазные яблоки скрелла"
 	icon = 'icons/obj/species_organs/skrell.dmi'

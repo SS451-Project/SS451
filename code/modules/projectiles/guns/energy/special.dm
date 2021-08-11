@@ -1,7 +1,7 @@
 // Ion Rifles //
 /obj/item/gun/energy/ionrifle
-	name = "ion rifle"
-	desc = "A man portable anti-armor weapon designed to disable mechanical threats"
+	name = "ионная винтовка"
+	desc = "Переносное противоборствующее оружие для мужчин, предназначенное для отключения механических угроз."
 	icon_state = "ionrifle"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/ionrifle.ogg'
@@ -19,8 +19,8 @@
 	return
 
 /obj/item/gun/energy/ionrifle/carbine
-	name = "ion carbine"
-	desc = "The MK.II Prototype Ion Projector is a lightweight carbine version of the larger ion rifle, built to be ergonomic and efficient."
+	name = "ионный карабин"
+	desc = "МК.II Прототип ионного проектора - это облегченная карабинная версия более крупной ионной винтовки, спроектированная таким образом, чтобы быть эргономичной и эффективной."
 	icon_state = "ioncarbine"
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT
@@ -30,8 +30,8 @@
 
 // Decloner //
 /obj/item/gun/energy/decloner
-	name = "biological demolecularisor"
-	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
+	name = "биологический разрушитель"
+	desc = "Пистолет, который разряжает большое количество контролируемого излучения, чтобы медленно развалить цель на составные элементы."
 	icon_state = "decloner"
 	fire_sound = 'sound/weapons/pulse3.ogg'
 	origin_tech = "combat=4;materials=4;biotech=5;plasmatech=6"
@@ -46,8 +46,8 @@
 
 // Flora Gun //
 /obj/item/gun/energy/floragun
-	name = "floral somatoray"
-	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
+	name = "цветочный соматорей"
+	desc = "Инструмент, который разряжает контролируемое излучение, вызывающее мутации в растительных клетках."
 	icon_state = "flora"
 	item_state = "gun"
 	fire_sound = 'sound/effects/stealthoff.ogg'
@@ -59,8 +59,8 @@
 
 // Meteor Gun //
 /obj/item/gun/energy/meteorgun
-	name = "meteor gun"
-	desc = "For the love of god, make sure you're aiming this the right way!"
+	name = "метеоритная пушка"
+	desc = "Ради любви к Богу, убедитесь, что вы на правильном пути!"
 	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "riotgun"
 	item_state = "c20r"
@@ -72,8 +72,8 @@
 	selfcharge = 1
 
 /obj/item/gun/energy/meteorgun/pen
-	name = "meteor pen"
-	desc = "The pen is mightier than the sword."
+	name = "метеоритная ручка"
+	desc = "Люди говорят: 'Перо сильнее меча!' "
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
 	item_state = "pen"
@@ -83,8 +83,8 @@
 
 // Mind Flayer //
 /obj/item/gun/energy/mindflayer
-	name = "\improper Mind Flayer"
-	desc = "A prototype weapon recovered from the ruins of Research-Station Epsilon."
+	name = "неподобающий Пожиратель Разума"
+	desc = "Прототип оружия, найденный в руинах исследовательской станции Эпсилон."
 	icon_state = "xray"
 	item_state = null
 	ammo_type = list(/obj/item/ammo_casing/energy/mindflayer)
@@ -92,8 +92,8 @@
 
 // Energy Crossbows //
 /obj/item/gun/energy/kinetic_accelerator/crossbow
-	name = "mini energy crossbow"
-	desc = "A weapon favored by syndicate stealth specialists."
+	name = "мини-энергетический арбалет"
+	desc = "Оружие, излюбленное специалистами Cиндиката по скрытности."
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	w_class = WEIGHT_CLASS_SMALL
@@ -111,8 +111,8 @@
 	empty_state = null
 
 /obj/item/gun/energy/kinetic_accelerator/crossbow/large
-	name = "energy crossbow"
-	desc = "A reverse engineered weapon using syndicate technology."
+	name = "энергетический арбалет"
+	desc = "Оружие обратной разработки с использованием технологии Cиндиката."
 	icon_state = "crossbowlarge"
 	w_class = WEIGHT_CLASS_NORMAL
 	materials = list(MAT_METAL=4000)
@@ -121,7 +121,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/bolt/large)
 
 /obj/item/gun/energy/kinetic_accelerator/crossbow/large/cyborg
-	desc = "One and done!"
+	desc = "Раз и готово!"
 	icon_state = "crossbowlarge"
 	origin_tech = null
 	materials = list()
@@ -129,14 +129,14 @@
 /obj/item/gun/energy/kinetic_accelerator/suicide_act(mob/user)
 	if(!suppressed)
 		playsound(loc, 'sound/weapons/kenetic_reload.ogg', 60, 1)
-	user.visible_message("<span class='suicide'>[user] cocks the [name] and pretends to blow [user.p_their()] brains out! It looks like [user.p_theyre()] trying to commit suicide!</b></span>")
+	user.visible_message("<span class='suicide'>[user] вводит [name] и делает вид, что вышибает мозги [user.p_their()]! Похоже, что [user.p_theyre()] пытается покончить с собой!</b></span>")
 	shoot_live_shot(user, user, FALSE, FALSE)
 	return OXYLOSS
 
 // Plasma Cutters //
 /obj/item/gun/energy/plasmacutter
-	name = "plasma cutter"
-	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
+	name = "плазменный резак"
+	desc = "Инструмент для добычи полезных ископаемых, способный выбрасывать концентрированные всплески плазмы. Ты мог бы использовать его, чтобы отрезать конечности ксеносам! Ну, или добывать разные штуки."
 	icon_state = "plasmacutter"
 	item_state = "plasmacutter"
 	modifystate = -1
@@ -147,7 +147,7 @@
 	toolspeed = 1
 	container_type = OPENCONTAINER
 	flags = CONDUCT
-	attack_verb = list("attacked", "slashed", "cut", "sliced")
+	attack_verb = list("атакует", "порезал", "подрезал", "нарезал")
 	force = 12
 	sharp = 1
 	can_charge = 0
@@ -155,27 +155,27 @@
 /obj/item/gun/energy/plasmacutter/examine(mob/user)
 	. = ..()
 	if(cell)
-		. += "<span class='notice'>[src] is [round(cell.percent())]% charged.</span>"
+		. += "<span class='notice'>[src] заряжен на [round(cell.percent())]%.</span>"
 
 /obj/item/gun/energy/plasmacutter/attackby(obj/item/A, mob/user)
 	if(istype(A, /obj/item/stack/sheet/mineral/plasma))
 		if(cell.charge >= cell.maxcharge)
-			to_chat(user,"<span class='notice'>[src] is already fully charged.")
+			to_chat(user,"<span class='notice'>[src] полностью заряжен.")
 			return
 		var/obj/item/stack/sheet/S = A
 		S.use(1)
 		cell.give(1000)
 		on_recharge()
-		to_chat(user, "<span class='notice'>You insert [A] in [src], recharging it.</span>")
+		to_chat(user, "<span class='notice'>Вы поставили [A] в [src] на подзарядку.</span>")
 	else if(istype(A, /obj/item/stack/ore/plasma))
 		if(cell.charge >= cell.maxcharge)
-			to_chat(user,"<span class='notice'>[src] is already fully charged.")
+			to_chat(user,"<span class='notice'>[src] уже заряжен.")
 			return
 		var/obj/item/stack/ore/S = A
 		S.use(1)
 		cell.give(500)
 		on_recharge()
-		to_chat(user, "<span class='notice'>You insert [A] in [src], recharging it.</span>")
+		to_chat(user, "<span class='notice'>Вы поставили [A] в [src] на зарядку.</span>")
 	else
 		return ..()
 
@@ -183,7 +183,7 @@
 	return
 
 /obj/item/gun/energy/plasmacutter/adv
-	name = "advanced plasma cutter"
+	name = "усовершенствованный плазменный резак"
 	icon_state = "adv_plasmacutter"
 	modifystate = "adv_plasmacutter"
 	origin_tech = "combat=3;materials=4;magnets=3;plasmatech=4;engineering=2"
@@ -192,8 +192,8 @@
 
 // Wormhole Projectors //
 /obj/item/gun/energy/wormhole_projector
-	name = "bluespace wormhole projector"
-	desc = "A projector that emits high density quantum-coupled bluespace beams."
+	name = "проектор червоточины Bluespace"
+	desc = "Проектор, излучающий пучки Bluespace с квантовой связью высокой плотности."
 	ammo_type = list(/obj/item/ammo_casing/energy/wormhole, /obj/item/ammo_casing/energy/wormhole/orange)
 	item_state = null
 	icon_state = "wormhole_projector1"
@@ -241,8 +241,8 @@
 
 /* 3d printer 'pseudo guns' for borgs */
 /obj/item/gun/energy/printer
-	name = "cyborg lmg"
-	desc = "A machinegun that fires 3d-printed flachettes slowly regenerated using a cyborg's internal power source."
+	name = "ручной пулемёт киборга"
+	desc = "Пулемет, стреляющий 3D-печатными шашками. Медленно регенерируется с помощью внутреннего источника питания киборга."
 	icon_state = "l6closed0"
 	icon = 'icons/obj/guns/projectile.dmi'
 	cell_type = /obj/item/stock_parts/cell/secborg
@@ -257,10 +257,10 @@
 
 // Instakill Lasers //
 /obj/item/gun/energy/laser/instakill
-	name = "instakill rifle"
+	name = "винтовка Instakill"
 	icon_state = "instagib"
 	item_state = "instagib"
-	desc = "A specialized ASMD laser-rifle, capable of flat-out disintegrating most targets in a single hit."
+	desc = "Специализированная лазерная винтовка ASMD типа, способная уничтожать большинство целей одним попаданием."
 	ammo_type = list(/obj/item/ammo_casing/energy/instakill)
 	force = 60
 	origin_tech = "combat=7;magnets=6"
@@ -269,21 +269,21 @@
 	return
 
 /obj/item/gun/energy/laser/instakill/red
-	desc = "A specialized ASMD laser-rifle, capable of flat-out disintegrating most targets in a single hit. This one has a red design."
+	desc = "Специализированная лазерная винтовка ASMD типа, способная уничтожать большинство целей одним попаданием. У этого же - красный дизайн. Круть."
 	icon_state = "instagibred"
 	item_state = "instagibred"
 	ammo_type = list(/obj/item/ammo_casing/energy/instakill/red)
 
 /obj/item/gun/energy/laser/instakill/blue
-	desc = "A specialized ASMD laser-rifle, capable of flat-out disintegrating most targets in a single hit. This one has a blue design."
+	desc = "Специализированная лазерная винтовка ASMD, способная уничтожать большинство целей одним попаданием. У этого же - синий дизайн. Неплохо."
 	icon_state = "instagibblue"
 	item_state = "instagibblue"
 	ammo_type = list(/obj/item/ammo_casing/energy/instakill/blue)
 
 // HONK Rifle //
 /obj/item/gun/energy/clown
-	name = "HONK Rifle"
-	desc = "Clown Planet's finest."
+	name = "HONK винтовка"
+	desc = "Планета Клоунов - самая лучшая."
 	icon_state = "disabler"
 	ammo_type = list(/obj/item/ammo_casing/energy/clown)
 	clumsy_check = 0
@@ -291,8 +291,8 @@
 	ammo_x_offset = 3
 
 /obj/item/gun/energy/toxgun
-	name = "plasma pistol"
-	desc = "A specialized firearm designed to fire lethal bolts of toxins."
+	name = "плазменный пистолет"
+	desc = "Специализированное огнестрельное оружие, предназначенное для стрельбы смертоносными зарядами токсинов."
 	icon_state = "toxgun"
 	fire_sound = 'sound/effects/stealthoff.ogg'
 
@@ -303,8 +303,8 @@
 
 // Energy Sniper //
 /obj/item/gun/energy/sniperrifle
-	name = "L.W.A.P. Sniper Rifle"
-	desc = "A rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
+	name = "снайперская винтовка L.W.A.P."
+	desc = "Винтовка, изготовленная из легких материалов и оснащенная технологией SMART для лёгкого прицеливания."
 	icon_state = "esniper"
 	origin_tech = "combat=6;materials=5;powerstorage=4"
 	ammo_type = list(/obj/item/ammo_casing/energy/sniper)
@@ -319,14 +319,14 @@
 
 // Temperature Gun //
 /obj/item/gun/energy/temperature
-	name = "temperature gun"
+	name = "температурный пистолет"
 	icon = 'icons/obj/guns/gun_temperature.dmi'
 	icon_state = "tempgun_4"
 	item_state = "tempgun_4"
 	slot_flags = SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/weapons/pulse3.ogg'
-	desc = "A gun that changes the body temperature of its targets."
+	desc = "Пистолет, который изменяет температуру тела своих целей."
 	var/temperature = 300
 	var/target_temperature = 300
 	origin_tech = "combat=4;materials=4;powerstorage=3;magnets=2"
@@ -356,14 +356,14 @@
 /obj/item/gun/energy/temperature/attack_self(mob/living/user as mob)
 	user.set_machine(src)
 	update_dat()
-	user << browse({"<meta charset="UTF-8"><TITLE>Temperature Gun Configuration</TITLE><HR>[dat]"}, "window=tempgun;size=510x120")
+	user << browse({"<meta charset="UTF-8"><TITLE>Конфигурация Температурного Пистолета</TITLE><HR>[dat]"}, "window=tempgun;size=510x120")
 	onclose(user, "tempgun")
 
 /obj/item/gun/energy/temperature/emag_act(mob/user)
 	if(!emagged)
 		emagged = TRUE
-		to_chat(user, "<span class='caution'>You double the gun's temperature cap! Targets hit by searing beams will burst into flames!</span>")
-		desc = "A gun that changes the body temperature of its targets. Its temperature cap has been hacked."
+		to_chat(user, "<span class='caution'>Ты удваиваешь температурное ограничение пистолета! Цели, пораженные обжигающими лучами, вспыхнут пламенем!</span>")
+		desc = "Пистолет, который изменяет температуру тела своих целей. Его температурный ограничитель был взломан."
 
 /obj/item/gun/energy/temperature/Topic(href, href_list)
 	if(..())
@@ -389,23 +389,23 @@
 	switch(temperature)
 		if(0 to 100)
 			T.e_cost = 300
-			powercost = "High"
+			powercost = "Высокое"
 		if(100 to 250)
 			T.e_cost = 200
-			powercost = "Medium"
+			powercost = "Среднее"
 		if(251 to 300)
 			T.e_cost = 100
-			powercost = "Low"
+			powercost = "Низкое"
 		if(301 to 400)
 			T.e_cost = 200
-			powercost = "Medium"
+			powercost = "Среднее"
 		if(401 to 1000)
 			T.e_cost = 300
-			powercost = "High"
+			powercost = "Высокое"
 	switch(powercost)
-		if("High")
+		if("Высокое")
 			powercostcolor = "orange"
-		if("Medium")
+		if("Среднее")
 			powercostcolor = "green"
 		else
 			powercostcolor = "blue"
@@ -424,15 +424,15 @@
 			var/mob/living/carbon/M = loc
 			if(src == M.machine)
 				update_dat()
-				M << browse("<TITLE>Temperature Gun Configuration</TITLE><HR>[dat]", "window=tempgun;size=510x102")
+				M << browse("<TITLE>Конфигурация Температурного Пистолета</TITLE><HR>[dat]", "window=tempgun;size=510x102")
 	return
 
 /obj/item/gun/energy/temperature/proc/update_dat()
 	dat = ""
-	dat += "Current output temperature: "
+	dat += "Текущая выходная температура: "
 	if(temperature > 500)
 		dat += "<FONT color=red><B>[temperature]</B> ([round(temperature-T0C)]&deg;C)</FONT>"
-		dat += "<FONT color=red><B> SEARING!</B></FONT>"
+		dat += "<FONT color=red><B> ОБЖИГАЕТ!</B></FONT>"
 	else if(temperature > (T0C + 50))
 		dat += "<FONT color=red><B>[temperature]</B> ([round(temperature-T0C)]&deg;C)</FONT>"
 	else if(temperature > (T0C - 50))
@@ -440,7 +440,7 @@
 	else
 		dat += "<FONT color=blue><B>[temperature]</B> ([round(temperature-T0C)]&deg;C)</FONT>"
 	dat += "<BR>"
-	dat += "Target output temperature: "	//might be string idiocy, but at least it's easy to read
+	dat += "Целевая выходная температура: "	//might be string idiocy, but at least it's easy to read
 	dat += "<A href='?src=[UID()];temp=-100'>-</A> "
 	dat += "<A href='?src=[UID()];temp=-10'>-</A> "
 	dat += "<A href='?src=[UID()];temp=-1'>-</A> "
@@ -449,7 +449,7 @@
 	dat += "<A href='?src=[UID()];temp=10'>+</A> "
 	dat += "<A href='?src=[UID()];temp=100'>+</A>"
 	dat += "<BR>"
-	dat += "Power cost: "
+	dat += "Энергозатратность: "
 	dat += "<FONT color=[powercostcolor]><B>[powercost]</B></FONT>"
 
 /obj/item/gun/energy/temperature/proc/update_temperature()
@@ -503,8 +503,8 @@
 
 // Mimic Gun //
 /obj/item/gun/energy/mimicgun
-	name = "mimic gun"
-	desc = "A self-defense weapon that exhausts organic targets, weakening them until they collapse. Why does this one have teeth?"
+	name = "имитирующее оружие"
+	desc = "Оружие самообороны, которое истощает органические цели, ослабляя их до тех пор, пока они не разрушатся. Почему у него есть зубы?"
 	icon_state = "disabler"
 	ammo_type = list(/obj/item/ammo_casing/energy/mimic)
 	clumsy_check = 0 //Admin spawn only, might as well let clowns use it.
@@ -519,7 +519,7 @@
 
 // Sibyl System's Dominator //
 /obj/item/gun/energy/dominator
-	name = "Доминатор"
+	name = "доминатор"
 	desc = "Проприетарное высокотехнологичное оружие правоохранительной организации Sibyl System, произведённое специально для борьбы с преступностью."
 	icon = 'icons/obj/guns/sibyl.dmi'
 	icon_state = "dominator"

@@ -517,12 +517,12 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 	user.do_attack_animation(M)
 
 	if(M != user)
-		M.visible_message("<span class='danger'>[user] вонзил [M] в глаза с [src]!</span>", \
-							"<span class='userdanger'>[user] вонзает тебе в глаза с [src]!</span>")
+		M.visible_message("<span class='danger'>[user] вонзил [M] в глаза [src]!</span>", \
+							"<span class='userdanger'>[user] вонзает тебе в глаза [src]!</span>")
 	else
 		user.visible_message( \
-			"<span class='danger'>[user] вонзает [user.p_them()] себе в глаза с [src]!</span>", \
-			"<span class='userdanger'>Ты вонзил себе в глаза с [src]!</span>" \
+			"<span class='danger'>[user] вонзает [user.p_them()] себе в глаза [src]!</span>", \
+			"<span class='userdanger'>Ты вонзил себе в глаза [src]!</span>" \
 		)
 
 	add_attack_logs(user, M, "Пронзил глаза с: [src] ([uppertext(user.a_intent)])")

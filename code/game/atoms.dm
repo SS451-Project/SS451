@@ -316,28 +316,28 @@
 			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
 		else
 			f_name += "oil-stained [name][infix]."
-	. = list("[bicon(src)] That's [f_name] [suffix]")
+	. = list("[bicon(src)] Это [f_name] [suffix]")
 	if(desc)
 		. += desc
 
 	if(reagents)
 		if(container_type & TRANSPARENT)
-			. += "<span class='notice'>It contains:</span>"
+			. += "<span class='notice'>Содержит:</span>"
 			if(reagents.reagent_list.len)
 				if(user.can_see_reagents()) //Show each individual reagent
 					for(var/I in reagents.reagent_list)
 						var/datum/reagent/R = I
-						. += "<span class='notice'>[R.volume] units of [R.name]</span>"
+						. += "<span class='notice'>[R.volume] юнит/ов [R.name]</span>"
 				else //Otherwise, just show the total volume
 					if(reagents && reagents.reagent_list.len)
-						. += "<span class='notice'>[reagents.total_volume] units of various reagents.</span>"
+						. += "<span class='notice'>[reagents.total_volume] юнит/ов различных реагентов.</span>"
 			else
-				. += "<span class='notice'>Nothing.</span>"
+				. += "<span class='notice'>Ничего.</span>"
 		else if(container_type & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
-				. += "<span class='notice'>It has [reagents.total_volume] unit\s left.</span>"
+				. += "<span class='notice'>Осталось [reagents.total_volume] юнит/ов.</span>"
 			else
-				. += "<span class='danger'>It's empty.</span>"
+				. += "<span class='danger'>Тут пусто.</span>"
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
@@ -381,7 +381,7 @@
 //Check if the multitool has an item in its data buffer
 /atom/proc/multitool_check_buffer(user, silent = FALSE)
 	if(!silent)
-		to_chat(user, "<span class='warning'>[src] has no data buffer!</span>")
+		to_chat(user, "<span class='warning'>[src] не имеет данных в буфере!</span>")
 	return FALSE
 
 /atom/proc/screwdriver_act(mob/living/user, obj/item/I)
@@ -490,7 +490,7 @@
 		//He has no prints!
 		if(FINGERPRINTS in M.mutations)
 			if(fingerprintslast != M.key)
-				fingerprintshidden += "(Has no fingerprints) Real name: [M.real_name], Key: [M.key]"
+				fingerprintshidden += "(Не имеет отпечатков пальцев) Настоящее имя: [M.real_name], Ключ: [M.key]"
 				fingerprintslast = M.key
 			return FALSE		//Now, lets get to the dirty work.
 		//First, make sure their DNA makes sense.
@@ -511,14 +511,14 @@
 		if(!ignoregloves)
 			if(H.gloves && H.gloves != src)
 				if(fingerprintslast != H.ckey)
-					fingerprintshidden += text("\[[]\](Wearing gloves). Real name: [], Key: []", time_stamp(), H.real_name, H.key)
+					fingerprintshidden += text("\[[]\](В перчатках). Настоящее имя: [], Ключ: []", time_stamp(), H.real_name, H.key)
 					fingerprintslast = H.ckey
 				H.gloves.add_fingerprint(M)
 				return FALSE
 
 		//More adminstuffz
 		if(fingerprintslast != H.ckey)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []", time_stamp(), H.real_name, H.key)
+			fingerprintshidden += text("\[[]\]Настоящее имя: [], Ключ: []", time_stamp(), H.real_name, H.key)
 			fingerprintslast = H.ckey
 
 		//Make the list if it does not exist.
@@ -535,7 +535,7 @@
 	else
 		//Smudge up dem prints some
 		if(fingerprintslast != M.ckey)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []", time_stamp(), M.real_name, M.key)
+			fingerprintshidden += text("\[[]\]Настоящее имя: [], Ключ: []", time_stamp(), M.real_name, M.key)
 			fingerprintslast = M.ckey
 
 	return
