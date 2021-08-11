@@ -84,7 +84,7 @@
 			return
 
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>Вы перегнали [trans] юнит\ов в [target].</span>")
+		to_chat(user, "<span class='notice'>Вы перегнали [trans] юнит/ов в [target].</span>")
 
 	else if(target.is_drainable()) //A dispenser. Transfer FROM it TO us.
 		if(!target.reagents.total_volume)
@@ -96,7 +96,7 @@
 			return
 
 		var/trans = target.reagents.trans_to(src, amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>Ты заполняешь [src] с [trans] юнит\ов содержимого [target].</span>")
+		to_chat(user, "<span class='notice'>Ты заполняешь [src] с [trans] юнит/ов содержимого [target].</span>")
 
 	else if(reagents.total_volume)
 		if(user.a_intent == INTENT_HARM)
@@ -214,7 +214,7 @@
 
 /obj/item/reagent_containers/glass/beaker/large
 	name = "Большая пробирка"
-	desc = "Большой пробирка. Может вместить до 100 юнитов."
+	desc = "Большая пробирка. Может вместить до 100 юнитов."
 	icon_state = "beakerlarge"
 	materials = list(MAT_GLASS=2500)
 	volume = 100

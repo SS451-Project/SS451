@@ -5,7 +5,7 @@ SUBSYSTEM_DEF(ticker)
 	priority = FIRE_PRIORITY_TICKER
 	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME
-	offline_implications = "Игра больше не знает, когда закончится раунд. Рекомендуется перезагрузка сервера."
+	offline_implications = "Игра не понимает, когда закончится раунд. Рекомендуется перезагрузка сервера."
 
 	/// Time the world started, relative to world.time
 	var/round_start_time = 0
@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(ticker)
 			// This is ran as soon as the MC starts firing, and should only run ONCE, unless startup fails
 			round_start_time = world.time + (config.pregame_timestart * 10)
 			to_chat(world, "<B><span class='darkmblue'>Добро пожаловать в предигровое лобби!</span></B>")
-			to_chat(world, "Пожалуйста, настройте своего персонажа и нажмите готово. Игра начнется через [config.pregame_timestart] секунд")
+			to_chat(world, "Пожалуйста, настройте своего персонажа и приготовьтесь. Игра начнется через [config.pregame_timestart] секунд")
 			current_state = GAME_STATE_PREGAME
 			fire() // TG says this is a good idea
 			for(var/mob/new_player/N in GLOB.player_list)
@@ -140,7 +140,7 @@ SUBSYSTEM_DEF(ticker)
 
 			spawn(50)
 				if(mode.station_was_nuked)
-					reboot_helper("Станция, разрушенная Ядерным Устройством.", "nuke")
+					reboot_helper("Станция разрушена Ядерным Устройством.", "nuke")
 				else
 					reboot_helper("Раунд завершился.", "proper completion")
 
@@ -175,7 +175,7 @@ SUBSYSTEM_DEF(ticker)
 		mode = config.pick_mode(GLOB.master_mode)
 
 	if(!mode.can_start())
-		to_chat(world, "<B>Не удается запустить [mode.name].</B> Не хватает игроков, [config.enable_gamemode_player_limit ? config.mode_required_players[mode.config_tag] : mode.required_enemies] необходимо игроков. Возвращаемся в лобби.")
+		to_chat(world, "<B>Не удается запустить [mode.name].</B> Не хватает игроков, необходимо [config.enable_gamemode_player_limit ? config.mode_required_players[mode.config_tag] : mode.required_enemies] игроков. Возвращаемся в лобби.")
 		mode = null
 		current_state = GAME_STATE_PREGAME
 		force_start = FALSE
@@ -203,7 +203,7 @@ SUBSYSTEM_DEF(ticker)
 		for(var/datum/game_mode/M in runnable_modes)
 			modes += M.name
 		modes = sortList(modes)
-		to_chat(world, "<B>Текущий режим игры - Secret!</B>")
+		to_chat(world, "<B>Текущий режим игры - [GLOB.master_mode]!</B>")
 		to_chat(world, "<B>Возможности:</B> [english_list(modes)]")
 	else
 		mode.announce()

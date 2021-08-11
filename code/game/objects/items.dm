@@ -86,7 +86,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 
 	var/tool_behaviour = NONE //What kind of tool are we?
 	var/tool_enabled = TRUE //If we can turn on or off, are we currently active? Mostly for welders and this will normally be TRUE
-	var/tool_volume = 50 //How loud are we when we use our tool?
+	var/tool_volume = 30 //How loud are we when we use our tool?
 	var/toolspeed = 1 // If this item is a tool, the speed multiplier
 
 	/* Species-specific sprites, concept stolen from Paradise//vg/.
@@ -171,38 +171,38 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 	var/size
 	switch(src.w_class)
 		if(WEIGHT_CLASS_TINY)
-			size = "tiny"
+			size = "крошечный"
 		if(WEIGHT_CLASS_SMALL)
-			size = "small"
+			size = "маленький"
 		if(WEIGHT_CLASS_NORMAL)
-			size = "normal-sized"
+			size = "нормального размера"
 		if(WEIGHT_CLASS_BULKY)
-			size = "bulky"
+			size = "громоздкий"
 		if(WEIGHT_CLASS_HUGE)
-			size = "huge"
+			size = "огромный"
 		if(WEIGHT_CLASS_GIGANTIC)
-			size = "gigantic"
+			size = "ГИГАНТСКИЙ"
 
-	. = ..(user, "", "It is a [size] item.")
+	. = ..(user, "", "Это [size] предмет.")
 
 	if(user.research_scanner) //Mob has a research scanner active.
 		var/msg = "*--------* <BR>"
 
 		if(origin_tech)
-			msg += "<span class='notice'>Testing potentials:</span><BR>"
+			msg += "<span class='notice'>Тестирование потенциала:</span><BR>"
 			var/list/techlvls = params2list(origin_tech)
 			for(var/T in techlvls) //This needs to use the better names.
-				msg += "Tech: [CallTechName(T)] | Magnitude: [techlvls[T]] <BR>"
+				msg += "Технология: [CallTechName(T)] | Значение: [techlvls[T]] <BR>"
 		else
-			msg += "<span class='danger'>No tech origins detected.</span><BR>"
+			msg += "<span class='danger'>Технологии не обнаружено.</span><BR>"
 
 
 		if(materials.len)
-			msg += "<span class='notice'>Extractable materials:<BR>"
+			msg += "<span class='notice'>Извлекаемые материалы:<BR>"
 			for(var/mat in materials)
 				msg += "[CallMaterialName(mat)]<BR>" //Capitize first word, remove the "$"
 		else
-			msg += "<span class='danger'>No extractable materials detected.</span><BR>"
+			msg += "<span class='danger'>Извлекаемых материалов не обнаружено.</span><BR>"
 		msg += "*--------*"
 		. += msg
 
@@ -210,7 +210,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 	if(!QDELETED(src))
 		var/turf/T = get_turf(src)
 		var/obj/effect/decal/cleanable/ash/A = new(T)
-		A.desc += "\nLooks like this used to be \an [name] some time ago."
+		A.desc += "\nПохоже, раньше это было \an [name] некоторое время назад."
 		..()
 
 /obj/item/acid_melt()
@@ -219,7 +219,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 		var/obj/effect/decal/cleanable/molten_object/MO = new(T)
 		MO.pixel_x = rand(-16,16)
 		MO.pixel_y = rand(-16,16)
-		MO.desc = "Looks like this was \an [src] some time ago."
+		MO.desc = "Похоже, раньше это было \an [src] некоторое время назад."
 		..()
 
 /obj/item/afterattack(atom/target, mob/user, proximity, params)
@@ -234,10 +234,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 		if(user.hand)
 			temp = H.bodyparts_by_name["l_hand"]
 		if(!temp)
-			to_chat(user, "<span class='warning'>You try to use your hand, but it's missing!</span>")
+			to_chat(user, "<span class='warning'>Ты пытаешься использовать свою руку, но она отсутствует!</span>")
 			return 0
 		if(temp && !temp.is_usable())
-			to_chat(user, "<span class='warning'>You try to move your [temp.name], but cannot!</span>")
+			to_chat(user, "<span class='warning'>Ты пытаешься пошевелить своим [temp.name], но не можешь!</span>")
 			return 0
 
 	if((resistance_flags & ON_FIRE) && !pickupfireoverride)
@@ -245,9 +245,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 		if(istype(H))
 			if(H.gloves && (H.gloves.max_heat_protection_temperature > 360))
 				extinguish()
-				to_chat(user, "<span class='notice'>You put out the fire on [src].</span>")
+				to_chat(user, "<span class='notice'>Ты потушил огонь на [src].</span>")
 			else
-				to_chat(user, "<span class='warning'>You burn your hand on [src]!</span>")
+				to_chat(user, "<span class='warning'>Ты обжигаешь свою руку об [src]!</span>")
 				var/obj/item/organ/external/affecting = H.get_organ("[user.hand ? "l" : "r" ]_arm")
 				if(affecting && affecting.receive_damage(0, 5))		// 5 burn damage
 					H.UpdateDamageIcon()
@@ -259,7 +259,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
 			if(!H.gloves || (!(H.gloves.resistance_flags & (UNACIDABLE|ACID_PROOF))))
-				to_chat(user, "<span class='warning'>The acid on [src] burns your hand!</span>")
+				to_chat(user, "<span class='warning'>Кислота [src] разъедает тебе руку!</span>")
 				var/obj/item/organ/external/affecting = H.get_organ("[user.hand ? "l" : "r" ]_arm")
 				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 					H.UpdateDamageIcon()
@@ -290,7 +290,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 	if(!A.has_fine_manipulation)
 		if(src in A.contents) // To stop Aliens having items stuck in their pockets
 			A.unEquip(src)
-		to_chat(user, "<span class='warning'>Your claws aren't capable of such fine manipulation!</span>")
+		to_chat(user, "<span class='warning'>Твои когти не способны на такие тонкие манипуляции!</span>")
 		return
 	attack_hand(A)
 
@@ -323,14 +323,14 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 							rejections += IT.type	// therefore full bags are still a little spammy
 							failure = 1
 							continue
-						success = 1
+						success = 0
 						S.handle_item_insertion(IT, 1)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
 					if(success && !failure)
-						to_chat(user, "<span class='notice'>You put everything in [S].</span>")
+						to_chat(user, "<span class='notice'>Ты выложил всё в [S].</span>")
 					else if(success)
-						to_chat(user, "<span class='notice'>You put some things in [S].</span>")
+						to_chat(user, "<span class='notice'>Ты положил [src] в [S].</span>")
 					else
-						to_chat(user, "<span class='notice'>You fail to pick anything up with [S].</span>")
+						to_chat(user, "<span class='notice'>Вы ничего не можете подобрать с помощью [S].</span>")
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
@@ -344,22 +344,22 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 		var/x_offset = text2num(clickparams["icon-x"])
 		var/y_offset = text2num(clickparams["icon-y"])
 		if(GetComponent(/datum/component/ducttape))
-			to_chat(user, "<span class='notice'>[src] already has some tape attached!</span>")
+			to_chat(user, "<span class='notice'>К [src] уже приклеена какая-то изолента!</span>")
 			return
 		if(TR.use(1))
-			to_chat(user, "<span class='notice'>You apply some tape to [src].</span>")
+			to_chat(user, "<span class='notice'>Вы наклеили немного изоленты к [src].</span>")
 			AddComponent(/datum/component/ducttape, src, user, x_offset, y_offset)
 			anchored = TRUE
 			user.transfer_fingerprints_to(src)
 		else
-			to_chat(user, "<span class='notice'>You don't have enough tape to do that!</span>")
+			to_chat(user, "<span class='notice'>У тебя недостаточно изоленты!</span>")
 	else
 		return ..()
 
-/obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "атаку", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
-		owner.visible_message("<span class='danger'>[owner] blocks [attack_text] with [src]!</span>")
+		owner.visible_message("<span class='danger'>[owner] блокирует [attack_text] с помощью [src]!</span>")
 		return 1
 	return 0
 
@@ -456,19 +456,19 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 	if(usr.incapacitated() || !Adjacent(usr))
 		return
 	if(!iscarbon(usr) || isbrain(usr)) //Is humanoid, and is not a brain
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
+		to_chat(usr, "<span class='warning'>Ты не можешь подбирать вещи!</span>")
 		return
 	if(anchored) //Object isn't anchored
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
+		to_chat(usr, "<span class='warning'>Ты не можешь взять это!</span>")
 		return
 	if(!usr.hand && usr.r_hand) //Right hand is not full
-		to_chat(usr, "<span class='warning'>Your right hand is full.</span>")
+		to_chat(usr, "<span class='warning'>Твоя правая рука держит что-то.</span>")
 		return
 	if(usr.hand && usr.l_hand) //Left hand is not full
-		to_chat(usr, "<span class='warning'>Your left hand is full.</span>")
+		to_chat(usr, "<span class='warning'>Твоя левая рука держит что-то.</span>")
 		return
 	if(!isturf(loc)) //Object is on a turf
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
+		to_chat(usr, "<span class='warning'>Ты не можешь взять это!</span>")
 		return
 	//All checks are done, time to pick it up!
 	usr.UnarmedAttack(src)
@@ -498,11 +498,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 			(H.glasses && H.glasses.flags_cover & GLASSESCOVERSEYES) \
 		))
 		// you can't stab someone in the eyes wearing a mask!
-		to_chat(user, "<span class='danger'>You're going to need to remove that mask/helmet/glasses first!</span>")
+		to_chat(user, "<span class='danger'>Сначала вам нужно будет снять эту маску/шлем/очки!</span>")
 		return
 
 	if(istype(M, /mob/living/carbon/alien) || istype(M, /mob/living/simple_animal/slime))//Aliens don't have eyes./N     slimes also don't have eyes!
-		to_chat(user, "<span class='warning'>You cannot locate any eyes on this creature!</span>")
+		to_chat(user, "<span class='warning'>Вы не можете обнаружить никаких глаз на этом существе!</span>")
 		return
 
 	if(!iscarbon(user))
@@ -517,15 +517,15 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 	user.do_attack_animation(M)
 
 	if(M != user)
-		M.visible_message("<span class='danger'>[user] has stabbed [M] in the eye with [src]!</span>", \
-							"<span class='userdanger'>[user] stabs you in the eye with [src]!</span>")
+		M.visible_message("<span class='danger'>[user] вонзил [M] в глаза с [src]!</span>", \
+							"<span class='userdanger'>[user] вонзает тебе в глаза с [src]!</span>")
 	else
 		user.visible_message( \
-			"<span class='danger'>[user] has stabbed [user.p_them()]self in the eyes with [src]!</span>", \
-			"<span class='userdanger'>You stab yourself in the eyes with [src]!</span>" \
+			"<span class='danger'>[user] вонзает [user.p_them()] себе в глаза с [src]!</span>", \
+			"<span class='userdanger'>Ты вонзил себе в глаза с [src]!</span>" \
 		)
 
-	add_attack_logs(user, M, "Eye-stabbed with [src] ([uppertext(user.a_intent)])")
+	add_attack_logs(user, M, "Пронзил глаза с: [src] ([uppertext(user.a_intent)])")
 
 	if(istype(H))
 		var/obj/item/organ/internal/eyes/eyes = H.get_int_organ(/obj/item/organ/internal/eyes)
@@ -537,17 +537,17 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(M.stat != 2)
 				if(!eyes.is_robotic())  //robot eyes bleeding might be a bit silly
-					to_chat(M, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+					to_chat(M, "<span class='danger'>Твои глаза начинают сильно кровоточить!</span>")
 			if(prob(50))
 				if(M.stat != DEAD)
-					to_chat(M, "<span class='danger'>You drop what you're holding and clutch at your eyes!</span>")
+					to_chat(M, "<span class='danger'>Ты роняешь то, что держал, и хватаешься за глаза!</span>")
 					M.drop_item()
 				M.AdjustEyeBlurry(10)
 				M.Paralyse(1)
 				M.Weaken(2)
 			if(eyes.damage >= eyes.min_broken_damage)
 				if(M.stat != 2)
-					to_chat(M, "<span class='danger'>You go blind!</span>")
+					to_chat(M, "<span class='danger'>Ты слепнешь!</span>")
 		var/obj/item/organ/external/affecting = H.get_organ("head")
 		if(affecting.receive_damage(7))
 			H.UpdateDamageIcon()
@@ -598,13 +598,13 @@ GLOBAL_DATUM_INIT(fire_overlay, /image, image("icon" = 'icons/goonstation/effect
 /obj/item/proc/wash(mob/user, atom/source)
 	if(flags & ABSTRACT) //Abstract items like grabs won't wash. No-drop items will though because it's still technically an item in your hand.
 		return
-	to_chat(user, "<span class='notice'>You start washing [src]...</span>")
+	to_chat(user, "<span class='notice'>Ты начинаешь отмывать [src]...</span>")
 	if(!do_after(user, 40, target = source))
 		return
 	clean_blood()
 	acid_level = 0
-	user.visible_message("<span class='notice'>[user] washes [src] using [source].</span>", \
-						"<span class='notice'>You wash [src] using [source].</span>")
+	user.visible_message("<span class='notice'>[user] отмыл [src] используя [source].</span>", \
+						"<span class='notice'>Ты отмыл [src] с помощью [source].</span>")
 	return 1
 
 /obj/item/proc/is_crutch() //Does an item prop up a human mob and allow them to stand if they are missing a leg/foot?
