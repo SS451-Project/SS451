@@ -174,7 +174,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	var/gen_record = ""
 	var/disabilities = 0
 
-	var/nanotrasen_relation = "Neutral"
+	var/nanotrasen_relation = "Нейтральное"
 
 	// 0 = character settings, 1 = game preferences
 	var/current_tab = TAB_CHAR
@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	dat += "<center>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_CHAR]' [current_tab == TAB_CHAR ? "class='linkOn'" : ""]>Настройки персонажа</a>"
 	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GAME]' [current_tab == TAB_GAME ? "class='linkOn'" : ""]>Игровые предпочтения</a>"
-	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GEAR]' [current_tab == TAB_GEAR ? "class='linkOn'" : ""]>Выгрузка</a>"
+	dat += "<a href='?_src_=prefs;preference=tab;tab=[TAB_GEAR]' [current_tab == TAB_GEAR ? "class='linkOn'" : ""]>Снаряжение</a>"
 	dat += "</center>"
 	dat += "<HR>"
 
@@ -254,8 +254,8 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			dat += "<table width='100%'><tr><td width='405px' height='25px' valign='top'>"
 			dat += "<b>Имя: </b>"
 			dat += "<a href='?_src_=prefs;preference=name;task=input'><b>[real_name]</b></a>"
-			dat += "<a href='?_src_=prefs;preference=name;task=random'>(Рандом)</a>"
-			dat += "<a href='?_src_=prefs;preference=name'><span class='[be_random_name ? "good" : "bad"]'>(Рандом при спавне)</span></a><br>"
+			dat += "<a href='?_src_=prefs;preference=name;task=random'>(Случайно)</a>"
+			dat += "<a href='?_src_=prefs;preference=name'><span class='[be_random_name ? "good" : "bad"]'>(Случайно при спавне)</span></a><br>"
 			dat += "</td><td width='405px' height='25px' valign='left'>"
 			dat += "<center>"
 			dat += "Slot <b>[default_slot][saved ? "" : " (empty)"]</b><br>"
@@ -304,15 +304,15 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				dat += "<a href='?_src_=prefs;preference=headaccessory;task=input'>Color</a> [color_square(hacc_colour)]<br>"
 
 			if(S.bodyflags & HAS_HEAD_MARKINGS) //Species with head markings.
-				dat += "<b>Отметены на голове:</b> "
+				dat += "<b>Отметины на голове:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_head;task=input'>[m_styles["head"]]</a>"
 				dat += "<a href='?_src_=prefs;preference=m_head_colour;task=input'>Color</a> [color_square(m_colours["head"])]<br>"
 			if(S.bodyflags & HAS_BODY_MARKINGS) //Species with body markings/tattoos.
-				dat += "<b>Отметены на теле:</b> "
+				dat += "<b>Отметины на теле:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_body;task=input'>[m_styles["body"]]</a>"
 				dat += "<a href='?_src_=prefs;preference=m_body_colour;task=input'>Color</a> [color_square(m_colours["body"])]<br>"
 			if(S.bodyflags & HAS_TAIL_MARKINGS) //Species with tail markings.
-				dat += "<b>Отметены на хвосте:</b> "
+				dat += "<b>Отметины на хвосте:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_tail;task=input'>[m_styles["tail"]]</a>"
 				dat += "<a href='?_src_=prefs;preference=m_tail_colour;task=input'>Color</a> [color_square(m_colours["tail"])]<br>"
 
@@ -342,7 +342,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				dat += "<a href='?_src_=prefs;preference=skin;task=input'>Color</a> [color_square(s_colour)]<br>"
 
 			if(GLOB.body_accessory_by_species[species] || check_rights(R_ADMIN, 0, user))
-				dat += "<b>Аксессуары на теле:</b> "
+				dat += "<b>Аксессуары:</b> "
 				dat += "<a href='?_src_=prefs;preference=body_accessory;task=input'>[body_accessory ? "[body_accessory]" : "None"]</a><br>"
 
 			dat += "</td><td width='405px' height='200px' valign='top'>"
@@ -423,9 +423,9 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 			dat += "<h2>Одежда</h2>"
 			if(S.clothing_flags & HAS_UNDERWEAR)
-				dat += "<b>Нижнее:</b> <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a><BR>"
+				dat += "<b>Нижнее белье:</b> <a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a><BR>"
 			if(S.clothing_flags & HAS_UNDERSHIRT)
-				dat += "<b>Майка:</b> <a href ='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a><BR>"
+				dat += "<b>Нательное белье:</b> <a href ='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a><BR>"
 			if(S.clothing_flags & HAS_SOCKS)
 				dat += "<b>Носки:</b> <a href ='?_src_=prefs;preference=socks;task=input'>[socks]</a><BR>"
 			dat += "<b>Тип рюкзака:</b> <a href ='?_src_=prefs;preference=bag;task=input'>[backbag]</a><br>"
@@ -1780,7 +1780,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						backbag = new_backbag
 
 				if("nt_relation")
-					var/new_relation = input(user, "Choose your relation to NT. Note that this represents what others can find out about your character by researching your background, not what your character actually thinks.", "Character Preference")  as null|anything in list("Loyal", "Supportive", "Neutral", "Skeptical", "Opposed")
+					var/new_relation = input(user, "Выберите свое отношение к NT. Обратите внимание, что другие могут узнать о вашем персонаже, изучив ваше прошлое, а не то, что ваш персонаж на самом деле думает.", "Предпочтение персонажа")  as null|anything in list("Лояльное", "Поддерживающее", "Нейтральное", "Скептичное", "Крайне негативное")
 					if(new_relation)
 						nanotrasen_relation = new_relation
 
@@ -1794,16 +1794,16 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						flavor_text = msg
 
 				if("limbs")
-					var/valid_limbs = list("Left Leg", "Right Leg", "Left Arm", "Right Arm", "Left Foot", "Right Foot", "Left Hand", "Right Hand")
+					var/valid_limbs = list("Левая нога", "Правая нога", "Левая рука", "Правая рука", "Левая ступня", "Правая ступня", "Левая кисть", "Правая кисть")
 					if(S.bodyflags & ALL_RPARTS)
-						valid_limbs = list("Torso", "Lower Body", "Head", "Left Leg", "Right Leg", "Left Arm", "Right Arm", "Left Foot", "Right Foot", "Left Hand", "Right Hand")
+						valid_limbs = list("Torso", "Lower Body", "Head", "Левая нога", "Правая нога", "Левая рука", "Правая рука", "Левая ступня", "Правая ступня", "Левая кисть", "Правая кисть")
 					var/limb_name = input(user, "Which limb do you want to change?") as null|anything in valid_limbs
 					if(!limb_name) return
 
 					var/limb = null
 					var/second_limb = null // if you try to change the arm, the hand should also change
 					var/third_limb = null  // if you try to unchange the hand, the arm should also change
-					var/valid_limb_states = list("Normal", "Amputated", "Prosthesis")
+					var/valid_limb_states = list("Обычно", "Ампутировано", "Протез")
 					var/no_amputate = 0
 
 					switch(limb_name)
@@ -1817,31 +1817,31 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						if("Head")
 							limb = "head"
 							no_amputate = 1
-						if("Left Leg")
+						if("Левая нога")
 							limb = "l_leg"
 							second_limb = "l_foot"
-						if("Right Leg")
+						if("Правая нога")
 							limb = "r_leg"
 							second_limb = "r_foot"
-						if("Left Arm")
+						if("Левая рука")
 							limb = "l_arm"
 							second_limb = "l_hand"
-						if("Right Arm")
+						if("Правая рука")
 							limb = "r_arm"
 							second_limb = "r_hand"
-						if("Left Foot")
+						if("Левая ступня")
 							limb = "l_foot"
 							if(!(S.bodyflags & ALL_RPARTS))
 								third_limb = "l_leg"
-						if("Right Foot")
+						if("Правая ступня")
 							limb = "r_foot"
 							if(!(S.bodyflags & ALL_RPARTS))
 								third_limb = "r_leg"
-						if("Left Hand")
+						if("Левая кисть")
 							limb = "l_hand"
 							if(!(S.bodyflags & ALL_RPARTS))
 								third_limb = "l_arm"
-						if("Right Hand")
+						if("Правая кисть")
 							limb = "r_hand"
 							if(!(S.bodyflags & ALL_RPARTS))
 								third_limb = "r_arm"
@@ -1850,7 +1850,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 					if(!new_state) return
 
 					switch(new_state)
-						if("Normal")
+						if("Обычно")
 							if(limb == "head")
 								m_styles["head"] = "None"
 								h_style = GLOB.hair_styles_public_list["Bald"]
@@ -1860,14 +1860,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							if(third_limb)
 								organ_data[third_limb] = null
 								rlimb_data[third_limb] = null
-						if("Amputated")
+						if("Ампутировано")
 							if(!no_amputate)
 								organ_data[limb] = "amputated"
 								rlimb_data[limb] = null
 								if(second_limb)
 									organ_data[second_limb] = "amputated"
 									rlimb_data[second_limb] = null
-						if("Prosthesis")
+						if("Протез")
 							var/choice
 							var/subchoice
 							var/datum/robolimb/R = new()
@@ -1937,11 +1937,11 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						if("Kidneys")
 							organ = "kidneys"
 
-					var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal", "Cybernetic")
+					var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Обычно", "Cybernetic")
 					if(!new_state) return
 
 					switch(new_state)
-						if("Normal")
+						if("Обычно")
 							organ_data[organ] = null
 						if("Cybernetic")
 							organ_data[organ] = "cybernetic"

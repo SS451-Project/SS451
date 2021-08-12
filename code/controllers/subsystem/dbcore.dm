@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(dbcore)
 	/// Connection handle. This is an arbitrary handle returned from rust_g.
 	var/connection
 
-	offline_implications = "The server will no longer check for undeleted SQL Queries. No immediate action is needed."
+	offline_implications = "Сервер больше не будет проверять наличие невыполненных SQL-запросов. Никаких действий не требуется."
 
 /datum/controller/subsystem/dbcore/stat_entry()
 	..("A: [length(active_queries)]")
@@ -30,7 +30,7 @@ SUBSYSTEM_DEF(dbcore)
 // This is in Initialize() so that its actually seen in chat
 /datum/controller/subsystem/dbcore/Initialize()
 	if(!schema_valid)
-		to_chat(world, "<span class='boldannounce'>Database schema ([sql_version]) doesn't match the latest schema version ([SQL_VERSION]). Roundstart has been delayed.</span>")
+		to_chat(world, "<span class='boldannounce'>Схема ([sql_version]) не соответствует последней версии схемы ([SQL_VERSION]). Начало раунда было отложено.</span>")
 
 	return ..()
 
@@ -38,8 +38,8 @@ SUBSYSTEM_DEF(dbcore)
 	for(var/I in active_queries)
 		var/datum/db_query/Q = I
 		if(world.time - Q.last_activity_time > 5 MINUTES)
-			log_debug("Found undeleted query, please check the server logs and notify coders.")
-			log_sql("Undeleted query: \"[Q.sql]\" LA: [Q.last_activity] LAT: [Q.last_activity_time]")
+			log_debug("Найден невыполненный запрос, пожалуйста, проверьте лог сервера и сообщите кодерам.")
+			log_sql("Отмененный запрос: \"[Q.sql]\" LA: [Q.last_activity] LAT: [Q.last_activity_time]")
 			qdel(Q)
 		if(MC_TICK_CHECK)
 			return
@@ -109,16 +109,16 @@ SUBSYSTEM_DEF(dbcore)
 			config.sql_enabled = FALSE
 			schema_valid = FALSE
 			SSticker.ticker_going = FALSE
-			SEND_TEXT(world.log, "Database connection failed: Invalid SQL Versions")
+			SEND_TEXT(world.log, "Сбой подключения к базе данных: Неверная версия SQL")
 			return FALSE
 		#endif
 		if(Connect())
-			SEND_TEXT(world.log, "Database connection established")
+			SEND_TEXT(world.log, "Соединение с базой данных установлено")
 		else
 			// log_sql() because then an error will be logged in the same place
-			log_sql("Your server failed to establish a connection with the database")
+			log_sql("Серверу не удалось установить соединение с базой данных")
 	else
-		SEND_TEXT(world.log, "Database is not enabled in configuration")
+		SEND_TEXT(world.log, "База данных не включена в конфигурации сервера")
 
 /**
   * Disconnection Handler
@@ -386,8 +386,8 @@ SUBSYSTEM_DEF(dbcore)
 	if(!.)
 		SSdbcore.total_errors++
 		if(usr)
-			to_chat(usr, "<span class='danger'>A SQL error occurred during this operation, please inform an admin or a coder.</span>")
-		message_admins("An SQL error has occured. Please check the server logs, with the following timestamp ID: \[[time_stamp()]]")
+			to_chat(usr, "<span class='danger'>Произошла ошибка SQL. Пожалуйста, сообщите об этом администратору или кодеру.</span>")
+		message_admins(">Произошла ошибка SQL. Пожалуйста, проверьте лог сервера по следующей меткой ID: \[[time_stamp()]]")
 
 /**
   * Main Execution Handler
@@ -401,7 +401,7 @@ SUBSYSTEM_DEF(dbcore)
 /datum/db_query/proc/Execute(async = TRUE, log_error = TRUE)
 	Activity("Execute")
 	if(in_progress)
-		CRASH("Attempted to start a new query while waiting on the old one")
+		CRASH("Попытка запустить новый запрос во время ожидания старого.")
 
 	if(!SSdbcore.IsConnected())
 		last_error = "No connection!"

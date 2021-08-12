@@ -70,22 +70,22 @@ GLOBAL_VAR_INIT(announcing_vox, 0) // Stores the time of the last announcement
 #define VOX_PATH "sound/vox_fem/"
 
 /mob/living/silicon/ai/verb/announcement_help()
-	set name = "Announcement Help"
-	set desc = "Display a list of vocal words to announce to the crew."
+	set name = "Справка по объявлению"
+	set desc = "Отображает список вокальных слов, которые можно объявить экипажу."
 	set category = "AI Commands"
 
-	var/dat = {"<meta charset="UTF-8">Here is a list of words you can type into the 'Announcement' button to create sentences to vocally announce to everyone on the same level at you.<BR> \
-	<UL><LI>You can also click on the word to preview it.</LI>\
-	<LI>You can only say 30 words for every announcement.</LI>\
-	<LI>Do not use punctuation as you would normally, if you want a pause you can use the full stop and comma characters by separating them with spaces, like so: 'Alpha . Test , Bravo'.</LI></UL>\
-	<font class='bad'>WARNING:</font><BR>Misuse of the announcement system will get you job banned.<HR>"}
+	var/dat = {"<meta charset="UTF-8">Вот список слов, которые вы можете ввести в 'Сделать VOX объявление' на экране, чтобы вокально объявить всем на одном уровне с вами.<BR> \
+	<UL><LI>Вы также можете нажать на слово, чтобы прослушать его.</LI>\
+	<LI>Вы можете сказать только 30 слов для каждого объявления.</LI>\
+	<LI>Не используйте знаки препинания, как обычно. Если вам нужна пауза, вы можете использовать символы полной остановки и запятой, разделив их пробелами, например: 'Alpha . Test , Bravo'.</LI></UL>\
+	<font class='bad'>ПРЕДУПРЕЖДЕНИЕ:</font><BR>Неправильное использование VOX системы приведет к тому, что вам выдадут бан на профессию.<HR>"}
 
 	// Show alert and voice sounds separately
 	var/vox_words = GLOB.vox_sounds - GLOB.vox_alerts
 	dat = help_format(GLOB.vox_alerts, dat)
 	dat = help_format(vox_words, dat)
 
-	var/datum/browser/popup = new(src, "announce_help", "Announcement Help", 500, 400)
+	var/datum/browser/popup = new(src, "announce_help", "Справка по объявлению", 500, 400)
 	popup.set_content(dat)
 	popup.open()
 
@@ -105,10 +105,10 @@ GLOBAL_VAR_INIT(announcing_vox, 0) // Stores the time of the last announcement
 		return
 
 	if(GLOB.announcing_vox > world.time)
-		to_chat(src, "<span class='warning'>Please wait [round((GLOB.announcing_vox - world.time) / 10)] seconds.</span>")
+		to_chat(src, "<span class='warning'>Пожалуйста подождите [round((GLOB.announcing_vox - world.time) / 10)] секунд.</span>")
 		return
 
-	var/message = clean_input("WARNING: Misuse of this verb can result in you being job banned. More help is available in 'Announcement Help'", "Announcement", last_announcement, src)
+	var/message = clean_input("ПРЕДУПРЕЖДЕНИЕ: Неправильное использование этого действия может привести к тому, что вам дадут бан данной профессии. Дополнительная информация доступна в разделе 'AI Commands -> Справка по объявлению'", "VOX объявление", last_announcement, src)
 
 	last_announcement = message
 
@@ -133,13 +133,13 @@ GLOBAL_VAR_INIT(announcing_vox, 0) // Stores the time of the last announcement
 			incorrect_words += word
 
 	if(incorrect_words.len)
-		to_chat(src, "<span class='warning'>These words are not available on the announcement system: [english_list(incorrect_words)].</span>")
+		to_chat(src, "<span class='warning'>Этих слов не найдено в VOX системе: [english_list(incorrect_words)].</span>")
 		return
 
 	GLOB.announcing_vox = world.time + VOX_DELAY
 
-	log_game("[key_name(src)] made a vocal announcement: [message].")
-	message_admins("[key_name_admin(src)] made a vocal announcement: [message].")
+	log_game("[key_name(src)] сделал vox объявление: [message].")
+	message_admins("[key_name_admin(src)] сделал vox объявление: [message].")
 
 	var/i = 0
 	for(var/word in words)
@@ -151,7 +151,7 @@ GLOBAL_VAR_INIT(announcing_vox, 0) // Stores the time of the last announcement
 
 /mob/living/silicon/ai/proc/ai_voice_announcement_to_text(words)
 	var/words_string = jointext(words, " ")
-	var/formatted_message = "<h1 class='alert'>A.I. Announcement</h1>"
+	var/formatted_message = "<h1 class='alert'>Объявление И.И.</h1>"
 	formatted_message += "<br><span class='alert'>[words_string]</span>"
 	formatted_message += "<br><span class='alert'> -[src]</span>"
 
@@ -191,6 +191,6 @@ GLOBAL_VAR_INIT(announcing_vox, 0) // Stores the time of the last announcement
 /client/proc/preload_vox()
 	var/list/vox_files = flist(VOX_PATH)
 	for(var/file in vox_files)
-//	to_chat(src, "Downloading [file]")
+//	to_chat(src, "Скачивание [file]")
 		var/sound/S = sound("[VOX_PATH][file]")
 		src << browse_rsc(S)

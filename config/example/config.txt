@@ -27,9 +27,9 @@ JOBS_HAVE_MINIMAL_ACCESS
 #USE_AGE_RESTRICTION_FOR_JOBS
 
 ##Unhash this to track player playtime in the database. Requires database to be enabled.
-#USE_EXP_TRACKING
+USE_EXP_TRACKING
 ##Unhash this to enable playtime requirements for jobs that have them defined.
-#USE_EXP_RESTRICTIONS
+USE_EXP_RESTRICTIONS
 ##Allows admins to bypass job playtime requirements.
 USE_EXP_RESTRICTIONS_ADMIN_BYPASS
 

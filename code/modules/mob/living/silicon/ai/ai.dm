@@ -420,7 +420,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 		//if(icon_state == initial(icon_state))
 	var/icontype = ""
-	icontype = input("Select an icon!", "AI", null, null) in display_choices
+	icontype = input("Выберите иконку!", "ИИ", null, null) in display_choices
 	icon = 'icons/mob/ai.dmi'	//reset this in case we were on a custom sprite and want to change to a standard one
 	switch(icontype)
 		if("Custom")
@@ -511,16 +511,16 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 /mob/living/silicon/ai/var/message_cooldown = 0
 /mob/living/silicon/ai/proc/ai_announcement_text()
 	set category = "AI Commands"
-	set name = "Make Station Announcement"
+	set name = "Сделать объявление на станции"
 
 	if(check_unable(AI_CHECK_WIRELESS | AI_CHECK_RADIO))
 		return
 
 	if(message_cooldown)
-		to_chat(src, "<span class='warning'>Please allow one minute to pass between announcements.</span>")
+		to_chat(src, "<span class='warning'>Пожалуйста, подождите 1 минуту перед следующим объявлением.</span>")
 		return
 
-	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement") as message|null
+	var/input = input(usr, "Напишите сообщение, чтобы сообщить об этом экипажу станции.", "Объявление И.И.") as message|null
 	if(!input)
 		return
 
@@ -935,8 +935,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	if(check_unable())
 		return
 
-	var/list/ai_emotions = list("Very Happy", "Happy", "Neutral", "Unsure", "Confused", "Sad", "Surprised", "BSOD", "Blank", "Problems?", "Awesome", "Dorfy", "Facepalm", "Friend Computer", "Beer", "Dwarf", "Fish Tank", "Plump", "Tribunal")
-	var/emote = input("Please, select a status!", "AI Status", null, null) in ai_emotions
+	var/list/ai_emotions = list("Очень cчастлив", "Счастлив", "Нейтральный", "Неуверенный", "Смущенный", "Грустный", "Удивленный", "BSOD", "Ничего", "Problems?", "Awesome", "Дорфи", "Facepalm", "Я слежу за тобой.", "Пиво", "Гном", "Аквариум", "Толстеть", "Трибунал")
+	var/emote = input("Пожалуйста, выберите статус!", "Статус ИИ", null, null) in ai_emotions
 
 	if(check_unable())
 		return
@@ -980,83 +980,83 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 				custom_hologram = 1  // option is given in hologram menu
 
 	var/input
-	switch(alert("Would you like to select a hologram based on a crew member, an animal, or switch to a unique avatar?",,"Crew Member","Unique","Animal"))
-		if("Crew Member")
+	switch(alert("Хотите выбрать голограмму на основе члена экипажа, животного или уникального аватара?",,"Член экипажа","Уникальный","Животное"))
+		if("Член экипажа")
 			var/personnel_list[] = list()
 
 			for(var/datum/data/record/t in GLOB.data_core.locked)//Look in data core locked.
 				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = t.fields["image"]//Pull names, rank, and image.
 
 			if(personnel_list.len)
-				input = input("Select a crew member:") as null|anything in personnel_list
+				input = input("Выберите члена экипажа:") as null|anything in personnel_list
 				var/icon/character_icon = personnel_list[input]
 				if(character_icon)
 					qdel(holo_icon)//Clear old icon so we're not storing it in memory.
 					holo_icon = getHologramIcon(icon(character_icon))
 			else
-				alert("No suitable records found. Aborting.")
+				alert("Подходящих записей не найдено. Отмена.")
 
-		if("Animal")
+		if("Животное")
 			var/icon_list[] = list(
-			"Bear",
-			"Carp",
-			"Chicken",
-			"Corgi",
-			"Cow",
-			"Crab",
-			"Deer",
-			"Fox",
-			"Goat",
-			"Goose",
-			"Kitten",
-			"Kitten2",
-			"Pig",
-			"Poly",
-			"Pug",
-			"Seal",
-			"Spider",
-			"Turkey"
+			"Медведь",
+			"Карп",
+			"Курица",
+			"Корги",
+			"Корова",
+			"Краб",
+			"Олень",
+			"Лиса",
+			"Коза",
+			"Гусь",
+			"Котёнок",
+			"Котёнок_2",
+			"Свинья",
+			"Поли",
+			"Мопс",
+			"Тюлень",
+			"Паук",
+			"Индюк"
 			)
 
-			input = input("Please select a hologram:") as null|anything in icon_list
+			input = input("Пожалуйста, выберите голограмму:") as null|anything in icon_list
 			if(input)
 				qdel(holo_icon)
 				switch(input)
-					if("Bear")
+					if("Медведь")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"bear"))
-					if("Carp")
+					if("Карп")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"carp"))
-					if("Chicken")
+					if("Курица")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"chicken_brown"))
-					if("Corgi")
+					if("Корги")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"corgi"))
-					if("Cow")
+					if("Корова")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"cow"))
-					if("Crab")
+					if("Краб")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"crab"))
-					if("Deer")
+					if("Олень")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"deer"))
-					if("Fox")
+					if("Лиса")
 						holo_icon = getHologramIcon(icon('icons/mob/pets.dmi',"fox"))
-					if("Goat")
+					if("Коза")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"goat"))
-					if("Goose")
+					if("Гусь")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"goose"))
-					if("Kitten")
+					if("Котёнок")
 						holo_icon = getHologramIcon(icon('icons/mob/pets.dmi',"cat"))
-					if("Kitten2")
+					if("Котёнок_2")
 						holo_icon = getHologramIcon(icon('icons/mob/pets.dmi',"cat2"))
-					if("Pig")
+					if("Свинья")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"pig"))
-					if("Poly")
+					if("Поли")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"parrot_fly"))
-					if("Pug")
+					if("Мопс")
 						holo_icon = getHologramIcon(icon('icons/mob/pets.dmi',"pug"))
-					if("Seal")
+					if("Тюлень")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"seal"))
-					if("Spider")
+					if("Паук")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"guard"))
-					if("Turkey")
+					if("Индюк")
 						holo_icon = getHologramIcon(icon('icons/mob/animal.dmi',"turkey"))
 
 		else
