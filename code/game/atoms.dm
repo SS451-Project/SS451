@@ -309,9 +309,9 @@
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
-			f_name = "some "
+			f_name = ""
 		else
-			f_name = "a "
+			f_name = ""
 		if(blood_color != "#030303")
 			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
 		else
