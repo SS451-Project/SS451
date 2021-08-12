@@ -37,3 +37,5 @@ stddef.dm
 /tools/midi2piano/midi2piano/obj/*
 
 */node_modules/*
+
+config/example/config.txt
