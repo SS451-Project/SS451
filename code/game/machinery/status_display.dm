@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT(statdisp_picture_colors, list(
 				message2 = SSshuttle.emergency.getTimerStr()
 
 				if(length(message2) > CHARS_PER_LINE)
-					message2 = "Error!"
+					message2 = "ОШИБКА"
 			else
 				message1 = "ВРЕМЯ"
 				message2 = station_time_timestamp("hh:mm")
@@ -259,7 +259,7 @@ GLOBAL_LIST_INIT(statdisp_picture_colors, list(
 /obj/machinery/ai_status_display
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	name = "AI display"
+	name = "дисплей ИИ"
 	anchored = 1
 	density = 0
 
@@ -317,19 +317,19 @@ GLOBAL_LIST_INIT(statdisp_picture_colors, list(
 
 	if(mode==1)	// AI emoticon
 		switch(emotion)
-			if("Very Happy")
+			if("Очень cчастлив")
 				set_picture("ai_veryhappy")
-			if("Happy")
+			if("Счастлив")
 				set_picture("ai_happy")
-			if("Neutral")
+			if("Нейтральный")
 				set_picture("ai_neutral")
-			if("Unsure")
+			if("Неуверенный")
 				set_picture("ai_unsure")
-			if("Confused")
+			if("Смущенный")
 				set_picture("ai_confused")
-			if("Sad")
+			if("Грустный")
 				set_picture("ai_sad")
-			if("Surprised")
+			if("Удивленный")
 				set_picture("ai_surprised")
 			if("Upset")
 				set_picture("ai_upset")
@@ -337,27 +337,27 @@ GLOBAL_LIST_INIT(statdisp_picture_colors, list(
 				set_picture("ai_angry")
 			if("BSOD")
 				set_picture("ai_bsod")
-			if("Blank")
+			if("Ничего")
 				set_picture("ai_off")
 			if("Problems?")
 				set_picture("ai_trollface")
 			if("Awesome")
 				set_picture("ai_awesome")
-			if("Dorfy")
+			if("Дорфи")
 				set_picture("ai_urist")
 			if("Facepalm")
 				set_picture("ai_facepalm")
-			if("Friend Computer")
+			if("Я слежу за тобой.")
 				set_picture("ai_friend")
-			if("Beer")
+			if("Пиво")
 				set_picture("ai_beer")
-			if("Dwarf")
+			if("Гном")
 				set_picture("ai_dwarf")
-			if("Fish Tank")
+			if("Аквариум")
 				set_picture("ai_fishtank")
-			if("Plump")
+			if("Толстеть")
 				set_picture("ai_plump")
-			if("Tribunal")
+			if("Трибунал")
 				set_picture("ai_tribunal")
 			if("Tribunal Malf")
 				set_picture("ai_tribunal_malf")
