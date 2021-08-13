@@ -1,7 +1,7 @@
 // Basic lighters
 /obj/item/lighter
-	name = "cheap lighter"
-	desc = "A cheap-as-free lighter."
+	name = "дешевая зажигалка"
+	desc = "Дешевая, как бесплатная зажигалка."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
@@ -37,7 +37,7 @@
 	force = 5
 	damtype = BURN
 	hitsound = 'sound/items/welder.ogg'
-	attack_verb = list("burnt", "singed")
+	attack_verb = list("обжёг", "опалил")
 
 	attempt_light(user)
 	set_light(2)
@@ -45,13 +45,13 @@
 
 /obj/item/lighter/proc/attempt_light(mob/living/user)
 	if(prob(75) || issilicon(user)) // Robots can never burn themselves trying to light it.
-		to_chat(user, "<span class='notice'>You light [src].</span>")
+		to_chat(user, "<span class='notice'>Ты зажёг [src].</span>")
 	else
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ("[user.hand ? "l" : "r" ]_hand")
 		if(affecting.receive_damage( 0, 5 ))		//INFERNO
 			H.UpdateDamageIcon()
-		to_chat(user,"<span class='notice'>You light [src], but you burn your hand in the process.</span>")
+		to_chat(user,"<span class='notice'>Ты зжаёг [src], но при этом ты обжигаешь себе руку.</span>")
 
 /obj/item/lighter/proc/turn_off_lighter(mob/living/user)
 	lit = FALSE
@@ -67,7 +67,7 @@
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/lighter/proc/show_off_message(mob/living/user)
-	to_chat(user, "<span class='notice'>You shut off [src].")
+	to_chat(user, "<span class='notice'>Ты потушил [src].")
 
 /obj/item/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	if(!isliving(M))
@@ -82,9 +82,9 @@
 			cig.attackby(src, user)
 		else
 			if(istype(src, /obj/item/lighter/zippo))
-				cig.light("<span class='rose'>[user] whips the [name] out and holds it for [M]. [user.p_their(TRUE)] arm is as steady as the unflickering flame [user.p_they()] light[user.p_s()] \the [cig] with.</span>")
+				cig.light("<span class='rose'>[user] выхватывает [name] и держит его для [M]. Рука [user.p_their(TRUE)] так же тверда, как мерцающее пламя [user.p_they()] light[user.p_s()], подкуривающее [cig].</span>")
 			else
-				cig.light("<span class='notice'>[user] holds the [name] out for [M], and lights the [cig.name].</span>")
+				cig.light("<span class='notice'>[user] удерживает [name] для [M], и зажигает [cig.name].</span>")
 			M.update_inv_wear_mask()
 	else
 		..()
@@ -97,8 +97,8 @@
 
 // Zippo lighters
 /obj/item/lighter/zippo
-	name = "zippo lighter"
-	desc = "The zippo."
+	name = "зажигалка zippo"
+	desc = "Zippo."
 	icon_state = "zippo"
 	item_state = "zippo"
 	icon_on = "zippoon"
@@ -109,20 +109,20 @@
 /obj/item/lighter/zippo/turn_on_lighter(mob/living/user)
 	. = ..()
 	if(world.time > next_on_message)
-		user.visible_message("<span class='rose'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
+		user.visible_message("<span class='rose'>Даже не сбавляя шага, [user] открывает и зажигает [src] одним плавным движением.</span>")
 		playsound(src.loc, 'sound/items/zippolight.ogg', 25, 1)
 		next_on_message = world.time + 5 SECONDS
 	else
-		to_chat(user, "<span class='notice'>You light [src].</span>")
+		to_chat(user, "<span class='notice'>Ты зажёг [src].</span>")
 
 /obj/item/lighter/zippo/turn_off_lighter(mob/living/user)
 	. = ..()
 	if(world.time > next_off_message)
-		user.visible_message("<span class='rose'>You hear a quiet click, as [user] shuts off [src] without even looking at what [user.p_theyre()] doing. Wow.")
+		user.visible_message("<span class='rose'>Вы слышите тихий щелчок, когда [user] закрывает [src] даже не глядя на то, что [user.p_theyre()] делает. Вау.")
 		playsound(src.loc, 'sound/items/zippoclose.ogg', 25, 1)
 		next_off_message = world.time + 5 SECONDS
 	else
-		to_chat(user, "<span class='notice'>You shut off [src].")
+		to_chat(user, "<span class='notice'>Ты потушил [src].")
 
 /obj/item/lighter/zippo/show_off_message(mob/living/user)
 	return
@@ -132,78 +132,78 @@
 
 //EXTRA LIGHTERS
 /obj/item/lighter/zippo/nt_rep
-	name = "gold engraved zippo"
-	desc = "An engraved golden Zippo lighter with the letters NT on it."
+	name = "zippo с золотой гравировкой"
+	desc = "Золотая зажигалка Zippo с гравировкой и буквами NT на ней."
 	icon_state = "zippo_nt_off"
 	icon_on = "zippo_nt_on"
 	icon_off = "zippo_nt_off"
 
 /obj/item/lighter/zippo/blue
-	name = "blue zippo lighter"
-	desc = "A zippo lighter made of some blue metal."
+	name = "синяя зажигалка zippo"
+	desc = "Зажигалка zippo из какого-то синего металла."
 	icon_state = "bluezippo"
 	icon_on = "bluezippoon"
 	icon_off = "bluezippo"
 
 /obj/item/lighter/zippo/black
-	name = "black zippo lighter"
-	desc = "A black zippo lighter."
+	name = "черная зажигалка zippo"
+	desc = "Черная зажигалка zippo."
 	icon_state = "blackzippo"
 	icon_on = "blackzippoon"
 	icon_off = "blackzippo"
 
 /obj/item/lighter/zippo/engraved
-	name = "engraved zippo lighter"
-	desc = "A intricately engraved zippo lighter."
+	name = "зажигалка zippo с гравировкой"
+	desc = "Зажигалка zippo с замысловатой гравировкой."
 	icon_state = "engravedzippo"
 	icon_on = "engravedzippoon"
 	icon_off = "engravedzippo"
 
 /obj/item/lighter/zippo/gonzofist
-	name = "Gonzo Fist zippo"
-	desc = "A Zippo lighter with the iconic Gonzo Fist on a matte black finish."
+	name = "zippo Кулака Гонзо"
+	desc = "Зажигалка Zippo с культовым кулаком Гонзо на матовой черной отделке."
 	icon_state = "gonzozippo"
 	icon_on = "gonzozippoon"
 	icon_off = "gonzozippo"
 
 /obj/item/lighter/zippo/cap
-	name = "Captain's zippo"
-	desc = "A limited edition gold Zippo espesially for NT Captains. Looks extremely expensive."
+	name = "zippo Капитана"
+	desc = "Золотой zippo с ограниченным тиражом, специально для капитанов NT. Выглядит очень дорого."
 	icon_state = "zippo_cap"
 	icon_on = "zippo_cap_on"
 	icon_off = "zippo_cap"
 
 /obj/item/lighter/zippo/hop
-	name = "Head of personnel zippo"
-	desc = "A limited edition Zippo for NT Heads. Tries it best to look like captain's."
+	name = "zippo Главы Персонала"
+	desc = "Ограниченная серия Zippo для глав NT. Старается изо всех сил выглядеть как у капитана."
 	icon_state = "zippo_hop"
 	icon_on = "zippo_hop_on"
 	icon_off = "zippo_hop"
 
 /obj/item/lighter/zippo/hos
-	name = "Head of Security zippo"
-	desc = "A limited edition Zippo for NT Heads. Fuel it with clown's tears."
+	name = "zippo Начальника службы безопасности"
+	desc = "Ограниченная серия Zippo для глав NT. Заправлен слезами клоунов."
 	icon_state = "zippo_hos"
 	icon_on = "zippo_hos_on"
 	icon_off = "zippo_hos"
 
 /obj/item/lighter/zippo/cmo
-	name = "Chief Medical Officer zippo"
-	desc = "A limited edition Zippo for NT Heads. Made of hypoallergenic steel."
+	name = "zippo Главного Врача"
+	desc = "Ограниченная серия Zippo для глав NT. Изготовлен из гипоаллергенной стали."
 	icon_state = "zippo_cmo"
 	icon_on = "zippo_cmo_on"
 	icon_off = "zippo_cmo"
 
 /obj/item/lighter/zippo/ce
-	name = "Chief Engineer zippo"
-	desc = "A limited edition Zippo for NT Heads. Somebody've tried to repair cover with blue tape."
+	name = "zippo Главного инженера"
+	desc = "Ограниченная серия Zippo для глав NT. Кто-то пытался починить крышку синей изолентой."
 	icon_state = "zippo_ce"
 	icon_on = "zippo_ce_on"
 	icon_off = "zippo_ce"
 
 /obj/item/lighter/zippo/rd
-	name = "Research Director zippo"
-	desc = "A limited edition Zippo for NT Heads. Uses advanced tech to make fire from plasma."
+	name = "zippo Директора по Исследованиям"
+	desc = "Ограниченная серия Zippo для глав NT. Использует передовые технологии для создания огня из плазмы."
 	icon_state = "zippo_rd"
 	icon_on = "zippo_rd_on"
 	icon_off = "zippo_rd"
@@ -212,8 +212,8 @@
 //MATCHES//
 ///////////
 /obj/item/match
-	name = "match"
-	desc = "A simple match stick, used for lighting fine smokables."
+	name = "спичка"
+	desc = "Простая спичка, используемая для подкуривания."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
 	var/lit = FALSE
@@ -244,8 +244,8 @@
 		force = 3
 		hitsound = 'sound/items/welder.ogg'
 		item_state = "cigon"
-		name = "lit match"
-		desc = "A match. This one is lit."
+		name = "зажженная спичка"
+		desc = "Спичка. И она горит."
 		attack_verb = list("burnt","singed")
 		START_PROCESSING(SSobj, src)
 		update_icon()
@@ -259,8 +259,8 @@
 		force = initial(force)
 		icon_state = "match_burnt"
 		item_state = "cigoff"
-		name = "burnt match"
-		desc = "A match. This one has seen better days."
+		name = "сгоревшая спичка"
+		desc = "Спичка. Отжигала свои лучшие дни."
 		attack_verb = list("flicked")
 		STOP_PROCESSING(SSobj, src)
 		return TRUE
@@ -278,11 +278,11 @@
 	var/obj/item/clothing/mask/cigarette/cig = help_light_cig(M)
 	if(lit && cig && user.a_intent == INTENT_HELP)
 		if(cig.lit)
-			to_chat(user, "<span class='notice'>[cig] is already lit.</span>")
+			to_chat(user, "<span class='notice'>[cig] уже подкурена.</span>")
 		if(M == user)
 			cig.attackby(src, user)
 		else
-			cig.light("<span class='notice'>[user] holds [src] out for [M], and lights [cig].</span>")
+			cig.light("<span class='notice'>[user] держит [src] над [M], и покуривает [cig].</span>")
 	else
 		..()
 
@@ -299,8 +299,8 @@
 		return mask_item
 
 /obj/item/match/firebrand
-	name = "firebrand"
-	desc = "An unlit firebrand. It makes you wonder why it's not just called a stick."
+	name = "головешка"
+	desc = "Незажженная головешка. Это заставляет задуматься, почему это не называется просто палкой."
 	smoketime = 20 //40 seconds
 
 /obj/item/match/firebrand/New()
