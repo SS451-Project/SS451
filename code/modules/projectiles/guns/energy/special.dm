@@ -228,7 +228,7 @@
 	P.precision = 0
 	P.failchance = 0
 	P.can_multitool_to_remove = 1
-	if(W.name == "bluespace beam")
+	if(W.name == "луч bluespace")
 		qdel(blue)
 		blue = P
 	else
@@ -525,7 +525,7 @@
 	icon_state = "dominator"
 	item_state = null
 
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT
 	force = 10
 	flags =  CONDUCT
