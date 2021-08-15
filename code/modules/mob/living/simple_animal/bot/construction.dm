@@ -321,14 +321,14 @@
 	qdel(src)
 
 /obj/item/firstaid_arm_assembly
-	name = "incomplete medibot assembly."
-	desc = "A first aid kit with a robot arm permanently grafted to it."
+	name = "неполная сборка медибота."
+	desc = "Аптечка первой помощи с постоянно вживленной в нее роботизированной рукой."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "firstaid_arm"
 	w_class = WEIGHT_CLASS_NORMAL
 	req_one_access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS)
 	var/build_step = 0
-	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
+	var/created_name = "Медибот" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
 	var/syndicate_aligned = FALSE
 	var/treatment_brute = "salglu_solution"
