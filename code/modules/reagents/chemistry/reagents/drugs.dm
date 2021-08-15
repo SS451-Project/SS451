@@ -1,10 +1,10 @@
 /datum/reagent/lithium
-	name = "Lithium"
+	name = "Литий"
 	id = "lithium"
-	description = "A chemical element."
+	description = "Химический элемент."
 	reagent_state = SOLID
 	color = "#808080" // rgb: 128, 128, 128
-	taste_description = "metal"
+	taste_description = "метал"
 
 /datum/reagent/lithium/on_mob_life(mob/living/M)
 	if(isturf(M.loc) && !istype(M.loc, /turf/space))
@@ -15,12 +15,12 @@
 	return ..()
 
 /datum/reagent/lsd
-	name = "Lysergic acid diethylamide"
+	name = "Диэтиламид лизергиновой кислоты"
 	id = "lsd"
-	description = "A highly potent hallucinogenic substance. Far out, maaaan."
+	description = "Сильнодействующее галлюциногенное вещество. Далеко отсюда, чееееел."
 	reagent_state = LIQUID
 	color = "#0000D8"
-	taste_description = "a magical journey"
+	taste_description = "волшебное путешествие"
 
 /datum/reagent/lsd/on_mob_life(mob/living/M)
 	var/update_flags = STATUS_UPDATE_NONE
@@ -406,7 +406,7 @@
 
 /datum/reagent/bath_salts/reaction_mob(mob/living/M, method=REAGENT_TOUCH, volume)
 	if(method == REAGENT_INGEST)
-		to_chat(M, "<span class = 'danger'><font face='[pick("Curlz MT", "Comic Sans MS")]' size='[rand(4,6)]'>You feel FUCKED UP!!!!!!</font></span>")
+		to_chat(M, "<span class = 'danger'><font face='[pick("Curlz MT", "Comic Sans MS")]' size='[rand(4,6)]'>Тебя внатуре РАЗЪЕБАЛО!!!!!!</font></span>")
 		M << 'sound/effects/singlebeat.ogg'
 		M.emote("faint")
 		M.apply_effect(5, IRRADIATE, negate_armor = 1)
