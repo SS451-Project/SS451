@@ -595,7 +595,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 //visible_message will handle invisibility properly
 //overriden here and in /mob/dead/observer for different point span classes and sanity checks
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
-	set name = "Point To"
+	set name = "Указать на"
 	set category = "Object"
 
 	if(next_move >= world.time)
@@ -1124,15 +1124,15 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 	return
 
 /mob/dead/observer/verb/respawn()
-	set name = "Respawn as NPC"
+	set name = "Респавн в качестве NPC"
 	set category = "Ghost"
 
 	if(jobban_isbanned(usr, ROLE_SENTIENT))
-		to_chat(usr, "<span class='warning'>You are banned from playing as sentient animals.</span>")
+		to_chat(usr, "<span class='warning'>Вам запрещено играть в качестве разумных животных.</span>")
 		return
 
 	if(!SSticker || SSticker.current_state < 3)
-		to_chat(src, "<span class='warning'>You can't respawn as an NPC before the game starts!</span>")
+		to_chat(src, "<span class='warning'>Вы не можете возродиться в качестве NPC до начала игры!</span>")
 		return
 
 	if(stat==2 || istype(usr,/mob/dead/observer)) // Always can respawn as NPC
@@ -1141,7 +1141,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 			if(safe_respawn(L.type) && L.stat!=2)
 				if(!L.key)
 					creatures += L
-		var/picked = input("Please select an NPC to respawn as", "Respawn as NPC")  as null|anything in creatures
+		var/picked = input("Пожалуйста, выберите NPC в качестве возрождения", "Спавн в качестве NPC")  as null|anything in creatures
 		switch(picked)
 			if("Mouse")
 				GLOB.respawnable_list -= usr
@@ -1156,7 +1156,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 //					spawn(5)
 //						GLOB.respawnable_list += usr
 	else
-		to_chat(usr, "You are not dead or you have given up your right to be respawned!")
+		to_chat(usr, "Вы не мертвы, или вы отказались от возрождения!")
 		return
 
 
@@ -1165,7 +1165,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 	if(client.time_died_as_mouse && timedifference <= GLOB.mouse_respawn_time * 600)
 		var/timedifference_text
 		timedifference_text = time2text(GLOB.mouse_respawn_time * 600 - timedifference,"mm:ss")
-		to_chat(src, "<span class='warning'>You may only spawn again as a mouse more than [GLOB.mouse_respawn_time] minutes after your death. You have [timedifference_text] left.</span>")
+		to_chat(src, "<span class='warning'>Вы можете снова появиться как мышь не более чем через [GLOB.mouse_respawn_time] минут после смерти. У вас осталось [timedifference_text] минут.</span>")
 		return
 
 	//find a viable mouse candidate
