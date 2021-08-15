@@ -10,9 +10,9 @@
 * film *
 *******/
 /obj/item/camera_film
-	name = "film cartridge"
+	name = "пленочный картридж"
 	icon = 'icons/obj/items.dmi'
-	desc = "A camera film cartridge. Insert it into a camera to reload it."
+	desc = "Картридж с пленкой для камеры. Вставьте его в камеру, чтобы перезагрузить."
 	icon_state = "film"
 	item_state = "electropack"
 	w_class = WEIGHT_CLASS_TINY
@@ -23,7 +23,7 @@
 * photo *
 ********/
 /obj/item/photo
-	name = "photo"
+	name = "фотография"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "photo"
 	item_state = "paper"
@@ -41,7 +41,7 @@
 
 /obj/item/photo/attackby(obj/item/P as obj, mob/user as mob, params)
 	if(istype(P, /obj/item/pen) || istype(P, /obj/item/toy/crayon))
-		var/txt = sanitize(input(user, "What would you like to write on the back?", "Photo Writing", null)  as text)
+		var/txt = sanitize(input(user, "Что бы вы хотели написать на обороте?", "Подпись на фотографии", null)  as text)
 		txt = copytext(txt, 1, 128)
 		if(loc == user && user.stat == 0)
 			scribble = txt
@@ -56,13 +56,13 @@
 		if(istype(P, /obj/item/lighter/zippo))
 			class = "<span class='rose'>"
 
-		user.visible_message("[class][user] holds \the [P] up to \the [src], it looks like [user.p_theyre()] trying to burn it!", \
-		"[class]You hold [P] up to [src], burning it slowly.")
+		user.visible_message("[class][user] держит в [P] над [src], это выглядит так, что [user.p_theyre()] пытается его сжечь!", \
+		"[class]Ты держишь [P] над [src], медленно сжигая его.")
 
 		spawn(20)
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P && P.lit)
-				user.visible_message("[class][user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.", \
-				"[class]You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.")
+				user.visible_message("[class][user] прожигает насквозь [src], превращая его в пепел. Он порхает в воздухе, прежде чем осесть на пол.", \
+				"[class]Ты прожигаешь насквозь [src], превращая его в пепел. Он порхает в воздухе, прежде чем осесть на пол.")
 
 				if(user.is_in_inactive_hand(src))
 					user.unEquip(src)
@@ -71,14 +71,14 @@
 				qdel(src)
 
 			else
-				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+				to_chat(user, "<span class='warning'>Вы должны держать ровно [P] чтобы сжечь [src].</span>")
 
 /obj/item/photo/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
 		show(user)
 	else
-		. += "<span class='notice'>It is too far away.</span>"
+		. += "<span class='notice'>Слишком далеко.</span>"
 
 /obj/item/photo/proc/show(mob/user as mob)
 	var/icon/img_shown = new/icon(img)
@@ -100,11 +100,11 @@
 	return
 
 /obj/item/photo/verb/rename()
-	set name = "Rename photo"
+	set name = "Переименовать фотографию"
 	set category = "Object"
 	set src in usr
 
-	var/n_name = sanitize(copytext_char(input(usr, "What would you like to label the photo?", "Photo Labelling", name) as text, 1, MAX_NAME_LEN))
+	var/n_name = sanitize(copytext_char(input(usr, "Как бы вы хотели назвать фотографию?", "Название фотографии", name) as text, 1, MAX_NAME_LEN))
 	//loc.loc check is for making possible renaming photos in clipboards
 	if(( (loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
 		name = "[(n_name ? text("[n_name]") : "photo")]"
@@ -116,7 +116,7 @@
 * photo album *
 **************/
 /obj/item/storage/photo_album
-	name = "Photo album"
+	name = "фотоальбом"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
@@ -151,9 +151,9 @@
 * camera *
 *********/
 /obj/item/camera
-	name = "camera"
+	name = "камера"
 	icon = 'icons/obj/items.dmi'
-	desc = "A polaroid camera. 10 photos left."
+	desc = "Фотоаппарат 'Polaroid'. Осталось 10 фотографий."
 	icon_state = "camera"
 	item_state = "electropack"
 	w_class = WEIGHT_CLASS_SMALL
@@ -182,17 +182,17 @@
 GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","horror","shadow","ghostian2"))
 
 /obj/item/camera/spooky
-	name = "camera obscura"
-	desc = "A polaroid camera, some say it can see ghosts!"
+	name = "камера-обскура"
+	desc = "Камера 'Polaroid', некоторые говорят, что она может видеть призраков!"
 	see_ghosts = 1
 
 /obj/item/camera/verb/change_size()
-	set name = "Set Photo Focus"
+	set name = "Установить фокус фотографии"
 	set category = "Object"
-	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3,5,7)
+	var/nsize = input("Размер Фотографии","Выберите размер получившейся фотографии.") as null|anything in list(1,3,5,7)
 	if(nsize)
 		size = nsize
-		to_chat(usr, "<span class='notice'>Camera will now take [size]x[size] photos.</span>")
+		to_chat(usr, "<span class='notice'>Камера теперь будет снимать [size]x[size] фото.</span>")
 
 /obj/item/camera/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	return
@@ -203,15 +203,15 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 		src.icon_state = icon_on
 	else
 		src.icon_state = icon_off
-	to_chat(user, "You switch the camera [on ? "on" : "off"].")
+	to_chat(user, "Вы переключаете камеру - [on ? "включена" : "выключена"].")
 	return
 
 /obj/item/camera/attackby(obj/item/I as obj, mob/user as mob, params)
 	if(istype(I, /obj/item/camera_film))
 		if(pictures_left)
-			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
+			to_chat(user, "<span class='notice'>[src] в нем все еще есть немного пленки!</span>")
 			return
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+		to_chat(user, "<span class='notice'>Вы вставляете [I] в [src].</span>")
 		user.drop_item()
 		qdel(I)
 		pictures_left = pictures_max
@@ -300,9 +300,9 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 				if(O.orbiting)
 					continue
 				if(!mob_detail)
-					mob_detail = "You can see a g-g-g-g-ghooooost! "
+					mob_detail = "Вы словили при-и-и-и-зрака!"
 				else
-					mob_detail += "You can also see a g-g-g-g-ghooooost!"
+					mob_detail += "Вы также словили при-и-и-и-зрака!"
 			else
 				continue
 
@@ -319,9 +319,9 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 						holding = "They are holding \a [A.r_hand]"
 
 			if(!mob_detail)
-				mob_detail = "You can see [A] on the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]. "
+				mob_detail = "Вы можете увидеть [A] на фотографии[A:health < 75 ? " - [A] выглядит больным":""].[holding ? " [holding]":"."]. "
 			else
-				mob_detail += "You can also see [A] on the photo[A:health < 75 ? " - [A] looks hurt":""].[holding ? " [holding]":"."]."
+				mob_detail += "Вы также можете увидеть [A] на фотографии[A:health < 75 ? " - [A] выглядит больным":""].[holding ? " [holding]":"."]."
 	return mob_detail
 
 /obj/item/camera/afterattack(atom/target, mob/user, flag)
@@ -385,7 +385,7 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 
 	var/datum/picture/P = new()
 	if(istype(src,/obj/item/camera/digital))
-		P.fields["name"] = input(user,"Name photo:","photo")
+		P.fields["name"] = input(user,"Название:","photo")
 		P.name = P.fields["name"]//So the name is displayed on the print/delete list.
 	else
 		P.fields["name"] = "photo"
@@ -438,8 +438,8 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 * digital camera *
 ******************/
 /obj/item/camera/digital
-	name = "digital camera"
-	desc = "A digital camera. A small screen shows there is space for 10 photos left."
+	name = "цифровая камера"
+	desc = "Цифровая камера. Небольшой экран показывает, что осталось место для 10 фотографий."
 	var/list/datum/picture/saved_pictures = list()
 	pictures_left = 30
 	var/max_storage = 10
@@ -450,7 +450,7 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 
 	playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, 1, -3)
 
-	desc = "A digital camera. A small screen shows that there are currently [saved_pictures.len] pictures stored."
+	desc = "Цифровая камера. Небольшой экран показывает, что в настоящее время сохранено [saved_pictures.len] изображений."
 	icon_state = icon_off
 	on = 0
 	spawn(64)
@@ -459,7 +459,7 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 
 /obj/item/camera/digital/captureimage(atom/target, mob/user, flag)
 	if(saved_pictures.len >= max_storage)
-		to_chat(user, "<span class='notice'>Maximum photo storage capacity reached.</span>")
+		to_chat(user, "<span class='notice'>Достигнут максимальный объем хранилища фотографий.</span>")
 		return
 	to_chat(user, "Picture saved.")
 	var/x_c = target.x - (size-1)/2
@@ -481,25 +481,25 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 	saved_pictures += P
 
 /obj/item/camera/digital/verb/print_picture()
-	set name = "Print picture"
+	set name = "Печать изображения"
 	set category = "Object"
 	set src in usr
 
 	if(saved_pictures.len == 0)
-		to_chat(usr, "<span class='userdanger'>No images saved.</span>")
+		to_chat(usr, "<span class='userdanger'>Изображения не сохранены.</span>")
 		return
 	if(pictures_left == 0)
-		to_chat(usr, "<span class='userdanger'>There is no film left to print.</span>")
+		to_chat(usr, "<span class='userdanger'>Не осталось пленки для печати.</span>")
 		return
 
 	var/datum/picture/P = null
-	P = input("Select image to print:",P) as null|anything in saved_pictures
+	P = input("Выберите изображение для печати:",P) as null|anything in saved_pictures
 	if(P)
 		printpicture(usr,P)
 		pictures_left --
 
 /obj/item/camera/digital/verb/delete_picture()
-	set name = "Delete picture"
+	set name = "Удалить изображение"
 	set category = "Object"
 	set src in usr
 
@@ -507,7 +507,7 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 		to_chat(usr, "<span class='userdanger'>No images saved</span>")
 		return
 	var/datum/picture/P = null
-	P = input("Select image to delete:",P) as null|anything in saved_pictures
+	P = input("Выберите изображение для удаления:",P) as null|anything in saved_pictures
 	if(P)
 		saved_pictures -= P
 
@@ -516,9 +516,9 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 ***************/
 
 /obj/item/videocam
-	name = "video camera"
+	name = "видеокамера"
 	icon = 'icons/obj/items.dmi'
-	desc = "video camera that can send live feed to the entertainment network."
+	desc = "Видеокамера, которая может отправлять прямую трансляцию в сеть."
 	icon_state = "videocam"
 	item_state = "videocam"
 	w_class = WEIGHT_CLASS_SMALL
@@ -548,12 +548,12 @@ GLOBAL_LIST_INIT(SpookyGhosts, list("ghost","shade","shade2","ghost-narsie","hor
 		camera.network = list("news")
 		GLOB.cameranet.removeCamera(camera)
 		camera.c_tag = user.name
-	to_chat(user, "You switch the camera [on ? "on" : "off"].")
+	to_chat(user, "Вы переключаете камеру - [on ? "включена" : "выключена"].")
 
 /obj/item/videocam/examine(mob/user)
 	. = ..()
 	if(in_range(user, src))
-		. += "This video camera can send live feeds to the entertainment network. It's [camera ? "" : "in"]active."
+		. += "Эта видеокамера может отправлять прямые трансляции в сеть. Она [camera ? "включена" : "выключена"]."
 
 /obj/item/videocam/hear_talk(mob/M as mob, list/message_pieces)
 	var/msg = multilingual_to_message(message_pieces)
