@@ -49,30 +49,30 @@
 //The gamemode specific ones are just so the gamemodes can query whether a player is old enough
 //(in game days played) to play that role
 GLOBAL_LIST_INIT(special_roles, list(
-	ROLE_ABDUCTOR = /datum/game_mode/abduction, 		// Abductor
-	ROLE_BLOB = /datum/game_mode/blob, 					// Blob
-	ROLE_CHANGELING = /datum/game_mode/changeling, 		// Changeling
-	ROLE_BORER, 										// Cortical borer
-	ROLE_CULTIST = /datum/game_mode/cult, 				// Cultist
-	ROLE_DEVIL = /datum/game_mode/devil/devil_agents, 	// Devil
-	ROLE_GSPIDER, 										// Giant spider
-	ROLE_GUARDIAN, 										// Guardian
-	ROLE_MORPH, 										// Morph
-	ROLE_OPERATIVE = /datum/game_mode/nuclear, 			// Operative
-	ROLE_PAI, 											// PAI
-	ROLE_POSIBRAIN, 									// Positronic brain
-	ROLE_REVENANT, 										// Revenant
-	ROLE_REV = /datum/game_mode/revolution, 			// Revolutionary
-	ROLE_SENTIENT, 										// Sentient animal
-	ROLE_SHADOWLING = /datum/game_mode/shadowling, 		// Shadowling
-	ROLE_DEMON, 										// Slaguther demon
-	ROLE_NINJA, 										// Space ninja
-	ROLE_TRADER, 										// Trader
-	ROLE_TRAITOR = /datum/game_mode/traitor, 			// Traitor
-	ROLE_VAMPIRE = /datum/game_mode/vampire, 			// Vampire
-	ROLE_RAIDER = /datum/game_mode/heist, 				// Vox raider
-	ROLE_ALIEN, 										// Xenomorph
-	ROLE_WIZARD = /datum/game_mode/wizard 				// Wizard
+	ROLE_ABDUCTOR = /datum/game_mode/abduction, 		// Абдуктор
+	ROLE_BLOB = /datum/game_mode/blob, 					// Блоб
+	ROLE_CHANGELING = /datum/game_mode/changeling, 		// Генокрад
+	ROLE_BORER, 										// Мозговой Червь
+	ROLE_CULTIST = /datum/game_mode/cult, 				// Культист
+	ROLE_DEVIL = /datum/game_mode/devil/devil_agents, 	// Торговец душ
+	ROLE_GSPIDER, 										// Гигантский паук
+	ROLE_GUARDIAN, 										// Дух-хранитель
+	ROLE_MORPH, 										// Морф
+	ROLE_OPERATIVE = /datum/game_mode/nuclear, 			// Оперативник Синдиката
+	ROLE_PAI, 											// Персональный ИИ
+	ROLE_POSIBRAIN, 									// Позитронный мозг
+	ROLE_REVENANT, 										// Ревенант
+	ROLE_REV = /datum/game_mode/revolution, 			// Революционер
+	ROLE_SENTIENT, 										// Разумное животное
+	ROLE_SHADOWLING = /datum/game_mode/shadowling, 		// Тенеморф
+	ROLE_DEMON, 										// Демон Резни
+	ROLE_NINJA, 										// Космический ниндзя
+	ROLE_TRADER, 										// Торговец
+	ROLE_TRAITOR = /datum/game_mode/traitor, 			// Предатель
+	ROLE_VAMPIRE = /datum/game_mode/vampire, 			// Вампир
+	ROLE_RAIDER = /datum/game_mode/heist, 				// Вокс-Рейдер
+	ROLE_ALIEN, 										// Чужой
+	ROLE_WIZARD = /datum/game_mode/wizard 				// Маг
 	// UNUSED/BROKEN ANTAGS
 //	ROLE_HOG_GOD = /datum/game_mode/hand_of_god,
 //	ROLE_HOG_CULTIST = /datum/game_mode/hand_of_god,
