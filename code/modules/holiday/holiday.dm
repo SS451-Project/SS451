@@ -13,7 +13,7 @@
 
 // When the round starts, this proc is ran to get a text message to display to everyone to wish them a happy holiday
 /datum/holiday/proc/greet()
-	return "Have a happy [name]!"
+	return "Желаю вам счастливого [name]!"
 
 // Returns special prefixes for the station name on certain days. You wind up with names like "Christmas Object Epsilon". See new_station_name()
 /datum/holiday/proc/getStationPrefix()
@@ -65,7 +65,7 @@
 	end_month = JANUARY
 
 /datum/holiday/groundhog
-	name = "Groundhog Day"
+	name = "Дня сурка"
 	begin_day = 2
 	begin_month = FEBRUARY
 
@@ -76,23 +76,25 @@
 	end_day = 15 //1 day extra
 
 /datum/holiday/random_kindness
-	name = "Random Acts of Kindness Day"
+	name = "Дня случайных проявлений доброты"
 	begin_day = 17
 	begin_month = FEBRUARY
 
 /datum/holiday/random_kindness/greet()
-	return "Go do some random acts of kindness for a stranger!" //haha yeah right
+	return "Иди и сделай несколько случайных добрых дел для незнакомца!" //haha yeah right
 
 /datum/holiday/pi
-	name = "Pi Day"
+	name = "Дня Пи"
 	begin_day = 14
 	begin_month = MARCH
 
 /datum/holiday/no_this_is_patrick
-	name = "St. Patrick's Day"
+	name = "Дня Святого Патрика"
 	begin_day = 17
 	begin_month = MARCH
-
+/datum/holiday/no_this_is_patrick/greet()	
+	return "НЕТ, ЭТО ПАТРИК!"
+	
 /datum/holiday/april_fools
 	name = APRIL_FOOLS
 	begin_day = 1
@@ -100,83 +102,83 @@
 	end_day = 8 //7 days extra so everyone can enjoy the festivities
 
 /datum/holiday/fourtwenty
-	name = "Four-Twenty"
+	name = "Четыре-Двадцать"
 	begin_day = 20
 	begin_month = APRIL
 
 /datum/holiday/earth
-	name = "Earth Day"
+	name = "Дня Земли"
 	begin_day = 22
 	begin_month = APRIL
 
 /datum/holiday/labor
-	name = "Labor Day"
+	name = "Дня труда"
 	begin_day = 1
 	begin_month = MAY
 
 /datum/holiday/firefighter
-	name = "Firefighter's Day"
+	name = "Дня пожарных"
 	begin_day = 4
 	begin_month = MAY
 
 // No holidays in June :'(
 
 /datum/holiday/doctor
-	name = "Doctor's Day"
+	name = "Дня врача"
 	begin_day = 1
 	begin_month = JULY
 
 /datum/holiday/UFO
-	name = "UFO Day"
+	name = "Дня НЛО"
 	begin_day = 2
 	begin_month = JULY
 
 /datum/holiday/writer
-	name = "Writer's Day"
+	name = "Дня писателя"
 	begin_day = 8
 	begin_month = JULY
 
 /datum/holiday/friendship
-	name = "Friendship Day"
+	name = "Дня дружбы"
 	begin_day = 30
 	begin_month = JULY
 
 /datum/holiday/friendship/greet()
-	return "Have a magical [name]!"
+	return "Волшебного [name]!"
 
 /datum/holiday/beer
-	name = "Beer Day"
+	name = "Дня пива"
 	begin_day = 5
 	begin_month = AUGUST
 
 /datum/holiday/pirate
-	name = "Talk-Like-a-Pirate Day"
+	name = "Дня разговоров, как у пирата"
 	begin_day = 19
 	begin_month = SEPTEMBER
 
 /datum/holiday/pirate/greet()
-	return "Ye be talkin' like a pirate today or else ye'r walkin' tha plank, matey!"
+	return "Ты се'одня раз'овариваешь как пират, иначе ты пайдешь па даске, приятэль!"
 
 /datum/holiday/questions
-	name = "Stupid-Questions Day"
+	name = "Дня глупых вопросов"
 	begin_day = 28
 	begin_month = SEPTEMBER
 
 /datum/holiday/questions/greet()
-	return "Are you having a happy [name]?"
+	return "У тебя счастливая жизнь [name]?"
 
 /datum/holiday/animal
-	name = "Animal's Day"
+	name = "Дня животных"
 	begin_day = 4
 	begin_month = OCTOBER
 
 /datum/holiday/smile
-	name = "Smiling Day"
+	name = "Дня улыбок"
 	begin_day = 7
 	begin_month = OCTOBER
 
 /datum/holiday/boss
-	name = "Boss' Day"
+	name = "Дня босса"
 	begin_day = 16
 	begin_month = OCTOBER
 
@@ -188,38 +190,38 @@
 	end_month = NOVEMBER
 
 /datum/holiday/halloween/greet()
-	return "Have a spooky Halloween!"
+	return "Желаю вам жуткого Хэллоуина!"
 
 /datum/holiday/vegan
-	name = "Vegan Day"
+	name = "Дня веганов"
 	begin_day = 1
 	begin_month = NOVEMBER
 
 /datum/holiday/kindness
-	name = "Kindness Day"
+	name = "Дня доброты"
 	begin_day = 13
 	begin_month = NOVEMBER
 
 /datum/holiday/flowers
-	name = "Flowers Day"
+	name = "Дня цветов"
 	begin_day = 19
 	begin_month = NOVEMBER
 
 /datum/holiday/hello
-	name = "Saying-'Hello' Day"
+	name = "Говорю-'Привет', Дня"
 	begin_day = 21
 	begin_month = NOVEMBER
 
 /datum/holiday/hello/greet()
-	return "[pick(list("Aloha", "Bonjour", "Hello", "Hi", "Greetings", "Salutations", "Bienvenidos", "Hola", "Howdy"))]! " + ..()
+	return "[pick(list("Алоха", "Бонжур", "Привет", "Хай", "Приветствую", "Салют", "Бьенвенидос", "Хола", "Здорово"))]! " + ..()
 
 /datum/holiday/human_rights
-	name = "Human-Rights Day"
+	name = "Дня прав человека"
 	begin_day = 10
 	begin_month = DECEMBER
 
 /datum/holiday/monkey
-	name = "Monkey Day"
+	name = "Дня обезьяны"
 	begin_day = 14
 	begin_month = DECEMBER
 
@@ -232,18 +234,18 @@
 	eventChance = 20
 
 /datum/holiday/xmas/greet()
-	var/greeting = "Have a merry Christmas!"
+	var/greeting = "Счастливого Рождества!"
 	if(prob(30))
-		greeting += "<br><br>To celebrate, choose a random crewmate on the Manifest and give them a gift!"
+		greeting += "<br><br>Чтобы отпраздновать это событие, выберите случайного члена экипажа в Манифесте экипажа и сделайте ему подарок!"
 	return greeting
 
 /datum/holiday/boxing
-	name = "Boxing Day"
+	name = "Дня подарков"
 	begin_day = 26
 	begin_month = DECEMBER
 
 /datum/holiday/friday_thirteenth
-	name = "Friday the 13th"
+	name = "Пятницы, 13-ой"
 
 /datum/holiday/friday_thirteenth/shouldCelebrate(dd, mm, yy)
 	if(dd == 13)
@@ -252,7 +254,7 @@
 	return 0
 
 /datum/holiday/friday_thirteenth/getStationPrefix()
-	return pick("Mike","Friday","Evil","Myers","Murder","Deathly","Stabby")
+	return pick("Майк","Пятница","Злой","Майерс","Убийца","Смертельный","Поножовщина")
 
 /datum/holiday/easter
 	name = EASTER
@@ -320,7 +322,7 @@
 				begin_day += 31
 				begin_month-- //begins in march, ends in april
 
-//	to_chat(world, "Easter calculates to be on [begin_day] of [begin_month] ([days_early] early) to [end_day] of [end_month] ([days_extra] extra) for 20[yy]")
+//	to_chat(world, "Пасха рассчитывает быть на [begin_day] от [begin_month] ([days_early] early) к [end_day] от [end_month] ([days_extra] extra) до 20[yy]")
 	return ..()
 
 
@@ -355,5 +357,5 @@
 	//update our hub status
 	world.update_status()
 
-	message_admins("<span class='notice'>ADMIN: Event: [key_name_admin(src)] force-set Holiday to \"[H]\"</span>")
-	log_admin("[key_name(src)] force-set Holiday to \"[H]\"")
+	message_admins("<span class='notice'>ADMIN: Ивент: [key_name_admin(src)] принудительно установил праздничный день на \"[H]\"</span>")
+	log_admin("[key_name(src)] принудительно установил праздничный день на \"[H]\"")
