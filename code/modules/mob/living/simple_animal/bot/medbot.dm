@@ -1,6 +1,6 @@
 //Medbot
 /mob/living/simple_animal/bot/medbot
-	name = "\неправильный Медибот"
+	name = "Медибот"
 	desc = "Маленький медицинский робот. Он выглядит несколько обескураженным."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "medibot0"
@@ -15,10 +15,10 @@
 	bot_type = MED_BOT
 	bot_filter = RADIO_MEDBOT
 	model = "Медибот"
-	bot_purpose = "seek out hurt crewmembers and ensure that they are healed"
+	bot_purpose = "seek out hurt crew members and ensure that they are healed"
 	bot_core_type = /obj/machinery/bot_core/medbot
 	window_id = "automed"
-	window_name = "Automatic Medical Unit v1.1"
+	window_name = "Автоматический Мед Блок v1.1"
 	path_image_color = "#DDDDFF"
 	data_hud_type = DATA_HUD_MEDICAL_ADVANCED
 
@@ -69,7 +69,7 @@
 	skin = "machine"
 
 /mob/living/simple_animal/bot/medbot/mysterious
-	name = "\неправильный Таинственный Медиботt"
+	name = "Таинственный Медиботt"
 	desc = "Международный Медибот тайны."
 	skin = "bezerk"
 	treatment_oxy = "perfluorodecalin"
@@ -78,7 +78,7 @@
 	treatment_tox = "charcoal"
 
 /mob/living/simple_animal/bot/medbot/syndicate
-	name = "\подозрительный Медибот"
+	name = "подозрительный Медибот"
 	desc = "Вам лучше иметь страховку!"
 	skin = "bezerk"
 	faction = list("syndicate")
@@ -285,7 +285,7 @@
 	if(assess_patient(H))
 		last_found = world.time
 		if((last_newpatient_speak + 300) < world.time) //Don't spam these messages!
-			var/list/messagevoice = list("Эй, [H.name]! Держись, я иду." = 'sound/voice/mcoming.ogg', "Подожди [H.name]! Я хочу помочь!" = 'sound/voice/mhelp.ogg', "[H.name], вы кажется ранены!" = 'sound/voice/minjured.ogg')
+			var/list/messagevoice = list("Эй, [H.name]! Держись, я иду." = 'sound/voice/mcoming.ogg', "Подожди, [H.name]! Я хочу помочь!" = 'sound/voice/mhelp.ogg', "[H.name], вы кажется ранены!" = 'sound/voice/minjured.ogg')
 			var/message = pick(messagevoice)
 			speak(message)
 			playsound(loc, messagevoice[message], 50, 0)
@@ -535,7 +535,7 @@
 				else
 					patient.reagents.add_reagent(reagent_id,injection_amount)
 				C.visible_message("<span class='danger'>[src] вводит в [patient] шприц!</span>", \
-					"<span class='userdanger'>[src] впрыскивает вам свой шприц!</span>")
+					"<span class='userdanger'>[src] впрыскивает в вас содержимое шприца!</span>")
 			else
 				visible_message("[src] втягивает свой шприц.")
 			update_icon()
