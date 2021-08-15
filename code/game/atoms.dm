@@ -306,17 +306,17 @@
 //All atoms
 /atom/proc/examine(mob/user, infix = "", suffix = "")
 	//This reformat names to get a/an properly working on item descriptions when they are bloody
-	var/f_name = "\a [src][infix]."
+	var/f_name = "[src]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
 			f_name = ""
 		else
 			f_name = ""
 		if(blood_color != "#030303")
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
+			f_name += "<span class='danger'>окровавленный</span> [name]!"
 		else
-			f_name += "oil-stained [name][infix]."
-	. = list("[bicon(src)] Это [f_name] [suffix]")
+			f_name += "в масляных пятнах [name]."
+	. = list("[bicon(src)] Это [f_name]")
 	if(desc)
 		. += desc
 
@@ -992,9 +992,9 @@ GLOBAL_LIST_EMPTY(blood_splatter_icons)
 		// OR (much more likely) the thing is unlabeled yet.
 		default_value = ""
 	if(!prompt)
-		prompt = "What would you like the label on [src] to be?"
+		prompt = "Какую вы бы хотели видеть этикетку на [src]?"
 
-	var/t = input(user, prompt, "Renaming [src]", default_value)  as text | null
+	var/t = input(user, prompt, "Переименование [src]", default_value)  as text | null
 	if(isnull(t))
 		// user pressed Cancel
 		return null
