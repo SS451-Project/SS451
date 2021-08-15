@@ -284,7 +284,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				dat += "<b>Voice Translator:</b> <a href ='?_src_=prefs;preference=speciesprefs;task=input'>[speciesprefs ? "Yes" : "No"]</a><br>"
 			dat += "<b>Вторичный язык:</b> <a href='?_src_=prefs;preference=language;task=input'>[language]</a><br>"
 			if(S.autohiss_basic_map)
-				dat += "<b>Auto-accent:</b> <a href='?_src_=prefs;preference=autohiss_mode;task=input'>[autohiss_mode == AUTOHISS_FULL ? "Full" : (autohiss_mode == AUTOHISS_BASIC ? "Basic" : "Off")]</a><br>"
+				dat += "<b>Авто-акцент:</b> <a href='?_src_=prefs;preference=autohiss_mode;task=input'>[autohiss_mode == AUTOHISS_FULL ? "Full" : (autohiss_mode == AUTOHISS_BASIC ? "Basic" : "Off")]</a><br>"
 			dat += "<b>Группа крови:</b> <a href='?_src_=prefs;preference=b_type;task=input'>[b_type]</a><br>"
 			if(S.bodyflags & (HAS_SKIN_TONE|HAS_ICON_SKIN_TONE))
 				dat += "<b>Тон кожи:</b> <a href='?_src_=prefs;preference=s_tone;task=input'>[S.bodyflags & HAS_ICON_SKIN_TONE ? "[s_tone]" : "[-s_tone + 35]/220"]</a><br>"
@@ -296,40 +296,40 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			dat += "<h2>Волосы & Аксессуары</h2>"
 
 			if(S.bodyflags & HAS_HEAD_ACCESSORY) //Species that have head accessories.
-				var/headaccessoryname = "Head Accessory: "
+				var/headaccessoryname = "Головной аксессуар: "
 				if(species == "Unathi")
-					headaccessoryname = "Horns: "
+					headaccessoryname = "Рога: "
 				dat += "<b>[headaccessoryname]</b>"
 				dat += "<a href='?_src_=prefs;preference=ha_style;task=input'>[ha_style]</a> "
-				dat += "<a href='?_src_=prefs;preference=headaccessory;task=input'>Color</a> [color_square(hacc_colour)]<br>"
+				dat += "<a href='?_src_=prefs;preference=headaccessory;task=input'>Цвет</a> [color_square(hacc_colour)]<br>"
 
 			if(S.bodyflags & HAS_HEAD_MARKINGS) //Species with head markings.
 				dat += "<b>Отметины на голове:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_head;task=input'>[m_styles["head"]]</a>"
-				dat += "<a href='?_src_=prefs;preference=m_head_colour;task=input'>Color</a> [color_square(m_colours["head"])]<br>"
+				dat += "<a href='?_src_=prefs;preference=m_head_colour;task=input'>Цвет</a> [color_square(m_colours["head"])]<br>"
 			if(S.bodyflags & HAS_BODY_MARKINGS) //Species with body markings/tattoos.
 				dat += "<b>Отметины на теле:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_body;task=input'>[m_styles["body"]]</a>"
-				dat += "<a href='?_src_=prefs;preference=m_body_colour;task=input'>Color</a> [color_square(m_colours["body"])]<br>"
+				dat += "<a href='?_src_=prefs;preference=m_body_colour;task=input'>Цвет</a> [color_square(m_colours["body"])]<br>"
 			if(S.bodyflags & HAS_TAIL_MARKINGS) //Species with tail markings.
 				dat += "<b>Отметины на хвосте:</b> "
 				dat += "<a href='?_src_=prefs;preference=m_style_tail;task=input'>[m_styles["tail"]]</a>"
-				dat += "<a href='?_src_=prefs;preference=m_tail_colour;task=input'>Color</a> [color_square(m_colours["tail"])]<br>"
+				dat += "<a href='?_src_=prefs;preference=m_tail_colour;task=input'>Цвет</a> [color_square(m_colours["tail"])]<br>"
 
 			dat += "<b>Причёска:</b> "
 			dat += "<a href='?_src_=prefs;preference=h_style;task=input'>[h_style]</a>"
-			dat += "<a href='?_src_=prefs;preference=hair;task=input'>Color</a> [color_square(h_colour)]"
+			dat += "<a href='?_src_=prefs;preference=hair;task=input'>Цвет</a> [color_square(h_colour)]"
 			var/datum/sprite_accessory/temp_hair_style = GLOB.hair_styles_public_list[h_style]
 			if(temp_hair_style && temp_hair_style.secondary_theme && !temp_hair_style.no_sec_colour)
-				dat += " <a href='?_src_=prefs;preference=secondary_hair;task=input'>Color #2</a> [color_square(h_sec_colour)]"
+				dat += " <a href='?_src_=prefs;preference=secondary_hair;task=input'>Цвет #2</a> [color_square(h_sec_colour)]"
 			dat += "<br>"
 
 			dat += "<b>Волосы на лице:</b> "
 			dat += "<a href='?_src_=prefs;preference=f_style;task=input'>[f_style ? "[f_style]" : "Shaved"]</a>"
-			dat += "<a href='?_src_=prefs;preference=facial;task=input'>Color</a> [color_square(f_colour)]"
+			dat += "<a href='?_src_=prefs;preference=facial;task=input'>Цвет</a> [color_square(f_colour)]"
 			var/datum/sprite_accessory/temp_facial_hair_style = GLOB.facial_hair_styles_list[f_style]
 			if(temp_facial_hair_style && temp_facial_hair_style.secondary_theme && !temp_facial_hair_style.no_sec_colour)
-				dat += " <a href='?_src_=prefs;preference=secondary_facial;task=input'>Color #2</a> [color_square(f_sec_colour)]"
+				dat += " <a href='?_src_=prefs;preference=secondary_facial;task=input'>Цвет #2</a> [color_square(f_sec_colour)]"
 			dat += "<br>"
 
 
@@ -357,9 +357,9 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			if(S.bodyflags & HAS_ALT_HEADS) //Species with alt heads.
 				dat += "<b>Сменная голова:</b> "
 				dat += "<a href='?_src_=prefs;preference=alt_head;task=input'>[alt_head]</a><br>"
-			dat += "<b>Конечности и части тела:</b> <a href='?_src_=prefs;preference=limbs;task=input'>Adjust</a><br>"
+			dat += "<b>Конечности и части тела:</b> <a href='?_src_=prefs;preference=limbs;task=input'>Изменить</a><br>"
 			if(species != "Slime People" && species != "Machine")
-				dat += "<b>Внутренние органы:</b> <a href='?_src_=prefs;preference=organs;task=input'>Adjust</a><br>"
+				dat += "<b>Внутренние органы:</b> <a href='?_src_=prefs;preference=organs;task=input'>Изменить</a><br>"
 
 			//display limbs below
 			var/ind = 0
@@ -442,63 +442,63 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			dat += "<b>Ambient Occlusion:</b> <a href='?_src_=prefs;preference=ambientocclusion'><b>[toggles & PREFTOGGLE_AMBIENT_OCCLUSION ? "Вкл" : "Выкл"]</b></a><br>"
 			dat += "<b>Анимация атаки:</b> <a href='?_src_=prefs;preference=ghost_att_anim'>[(toggles2 & PREFTOGGLE_2_ITEMATTACK) ? "Да" : "Нет"]</a><br>"
 			if(unlock_content)
-				dat += "<b>BYOND Membership:</b> <a href='?_src_=prefs;preference=publicity'><b>[(toggles & PREFTOGGLE_MEMBER_PUBLIC) ? "Паблик" : "Скрыт"]</b></a><br>"
+				dat += "<b>Членство BYOND:</b> <a href='?_src_=prefs;preference=publicity'><b>[(toggles & PREFTOGGLE_MEMBER_PUBLIC) ? "Публична" : "Скрыт"]</b></a><br>"
 			dat += "<b>Настройки UI:</b><br>"
 			dat += " - <b>Прозрачность:</b> <a href='?_src_=prefs;preference=UIalpha'><b>[UI_style_alpha]</b></a><br>"
 			dat += " - <b>Цвет:</b> <a href='?_src_=prefs;preference=UIcolor'><b>[UI_style_color]</b></a> <span style='border: 1px solid #161616; background-color: [UI_style_color];'>&nbsp;&nbsp;&nbsp;</span><br>"
 			dat += " - <b>Стиль UI:</b> <a href='?_src_=prefs;preference=ui'><b>[UI_style]</b></a><br>"
-			dat += "<b>Show Runechat Chat Bubbles:</b> <a href='?_src_=prefs;preference=chat_on_map'>[toggles2 & PREFTOGGLE_2_RUNECHAT ? "Enabled" : "Disabled"]</a><br>"
-			dat += "<b>Deadchat Anonymity:</b> <a href='?_src_=prefs;preference=ghost_anonsay'><b>[toggles2 & PREFTOGGLE_2_ANONDCHAT ? "Anonymous" : "Not Anonymous"]</b></a><br>"
+			dat += "<b>Показывать пузырьки Runechat:</b> <a href='?_src_=prefs;preference=chat_on_map'>[toggles2 & PREFTOGGLE_2_RUNECHAT ? "Вкл" : "Выкл"]</a><br>"
+			dat += "<b>Анонимность мертвого чата:</b> <a href='?_src_=prefs;preference=ghost_anonsay'><b>[toggles2 & PREFTOGGLE_2_ANONDCHAT ? "Анонимный" : "Не анонимный"]</b></a><br>"
 			if(user.client.donator_level > 0)
-				dat += "<b>Donator Publicity:</b> <a href='?_src_=prefs;preference=donor_public'><b>[(toggles & PREFTOGGLE_DONATOR_PUBLIC) ? "Public" : "Hidden"]</b></a><br>"
-			dat += "<b>Fancy TGUI:</b> <a href='?_src_=prefs;preference=tgui'>[(toggles2 & PREFTOGGLE_2_FANCYUI) ? "Yes" : "No"]</a><br>"
+				dat += "<b>Реклама донатеров:</b> <a href='?_src_=prefs;preference=donor_public'><b>[(toggles & PREFTOGGLE_DONATOR_PUBLIC) ? "Публична" : "Скрыта"]</b></a><br>"
+			dat += "<b>Fancy TGUI:</b> <a href='?_src_=prefs;preference=tgui'>[(toggles2 & PREFTOGGLE_2_FANCYUI) ? "Да" : "Нет"]</a><br>"
 			dat += "<b>FPS:</b>	 <a href='?_src_=prefs;preference=clientfps;task=input'>[clientfps]</a><br>"
-			dat += "<b>Ghost Ears:</b> <a href='?_src_=prefs;preference=ghost_ears'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>"
-			dat += "<b>Ghost Radio:</b> <a href='?_src_=prefs;preference=ghost_radio'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>"
-			dat += "<b>Ghost Sight:</b> <a href='?_src_=prefs;preference=ghost_sight'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>"
-			dat += "<b>Ghost PDA:</b> <a href='?_src_=prefs;preference=ghost_pda'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTPDA) ? "All PDA Messages" : "No PDA Messages"]</b></a><br>"
+			dat += "<b>Уши за призрака:</b> <a href='?_src_=prefs;preference=ghost_ears'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTEARS) ? "Вся речь" : "Ближайшие существа"]</b></a><br>"
+			dat += "<b>Радио за призрака:</b> <a href='?_src_=prefs;preference=ghost_radio'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTRADIO) ? "Вся болтовня" : "Ближайшие вещатели"]</b></a><br>"
+			dat += "<b>Зрение на призрака:</b> <a href='?_src_=prefs;preference=ghost_sight'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTSIGHT) ? "Все эмоции" : "Ближайшие существа"]</b></a><br>"
+			dat += "<b>ПДА за призрака:</b> <a href='?_src_=prefs;preference=ghost_pda'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTPDA) ? "Все сообщения ПДА" : "Без сообщений ПДА"]</b></a><br>"
 			if(check_rights(R_ADMIN,0))
-				dat += "<b>OOC Color:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'><b>Change</b></a><br>"
+				dat += "<b>Цвет OOC:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'><b>Изменить</b></a><br>"
 			if(config.allow_Metadata)
-				dat += "<b>OOC Notes:</b> <a href='?_src_=prefs;preference=metadata;task=input'><b>Edit</b></a><br>"
-			dat += "<b>Parallax (Fancy Space):</b> <a href='?_src_=prefs;preference=parallax'>"
+				dat += "<b>OOC заметки:</b> <a href='?_src_=prefs;preference=metadata;task=input'><b>Изменить</b></a><br>"
+			dat += "<b>Качество параллакса (Анимация задника космоса):</b> <a href='?_src_=prefs;preference=parallax'>"
 			switch (parallax)
 				if(PARALLAX_LOW)
-					dat += "Low"
+					dat += "Низкое"
 				if(PARALLAX_MED)
-					dat += "Medium"
+					dat += "Среднее"
 				if(PARALLAX_INSANE)
-					dat += "Insane"
+					dat += "Безумное"
 				if(PARALLAX_DISABLE)
-					dat += "Disabled"
+					dat += "Выкл"
 				else
-					dat += "High"
+					dat += "Высокое"
 			dat += "</a><br>"
-			dat += "<b>Play Admin MIDIs:</b> <a href='?_src_=prefs;preference=hear_midis'><b>[(sound & SOUND_MIDI) ? "Yes" : "No"]</b></a><br>"
-			dat += "<b>Play Lobby Music:</b> <a href='?_src_=prefs;preference=lobby_music'><b>[(sound & SOUND_LOBBY) ? "Yes" : "No"]</b></a><br>"
-			dat += "<b>Randomized Character Slot:</b> <a href='?_src_=prefs;preference=randomslot'><b>[toggles2 & PREFTOGGLE_2_RANDOMSLOT ? "Yes" : "No"]</b></a><br>"
-			dat += "<b>Window Flashing:</b> <a href='?_src_=prefs;preference=winflash'>[(toggles2 & PREFTOGGLE_2_WINDOWFLASHING) ? "Yes" : "No"]</a><br>"
+			dat += "<b>Проигрывать MIDI админов:</b> <a href='?_src_=prefs;preference=hear_midis'><b>[(sound & SOUND_MIDI) ? "Да" : "Нет"]</b></a><br>"
+			dat += "<b>Воспроизведение музыки в Лобби:</b> <a href='?_src_=prefs;preference=lobby_music'><b>[(sound & SOUND_LOBBY) ? "Да" : "Нет"]</b></a><br>"
+			dat += "<b>Случайный слот с персонажем:</b> <a href='?_src_=prefs;preference=randomslot'><b>[toggles2 & PREFTOGGLE_2_RANDOMSLOT ? "Да" : "Нет"]</b></a><br>"
+			dat += "<b>Вспышка на окне:</b> <a href='?_src_=prefs;preference=winflash'>[(toggles2 & PREFTOGGLE_2_WINDOWFLASHING) ? "Да" : "Нет"]</a><br>"
 			// RIGHT SIDE OF THE PAGE
 			dat += "</td><td width='300px' height='300px' valign='top'>"
-			dat += "<h2>Настройки специальных ролей</h2>"
+			dat += "<h2>Настройки спец и антаг ролей</h2>"
 			if(jobban_isbanned(user, "Syndicate"))
 				dat += "<b>Вам запрещено играть за особые роли.</b>"
 				be_special = list()
 			else
 				for(var/i in GLOB.special_roles)
 					if(jobban_isbanned(user, i))
-						dat += "<b>Be [capitalize(i)]:</b> <font color=red><b> \[BANNED]</b></font><br>"
+						dat += "<b>[capitalize(i)]:</b> <font color=red><b> \[ЗАБАНЕН]</b></font><br>"
 					else if(!player_old_enough_antag(user.client, i))
 						var/available_in_days_antag = available_in_days_antag(user.client, i)
 						var/role_available_in_playtime = get_exp_format(role_available_in_playtime(user.client, i))
 						if(available_in_days_antag)
-							dat += "<b>Be [capitalize(i)]:</b> <font color=red><b> \[IN [(available_in_days_antag)] DAYS]</b></font><br>"
+							dat += "<b>[capitalize(i)]:</b> <font color=red><b> \[ЧЕРЕЗ [(available_in_days_antag)] ДНЕЙ]</b></font><br>"
 						else if(role_available_in_playtime)
-							dat += "<b>Be [capitalize(i)]:</b> <font color=red><b> \[IN [(role_available_in_playtime)]]</b></font><br>"
+							dat += "<b>[capitalize(i)]:</b> <font color=red><b> \[ЧЕРЕЗ [(role_available_in_playtime)]]</b></font><br>"
 						else
-							dat += "<b>Be [capitalize(i)]:</b> <font color=red><b> \[ERROR]</b></font><br>"
+							dat += "<b>[capitalize(i)]:</b> <font color=red><b> \[ОШИБКА]</b></font><br>"
 					else
-						dat += "<b>Be [capitalize(i)]:</b> <a href='?_src_=prefs;preference=be_special;role=[i]'><b>[(i in src.be_special) ? "Yes" : "No"]</b></a><br>"
+						dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;preference=be_special;role=[i]'><b>[(i in src.be_special) ? "Теперь вы можете стать им" : "Нет"]</b></a><br>"
 			dat += "</td></tr></table>"
 
 		if(TAB_GEAR)
@@ -518,7 +518,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			if(total_cost < max_gear_slots)
 				fcolor = "#E67300"
 			dat += "<table align='center' width='100%'>"
-			dat += "<tr><td colspan=4><center><b><font color='[fcolor]'>[total_cost]/[max_gear_slots]</font> loadout points spent.</b> \[<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
+			dat += "<tr><td colspan=4><center><b><font color='[fcolor]'>[total_cost]/[max_gear_slots]</font> потраченные очки снаряжения.</b> \[<a href='?_src_=prefs;preference=gear;clear_loadout=1'>Очистить снаряжение</a>\]</center></td></tr>"
 			dat += "<tr><td colspan=4><center><b>"
 
 			var/firstcat = 1
@@ -560,10 +560,10 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 	dat += "<hr><center>"
 	if(!IsGuestKey(user.key))
-		dat += "<a href='?_src_=prefs;preference=load'>Undo</a> - "
-		dat += "<a href='?_src_=prefs;preference=save'>Save Setup</a> - "
+		dat += "<a href='?_src_=prefs;preference=load'>Отменить</a> - "
+		dat += "<a href='?_src_=prefs;preference=save'>Сохранить настройки</a> - "
 
-	dat += "<a href='?_src_=prefs;preference=reset_all'>Reset Setup</a>"
+	dat += "<a href='?_src_=prefs;preference=reset_all'>Сбросить настройки</a>"
 	dat += "</center>"
 
 	var/datum/browser/popup = new(user, "preferences", "<div align='center'>Настройка персонажа</div>", 820, 660)
@@ -603,13 +603,15 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	var/list/html = list()
 	html += "<body>"
 	if(!length(SSjobs.occupations))
-		html += "The Jobs subsystem is not yet finished creating jobs, please try again later"
-		html += "<center><a href='?_src_=prefs;preference=job;task=close'>Done</a></center><br>" // Easier to press up here.
+		html += "Подсистема профессии еще не закончила создание профессий, пожалуйста, повторите попытку позже"
+		html += "<center><a href='?_src_=prefs;preference=job;task=close'>Готово</a></center><br>" // Easier to press up here.
 	else
 		html += "<tt><center>"
-		html += "<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br><br>"
-		html += "<center><a href='?_src_=prefs;preference=job;task=close'>Save</a></center><br>" // Easier to press up here.
-		html += "<div align='center'>Left-click to raise an occupation preference, right-click to lower it.<br></div>"
+		html += "<b>Выберите шансы на профессию</b><br>Недоступные профессии будут зачеркнуты.<br><br>"
+		html += "<center><a href='?_src_=prefs;preference=job;task=close'>Сохранить</a></center><br>" // Easier to press up here.
+		html += "<div align='center'>ЛКМ - повысить шанс на профессию при спавне / ПКМ - понизить.<br></div>"
+		html += "<div align='center'>Шанс на то, что вы получите выбранную вами профессию - определяется до начала игры.<br></div>"
+		html += "<div align='center'>Если вы выбрали несколько профессий, то будет выбран 'самый высокий' приоритет, если профессия не будет занята другим игроком.<br></div>"
 		html += "<script type='text/javascript'>function setJobPrefRedirect(level, rank) { window.location.href='?_src_=prefs;preference=job;task=setJobLevel;level=' + level + ';text=' + encodeURIComponent(rank); return false; }</script>"
 		html += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more colomns.
 		html += "<table width='100%' cellpadding='1' cellspacing='0'>"
@@ -651,7 +653,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				html += "<del class='dark'>[rank]</del></td><td class='bad'><b> \[КАРМА]</b></td></tr>"
 				continue
 			if(jobban_isbanned(user, job.title))
-				html += "<del class='dark'>[rank]</del></td><td class='bad'><b> \[ЗАБАНЕНО]</b></td></tr>"
+				html += "<del class='dark'>[rank]</del></td><td class='bad'><b> \[ЗАБАНЕН]</b></td></tr>"
 				continue
 			var/available_in_playtime = job.available_in_playtime(user.client)
 			if(available_in_playtime)
@@ -677,28 +679,28 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 			html += "</td><td width='40%'>"
 
-			var/prefLevelLabel = "ERROR"
+			var/prefLevelLabel = "ОШИБКА"
 			var/prefLevelColor = "pink"
 			var/prefUpperLevel = -1 // level to assign on left click
 			var/prefLowerLevel = -1 // level to assign on right click
 
 			if(GetJobDepartment(job, 1) & job.flag)
-				prefLevelLabel = "High"
+				prefLevelLabel = "Высокий"
 				prefLevelColor = "slateblue"
 				prefUpperLevel = 4
 				prefLowerLevel = 2
 			else if(GetJobDepartment(job, 2) & job.flag)
-				prefLevelLabel = "Medium"
+				prefLevelLabel = "Средний"
 				prefLevelColor = "green"
 				prefUpperLevel = 1
 				prefLowerLevel = 3
 			else if(GetJobDepartment(job, 3) & job.flag)
-				prefLevelLabel = "Low"
+				prefLevelLabel = "Низкий"
 				prefLevelColor = "orange"
 				prefUpperLevel = 2
 				prefLowerLevel = 4
 			else
-				prefLevelLabel = "NEVER"
+				prefLevelLabel = "НИКОГДА"
 				prefLevelColor = "red"
 				prefUpperLevel = 3
 				prefLowerLevel = 1
@@ -710,9 +712,9 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 			if(job.title == "Civilian")//Civilian is special
 				if(job_support_low & JOB_CIVILIAN)
-					html += " <font color=green>Yes</font></a>"
+					html += " <font color=green>Да</font></a>"
 				else
-					html += " <font color=red>No</font></a>"
+					html += " <font color=red>Нет</font></a>"
 				html += "</td></tr>"
 				continue
 	/*
@@ -737,19 +739,19 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 		switch(alternate_option)
 			if(GET_RANDOM_JOB)
-				html += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Get random job if preferences unavailable</font></a></u></center><br>"
+				html += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Получить случайную профессию, если предпочтения недоступны</font></a></u></center><br>"
 			if(BE_ASSISTANT)
-				html += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Be a civilian if preferences unavailable</font></a></u></center><br>"
+				html += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Будьте гражданским, если предпочтения недоступны</font></a></u></center><br>"
 			if(RETURN_TO_LOBBY)
-				html += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Return to lobby if preferences unavailable</font></a></u></center><br>"
+				html += "<center><br><u><a href='?_src_=prefs;preference=job;task=random'><font color=white>Вернуться в лобби, если настройки недоступны</font></a></u></center><br>"
 
-		html += "<center><a href='?_src_=prefs;preference=job;task=reset'>Reset</a></center>"
-		html += "<center><br><a href='?_src_=prefs;preference=job;task=learnaboutselection'>Learn About Job Selection</a></center>"
+		html += "<center><a href='?_src_=prefs;preference=job;task=reset'>Сбросить</a></center>"
+		html += "<center><br>Узнайте о выборе профессии здесь: https://ss220.space/wiki/index.php/Roles</center>"
 		html += "</tt>"
 
 	user << browse(null, "window=preferences")
 //		user << browse(HTML, "window=mob_occupation;size=[width]x[height]")
-	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Occupation Preferences</div>", width, height)
+	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Предпочтения в профессиях</div>", width, height)
 	popup.set_window_options("can_close=0")
 	var/html_string = html.Join()
 	popup.set_content(html_string)
@@ -839,7 +841,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 		return
 
 	if(!isnum(desiredLvl))
-		to_chat(user, "<span class='warning'>UpdateJobPreference - desired level was not a number. Please notify coders!</span>")
+		to_chat(user, "<span class='warning'>UpdateJobPreference - желаемый уровень не является числом. Пожалуйста, сообщите кодерам!</span>")
 		ShowChoices(user)
 		return
 
@@ -857,7 +859,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	return 1
 
 /datum/preferences/proc/ShowDisabilityState(mob/user, flag, label)
-	return "<li><b>[label]:</b> <a href=\"?_src_=prefs;task=input;preference=disabilities;disability=[flag]\">[disabilities & flag ? "Yes" : "No"]</a></li>"
+	return "<li><b>[label]:</b> <a href=\"?_src_=prefs;task=input;preference=disabilities;disability=[flag]\">[disabilities & flag ? "Да" : "Нет"]</a></li>"
 
 /datum/preferences/proc/SetDisabilities(mob/user)
 	var/datum/species/S = GLOB.all_species[species]
@@ -865,27 +867,28 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	HTML += "<tt><center>"
 
 	if(CAN_WINGDINGS in S.species_traits)
-		HTML += ShowDisabilityState(user, DISABILITY_FLAG_WINGDINGS, "Speak in Wingdings")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_NEARSIGHTED, "Nearsighted")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_COLOURBLIND, "Colourblind")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_BLIND, "Blind")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_DEAF, "Deaf")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_MUTE, "Mute")
+		HTML += ShowDisabilityState(user, DISABILITY_FLAG_WINGDINGS, "Речь на Windings")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_NEARSIGHTED, "Близорукость")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_COLOURBLIND, "Дальтонизм")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_BLIND, "Слепота")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_DEAF, "Глухота")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_MUTE, "Немота")
 	if(!(NO_OBESITY in S.species_traits))
-		HTML += ShowDisabilityState(user, DISABILITY_FLAG_FAT, "Obese")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_NERVOUS, "Stutter")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_SWEDISH, "Swedish accent")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_CHAV, "Chav accent")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_LISP, "Lisp")
-	HTML += ShowDisabilityState(user, DISABILITY_FLAG_DIZZY, "Dizziness")
+		HTML += ShowDisabilityState(user, DISABILITY_FLAG_FAT, "Ожирение")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_NERVOUS, "Заикание")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_SWEDISH, "Шведский акцент")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_CHAV, "Чавский акцент")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_LISP, "Шепелявость")
+	HTML += ShowDisabilityState(user, DISABILITY_FLAG_DIZZY, "Головокружение")
 
 
 	HTML += {"</ul>
-		<a href=\"?_src_=prefs;task=close;preference=disabilities\">\[Done\]</a>
-		<a href=\"?_src_=prefs;task=reset;preference=disabilities\">\[Reset\]</a>
+		<a href=\"?_src_=prefs;task=close;preference=disabilities\">\[Готово\]</a>
+		<a href=\"?_src_=prefs;task=reset;preference=disabilities\">\[Сбросить\]</a>
+		<div align='center'><span class=bad>КРАЙНЕ НЕ РЕКОМЕНДУЕТСЯ, ЕСЛИ ВЫ ТОЛЬКО ЗНАКОМИТЕСЬ С ИГРОЙ.</div>
 		</center></tt>"}
 
-	var/datum/browser/popup = new(user, "disabil", "<div align='center'>Choose Disabilities</div>", 350, 380)
+	var/datum/browser/popup = new(user, "disabil", "<div align='center'>Выбор инвалидности</div>", 350, 380)
 	popup.set_content(HTML)
 	popup.open(0)
 
@@ -893,31 +896,31 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 	var/HTML = "<body>"
 	HTML += "<tt><center>"
 
-	HTML += "<a href=\"byond://?_src_=prefs;preference=records;task=med_record\">Medical Records</a><br>"
+	HTML += "<a href=\"byond://?_src_=prefs;preference=records;task=med_record\">Медицинские записи</a><br>"
 
 	if(length(med_record) <= 40)
 		HTML += "[med_record]"
 	else
 		HTML += "[copytext_char(med_record, 1, 37)]..."
 
-	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=gen_record\">Employment Records</a><br>"
+	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=gen_record\">Трудовые записи</a><br>"
 
 	if(length(gen_record) <= 40)
 		HTML += "[gen_record]"
 	else
 		HTML += "[copytext_char(gen_record, 1, 37)]..."
 
-	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=sec_record\">Security Records</a><br>"
+	HTML += "<br><a href=\"byond://?_src_=prefs;preference=records;task=sec_record\">Записи Службы Безопасности</a><br>"
 
 	if(length(sec_record) <= 40)
 		HTML += "[sec_record]<br>"
 	else
 		HTML += "[copytext_char(sec_record, 1, 37)]...<br>"
 
-	HTML += "<a href=\"byond://?_src_=prefs;preference=records;records=-1\">\[Done\]</a>"
+	HTML += "<a href=\"byond://?_src_=prefs;preference=records;records=-1\">\[Готово\]</a>"
 	HTML += "</center></tt>"
 
-	var/datum/browser/popup = new(user, "records", "<div align='center'>Character Records</div>", 350, 300)
+	var/datum/browser/popup = new(user, "records", "<div align='center'>Записи персонажа</div>", 350, 300)
 	popup.set_content(HTML)
 	popup.open(0)
 
@@ -1092,7 +1095,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				SetChoices(user)
 			if("learnaboutselection")
 				if(config.wikiurl)
-					if(alert("Would you like to open the Job selection info in your browser?", "Open Job Selection", "Yes", "No") == "Yes")
+					if(alert("Хотите открыть информацию о выборе работы в своем браузере?", "Выбор профессии", "Да", "Нет") == "Да")
 						user << link("[config.wikiurl]/index.php/Job_Selection_and_Assignment")
 				else
 					to_chat(user, "<span class='danger'>The Wiki URL is not set in the server configuration.</span>")
@@ -1144,7 +1147,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 		else
 			user << browse(null, "window=records")
 		if(href_list["task"] == "med_record")
-			var/medmsg = input(usr,"Set your medical notes here.","Medical Records",html_decode(med_record)) as message
+			var/medmsg = input(usr,"Установите здесь свои медицинские записи.","Медицинские записи",html_decode(med_record)) as message
 
 			if(medmsg != null)
 				medmsg = copytext(medmsg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1154,7 +1157,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				SetRecords(user)
 
 		if(href_list["task"] == "sec_record")
-			var/secmsg = input(usr,"Set your security notes here.","Security Records",html_decode(sec_record)) as message
+			var/secmsg = input(usr,"Установите здесь свои записи Службы Безопасности.","Записи Службы Безопасности",html_decode(sec_record)) as message
 
 			if(secmsg != null)
 				secmsg = copytext(secmsg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1163,7 +1166,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				sec_record = secmsg
 				SetRecords(user)
 		if(href_list["task"] == "gen_record")
-			var/genmsg = input(usr,"Set your employment notes here.","Employment Records",html_decode(gen_record)) as message
+			var/genmsg = input(usr,"Поместите свои записи о работе здесь.","Трудовые записи",html_decode(gen_record)) as message
 
 			if(genmsg != null)
 				genmsg = copytext(genmsg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1179,7 +1182,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				loadout_gear -= TG.display_name
 			else
 				if(TG.donator_tier && user.client.donator_level < TG.donator_tier)
-					to_chat(user, "<span class='warning'>That gear is only available at a higher donation tier than you are on.</span>")
+					to_chat(user, "<span class='warning'>Это снаряжение доступно только на более высоком уровне пожертвований, чем у вас.</span>")
 					return
 				var/total_cost = 0
 				var/list/type_blacklist = list()
@@ -1304,7 +1307,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							to_chat(user, "<font color='red'>Invalid name. Your name should be at least 2 and at most [MAX_NAME_LEN] characters long. It may only contain the characters A-Z, a-z, -, ' and .</font>")
 
 				if("age")
-					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
+					var/new_age = input(user, "Выберите возраст вашего персонажа:\n([AGE_MIN]-[AGE_MAX])", "Предпочтение персонажа") as num|null
 					if(new_age)
 						age = max(min(round(text2num(new_age)), AGE_MAX),AGE_MIN)
 				if("species")
@@ -1318,15 +1321,15 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 								new_species += Spec
 //									whitelisted = 1
 //							if(!whitelisted)
-//								alert(user, "You cannot change your species as you need to be whitelisted. If you wish to be whitelisted contact an admin in-game, on the forums, or on IRC.")
+//								alert(user, "Вы не можете изменить свой вид, так как вам нужно попасть в белый список. Если вы хотите попасть в белый список, свяжитесь с администратором в игре.")
 					else //Not using the whitelist? Aliens for everyone!
 						new_species += GLOB.whitelisted_species
 
-					species = input("Please select a species", "Character Generation", null) in sortTim(new_species, /proc/cmp_text_asc)
+					species = input("Пожалуйста, выберите вид", "Поколение персонажей", null) in sortTim(new_species, /proc/cmp_text_asc)
 					var/datum/species/NS = GLOB.all_species[species]
 					if(!istype(NS)) //The species was invalid. Notify the user and fail out.
 						species = prev_species
-						to_chat(user, "<span class='warning'>Invalid species, please pick something else.</span>")
+						to_chat(user, "<span class='warning'>Недопустимый вид, пожалуйста, выберите что-нибудь другое.</span>")
 						return
 					if(prev_species != species)
 						if(NS.has_gender && gender == PLURAL)
@@ -1402,7 +1405,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 					speciesprefs = !speciesprefs //Starts 0, so if someone clicks the button up top there, this won't be 0 anymore. If they click it again, it'll go back to 0.
 				if("language")
 //						var/languages_available
-					var/list/new_languages = list("None")
+					var/list/new_languages = list("Нету")
 /*
 					if(config.usealienwhitelist)
 						for(var/L in GLOB.all_languages)
@@ -1412,7 +1415,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 								languages_available = 1
 
 						if(!(languages_available))
-							alert(user, "There are not currently any available secondary languages.")
+							alert(user, "В настоящее время нет доступных дополнительных языков.")
 					else
 */
 					for(var/L in GLOB.all_languages)
@@ -1420,21 +1423,21 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						if(!(lang.flags & RESTRICTED))
 							new_languages += lang.name
 
-					language = input("Please select a secondary language", "Character Generation", null) in sortTim(new_languages, /proc/cmp_text_asc)
+					language = input("Пожалуйста, выберите дополнительный язык", "Поколение персонажей", null) in sortTim(new_languages, /proc/cmp_text_asc)
 
 				if("autohiss_mode")
 					if(S.autohiss_basic_map)
 						var/list/autohiss_choice = list("Off" = AUTOHISS_OFF, "Basic" = AUTOHISS_BASIC, "Full" = AUTOHISS_FULL)
-						var/new_autohiss_pref = input(user, "Choose your character's auto-accent level:", "Character Preference") as null|anything in autohiss_choice
+						var/new_autohiss_pref = input(user, "Выберите уровень авто-акцента вашего персонажа:", "Предпочтение персонажа") as null|anything in autohiss_choice
 						autohiss_mode = autohiss_choice[new_autohiss_pref]
 
 				if("metadata")
-					var/new_metadata = input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , metadata)  as message|null
+					var/new_metadata = input(user, "Введите любую информацию, которую вы хотели бы, чтобы другие её видели:", "Игровые предпочтения" , metadata)  as message|null
 					if(new_metadata)
 						metadata = sanitize(copytext_char(new_metadata,1,MAX_MESSAGE_LEN))
 
 				if("b_type")
-					var/new_b_type = input(user, "Choose your character's blood-type:", "Character Preference") as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
+					var/new_b_type = input(user, "Выберите группу крови вашего персонажа:", "Предпочтение персонажа") as null|anything in list( "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" )
 					if(new_b_type)
 						b_type = new_b_type
 
@@ -1449,7 +1452,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 					if(species in list("Human", "Unathi", "Tajaran", "Skrell", "Machine", "Vulpkanin", "Vox"))
 						var/datum/sprite_accessory/hair_style = GLOB.hair_styles_public_list[h_style]
 						if(hair_style.secondary_theme && !hair_style.no_sec_colour)
-							var/new_hair = input(user, "Choose your character's secondary hair colour:", "Character Preference", h_sec_colour) as color|null
+							var/new_hair = input(user, "Выберите вторичный цвет волос вашего персонажа:", "Предпочтение персонажа", h_sec_colour) as color|null
 							if(new_hair)
 								h_sec_colour = new_hair
 
@@ -1479,14 +1482,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 								valid_hairstyles += hairstyle
 
 					sortTim(valid_hairstyles, /proc/cmp_text_asc) //this alphabetizes the list
-					var/new_h_style = input(user, "Choose your character's hair style:", "Character Preference") as null|anything in valid_hairstyles
+					var/new_h_style = input(user, "Выберите прическу вашего персонажа:", "Предпочтение персонажа") as null|anything in valid_hairstyles
 					if(new_h_style)
 						h_style = new_h_style
 
 				if("headaccessory")
 					if(S.bodyflags & HAS_HEAD_ACCESSORY) //Species with head accessories.
-						var/input = "Choose the colour of your your character's head accessory:"
-						var/new_head_accessory = input(user, input, "Character Preference", hacc_colour) as color|null
+						var/input = "Выберите цвет головного убора вашего персонажа:"
+						var/new_head_accessory = input(user, input, "Предпочтение персонажа", hacc_colour) as color|null
 						if(new_head_accessory)
 							hacc_colour = new_head_accessory
 
@@ -1501,7 +1504,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							valid_head_accessory_styles += head_accessory_style
 
 						sortTim(valid_head_accessory_styles, /proc/cmp_text_asc)
-						var/new_head_accessory_style = input(user, "Choose the style of your character's head accessory:", "Character Preference") as null|anything in valid_head_accessory_styles
+						var/new_head_accessory_style = input(user, "Выберите стиль головного аксессуара вашего персонажа:", "Предпочтение персонажа") as null|anything in valid_head_accessory_styles
 						if(new_head_accessory_style)
 							ha_style = new_head_accessory_style
 
@@ -1518,7 +1521,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 							valid_alt_heads += alternate_head
 
-						var/new_alt_head = input(user, "Choose your character's alternate head style:", "Character Preference") as null|anything in valid_alt_heads
+						var/new_alt_head = input(user, "Выберите альтернативный стиль головы вашего персонажа:", "Предпочтение персонажа") as null|anything in valid_alt_heads
 						if(new_alt_head)
 							alt_head = new_alt_head
 						if(m_styles["head"])
@@ -1559,14 +1562,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 							valid_markings += markingstyle
 						sortTim(valid_markings, /proc/cmp_text_asc)
-						var/new_marking_style = input(user, "Choose the style of your character's head markings:", "Character Preference", m_styles["head"]) as null|anything in valid_markings
+						var/new_marking_style = input(user, "Выберите стиль отметины головы вашего персонажа:", "Предпочтение персонажа", m_styles["head"]) as null|anything in valid_markings
 						if(new_marking_style)
 							m_styles["head"] = new_marking_style
 
 				if("m_head_colour")
 					if(S.bodyflags & HAS_HEAD_MARKINGS) //Species with head markings.
-						var/input = "Choose the colour of your your character's head markings:"
-						var/new_markings = input(user, input, "Character Preference", m_colours["head"]) as color|null
+						var/input = "Выберите цвет отметин на голове вашего персонажа:"
+						var/new_markings = input(user, input, "Предпочтение персонажа", m_colours["head"]) as color|null
 						if(new_markings)
 							m_colours["head"] = new_markings
 
@@ -1583,14 +1586,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 							valid_markings += markingstyle
 						sortTim(valid_markings, /proc/cmp_text_asc)
-						var/new_marking_style = input(user, "Choose the style of your character's body markings:", "Character Preference", m_styles["body"]) as null|anything in valid_markings
+						var/new_marking_style = input(user, "Выберите стиль отметин тела вашего персонажа:", "Предпочтение персонажа", m_styles["body"]) as null|anything in valid_markings
 						if(new_marking_style)
 							m_styles["body"] = new_marking_style
 
 				if("m_body_colour")
 					if(S.bodyflags & HAS_BODY_MARKINGS) //Species with body markings/tattoos.
-						var/input = "Choose the colour of your your character's body markings:"
-						var/new_markings = input(user, input, "Character Preference", m_colours["body"]) as color|null
+						var/input = "Выберите цвет отметин на теле вашего персонажа:"
+						var/new_markings = input(user, input, "Предпочтение персонажа", m_colours["body"]) as color|null
 						if(new_markings)
 							m_colours["body"] = new_markings
 
@@ -1613,14 +1616,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 							valid_markings += markingstyle
 						sortTim(valid_markings, /proc/cmp_text_asc)
-						var/new_marking_style = input(user, "Choose the style of your character's tail markings:", "Character Preference", m_styles["tail"]) as null|anything in valid_markings
+						var/new_marking_style = input(user, "Выберите стиль отметины хвоста вашего персонажа:", "Предпочтение персонажа", m_styles["tail"]) as null|anything in valid_markings
 						if(new_marking_style)
 							m_styles["tail"] = new_marking_style
 
 				if("m_tail_colour")
 					if(S.bodyflags & HAS_TAIL_MARKINGS) //Species with tail markings.
-						var/input = "Choose the colour of your your character's tail markings:"
-						var/new_markings = input(user, input, "Character Preference", m_colours["tail"]) as color|null
+						var/input = "Выберите цвет отметин на хвосте вашего персонажа:"
+						var/new_markings = input(user, input, "Предпочтение персонажа", m_colours["tail"]) as color|null
 						if(new_markings)
 							m_colours["tail"] = new_markings
 
@@ -1637,14 +1640,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							if(species in accessory.allowed_species)
 								possible_body_accessories += B
 					sortTim(possible_body_accessories, /proc/cmp_text_asc)
-					var/new_body_accessory = input(user, "Choose your body accessory:", "Character Preference") as null|anything in possible_body_accessories
+					var/new_body_accessory = input(user, "Выберите аксессуар для своего тела:", "Предпочтение персонажа") as null|anything in possible_body_accessories
 					if(new_body_accessory)
 						m_styles["tail"] = "None"
 						body_accessory = (new_body_accessory == "None") ? null : new_body_accessory
 
 				if("facial")
 					if(species in list("Human", "Unathi", "Tajaran", "Skrell", "Machine", "Vulpkanin", "Vox")) //Species that have facial hair. (No HAS_HAIR_FACIAL flag)
-						var/new_facial = input(user, "Choose your character's facial-hair colour:", "Character Preference", f_colour) as color|null
+						var/new_facial = input(user, "Выберите цвет волос на лице вашего персонажа:", "Предпочтение персонажа", f_colour) as color|null
 						if(new_facial)
 							f_colour = new_facial
 
@@ -1652,7 +1655,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 					if(species in list("Human", "Unathi", "Tajaran", "Skrell", "Machine", "Vulpkanin", "Vox"))
 						var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
 						if(facial_hair_style.secondary_theme && !facial_hair_style.no_sec_colour)
-							var/new_facial = input(user, "Choose your character's secondary facial-hair colour:", "Character Preference", f_sec_colour) as color|null
+							var/new_facial = input(user, "Выберите вторичный цвет волос на лице вашего персонажа:", "Предпочтение персонажа", f_sec_colour) as color|null
 							if(new_facial)
 								f_sec_colour = new_facial
 
@@ -1685,7 +1688,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							if(species in SA.species_allowed) //If the user's head is of a species the facial hair style allows, add it to the list.
 								valid_facial_hairstyles += facialhairstyle
 					sortTim(valid_facial_hairstyles, /proc/cmp_text_asc)
-					var/new_f_style = input(user, "Choose your character's facial-hair style:", "Character Preference")  as null|anything in valid_facial_hairstyles
+					var/new_f_style = input(user, "Выберите прическу для лица вашего персонажа:", "Предпочтение персонажа")  as null|anything in valid_facial_hairstyles
 					if(new_f_style)
 						f_style = new_f_style
 
@@ -1701,7 +1704,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							continue
 						valid_underwear[underwear] = GLOB.underwear_list[underwear]
 					sortTim(valid_underwear, /proc/cmp_text_asc)
-					var/new_underwear = input(user, "Choose your character's underwear:", "Character Preference") as null|anything in valid_underwear
+					var/new_underwear = input(user, "Выберите нижнее белье своего персонажа:", "Предпочтение персонажа") as null|anything in valid_underwear
 					ShowChoices(user)
 					if(new_underwear)
 						underwear = new_underwear
@@ -1717,7 +1720,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							continue
 						valid_undershirts[undershirt] = GLOB.undershirt_list[undershirt]
 					sortTim(valid_undershirts, /proc/cmp_text_asc)
-					var/new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in valid_undershirts
+					var/new_undershirt = input(user, "Выберите нательное белье своего персонажа:", "Предпочтение персонажа") as null|anything in valid_undershirts
 					ShowChoices(user)
 					if(new_undershirt)
 						undershirt = new_undershirt
@@ -1734,19 +1737,19 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							continue
 						valid_sockstyles[sockstyle] = GLOB.socks_list[sockstyle]
 					sortTim(valid_sockstyles, /proc/cmp_text_asc)
-					var/new_socks = input(user, "Choose your character's socks:", "Character Preference")  as null|anything in valid_sockstyles
+					var/new_socks = input(user, "Выберите носки своего персонажа:", "Предпочтение персонажа")  as null|anything in valid_sockstyles
 					ShowChoices(user)
 					if(new_socks)
 						socks = new_socks
 
 				if("eyes")
-					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference", e_colour) as color|null
+					var/new_eyes = input(user, "Выберите цвет глаз вашего персонажа:", "Предпочтение персонажа", e_colour) as color|null
 					if(new_eyes)
 						e_colour = new_eyes
 
 				if("s_tone")
 					if(S.bodyflags & HAS_SKIN_TONE)
-						var/new_s_tone = input(user, "Choose your character's skin-tone:\n(Light 1 - 220 Dark)", "Character Preference")  as num|null
+						var/new_s_tone = input(user, "Выберите тон кожи вашего персонажа:\n(Белый 1 - 220 Тёмный)", "Предпочтение персонажа")  as num|null
 						if(new_s_tone)
 							s_tone = 35 - max(min(round(new_s_tone), 220), 1)
 					else if(S.bodyflags & HAS_ICON_SKIN_TONE)
@@ -1765,17 +1768,17 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 				if("skin")
 					if((S.bodyflags & HAS_SKIN_COLOR) || GLOB.body_accessory_by_species[species] || check_rights(R_ADMIN, 0, user))
-						var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", s_colour) as color|null
+						var/new_skin = input(user, "Выберите цвет кожи вашего персонажа: ", "Предпочтение персонажа", s_colour) as color|null
 						if(new_skin)
 							s_colour = new_skin
 
 				if("ooccolor")
-					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference", ooccolor) as color|null
+					var/new_ooccolor = input(user, "Выберите свой OOC цвет:", "Игровые предпочтения", ooccolor) as color|null
 					if(new_ooccolor)
 						ooccolor = new_ooccolor
 
 				if("bag")
-					var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference") as null|anything in GLOB.backbaglist
+					var/new_backbag = input(user, "Выберите стиль сумки вашего персонажа:", "Предпочтение персонажа") as null|anything in GLOB.backbaglist
 					if(new_backbag)
 						backbag = new_backbag
 
@@ -1785,7 +1788,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						nanotrasen_relation = new_relation
 
 				if("flavor_text")
-					var/msg = input(usr,"Set the flavor text in your 'examine' verb. The flavor text should be a physical descriptor of your character at a glance. SFW Drawn Art of your character is acceptable.","Flavor Text",html_decode(flavor_text)) as message
+					var/msg = input(usr,"Установите текст внешних признаков для действия 'Examine (Оно же Исследовать)'. Текст должен быть описанием вашего персонажа с первого взгляда. Рисунок вашего персонажа, нарисованный SFW, приемлем.","Внешние черты",html_decode(flavor_text)) as message
 
 					if(msg != null)
 						msg = copytext_char(msg, 1, MAX_PAPER_MESSAGE_LEN)
@@ -1796,25 +1799,25 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 				if("limbs")
 					var/valid_limbs = list("Левая нога", "Правая нога", "Левая рука", "Правая рука", "Левая ступня", "Правая ступня", "Левая кисть", "Правая кисть")
 					if(S.bodyflags & ALL_RPARTS)
-						valid_limbs = list("Torso", "Lower Body", "Head", "Левая нога", "Правая нога", "Левая рука", "Правая рука", "Левая ступня", "Правая ступня", "Левая кисть", "Правая кисть")
-					var/limb_name = input(user, "Which limb do you want to change?") as null|anything in valid_limbs
+						valid_limbs = list("Торс", "Нижняя часть тела", "Голова", "Левая нога", "Правая нога", "Левая рука", "Правая рука", "Левая ступня", "Правая ступня", "Левая кисть", "Правая кисть")
+					var/limb_name = input(user, "Какую конечность вы хотите изменить?") as null|anything in valid_limbs
 					if(!limb_name) return
 
 					var/limb = null
 					var/second_limb = null // if you try to change the arm, the hand should also change
 					var/third_limb = null  // if you try to unchange the hand, the arm should also change
-					var/valid_limb_states = list("Обычно", "Ампутировано", "Протез")
+					var/valid_limb_states = list("Обычное", "Ампутированное", "Протез")
 					var/no_amputate = 0
 
 					switch(limb_name)
-						if("Torso")
+						if("Торс")
 							limb = "chest"
 							second_limb = "groin"
 							no_amputate = 1
-						if("Lower Body")
+						if("Нижняя часть тела")
 							limb = "groin"
 							no_amputate = 1
-						if("Head")
+						if("Голова")
 							limb = "head"
 							no_amputate = 1
 						if("Левая нога")
@@ -1846,11 +1849,11 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							if(!(S.bodyflags & ALL_RPARTS))
 								third_limb = "r_arm"
 
-					var/new_state = input(user, "What state do you wish the limb to be in?") as null|anything in valid_limb_states
+					var/new_state = input(user, "В каком состоянии вы хотите, чтобы конечность находилась?") as null|anything in valid_limb_states
 					if(!new_state) return
 
 					switch(new_state)
-						if("Обычно")
+						if("Обычное")
 							if(limb == "head")
 								m_styles["head"] = "None"
 								h_style = GLOB.hair_styles_public_list["Bald"]
@@ -1860,7 +1863,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 							if(third_limb)
 								organ_data[third_limb] = null
 								rlimb_data[third_limb] = null
-						if("Ампутировано")
+						if("Ампутированное")
 							if(!no_amputate)
 								organ_data[limb] = "amputated"
 								rlimb_data[limb] = null
@@ -1879,7 +1882,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 									robolimb_companies[R.company] = R //List only main brands that have the parts we're looking for.
 							R = new() //Re-initialize R.
 
-							choice = input(user, "Which manufacturer do you wish to use for this limb?") as null|anything in robolimb_companies //Choose from a list of companies that offer the part the user wants.
+							choice = input(user, "Какого производителя вы хотите использовать для этой конечности?") as null|anything in robolimb_companies //Choose from a list of companies that offer the part the user wants.
 							if(!choice)
 								return
 							R.company = choice
@@ -1918,32 +1921,32 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 									rlimb_data[second_limb] = choice
 									organ_data[second_limb] = "cyborg"
 				if("organs")
-					var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Eyes", "Ears", "Heart", "Lungs", "Liver", "Kidneys")
+					var/organ_name = input(user, "Какую внутренние органы вы хотите изменить?") as null|anything in list("Глаза", "Уши", "Сердце", "Лёгкие", "Печень", "Почки")
 					if(!organ_name)
 						return
 
 					var/organ = null
 					switch(organ_name)
-						if("Eyes")
+						if("Глаза")
 							organ = "eyes"
-						if("Ears")
+						if("Уши")
 							organ = "ears"
-						if("Heart")
+						if("Сердце")
 							organ = "heart"
-						if("Lungs")
+						if("Лёгкие")
 							organ = "lungs"
-						if("Liver")
+						if("Печень")
 							organ = "liver"
-						if("Kidneys")
+						if("Почки")
 							organ = "kidneys"
 
-					var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Обычно", "Cybernetic")
+					var/new_state = input(user, "В каком состоянии вы хотите, чтобы находился орган?") as null|anything in list("Обычные", "Кибернетические")
 					if(!new_state) return
 
 					switch(new_state)
 						if("Обычно")
 							organ_data[organ] = null
-						if("Cybernetic")
+						if("Кибернетические")
 							organ_data[organ] = "cybernetic"
 
 				if("clientfps")
@@ -1974,13 +1977,13 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 				if("gender")
 					if(!S.has_gender)
-						var/newgender = input(user, "Choose Gender:") as null|anything in list("Male", "Female", "Genderless")
+						var/newgender = input(user, "Выберите пол:") as null|anything in list("Мужской", "Женский", "Бесполый")
 						switch(newgender)
-							if("Male")
+							if("Мужской")
 								gender = MALE
-							if("Female")
+							if("Женский")
 								gender = FEMALE
-							if("Genderless")
+							if("Бесполый")
 								gender = PLURAL
 					else
 						if(gender == MALE)
@@ -2024,14 +2027,14 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 				if("afk_watch")
 					if(!(toggles2 & PREFTOGGLE_2_AFKWATCH))
-						to_chat(user, "<span class='info'>You will now get put into cryo dorms after [config.auto_cryo_afk] minutes. \
-								Then after [config.auto_despawn_afk] minutes you will be fully despawned. You will receive a visual and auditory warning before you will be put into cryodorms.</span>")
+						to_chat(user, "<span class='info'>Теперь вас поселят в криогенные общежития через [config.auto_cryo_afk] минут. \
+								Затем через [config.auto_despawn_afk] минут вы будете полностью деспавнены. Вы получите визуальное и слуховое предупреждение, прежде чем вас поместят в криодормы.</span>")
 					else
-						to_chat(user, "<span class='info'>Automatic cryoing turned off.</span>")
+						to_chat(user, "<span class='info'>Автоматический криогенный режим отключен.</span>")
 					toggles2 ^= PREFTOGGLE_2_AFKWATCH
 
 				if("UIcolor")
-					var/UI_style_color_new = input(user, "Choose your UI color, dark colors are not recommended!", UI_style_color) as color|null
+					var/UI_style_color_new = input(user, "Выберите свой цвет пользовательского интерфейса. Темные цвета не рекомендуется!", UI_style_color) as color|null
 					if(!UI_style_color_new) return
 					UI_style_color = UI_style_color_new
 
@@ -2040,7 +2043,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 						H.remake_hud()
 
 				if("UIalpha")
-					var/UI_style_alpha_new = input(user, "Select a new alpha(transparence) parameter for UI, between 50 and 255", UI_style_alpha) as num
+					var/UI_style_alpha_new = input(user, "Введите новый параметр прозрачности для пользовательского интерфейса, от 50 до 255", UI_style_alpha) as num
 					if(!UI_style_alpha_new | !(UI_style_alpha_new <= 255 && UI_style_alpha_new >= 50)) return
 					UI_style_alpha = UI_style_alpha_new
 
@@ -2096,7 +2099,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 					load_character(user)
 
 				if("clear")
-					if(!saved || real_name != input("This will clear the current slot permanently. Please enter the character's full name to confirm."))
+					if(!saved || real_name != input("Это навсегда удалит текущий слот. Пожалуйста, введите полное имя персонажа для подтверждения."))
 						return FALSE
 					clear_character_slot(user)
 
@@ -2133,13 +2136,13 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 				if("parallax")
 					var/parallax_styles = list(
-						"Off" = PARALLAX_DISABLE,
-						"Low" = PARALLAX_LOW,
-						"Medium" = PARALLAX_MED,
-						"High" = PARALLAX_HIGH,
-						"Insane" = PARALLAX_INSANE
+						"Выкл" = PARALLAX_DISABLE,
+						"Низкое" = PARALLAX_LOW,
+						"Среднее" = PARALLAX_MED,
+						"Высокое" = PARALLAX_HIGH,
+						"Безумное" = PARALLAX_INSANE
 					)
-					parallax = parallax_styles[input(user, "Pick a parallax style", "Parallax Style") as null|anything in parallax_styles]
+					parallax = parallax_styles[input(user, "Выберите качество параллакса", "Качество параллакса") as null|anything in parallax_styles]
 					if(parent && parent.mob && parent.mob.hud_used)
 						parent.mob.hud_used.update_parallax_pref()
 
@@ -2332,20 +2335,20 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 
 	var/dat = {"<meta charset="UTF-8"><body>"}
 	dat += "<tt><center>"
-	dat += "<b>Select a character slot to load</b><hr>"
+	dat += "<b>Выберите слот персонажа для загрузки</b><hr>"
 	var/name
 
 	for(var/i in 1 to max_save_slots)
-		name = slotnames[i] || "Character [i]"
+		name = slotnames[i] || "Персонаж [i]"
 		if(i == default_slot)
 			name = "<b>[name]</b>"
 		dat += "<a href='?_src_=prefs;preference=changeslot;num=[i];'>[name]</a><br>"
 
 	dat += "<hr>"
-	dat += "<a href='byond://?_src_=prefs;preference=close_load_dialog'>Close</a><br>"
+	dat += "<a href='byond://?_src_=prefs;preference=close_load_dialog'>Закрыть</a><br>"
 	dat += "</center></tt>"
 //		user << browse(dat, "window=saves;size=300x390")
-	var/datum/browser/popup = new(user, "saves", "<div align='center'>Character Saves</div>", 300, 390)
+	var/datum/browser/popup = new(user, "сохранения", "<div align='center'>Сохранение персонажа</div>", 300, 390)
 	popup.set_content(dat)
 	popup.open(0)
 
