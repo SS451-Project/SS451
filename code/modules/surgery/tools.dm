@@ -15,7 +15,7 @@
 
 /obj/item/hemostat
 	name = "зажим"
-	desc = "Ты думаешь, что видел это раньше."
+	desc = "Ты думаешь, что где-то видел это раньше."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "hemostat"
 	materials = list(MAT_METAL=5000, MAT_GLASS=2500)
@@ -25,7 +25,7 @@
 	attack_verb = list("атакует", "прищемил")
 
 /obj/item/hemostat/augment
-	desc = "Tiny servos power a pair of pincers to stop bleeding."
+	desc = "Крошечные сервоприводы приводят в действие пару клещей, чтобы остановить кровотечение."
 	toolspeed = 0.5
 
 /obj/item/cautery
@@ -95,7 +95,7 @@
 
 
 /obj/item/scalpel/augment
-	desc = "Ultra-sharp blade attached directly to your bone for extra-accuracy."
+	desc = "Ультра-острое лезвие, прикрепленное непосредственно к вашей кости для дополнительной точности."
 	toolspeed = 0.5
 
 /*
