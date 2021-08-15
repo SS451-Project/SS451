@@ -31,10 +31,10 @@
 /mob/new_player/proc/privacy_consent()
 	src << browse(null, "window=playersetup")
 	var/output = {"<meta charset="UTF-8">"} + GLOB.join_tos
-	output += "<p><a href='byond://?src=[UID()];consent_signed=SIGNED'>I consent</A>"
-	output += "<p><a href='byond://?src=[UID()];consent_rejected=NOTSIGNED'>I DO NOT consent</A>"
+	output += "<p><a href='byond://?src=[UID()];consent_signed=SIGNED'>Согласен</A>"
+	output += "<p><a href='byond://?src=[UID()];consent_rejected=NOTSIGNED'>НЕ согласен</A>"
 	src << browse(output,"window=privacy_consent;size=500x300")
-	var/datum/browser/popup = new(src, "privacy_consent", "<div align='center'>Privacy Consent</div>", 500, 400)
+	var/datum/browser/popup = new(src, "privacy_consent", "<div align='center'>Политика конфиденциальности</div>", 500, 400)
 	popup.set_window_options("can_close=0")
 	popup.set_content(output)
 	popup.open(0)
@@ -56,12 +56,12 @@
 
 	var/list/antags = client.prefs.be_special
 	if(antags && antags.len)
-		if(!client.skip_antag) output += "<p><a href='byond://?src=[UID()];skip_antag=1'>Глобальная кандидатура Антагонистов</A>"
-		else	output += "<p><a href='byond://?src=[UID()];skip_antag=2'>Глобальная кандидатура Антагонистов</A>"
-		output += "<br /><small>Вы <b>[client.skip_antag ? "не имеете права" : "имеете право"]</b> на все антаг роли.</small></p>"
+		if(!client.skip_antag) output += "<p><a href='byond://?src=[UID()];skip_antag=1'>Кандитатура на глобальные роли антагов</A>"
+		else	output += "<p><a href='byond://?src=[UID()];skip_antag=2'>Кандитатура на глобальные роли антагов</A>"
+		output += "<br /><small>Вы <b>[client.skip_antag ? "не принемаете участие" : "встали"]</b> на все антаг роли.</small></p>"
 
 	if(!SSticker || SSticker.current_state == GAME_STATE_STARTUP)
-		output += "<p>Наблюдать (Пожалуйста подождите...)</p>"
+		output += "<p>Наблюдать (Подождите...)</p>"
 	else
 		output += "<p><a href='byond://?src=[UID()];observe=1'>Наблюдать</A></p>"
 
@@ -148,7 +148,7 @@
 			client.show_update_notice()
 			return FALSE
 		if(!is_used_species_available(client.prefs.species))
-			to_chat(usr, "<span class='warning'>Выбранная раса персонажа недоступна для игры в данный момент! Выберите другого персонажа.</span>")
+			to_chat(usr, "<span class='warning'>Выбранный вид персонажа недоступен для игры в данный момент! Выберите другого персонажа.</span>")
 			return FALSE
 		ready = !ready
 		new_player_panel_proc()
@@ -208,13 +208,13 @@
 
 	if(href_list["late_join"])
 		if(!client.tos_consent)
-			to_chat(usr, "<span class='warning'>You must consent to the terms of service before you can join!</span>")
+			to_chat(usr, "<span class='warning'>Вы должны согласиться с ToS, прежде чем сможете присоединиться!</span>")
 			return FALSE
 		if(client.version_blocked)
 			client.show_update_notice()
 			return FALSE
 		if(!SSticker || SSticker.current_state != GAME_STATE_PLAYING)
-			to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, "<span class='warning'>Раунд либо не готов, либо уже завершен...</span>")
 			return
 		if(!is_used_species_available(client.prefs.species))
 			to_chat(usr, "<span class='warning'>Выбранная раса персонажа недоступна для игры в данный момент! Выберите другого персонажа.</span>")
@@ -233,26 +233,26 @@
 	if(href_list["SelectedJob"])
 
 		if(!GLOB.enter_allowed)
-			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+			to_chat(usr, "<span class='notice'>Нельзя зайти в игру, так как она закрыта администратором на данный момент!</span>")
 			return
 
 		if(client.prefs.toggles2 & PREFTOGGLE_2_RANDOMSLOT)
 			client.prefs.load_random_character_slot(client)
 
 		if(!is_used_species_available(client.prefs.species))
-			to_chat(usr, "<span class='warning'>Выбранная раса персонажа недоступна для игры в данный момент! Выберите другого персонажа.</span>")
+			to_chat(usr, "<span class='warning'>Выбранный вид персонажа недоступен для игры в данный момент! Выберите другого персонажа.</span>")
 			return
 
 		if(client.prefs.species in GLOB.whitelisted_species)
 			if(!is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-				to_chat(src, alert("You are currently not whitelisted to play [client.prefs.species]."))
+				to_chat(src, alert("В настоящее время вы не внесены в белый список для игры [client.prefs.species]."))
 				return FALSE
 
 		//Prevents people rejoining as same character.
 		for (var/mob/living/carbon/human/C in GLOB.mob_list)
 			var/char_name = client.prefs.real_name
 			if(char_name == C.real_name)
-				to_chat (usr, "<span class='danger'>There is a character that already exists with the same name: <b>[C.real_name]</b>, please join with a different one.</span>")
+				to_chat (usr, "<span class='danger'>Есть персонаж, который уже существует с тем же именем: <b>[C.real_name]</b>, пожалуйста, выберите другого.</span>")
 				return
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
@@ -354,7 +354,7 @@
 
 		// IsJobAvailable for AI checks that there is an empty core available in this list
 		ai_character.moveToEmptyCore()
-		AnnounceCyborg(ai_character, rank, "has been downloaded to the empty core in \the [get_area(ai_character)]")
+		AnnounceCyborg(ai_character, rank, "был загружен в пустое ядро на/в [get_area(ai_character)]")
 
 		SSticker.mode.latespawn(ai_character)
 		qdel(src)
@@ -380,12 +380,12 @@
 				character.forceMove(pick(S.turfs))
 				join_message = S.msg
 			else
-				to_chat(character, "Your chosen spawnpoint ([S.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
+				to_chat(character, "Выбранная вами точка спавна ([S.display_name]) недоступен для выбранной вами работы. Вместо этого я отправляю тебя в Шаттл Прибытия.")
 				character.forceMove(pick(GLOB.latejoin))
-				join_message = "has arrived on the station"
+				join_message = "прибыл/а на станцию"
 		else
 			character.forceMove(pick(GLOB.latejoin))
-			join_message = "has arrived on the station"
+			join_message = "прибыл/а на станцию"
 
 	character.lastarea = get_area(loc)
 	// Moving wheelchair if they have one
@@ -441,7 +441,7 @@
 				if((character.mind.assigned_role != "Cyborg") && (character.mind.assigned_role != character.mind.special_role))
 					if(character.mind.role_alt_title)
 						rank = character.mind.role_alt_title
-					GLOB.global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+					GLOB.global_announcer.autosay("[character.real_name],[rank ? " [rank]," : " visitor," ] [join_message ? join_message : "прибыл/а на станцию"].", "Компьютер Объявления о прибытии")
 
 /mob/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	spawn(30)
@@ -459,13 +459,13 @@
 			var/mob/living/silicon/ai/announcer = pick(ailist)
 			if(character.mind)
 				if(character.mind.assigned_role != character.mind.special_role)
-					var/arrivalmessage = "A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"]."
+					var/arrivalmessage = "A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "прибыл/а на станцию"]."
 					announcer.say(";[arrivalmessage]")
 		else
 			if(character.mind)
 				if(character.mind.assigned_role != character.mind.special_role)
 					// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-					GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+					GLOB.global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "прибыл/а на станцию"].", "Компьютер Объявления о прибытии")
 
 /mob/new_player/proc/LateChoices()
 	var/mills = ROUND_TIME // 1/10 of a second, not real milliseconds but whatever
@@ -477,12 +477,12 @@
 	dat += "Round Duration: [round(hours)]h [round(mins)]m<br>"
 
 	if(SSshuttle.emergency.mode >= SHUTTLE_ESCAPE)
-		dat += "<font color='red'><b>The station has been evacuated.</b></font><br>"
+		dat += "<font color='red'><b>Станция была эвакуирована.</b></font><br>"
 	else if(SSshuttle.emergency.mode >= SHUTTLE_CALL)
-		dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
+		dat += "<font color='red'>В настоящее время на станции проводятся процедуры эвакуации.</font><br>"
 
 	if(length(SSjobs.prioritized_jobs))
-		dat += "<font color='lime'>The station has flagged these jobs as high priority: "
+		dat += "<font color='lime'>Станция отметила эти задания как высокоприоритетные: "
 		var/amt = length(SSjobs.prioritized_jobs)
 		var/amt_count
 		for(var/datum/job/a in SSjobs.prioritized_jobs)
@@ -532,7 +532,7 @@
 				categorizedJobs["Miscellaneous"]["jobs"] += job
 
 	if(num_jobs_available)
-		dat += "Choose from the following open positions:<br><br>"
+		dat += "Выберите одну из следующих открытых позиций:<br><br>"
 		dat += "<table><tr><td valign='top'>"
 		for(var/jobcat in categorizedJobs)
 			if(categorizedJobs[jobcat]["colBreak"])
@@ -551,7 +551,7 @@
 
 		dat += "</td></tr></table></center>"
 	else
-		dat += "<br><br><center>Unfortunately, there are no job slots free currently.<BR>Wait a few minutes, then try again.<BR>Or, try observing the round.</center>"
+		dat += "<br><br><center>К сожалению, в настоящее время свободных слотов нет.<BR>Подождите несколько минут, затем повторите попытку.<BR>Или попробуйте понаблюдать за раундом.</center>"
 	// Removing the old window method but leaving it here for reference
 //		src << browse(dat, "window=latechoices;size=300x640;can_close=1")
 	// Added the new browser window method
