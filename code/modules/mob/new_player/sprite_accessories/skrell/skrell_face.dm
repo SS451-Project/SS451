@@ -3,108 +3,108 @@
 	species_allowed = list("Skrell")
 
 /datum/sprite_accessory/hair/skrell/skr_tentacle_m
-	name = "Skrell Male Tentacles"
+	name = "Мужские Щупальца Скрелла"
 	icon_state = "male"
 	gender = MALE
 
 /datum/sprite_accessory/hair/skrell/skr_tentacle_f
-	name = "Skrell Female Tentacles"
+	name = "Женские Щупальца Скрелла"
 	icon_state = "female"
 	gender = FEMALE
 
 /datum/sprite_accessory/hair/skrell/skr_tentacleslong
-	name = "Long Skrell Tentacles"
+	name = "Длинные Щупальца Скрелла"
 	icon_state = "verylong"
 
 /datum/sprite_accessory/hair/skrell/skr_tentaclesshort
-	name = "Short Skrell Tentacles"
+	name = "Короткие Щупальца Скрелла"
 	icon_state = "veryshort"
 
 /datum/sprite_accessory/hair/skrell/skr_gold_m
-	name = "Gold plated Skrell Male Tentacles"
+	name = "Позолоченные Мужские Щупальца Скрелла"
 	icon_state = "male"
 	gender = MALE
 	secondary_theme = "gold"
 	no_sec_colour = 1
 
 /datum/sprite_accessory/hair/skrell/skr_gold_f
-	name = "Gold chained Skrell Female Tentacles"
+	name = "Позолоченные Женские Щупальца Скрелла"
 	icon_state = "female"
 	gender = FEMALE
 	secondary_theme = "gold"
 	no_sec_colour = 1
 
 /datum/sprite_accessory/hair/skrell/skr_clothtentacle_m
-	name = "Cloth draped Skrell Male Tentacles"
+	name = "Задрапированные тканью Мужские Щупальца Скрелла"
 	icon_state = "male"
 	gender = MALE
 	secondary_theme = "cloth"
 
 /datum/sprite_accessory/hair/skrell/skr_clothtentacle_f
-	name = "Cloth draped Skrell Female Tentacles"
+	name = "Задрапированные тканью Женские щупальца Скрелла"
 	icon_state = "female"
 	gender = FEMALE
 	secondary_theme = "cloth"
 
 /datum/sprite_accessory/hair/skrell/skr_gclothtentacle_m
-	name = "Ombre Dye, Skrell Male Tentacles"
+	name = "Краска Омбре, Мужские Щупальца Скрелла"
 	icon_state = "male"
 	gender = MALE
 	secondary_theme = "gradient"
 
 /datum/sprite_accessory/hair/skrell/skr_gclothtentacle_f
-	name = "Ombre Dye, Skrell Female Tentacles"
+	name = "Краска Омбре, Женские Щупальца Скрелла"
 	icon_state = "female"
 	gender = FEMALE
 	secondary_theme = "gradient"
 
 /datum/sprite_accessory/hair/skrell/skr_gclothtentacleslong
-	name = "Ombre Dye, Long Skrell Tentacles"
+	name = "Краска Омбре, Длинные Щупальца Скрелла"
 	icon_state = "verylong"
 	secondary_theme = "gradient"
 
 /datum/sprite_accessory/hair/skrell/skr_gclothtentaclesshort
-	name = "Ombre Dye, Short Skrell Tentacles"
+	name = "Краска Омбре, Короткие Щупальца Скрелла"
 	icon_state = "veryshort"
 	secondary_theme = "gradient"
 
 /datum/sprite_accessory/hair/skrell/skr_diablacktentacle_m
-	name = "Black headress Skrell Male Tentacles"
+	name = "Черный Мужские Щупальца Скрелла - Головной убор"
 	icon_state = "male"
 	gender = MALE
 	secondary_theme = "blackdia"
 	no_sec_colour = 1
 
 /datum/sprite_accessory/hair/skrell/skr_diablacktentacle_f
-	name = "Black headress Skrell Female Tentacles"
+	name = "Черные Женские Щупальца Скрелла - Головной убор"
 	icon_state = "female"
 	gender = FEMALE
 	secondary_theme = "blackdia"
 	no_sec_colour = 1
 
 /datum/sprite_accessory/hair/skrell/skr_diablacktentacleslong
-	name = "Black headress Long Skrell Tentacles"
+	name = "Черные Длинные Щупальца Скрелла - Головной убор"
 	icon_state = "verylong"
 	secondary_theme = "blackdia"
 	no_sec_colour = 1
 
 
 /datum/sprite_accessory/hair/skrell/skr_diagoldtentacle_m
-	name = "Gold headress Skrell Male Tentacles"
+	name = "Позолоченные Мужские Щупальца Скрелла - Головной убор"
 	icon_state = "male"
 	gender = MALE
 	secondary_theme = "golddia"
 	no_sec_colour = 1
 
 /datum/sprite_accessory/hair/skrell/skr_diagoldtentacle_f
-	name = "Gold headress Skrell Female Tentacles"
+	name = "Позолоченные Женские Щупальца Скрелла - Головной убор"
 	icon_state = "female"
 	gender = FEMALE
 	secondary_theme = "golddia"
 	no_sec_colour = 1
 
 /datum/sprite_accessory/hair/skrell/skr_diagoldtentacleslong
-	name = "Gold headress Long Skrell Tentacles"
+	name = "Позолоченные Длинные Щупальца Скрелла - Головной убор"
 	icon_state = "verylong"
 	secondary_theme = "golddia"
 	no_sec_colour = 1
