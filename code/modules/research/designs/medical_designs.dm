@@ -3,8 +3,8 @@
 /////////////////////////////////////////
 
 /datum/design/adv_reagent_scanner
-	name = "Advanced Reagent Scanner"
-	desc = "A device for identifying chemicals and their proportions."
+	name = "Усовершенствованный Сканер Реагентов"
+	desc = "Устройство для идентификации химических веществ и их пропорций."
 	id = "adv_reagent_scanner"
 	req_tech = list("biotech" = 3, "magnets" = 4, "plasmatech" = 3)
 	build_type = PROTOLATHE
@@ -13,8 +13,8 @@
 	category = list("Medical")
 
 /datum/design/bluespacebeaker
-	name = "Bluespace Beaker"
-	desc = "A bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 300 units."
+	name = "Bluespace Пробирка"
+	desc = "Bluespace пробирка, оснащенный экспериментальной технологией Bluespace и Element Cuban в сочетании с соединениями Питом. Может вместить до 300 юнитов."
 	id = "bluespacebeaker"
 	req_tech = list("bluespace" = 6, "materials" = 5, "plasmatech" = 4)
 	build_type = PROTOLATHE
@@ -23,8 +23,8 @@
 	category = list("Medical")
 
 /datum/design/noreactbeaker
-	name = "Cryostasis Beaker"
-	desc = "A cryostasis beaker that allows for chemical storage without reactions. Can hold up to 50 units."
+	name = "Пробирка для криостаза"
+	desc = "Пробирка для криостаза, которая позволяет хранить химические вещества без реакций. Может вместить до 50 юнитов."
 	id = "splitbeaker"
 	req_tech = list("materials" = 3, "engineering" = 3, "plasmatech" = 3)
 	build_type = PROTOLATHE
@@ -33,8 +33,8 @@
 	category = list("Medical")
 
 /datum/design/cyborg_analyzer
-	name = "Cyborg Analyzer"
-	desc = "A hand-held scanner able to diagnose robotic injuries."
+	name = "Анализатор Киборгов"
+	desc = "Ручной сканер, способный диагностировать травмы роботов."
 	id = "cyborg_analyzer"
 	req_tech = list("programming" = 2, "biotech" = 2, "magnets" = 2)
 	build_type = PROTOLATHE
@@ -43,8 +43,8 @@
 	category = list("Medical")
 
 /datum/design/healthanalyzer_upgrade
-	name = "Health Analyzer Upgrade"
-	desc = "An upgrade unit for expanding the functionality of a health analyzer."
+	name = "Улучшение Health Analyzer"
+	desc = "Модуль обновления для расширения функциональности анализатора здоровья."
 	id = "healthanalyzer_upgrade"
 	req_tech = list("biotech" = 2, "magnets" = 3)
 	build_type = PROTOLATHE
@@ -53,8 +53,8 @@
 	category = list("Medical")
 
 /datum/design/handheld_defib
-	name = "Handheld Defibrillator"
-	desc = "A smaller defibrillator only capable of treating cardiac arrest."
+	name = "Ручной Дефибриллятор"
+	desc = "Дефибриллятор маленького размера, способный лечить только остановку сердца."
 	id = "handheld_defib"
 	req_tech = list("biotech" = 2, "magnets" = 3)
 	build_type = PROTOLATHE
@@ -63,8 +63,8 @@
 	category = list("Medical")
 
 /datum/design/defib
-	name = "Defibrillator"
-	desc = "A device that delivers powerful shocks to detachable paddles that resuscitate incapacitated patients."
+	name = "Дефибриллятор"
+	desc = "Устройство, которое обеспечивает мощные удары по съемным лопастям, которые реанимируют парализованных пациентов."
 	id = "defib"
 	req_tech = list("materials" = 7, "biotech" = 5, "powerstorage" = 5)
 	build_type = PROTOLATHE
@@ -73,8 +73,8 @@
 	category = list("Medical")
 
 /datum/design/defib_mount
-	name = "Defibrillator Wall Mount"
-	desc = "A wall mount for defibrillator units."
+	name = "Настенное Крепление Дефибриллятора"
+	desc = "Настенное крепление для дефибрилляторов."
 	id = "defib_mount"
 	req_tech = list("magnets" = 3, "biotech" = 3, "powerstorage" = 4)
 	build_type = PROTOLATHE
@@ -83,8 +83,8 @@
 	category = list("Medical")
 
 /datum/design/sensor_device
-	name = "Handheld Crew Monitor"
-	desc = "A device for tracking crew members on the station."
+	name = "Ручной Монитор Экипажа"
+	desc = "Устройство для слежения за членами экипажа на станции."
 	id = "sensor_device"
 	req_tech = list("programming" = 3, "magnets" = 2, "biotech" = 2)
 	build_type = PROTOLATHE
@@ -93,8 +93,8 @@
 	category = list("Medical")
 
 /datum/design/mmi
-	name = "Man-Machine Interface"
-	desc = "The Warrior's bland acronym, MMI, obscures the true horror of this monstrosity."
+	name = "Интерфейс Man-Machine"
+	desc = "Аббревиатура Воина, MMI, затемняющий истинный ужас этого чудовища."
 	id = "mmi"
 	req_tech = list("programming" = 3, "biotech" = 2, "engineering" = 2)
 	build_type = PROTOLATHE | MECHFAB
@@ -104,8 +104,8 @@
 	category = list("Medical")
 
 /datum/design/robotic_brain
-	name = "Robotic Brain"
-	desc = "The latest in non-sentient Artificial Intelligences."
+	name = "Роботизированный Мозг"
+	desc = "Последнее изобретение в области неразумного искусственного интеллекта."
 	id = "mmi_robotic"
 	req_tech = list("programming" = 5, "biotech" = 4, "plasmatech" = 3)
 	build_type = PROTOLATHE | MECHFAB
@@ -115,8 +115,8 @@
 	category = list("Medical")
 
 /datum/design/mmi_radio_upgrade
-	name = "Man-Machine Interface Radio Upgrade"
-	desc = "Enables radio capability on MMIs when either installed directly on the MMI, or through a cyborg's chassis."
+	name = "Обновление Радио Интерфейса Man-Machine"
+	desc = "Обеспечивает возможность радиосвязи на ММI при установке либо непосредственно на MMI, либо через шасси киборга."
 	id = "mmi_radio_upgrade"
 	req_tech = list("programming" = 3, "biotech" = 2, "engineering" = 2)
 	build_type = PROTOLATHE | MECHFAB
@@ -126,8 +126,8 @@
 	category = list("Medical")
 
 /datum/design/nanopaste
-	name = "Nanopaste"
-	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
+	name = "Нанопаста"
+	desc = "Тюбик пасты, содержащий рои ремонтных нанитов. Очень эффективен при ремонте роботизированной техники."
 	id = "nanopaste"
 	req_tech = list("materials" = 3, "engineering" = 2)
 	build_type = PROTOLATHE
@@ -136,8 +136,8 @@
 	category = list("Medical")
 
 /datum/design/reagent_scanner
-	name = "Reagent Scanner"
-	desc = "A device for identifying chemicals."
+	name = "Сканер Реагентов"
+	desc = "Устройство для идентификации химических веществ."
 	id = "reagent_scanner"
 	req_tech = list("magnets" = 2, "plasmatech" = 2)
 	build_type = PROTOLATHE
@@ -146,8 +146,8 @@
 	category = list("Medical")
 
 /datum/design/item/scalpel_laser1
-	name = "Basic Laser Scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
+	name = "Базовый Лазерный Скальпель"
+	desc = "Скальпель, дополненный направленным лазером, для более точной резки без попадания крови в поле. Выглядит простым и может быть улучшено."
 	id = "scalpel_laser1"
 	req_tech = list("biotech" = 2, "materials" = 2, "magnets" = 2)
 	build_type = PROTOLATHE
