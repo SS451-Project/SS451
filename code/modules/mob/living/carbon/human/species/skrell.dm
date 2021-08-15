@@ -24,7 +24,7 @@
 	default_hair_colour = "#38b661"
 	eyes = "skrell_eyes_s"
 	//Default styles for created mobs.
-	default_hair = "Skrell Male Tentacles"
+	default_hair = "Мужские Щупальца Скрелла"
 	reagent_tag = PROCESS_ORG
 	butt_sprite = "skrell"
 
