@@ -30,9 +30,9 @@
 /obj/item/organ/internal/headpocket/on_life()
 	..()
 	var/obj/item/organ/external/head/head = owner.get_organ("head")
-	if(pocket.contents.len && !findtextEx(head.h_style, "Tentacles"))
+	if(pocket.contents.len && !findtextEx(head.h_style, "Щупальца"))
 		owner.visible_message("<span class='notice'>Что-то падает с головы [owner]!</span>",
-													"<span class='notice'>Что-то упало из твоей головы!</span>")
+													"<span class='notice'>Что-то выпало из твоей головы!</span>")
 		empty_contents()
 
 /obj/item/organ/internal/headpocket/ui_action_click()
