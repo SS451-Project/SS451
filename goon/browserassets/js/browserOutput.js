@@ -523,7 +523,7 @@ function ehjaxCallback(data) {
 		$('#pingDot').css('color', '#'+hex);
 	} else if (data == 'roundrestart') {
 		opts.restarting = true;
-		internalOutput('<div class="connectionClosed internal restarting">The connection has been closed because the server is restarting. Please wait while you automatically reconnect.</div>', 'internal');
+		internalOutput('<div class="connectionClosed internal restarting">Соединение было закрыто, так как сервер перезагружается. Пожалуйста, подождите, пока вы автоматически не переподключитесь.</div>', 'internal');
 	} else if (data == 'stopaudio') {
 		$('.dectalk').remove();
 	} else {
@@ -600,17 +600,17 @@ function reboot(timeRaw) {
 	const intervalSecs = 1; // tick every 1 second
 
 	rebootFinished();
-	internalOutput('<div class="rebooting internal">The server is restarting. <a href="byond://winset?command=.reconnect" id="reconnectTimer">Reconnect (' + timeLeftSecs + ')</a></div>', 'internal');
+	internalOutput('<div class="rebooting internal">Сервер перезапузкается. <a href="byond://winset?command=.reconnect" id="reconnectTimer">Переподключение (' + timeLeftSecs + ')</a></div>', 'internal');
 
 	opts.rebootIntervalHandler = setInterval(function() {
 		timeLeftSecs -= intervalSecs;
 		if (timeLeftSecs <= 0) {
-			$("#reconnectTimer").text('Reconnecting...');
+			$("#reconnectTimer").text('Переподключение...');
 			window.location.href = 'byond://winset?command=.reconnect';
 			clearInterval(opts.rebootIntervalHandler)
 			opts.rebootIntervalHandler = null;
 		} else {
-			$("#reconnectTimer").text('Reconnect (' + timeLeftSecs + ')');
+			$("#reconnectTimer").text('Переподключение (' + timeLeftSecs + ')');
 		}
 	}, intervalSecs * 1000);
 }
@@ -619,7 +619,7 @@ function rebootFinished() {
 	if (opts.rebootIntervalHandler != null) {
 		clearInterval(opts.rebootIntervalHandler)
 	}
-	$("<span> Reconnected automatically!</span>").insertBefore("#reconnectTimer");
+	$("<span> Автоматически переподключен!</span>").insertBefore("#reconnectTimer");
 	$("#reconnectTimer").remove();
 }
 
@@ -684,10 +684,10 @@ $(function() {
 			if (!opts.noResponse) { //Only actually append a message if the previous ping didn't also fail (to prevent spam)
 				opts.noResponse = true;
 				opts.noResponseCount++;
-				internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">You are either AFK, experiencing lag or the connection has closed.</div>', 'internal');
+				internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">Вы либо находитесь в AFK, испытываете задержку, либо соединение закрыто.</div>', 'internal');
 			}
 		} else if (opts.noResponse) { //Previous ping attempt failed ohno
-			$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Your connection has been restored (probably)!');
+			$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Ваше соединение было восстановлено (наверное)!');
 			opts.noResponse = false;
 		}
 		if (opts.messageCount > opts.messageLimit) { // Prune old messages beyond the message limit
