@@ -313,7 +313,7 @@
 
 	slip.name = "Путевой манифест - '[object.name]' для [orderedby]"
 	slip.info = "<h3>[command_name()] Путевой Манифест</h3><hr><br>"
-	slip.info +="ЗАКАЗ: #[SSshuttle.ordernum]<br>"
+	slip.info +="ЗАКАЗ: #[++ordernum]<br>"
 	slip.info +="МЕСТО НАЗНАЧЕНИЯ: [stationName]<br>"
 	slip.info +="ЗАПРОСИЛ/А: [orderedby]<br>"
 	slip.info +="РАНГ: [orderedbyRank]<br>"
