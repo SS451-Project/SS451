@@ -19309,7 +19309,7 @@
                               return l("moveShuttle")
                           }
                       }), (0, o.createComponentVNode)(2, i.Button, {
-                          content: "Просмотр Сообщений Центрального Командывания",
+                          content: "Просмотр Сообщений Центрального Командования",
                           onClick: function() {
                               return l("showMessages")
                           }

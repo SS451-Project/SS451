@@ -107,7 +107,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	group = SUPPLY_EMERGENCY
 
 /datum/supply_packs/emergency/internals
-	name = "ящик с дыхательными аппаратами"
+	name = "Ящик С Дыхательными Аппаратами"
 	contains = list(/obj/item/clothing/mask/gas,
 					/obj/item/clothing/mask/gas,
 					/obj/item/clothing/mask/gas,
@@ -589,10 +589,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containername = "набор ящиков с инструментами"
 
 /datum/supply_packs/vending/engivend
-	name = "Набор Пополнения Ассортимента Автоматов EngiVend"
+	name = "Набор Пополнения  Автоматов EngiVend"
 	cost = 15
 	contains = list(/obj/item/vending_refill/engivend)
-	containername = "набор пополнения ассортимента автоматов EngiVend"
+	containername = "набор пополнения  автоматов EngiVend"
 
 /datum/supply_packs/engineering/powergamermitts
 	name = "Набор Изолирующих Перчаток"
@@ -1256,12 +1256,12 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containername = "набор различных семян"
 
 /datum/supply_packs/organic/vending/hydro_refills
-	name = "Набор Пополнения Ассортимента Автомата Ботаники"
+	name = "Набор Пополнения  Автомата Ботаники"
 	cost = 20
 	containertype = /obj/structure/closet/crate
 	contains = list(/obj/item/vending_refill/hydroseeds,
 					/obj/item/vending_refill/hydronutrients)
-	containername = "набор пополнения ассортимента автомата ботаники"
+	containername = "набор пополнения  автомата ботаники"
 
 /datum/supply_packs/organic/hydroponics/exoticseeds
 	name = "Уникальные Семена Растений"
@@ -1911,16 +1911,16 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	group = SUPPLY_VEND
 
 /datum/supply_packs/vending/autodrobe
-	name = "Набор Пополнения Ассортимента Автоматов Autodrobe"
+	name = "Набор Пополнения Автоматов Autodrobe"
 	contains = list(/obj/item/vending_refill/autodrobe)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов Autodrobe"
+	containername = "набор пополнения автоматов Autodrobe"
 
 /datum/supply_packs/vending/clothes
-	name = "Набор Пополнения Ассортимента Автоматов ClothesMate"
+	name = "Набор Пополнения Автоматов ClothesMate"
 	contains = list(/obj/item/vending_refill/clothing)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов ClothesMate"
+	containername = "набор пополнения автоматов ClothesMate"
 
 /datum/supply_packs/vending/suit
 	name = "Костюм Лорда"
@@ -1929,79 +1929,79 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containername = "костюм лорда"
 
 /datum/supply_packs/vending/hat
-	name = "Набор Пополнения Ассортимента Автоматов Hatlord"
+	name = "Набор Пополнения Автоматов Hatlord"
 	contains = list(/obj/item/vending_refill/hatdispenser)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов Hatlord"
+	containername = "набор пополнения автоматов Hatlord"
 
 /datum/supply_packs/vending/shoes
-	name = "Набор Пополнения Ассортимента Автоматов Shoelord"
+	name = "Набор Пополнения Автоматов Shoelord"
 	contains = list(/obj/item/vending_refill/shoedispenser)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов Shoelord"
+	containername = "набор пополнения автоматов Shoelord"
 
 /datum/supply_packs/vending/pets
-	name = "Набор Пополнения Ассортимента Автоматов CritterCare"
+	name = "Набор Пополнения Автоматов CritterCare"
 	contains = list(/obj/item/vending_refill/crittercare)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов CritterCare"
+	containername = "набор пополнения автоматов CritterCare"
 
 /datum/supply_packs/vending/bartending
-	name = "Набор Пополнения Ассортимента Автоматов Booze-o-mat И Coffee"
+	name = "Набор Пополнения Автоматов Booze-o-mat И Coffee"
 	cost = 20
 	contains = list(/obj/item/vending_refill/boozeomat,
 					/obj/item/vending_refill/coffee)
-	containername = "набор пополнения ассортимента автоматов Booze-o-mat и Coffee"
+	containername = "набор пополнения автоматов Booze-o-mat и Coffee"
 	announce_beacons = list("Bar" = list("Bar"))
 
 /datum/supply_packs/vending/cigarette
-	name = "Набор Пополнения Ассортимента Автоматов Cigarette"
+	name = "Набор Пополнения Автоматов Cigarette"
 	contains = list(/obj/item/vending_refill/cigarette)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов Cigarette"
+	containername = "набор пополнения автоматов Cigarette"
 	containertype = /obj/structure/closet/crate
 
 /datum/supply_packs/vending/dinnerware
-	name = "Набор Пополнения Ассортимента Автоматов Chef's Dinnerware"
+	name = "Набор Пополнения Автоматов Chef's Dinnerware"
 	cost = 10
 	contains = list(/obj/item/vending_refill/dinnerware)
-	containername = "набор пополнения ассортимента автоматов Chef's Dinnerware"
+	containername = "набор пополнения автоматов Chef's Dinnerware"
 
 /datum/supply_packs/vending/imported
-	name = "Набор Пополнения Ассортимента Автоматов Robotech"
+	name = "Набор Пополнения Автоматов Robotech"
 	cost = 40
 	contains = list(/obj/item/vending_refill/sustenance,
 					/obj/item/vending_refill/robotics,
 					/obj/item/vending_refill/sovietsoda,
 					/obj/item/vending_refill/engineering)
-	containername = "набор пополнения ассортимента автоматов Robotech"
+	containername = "набор пополнения автоматов Robotech"
 
 /datum/supply_packs/vending/ptech
-	name = "Набор Пополнения Ассортимента Автоматов PTech"
+	name = "Набор Пополнения Автоматов PTech"
 	cost = 15
 	contains = list(/obj/item/vending_refill/cart)
-	containername = "набор пополнения ассортимента автоматов PTech"
+	containername = "набор пополнения автоматов PTech"
 
 /datum/supply_packs/vending/snack
-	name = "Набор Пополнения Ассортимента Автоматов Getmore Chocolate"
+	name = "Набор Пополнения Автоматов Getmore Chocolate"
 	contains = list(/obj/item/vending_refill/snack)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов Getmore Chocolate"
+	containername = "набор пополнения автоматов Getmore Chocolate"
 
 /datum/supply_packs/vending/cola
-	name = "Набор Пополнения Ассортимента Автоматов Robust Softdrinks"
+	name = "Набор Пополнения Автоматов Robust Softdrinks"
 	contains = list(/obj/item/vending_refill/cola)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов Robust Softdrinks"
+	containername = "набор пополнения автоматов Robust Softdrinks"
 
 /datum/supply_packs/vending/vendomat
-	name = "Набор Пополнения Ассортимента Автоматов Vendomat"
+	name = "Набор Пополнения Автоматов Vendomat"
 	cost = 10
 	contains = list(/obj/item/vending_refill/assist)
-	containername = "набор пополнения ассортимента автоматов Vendomat"
+	containername = "набор пополнения автоматов Vendomat"
 
 /datum/supply_packs/vending/chinese
-	name = "Набор Пополнения Ассортимента Автоматов MrChangs"
+	name = "Набор Пополнения Автоматов MrChangs"
 	contains = list(/obj/item/vending_refill/chinese)
 	cost = 15
-	containername = "набор пополнения ассортимента автоматов MrChangs"
+	containername = "набор пополнения автоматов MrChangs"

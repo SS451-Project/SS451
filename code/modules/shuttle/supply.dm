@@ -66,7 +66,7 @@
 
 	for(var/datum/supply_order/SO in SSshuttle.shoppinglist)
 		if(!SO.object)
-			throw EXCEPTION("Supply Order [SO] has no object associated with it.")
+			throw EXCEPTION("Заказ на поставку [SO] не имеет связанного с ним объекта.")
 			continue
 
 		var/turf/T = pick_n_take(emptyTurfs)		//turf we will place it in
@@ -107,7 +107,7 @@
 		if(istype(MA,/obj/structure/closet/crate) || istype(MA,/obj/structure/closet/critter))
 			SSshuttle.sold_atoms += ":"
 			if(!MA.contents.len)
-				SSshuttle.sold_atoms += " (empty)"
+				SSshuttle.sold_atoms += " (пусто)"
 			++crate_count
 
 			var/find_slip = 1
@@ -126,31 +126,31 @@
 						if(slip.erroneous && denied) // Caught a mistake by Centcom (IDEA: maybe Centcom rarely gets offended by this)
 							pointsEarned = slip.points - SSshuttle.points_per_crate
 							SSshuttle.points += pointsEarned // For now, give a full refund for paying attention (minus the crate cost)
-							msg += "<span class='good'>+[pointsEarned]</span>: Station correctly denied package [slip.ordernumber]: "
+							msg += "<span class='good'>+[pointsEarned]</span>: Станция правильно отказала в посылке [slip.ordernumber]: "
 							if(slip.erroneous & MANIFEST_ERROR_NAME)
-								msg += "Destination station incorrect. "
+								msg += "Неверная станция назначения. "
 							else if(slip.erroneous & MANIFEST_ERROR_COUNT)
-								msg += "Packages incorrectly counted. "
+								msg += "Неправильно подсчитанная послыка. "
 							else if(slip.erroneous & MANIFEST_ERROR_ITEM)
-								msg += "Package incomplete. "
-							msg += "Points refunded.<br>"
+								msg += "Посылка неполная. "
+							msg += "Очки возвращены.<br>"
 						else if(!slip.erroneous && !denied) // Approving a proper order awards the relatively tiny points_per_slip
 							SSshuttle.points += SSshuttle.points_per_slip
-							msg += "<span class='good'>+[SSshuttle.points_per_slip]</span>: Package [slip.ordernumber] accorded.<br>"
+							msg += "<span class='good'>+[SSshuttle.points_per_slip]</span>: Посылка [slip.ordernumber] предоставляется.<br>"
 						else // You done goofed.
 							if(slip.erroneous)
-								msg += "<span class='good'>+0</span>: Station approved package [slip.ordernumber] despite error: "
+								msg += "<span class='good'>+0</span>: Посылка [slip.ordernumber], одобрена станцией, несмотря на ошибку: "
 								if(slip.erroneous & MANIFEST_ERROR_NAME)
-									msg += "Destination station incorrect."
+									msg += "Неверная станция назначения."
 								else if(slip.erroneous & MANIFEST_ERROR_COUNT)
-									msg += "Packages incorrectly counted."
+									msg += "Неправильно подсчитанная послыка."
 								else if(slip.erroneous & MANIFEST_ERROR_ITEM)
-									msg += "We found unshipped items on our dock."
-								msg += "  Be more vigilant.<br>"
+									msg += "Мы нашли не отправленные товары на нашей док станции."
+								msg += "  Будьте бдительны.<br>"
 							else
 								pointsEarned = round(SSshuttle.points_per_crate - slip.points)
 								SSshuttle.points += pointsEarned
-								msg += "<span class='bad'>[pointsEarned]</span>: Station denied package [slip.ordernumber]. Our records show no fault on our part.<br>"
+								msg += "<span class='bad'>[pointsEarned]</span>: Станция отказала в посылке [slip.ordernumber]. Наши записи не показывают никакой вины с нашей стороны.<br>"
 						find_slip = 0
 					continue
 
@@ -177,7 +177,7 @@
 							if(M.mind)
 								for(var/datum/job_objective/further_research/objective in M.mind.job_objectives)
 									objective.unit_completed(cost)
-						msg += "<span class='good'>+[cost]</span>: [tech.name] - new data.<br>"
+						msg += "<span class='good'>+[cost]</span>: [tech.name] - новые данные.<br>"
 
 				// Sell designs
 				if(istype(thing, /obj/item/disk/design_disk))
@@ -189,41 +189,41 @@
 						continue
 					SSshuttle.points += SSshuttle.points_per_design
 					SSshuttle.researchDesigns += design.id
-					msg += "<span class='good'>+[SSshuttle.points_per_design]</span>: [design.name] design.<br>"
+					msg += "<span class='good'>+[SSshuttle.points_per_design]</span>: конструкция [design.name].<br>"
 
 				// Sell exotic plants
 				if(istype(thing, /obj/item/seeds))
 					var/obj/item/seeds/S = thing
 					if(S.rarity == 0) // Mundane species
-						msg += "<span class='bad'>+0</span>: We don't need samples of mundane species \"[capitalize(S.species)]\".<br>"
+						msg += "<span class='bad'>+0</span>: Нам не нужны образцы обычных видов \"[capitalize(S.species)]\".<br>"
 					else if(SSshuttle.discoveredPlants[S.type]) // This species has already been sent to CentComm
 						var/potDiff = S.potency - SSshuttle.discoveredPlants[S.type] // Compare it to the previous best
 						if(potDiff > 0) // This sample is better
 							SSshuttle.discoveredPlants[S.type] = S.potency
-							msg += "<span class='good'>+[potDiff]</span>: New sample of \"[capitalize(S.species)]\" is superior. Good work.<br>"
+							msg += "<span class='good'>+[potDiff]</span>: Новый образец \"[capitalize(S.species)]\" - превосходный. Хорошая работа.<br>"
 							SSshuttle.points += potDiff
 						else // This sample is worthless
-							msg += "<span class='bad'>+0</span>: New sample of \"[capitalize(S.species)]\" is not more potent than existing sample ([SSshuttle.discoveredPlants[S.type]] potency).<br>"
+							msg += "<span class='bad'>+0</span>: Новый образец \"[capitalize(S.species)]\" не является более улучшенным, чем существующий образец ([SSshuttle.discoveredPlants[S.type]] potency).<br>"
 					else // This is a new discovery!
 						SSshuttle.discoveredPlants[S.type] = S.potency
-						msg += "<span class='good'>[S.rarity]</span>: New species discovered: \"[capitalize(S.species)]\". Excellent work.<br>"
+						msg += "<span class='good'>[S.rarity]</span>: Обнаружены новые виды: \"[capitalize(S.species)]\". Прекрасная работа.<br>"
 						SSshuttle.points += S.rarity // That's right, no bonus for potency.  Send a crappy sample first to "show improvement" later
 		qdel(MA)
 		SSshuttle.sold_atoms += "."
 
 	if(plasma_count > 0)
 		pointsEarned = round(plasma_count * SSshuttle.points_per_plasma)
-		msg += "<span class='good'>+[pointsEarned]</span>: Received [plasma_count] unit(s) of exotic material.<br>"
+		msg += "<span class='good'>+[pointsEarned]</span>: Получено [plasma_count] юнит/ов из экзотического материала.<br>"
 		SSshuttle.points += pointsEarned
 
 	if(intel_count > 0)
 		pointsEarned = round(intel_count * SSshuttle.points_per_intel)
-		msg += "<span class='good'>+[pointsEarned]</span>: Received [intel_count] article(s) of enemy intelligence.<br>"
+		msg += "<span class='good'>+[pointsEarned]</span>: Получено [intel_count] статья/и или предметов вражеской разведки.<br>"
 		SSshuttle.points += pointsEarned
 
 	if(crate_count > 0)
 		pointsEarned = round(crate_count * SSshuttle.points_per_crate)
-		msg += "<span class='good'>+[pointsEarned]</span>: Received [crate_count] crate(s).<br>"
+		msg += "<span class='good'>+[pointsEarned]</span>: Получено [crate_count] ящик/ов.<br>"
 		SSshuttle.points += pointsEarned
 
 	SSshuttle.centcom_message += "[msg]<hr>"
@@ -274,19 +274,19 @@
 
 	var/obj/item/paper/reqform = new /obj/item/paper(_loc)
 	playsound(_loc, 'sound/goonstation/machines/printer_thermal.ogg', 50, 1)
-	reqform.name = "Requisition Form - [crates] '[object.name]' for [orderedby]"
-	reqform.info += "<h3>[station_name()] Supply Requisition Form</h3><hr>"
-	reqform.info += "INDEX: #[SSshuttle.ordernum]<br>"
-	reqform.info += "REQUESTED BY: [orderedby]<br>"
-	reqform.info += "RANK: [orderedbyRank]<br>"
-	reqform.info += "REASON: [comment]<br>"
-	reqform.info += "SUPPLY CRATE TYPE: [object.name]<br>"
-	reqform.info += "NUMBER OF CRATES: [crates]<br>"
-	reqform.info += "ACCESS RESTRICTION: [object.access ? get_access_desc(object.access) : "None"]<br>"
-	reqform.info += "CONTENTS:<br>"
+	reqform.name = "Форма Заявки - [crates] '[object.name]' для [orderedby]"
+	reqform.info += "<h3>[station_name()] Форма Заявки на Поставку</h3><hr>"
+	reqform.info += "ИНДЕКС: #[SSshuttle.ordernum]<br>"
+	reqform.info += "ЗАПРОСИЛ/А: [orderedby]<br>"
+	reqform.info += "РАНГ: [orderedbyRank]<br>"
+	reqform.info += "ПРИЧИНА: [comment]<br>"
+	reqform.info += "ТИП ЯЩИКА: [object.name]<br>"
+	reqform.info += "КОЛИЧЕСТВО: [crates]<br>"
+	reqform.info += "ОГРАНИЧЕНИЕ ДОСТУПА: [object.access ? get_access_desc(object.access) : "Никаких"]<br>"
+	reqform.info += "СОДЕРЖИМОЕ:<br>"
 	reqform.info += object.manifest
 	reqform.info += "<hr>"
-	reqform.info += "STAMP BELOW TO APPROVE THIS REQUISITION:<br>"
+	reqform.info += "ПРОСТАВЬТЕ ШТАМП НИЖЕ, ЧТОБЫ УТВЕРДИТЬ ЭТУ ЗАЯВКУ:<br>"
 
 	reqform.update_icon()	//Fix for appearing blank when printed.
 
@@ -311,17 +311,17 @@
 	var/stationName = (errors & MANIFEST_ERROR_NAME) ? new_station_name() : station_name()
 	var/packagesAmt = SSshuttle.shoppinglist.len + ((errors & MANIFEST_ERROR_COUNT) ? rand(1,2) : 0)
 
-	slip.name = "Shipping Manifest - '[object.name]' for [orderedby]"
-	slip.info = "<h3>[command_name()] Shipping Manifest</h3><hr><br>"
-	slip.info +="Order: #[ordernum]<br>"
-	slip.info +="Destination: [stationName]<br>"
-	slip.info +="Requested By: [orderedby]<br>"
-	slip.info +="Rank: [orderedbyRank]<br>"
-	slip.info +="Reason: [comment]<br>"
-	slip.info +="Supply Crate Type: [object.name]<br>"
-	slip.info +="Access Restriction: [object.access ? get_access_desc(object.access) : "None"]<br>"
-	slip.info +="[packagesAmt] PACKAGES IN THIS SHIPMENT<br>"
-	slip.info +="CONTENTS:<br><ul>"
+	slip.name = "Путевой манифест - '[object.name]' для [orderedby]"
+	slip.info = "<h3>[command_name()] Путевой Манифест</h3><hr><br>"
+	slip.info +="ЗАКАЗ: #[SSshuttle.ordernum]<br>"
+	slip.info +="МЕСТО НАЗНАЧЕНИЯ: [stationName]<br>"
+	slip.info +="ЗАПРОСИЛ/А: [orderedby]<br>"
+	slip.info +="РАНГ: [orderedbyRank]<br>"
+	slip.info +="ПРИЧИНА: [comment]<br>"
+	slip.info +="ТИП ЯЩИКА: [object.name]<br>"
+	slip.info +="ОГРАНИЧЕНИЕ ДОСТУПА: [object.access ? get_access_desc(object.access) : "Никаких"]<br>"
+	slip.info +="ПОСЫЛКИ В ЭТОЙ ОТПРАВКЕ - [packagesAmt] ШТ.<br>"
+	slip.info +="СОДЕРЖИМОЕ:<br><ul>"
 
 	//we now create the actual contents
 	var/list/contains
@@ -359,7 +359,7 @@
 
 	//manifest finalisation
 	slip.info += "</ul><br>"
-	slip.info += "CHECK CONTENTS AND STAMP BELOW THE LINE TO CONFIRM RECEIPT OF GOODS<hr>" // And now this is actually meaningful.
+	slip.info += "ПРОВЕРЬТЕ СОДЕРЖИМОЕ И ПРОСТАВЬТЕ ШТАМП ПОД СТРОКОЙ, ЧТОБЫ ПОДТВЕРДИТЬ ПОЛУЧЕНИЕ ТОВАРА<hr>" // And now this is actually meaningful.
 	slip.loc = Crate
 	if(istype(Crate, /obj/structure/closet/crate))
 		var/obj/structure/closet/crate/CR = Crate
@@ -377,8 +377,8 @@
     ORDER/REQUESTS CONSOLE
  **************************/
 /obj/machinery/computer/supplycomp
-	name = "Supply Shuttle Console"
-	desc = "Used to order supplies."
+	name = "Консоль Шаттла Снабжения"
+	desc = "Используется для заказа расходных материалов."
 	icon_screen = "supply"
 	req_access = list(ACCESS_CARGO)
 	circuit = /obj/item/circuitboard/supplycomp
@@ -392,8 +392,8 @@
 	var/can_order_contraband = FALSE
 
 /obj/machinery/computer/supplycomp/public
-	name = "Supply Ordering Console"
-	desc = "Used to order supplies from cargo staff."
+	name = "Консоль Заказа Поставок"
+	desc = "Используется для заказа расходных материалов у грузового персонала."
 	icon = 'icons/obj/computer.dmi'
 	icon_screen = "request"
 	circuit = /obj/item/circuitboard/ordercomp
@@ -405,7 +405,7 @@
 
 /obj/machinery/computer/supplycomp/attack_hand(var/mob/user as mob)
 	if(!allowed(user) && !isobserver(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, "<span class='warning'>Доступ запрещен.</span>")
 		return 1
 
 	post_signal("supply")
@@ -414,7 +414,7 @@
 
 /obj/machinery/computer/supplycomp/emag_act(user as mob)
 	if(!hacked)
-		to_chat(user, "<span class='notice'>Special supplies unlocked.</span>")
+		to_chat(user, "<span class='notice'>СпецY№%льныN зaКаз разбМЯкиро?ан.</span>")
 		hacked = TRUE
 		return
 
@@ -432,7 +432,7 @@
 		var/datum/supply_order/SO = set_name
 		if(SO)
 			if(!SO.comment)
-				SO.comment = "No comment."
+				SO.comment = "Никаких примечаний."
 			requests_list.Add(list(list("ordernum" = SO.ordernum, "supply_type" = SO.object.name, "orderedby" = SO.orderedby, "comment" = SO.comment, "command1" = list("confirmorder" = SO.ordernum), "command2" = list("rreq" = SO.ordernum))))
 	data["requests"] = requests_list
 
@@ -491,7 +491,7 @@
 		return
 
 	if(!SSshuttle)
-		stack_trace("The SSshuttle controller datum is missing somehow.")
+		stack_trace("Данные контроллера шаттла каким-то образом пропали.")
 		return
 
 	. = TRUE
@@ -506,7 +506,7 @@
 				to_chat(usr, "<span class='warning'>For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons.</span>")
 			else if(SSshuttle.supply.getDockedId() == "supply_home")
 				SSshuttle.toggleShuttle("supply", "supply_home", "supply_away", 1)
-				investigate_log("[key_name(usr)] has sent the supply shuttle away. Remaining points: [SSshuttle.points]. Shuttle contents: [SSshuttle.sold_atoms]", "cargo")
+				investigate_log("[key_name(usr)] отослал шаттл с поставками. Оставшиеся очки: [SSshuttle.points]. Содержимое шаттла: [SSshuttle.sold_atoms]", "cargo")
 			else if(!SSshuttle.supply.request(SSshuttle.getDock("supply_home")))
 				post_signal("supply")
 				if(LAZYLEN(SSshuttle.shoppinglist) && prob(10))
