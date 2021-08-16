@@ -77,39 +77,39 @@ const StatusPane = (_properties, context) => {
   let statusText;
   let shuttleButtonText;
   if (!moving && !at_station) {
-    statusText = "Docked off-station";
-    shuttleButtonText = "Call Shuttle";
+    statusText = "Пристыкован вне станции";
+    shuttleButtonText = "Вызвать Шаттл";
   } else if (!moving && at_station) {
-    statusText = "Docked at the station";
-    shuttleButtonText = "Return Shuttle";
+    statusText = "Пришвартовался на станцию";
+    shuttleButtonText = "Вернуть Шаттл";
   } else if (moving) {
     // Yes I am this fussy that it goes plural
-    shuttleButtonText = "In Transit...";
+    shuttleButtonText = "В пути...";
     if (timeleft !== 1) {
-      statusText = "Shuttle is en route (ETA: " + timeleft + " minutes)";
+      statusText = "Шаттл уже в пути (ETA: " + timeleft + " минут)";
     } else {
-      statusText = "Shuttle is en route (ETA: " + timeleft + " minute)";
+      statusText = "Шаттл уже в пути (ETA: " + timeleft + " минут)";
     }
   }
 
   return (
     <Section title="Status">
       <LabeledList>
-        <LabeledList.Item label="Points Available">
+        <LabeledList.Item label="Доступные Очки">
           {points}
         </LabeledList.Item>
-        <LabeledList.Item label="Shuttle Status">
+        <LabeledList.Item label="Статус Шаттла">
           {statusText}
         </LabeledList.Item>
         {is_public === 0 && (
-          <LabeledList.Item label="Controls">
+          <LabeledList.Item label="Управление">
             <Button
               content={shuttleButtonText}
               disabled={moving}
               onClick={() => act("moveShuttle")}
             />
             <Button
-              content="View Central Command Messages"
+              content="Просмотр Сообщений Центрального Командывания"
               onClick={() => act("showMessages")}
             />
           </LabeledList.Item>
@@ -157,9 +157,9 @@ const CataloguePane = (_properties, context) => {
 
   let titleText = "Crate Catalogue";
   if (searchText) {
-    titleText = "Results for '" + searchText + "':";
+    titleText = "Результаты для '" + searchText + "':";
   } else if (category) {
-    titleText = "Browsing " + category;
+    titleText = "Просмотр " + category;
   }
   return (
     <Section
@@ -173,7 +173,7 @@ const CataloguePane = (_properties, context) => {
       }>
       <Input
         fluid
-        placeholder="Search for..."
+        placeholder="Искать..."
         onInput={(e, v) => setSearchText(v)}
         mb={1} />
       <Box maxHeight={25} overflowY="auto" overflowX="hidden">
@@ -185,7 +185,7 @@ const CataloguePane = (_properties, context) => {
               </Table.Cell>
               <Table.Cell textAlign="right" pr={1}>
                 <Button
-                  content="Order 1"
+                  content="Заказать 1"
                   icon="shopping-cart"
                   onClick={() => act("order", {
                     crate: c.ref,
@@ -193,7 +193,7 @@ const CataloguePane = (_properties, context) => {
                   })}
                 />
                 <Button
-                  content="Order Multiple"
+                  content="Заказать Несколько"
                   icon="cart-plus"
                   onClick={() => act("order", {
                     crate: c.ref,
@@ -201,7 +201,7 @@ const CataloguePane = (_properties, context) => {
                   })}
                 />
                 <Button
-                  content="View Contents"
+                  content="Просмотр содержимого"
                   icon="search"
                   onClick={() => {
                     setContentsModal(c.contents);
@@ -225,7 +225,7 @@ const DetailsPane = (_properties, context) => {
     orders,
   } = data;
   return (
-    <Section title="Details">
+    <Section title="Детали">
       <Box maxHeight={15} overflowY="auto" overflowX="hidden">
         <Box bold>Requests</Box>
         <Table m="0.5rem">
@@ -241,7 +241,7 @@ const DetailsPane = (_properties, context) => {
               </Table.Cell>
               <Table.Cell textAlign="right" pr={1}>
                 <Button
-                  content="Approve"
+                  content="Одобрить"
                   color="green"
                   disabled={!canapprove}
                   onClick={() => act("approve", {
@@ -249,7 +249,7 @@ const DetailsPane = (_properties, context) => {
                   })}
                 />
                 <Button
-                  content="Deny"
+                  content="Отклонить"
                   color="red"
                   onClick={() => act("deny", {
                     ordernum: r.ordernum,
@@ -259,7 +259,7 @@ const DetailsPane = (_properties, context) => {
             </Table.Row>
           ))}
         </Table>
-        <Box bold>Confirmed Orders</Box>
+        <Box bold>Подтвержденные Заказы</Box>
         <Table m="0.5rem">
           {orders.map(r => (
             <Table.Row key={r.ordernum}>

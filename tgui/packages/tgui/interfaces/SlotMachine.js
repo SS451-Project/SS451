@@ -10,10 +10,10 @@ export const SlotMachine = (props, context) => {
         <Window.Content>
           <Section>
             <Box>
-              Could not scan your card or could not find account!
+              Не удалось отсканировать вашу карту или не удалось найти учетную запись!
             </Box>
             <Box>
-              Please wear or hold your ID and try again.
+              Пожалуйста, наденьте или держите свою ID-карту и повторите попытку.
             </Box>
           </Section>
         </Window.Content>
@@ -22,9 +22,9 @@ export const SlotMachine = (props, context) => {
   } else {
     let playerText;
     if (data.plays === 1) {
-      playerText = data.plays + " player has tried their luck today!";
+      playerText = data.plays + " игрок испытал свою удачу сегодня!";
     } else {
-      playerText = data.plays + " players have tried their luck today!";
+      playerText = data.plays + " игрока сегодня испытали свою удачу!";
     }
     return (
       <Window>
@@ -34,16 +34,16 @@ export const SlotMachine = (props, context) => {
               {playerText}
             </Box>
             <LabeledList>
-              <LabeledList.Item label="Credits Remaining">
+              <LabeledList.Item label="Оставшиеся кредиты">
                 <AnimatedNumber
                   value={data.money}
                 />
               </LabeledList.Item>
-              <LabeledList.Item label="50 credits to spin">
+              <LabeledList.Item label="50 кредитов для вращения">
                 <Button
                   icon="coins"
                   disabled={data.working}
-                  content={data.working ? "Spinning..." : "Spin"}
+                  content={data.working ? "Вращение..." : "Крутить"}
                   onClick={() => act("spin")} />
               </LabeledList.Item>
             </LabeledList>

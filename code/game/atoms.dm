@@ -304,18 +304,18 @@
 
 
 //All atoms
-/atom/proc/examine(mob/user, infix = "", suffix = "")
+/atom/proc/examine(mob/user, infix = "", suffix = "") // Не пиши сюда ничего
 	//This reformat names to get a/an properly working on item descriptions when they are bloody
-	var/f_name = "[src]."
+	var/f_name = " [name]." // Нахуй ваш [SRC], он неккоректно отображает описание.
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
-			f_name = ""
+			f_name = "" // Тоже ничего не нужно сюда писать
 		else
-			f_name = ""
+			f_name = "" // Тоже ничего не нужно сюда писать
 		if(blood_color != "#030303")
 			f_name += "<span class='danger'>окровавленный</span> [name]!"
 		else
-			f_name += "в масляных пятнах [name]."
+			f_name += "[name] в масляных пятнах."
 	. = list("[bicon(src)] Это [f_name]")
 	if(desc)
 		. += desc
