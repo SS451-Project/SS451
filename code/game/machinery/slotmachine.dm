@@ -1,6 +1,6 @@
 /obj/machinery/slot_machine
-	name = "slot machine"
-	desc = "Gambling for the antisocial."
+	name = "Слот Машина"
+	desc = "Азартные игры для асоциалов."
 	icon = 'icons/obj/economy.dmi'
 	icon_state = "slots-off"
 	anchored = 1
@@ -60,33 +60,33 @@
 /obj/machinery/slot_machine/proc/spin_slots(userName)
 	switch(rand(1,5000))
 		if(1)
-			atom_say("JACKPOT! [userName] has won ten thousand credits!")
-			GLOB.event_announcement.Announce("Congratulations to [userName] on winning the Jackpot of TEN THOUSAND CREDITS!", "Jackpot Winner")
-			result = "JACKPOT! You win ten thousand credits!"
+			atom_say("ДЖЕКПОТ! [userName] выиграл десять тысяч кредитов!")
+			GLOB.event_announcement.Announce("Поздравляем [userName] за выбивание джекпота в ДЕСЯТЬ ТЫСЯЧ КРЕДИТОВ!", "Джекпот")
+			result = "ДЖЕКПОТ! Ты выиграл десять тысяч кредитов!"
 			resultlvl = "teal"
 			win_money(10000, 'sound/goonstation/misc/airraid_loop.ogg')
 		if(2 to 20)
-			atom_say("Big Winner! [userName] has won a thousand credits!")
-			result = "You win a thousand credits!"
+			atom_say("Большой победитель! [userName] выиграл тысячу кредитов!")
+			result = "Вы выигрываете тысячу кредитов!"
 			resultlvl = "green"
 			win_money(1000, 'sound/goonstation/misc/klaxon.ogg')
 		if(21 to 100)
-			atom_say("Winner! [userName] has won five hundred credits!")
-			result = "You win five hundred credits!"
+			atom_say("Победитель! [userName] выиграл пятьсот кредитов!")
+			result = "Ты выиграл пятьсот кредитов!"
 			resultlvl = "green"
 			win_money(500, 'sound/goonstation/misc/bell.ogg')
 		if(101 to 500)
-			atom_say("Winner! [userName] has won two hundred credits!")
-			result = "You win two hundred credits!"
+			atom_say("Победитель! [userName] выиграл двести кредитов!")
+			result = "Ты выиграл двести кредитов!"
 			resultlvl = "green"
 			win_money(200)
 		if(501 to 1000)
-			atom_say("Winner! [userName] has won fifty credits!")
-			result = "You win fifty credits!"
+			atom_say("Победитель! [userName] выиграл пятьдесят кредитов!")
+			result = "Ты выиграл пятьдесят кредитов!"
 			resultlvl = "green"
 			win_money(50)
 		else
-			result = "No luck!"
+			result = "Не повезло!"
 			resultlvl = "orange"
 	working = FALSE
 	icon_state = "slots-off"
