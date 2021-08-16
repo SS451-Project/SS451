@@ -3189,7 +3189,7 @@
               children: [(0, o.createComponentVNode)(2, l.Input, {
                   fluid: !0,
                   mb: 1,
-                  placeholder: "Search records...",
+                  placeholder: "Искать записи...",
                   onInput: function(e, t) {
                       return m(t)
                   }
@@ -5949,13 +5949,13 @@
                   color: "white",
                   children: [(0, o.createComponentVNode)(2, a.Table.Cell, {
                       width: "50%",
-                      children: "Name"
+                      children: "Имя"
                   }), (0, o.createComponentVNode)(2, a.Table.Cell, {
                       width: "35%",
-                      children: "Rank"
+                      children: "Ранг"
                   }), (0, o.createComponentVNode)(2, a.Table.Cell, {
                       width: "15%",
-                      children: "Active"
+                      children: "Активность"
                   })]
               }), e.map((function(e) {
                   return (0, o.createComponentVNode)(2, a.Table.Row, {
@@ -5997,7 +5997,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Command"
+                      children: "Командование"
                   })
               }),
               level: 2,
@@ -6012,7 +6012,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Procedure"
+                      children: "Судебное производство"
                   })
               }),
               level: 2,
@@ -6037,7 +6037,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Security"
+                      children: "Служба Безопасности"
                   })
               }),
               level: 2,
@@ -6052,7 +6052,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Engineering"
+                      children: "Инженерия"
                   })
               }),
               level: 2,
@@ -6067,7 +6067,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Medical"
+                      children: "Медицина"
                   })
               }),
               level: 2,
@@ -6082,7 +6082,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Science"
+                      children: "Научный отдел"
                   })
               }),
               level: 2,
@@ -6097,7 +6097,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Service"
+                      children: "Обслуживание"
                   })
               }),
               level: 2,
@@ -6112,7 +6112,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Supply"
+                      children: "Снабжение"
                   })
               }),
               level: 2,
@@ -6126,7 +6126,7 @@
                       ml: 1,
                       textAlign: "center",
                       fontSize: 1.4,
-                      children: "Misc"
+                      children: "Прочие"
                   })
               }),
               level: 2,
@@ -17355,7 +17355,7 @@
                   onClick: function() {
                       return i("ejectify")
                   },
-                  children: "Eject"
+                  children: "Извлечь"
               })], 4),
               children: (0, o.createComponentVNode)(2, c.LabeledList, {
                   children: [(0, o.createComponentVNode)(2, c.LabeledList.Item, {
@@ -18562,7 +18562,7 @@
                   title: "Holding Tank",
                   buttons: !!y && (0, o.createComponentVNode)(2, c.Button, {
                       icon: "eject",
-                      content: "Eject",
+                      content: "Извлечь",
                       onClick: function() {
                           return d("eject")
                       }
@@ -18663,7 +18663,7 @@
                       children: (0, o.createComponentVNode)(2, a.Button, {
                           icon: u.modify_name ? "eject" : "id-card",
                           selected: u.modify_name,
-                          content: u.modify_name ? "Remove Card: " + u.modify_name : "-----",
+                          content: u.modify_name ? "Вынуть Карту: " + u.modify_name : "-----",
                           onClick: function() {
                               return d("modify")
                           }
@@ -19432,7 +19432,7 @@
                           return (0, o.createComponentVNode)(2, i.Table.Row, {
                               children: [(0, o.createComponentVNode)(2, i.Table.Cell, {
                                   children: [(0, o.createComponentVNode)(2, i.Box, {
-                                      children: ["- #", e.ordernum, ": ", e.supply_type, " for ", (0, o.createVNode)(1, "b", null, e.orderedby, 0)]
+                                      children: ["- #", e.ordernum, ": ", e.supply_type, " для ", (0, o.createVNode)(1, "b", null, e.orderedby, 0)]
                                   }), (0, o.createComponentVNode)(2, i.Box, {
                                       italic: !0,
                                       children: ["Причина: ", e.comment]
@@ -19470,10 +19470,10 @@
                           return (0, o.createComponentVNode)(2, i.Table.Row, {
                               children: (0, o.createComponentVNode)(2, i.Table.Cell, {
                                   children: [(0, o.createComponentVNode)(2, i.Box, {
-                                      children: ["- #", e.ordernum, ": ", e.supply_type, " for ", (0, o.createVNode)(1, "b", null, e.orderedby, 0)]
+                                      children: ["- #", e.ordernum, ": ", e.supply_type, " для ", (0, o.createVNode)(1, "b", null, e.orderedby, 0)]
                                   }), (0, o.createComponentVNode)(2, i.Box, {
                                       italic: !0,
-                                      children: ["Reason: ", e.comment]
+                                      children: ["Причина: ", e.comment]
                                   })]
                               })
                           }, e.ordernum)
@@ -19620,7 +19620,7 @@
                       children: [s, " / ", m, " units"]
                   }), (0, o.createComponentVNode)(2, a.Button, {
                       icon: "eject",
-                      content: "Eject",
+                      content: "Извлечь",
                       disabled: !u,
                       onClick: function() {
                           return i("ejectBeaker")
@@ -19798,7 +19798,7 @@
               s = l.beakerMaxVolume,
               m = l.beakerContents;
           return (0, o.createComponentVNode)(2, c.Section, {
-              title: "Beaker",
+              title: "Мензурка",
               flexGrow: "1",
               buttons: !!d && (0, o.createComponentVNode)(2, c.Box, {
                   children: [(0, o.createComponentVNode)(2, c.Box, {
@@ -19808,7 +19808,7 @@
                       children: [u, " / ", s, " units"]
                   }), (0, o.createComponentVNode)(2, c.Button, {
                       icon: "eject",
-                      content: "Eject",
+                      content: "Извлечь",
                       onClick: function() {
                           return r("eject_beaker")
                       }
@@ -19865,20 +19865,20 @@
               u = e.beakerReagents,
               s = e.bufferNonEmpty;
           return (0, o.createComponentVNode)(2, a.Section, {
-              title: "Beaker",
+              title: "Мензурка",
               flexGrow: "0",
               flexBasis: "300px",
               buttons: s ? (0, o.createComponentVNode)(2, a.Button.Confirm, {
                   icon: "eject",
                   disabled: !c,
-                  content: "Eject and Clear Buffer",
+                  content: "Извлечь и очистить буфер",
                   onClick: function() {
                       return n("eject")
                   }
               }) : (0, o.createComponentVNode)(2, a.Button, {
                   icon: "eject",
                   disabled: !c,
-                  content: "Eject and Clear Buffer",
+                  content: "Извлечь и очистить буфер",
                   onClick: function() {
                       return n("eject")
                   }
@@ -21628,7 +21628,7 @@
                       return c("ejectOccupant")
                   },
                   disabled: !m,
-                  children: "Eject"
+                  children: "Извлечь"
               }),
               children: m ? (0, o.createComponentVNode)(2, a.LabeledList, {
                   children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
@@ -21819,7 +21819,7 @@
               }), (0, o.createComponentVNode)(2, a.Button, {
                   disabled: !u || d,
                   icon: "user-slash",
-                  content: "Eject",
+                  content: "Извлечь",
                   onClick: function() {
                       return c("ejectOccupant")
                   }
@@ -22244,7 +22244,7 @@
               }), (0, o.createComponentVNode)(2, a.Button, {
                   disabled: !l,
                   icon: "eject",
-                  content: "Eject",
+                  content: "Извлечь",
                   onClick: function() {
                       return c("ejectDisk")
                   }
@@ -22290,7 +22290,7 @@
               buttons: (0, o.createComponentVNode)(2, a.Button, {
                   disabled: !l,
                   icon: "eject",
-                  content: "Eject",
+                  content: "Извлечь",
                   onClick: function() {
                       return c("ejectBeaker")
                   }
@@ -22480,11 +22480,11 @@
                               }
                           })]
                       }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                          label: "Eject",
+                          label: "Извлечь",
                           children: (0, o.createComponentVNode)(2, a.Button, {
                               icon: "sign-out-alt",
                               disabled: u.isAI,
-                              content: "Eject Contents",
+                              content: "Извлечь Содержимое",
                               onClick: function() {
                                   return d("eject")
                               }
@@ -24773,11 +24773,11 @@
               p = i.id_goal,
               f = i.unclaimed_points,
               h = d ? 0 : 1,
-              C = d ? "ERR0R" : l ? "Completed!" : "Insufficient";
+              C = d ? "ERR0R" : l ? "Завершено!" : "Insufficient";
           return (0, o.createComponentVNode)(2, c.Section, {
               children: (0, o.createComponentVNode)(2, c.LabeledList, {
                   children: [(0, o.createComponentVNode)(2, c.LabeledList.Item, {
-                      label: "Status",
+                      label: "Статус",
                       children: !!u && (0, o.createComponentVNode)(2, c.ProgressBar, {
                           value: m / p,
                           ranges: {
@@ -24785,9 +24785,9 @@
                               bad: [-Infinity, h]
                           },
                           children: m + " / " + p + " " + C
-                      }) || !!d && "ERR0R COMPLETED?!@" || "No ID inserted"
+                      }) || !!d && "ERR0R ZАВ3РШ0Н?!@" || "ID Не Вставлен"
                   }), (0, o.createComponentVNode)(2, c.LabeledList.Item, {
-                      label: "Shuttle controls",
+                      label: "Управление шаттлом",
                       children: (0, o.createComponentVNode)(2, c.Button, {
                           fluid: !0,
                           content: "Move shuttle",
@@ -28191,7 +28191,7 @@
                   }) : (0, o.createComponentVNode)(2, a.Flex.Item, {
                       m: 1,
                       color: "grey",
-                      children: "No ID Inserted"
+                      children: "ID Не Вставлен"
                   }), s ? (0, o.createComponentVNode)(2, a.Flex.Item, {
                       children: (0, o.createComponentVNode)(2, a.Button, {
                           icon: "sd-card",
@@ -28204,7 +28204,7 @@
                   }) : (0, o.createComponentVNode)(2, a.Flex.Item, {
                       m: 1,
                       color: "grey",
-                      children: "No Cartridge Inserted"
+                      children: "Картридж Не Вставлен"
                   }), (0, o.createComponentVNode)(2, a.Flex.Item, {
                       grow: 1,
                       textAlign: "right",
@@ -28364,14 +28364,14 @@
       return (0, o.createFragment)([(0, o.createComponentVNode)(2, a.Box, {
           children: (0, o.createComponentVNode)(2, a.LabeledList, {
               children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                  label: "Owner",
+                  label: "Владелец",
                   color: "average",
                   children: [l, ", ", d]
               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
                   label: "ID",
                   children: (0, o.createComponentVNode)(2, a.Button, {
                       icon: "sync",
-                      content: "Update PDA Info",
+                      content: "Обновите информацию ПДА",
                       disabled: !u,
                       onClick: function() {
                           return c("UpdateInfo")
@@ -28381,7 +28381,7 @@
           })
       }), (0, o.createComponentVNode)(2, a.Section, {
           level: 2,
-          title: "Functions",
+          title: "Функционал",
           children: (0, o.createComponentVNode)(2, a.LabeledList, {
               children: s.map((function(e) {
                   var t = i.apps[e];
@@ -28418,7 +28418,7 @@
           }), (0, o.createComponentVNode)(2, a.Button, {
               fluid: !0,
               icon: "eject",
-              content: "Eject pAI",
+              content: "Извлечь pAI",
               onClick: function() {
                   return c("pai", {
                       option: 2
@@ -28468,12 +28468,12 @@
       return (0, o.createComponentVNode)(2, a.Box, {
           children: [(0, o.createComponentVNode)(2, a.LabeledList, {
               children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                  label: "Connection Status",
+                  label: "Состояние Подключения",
                   children: l ? (0, o.createComponentVNode)(2, a.Box, {
                       color: "green",
-                      children: ["Connected", (0, o.createComponentVNode)(2, a.Button, {
+                      children: ["Подключен", (0, o.createComponentVNode)(2, a.Button, {
                           ml: 2,
-                          content: "Disconnect",
+                          content: "Отключиться",
                           icon: "sign-out-alt",
                           onClick: function() {
                               return c("Disconnect")
@@ -28481,9 +28481,9 @@
                       })]
                   }) : (0, o.createComponentVNode)(2, a.Box, {
                       color: "red",
-                      children: ["Disconnected", (0, o.createComponentVNode)(2, a.Button, {
+                      children: ["Отключен", (0, o.createComponentVNode)(2, a.Button, {
                           ml: 2,
-                          content: "Connect",
+                          content: "Подключиться",
                           icon: "sign-in-alt",
                           onClick: function() {
                               return c("Reconnect")
@@ -28491,22 +28491,22 @@
                       })]
                   })
               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                  label: "Total Wild Captures",
+                  label: "Всего Поймано:",
                   children: d
               })]
           }), (0, o.createComponentVNode)(2, a.Section, {
-              title: "Collection",
+              title: "Коллекция",
               mt: 2,
               buttons: (0, o.createComponentVNode)(2, a.Box, {
                   children: !u && (0, o.createComponentVNode)(2, a.Box, {
                       children: [(0, o.createComponentVNode)(2, a.Button, {
-                          content: "Previous",
+                          content: "Пред.",
                           icon: "arrow-left",
                           onClick: function() {
                               return c("Prev")
                           }
                       }), (0, o.createComponentVNode)(2, a.Button, {
-                          content: "Next",
+                          content: "След.",
                           icon: "arrow-right",
                           onClick: function() {
                               return c("Next")
@@ -28514,7 +28514,7 @@
                       })]
                   })
               }),
-              children: u ? "Your collection is empty! Go capture some Nano-Mobs!" : s ? (0, o.createComponentVNode)(2, a.Flex, {
+              children: u ? "Ваша коллекция пуста! Иди и захвати несколько Нано-Мобов!" : s ? (0, o.createComponentVNode)(2, a.Flex, {
                   children: [(0, o.createComponentVNode)(2, a.Flex.Item, {
                       children: (0, o.createVNode)(1, "img", null, null, 1, {
                           src: s.sprite,
@@ -28528,42 +28528,42 @@
                       basis: 0,
                       children: (0, o.createComponentVNode)(2, a.LabeledList, {
                           children: [s.nickname && (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                              label: "Nickname",
+                              label: "Кличка",
                               children: s.nickname
                           }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                              label: "Species",
+                              label: "Вид",
                               children: s.real_name
                           }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                              label: "Level",
+                              label: "Уровень",
                               children: s.level
                           }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                              label: "Primary Type",
+                              label: "Основной Тип",
                               children: s.type1
                           }), s.type2 && (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                              label: "Secondary Type",
+                              label: "Вторичный Тип",
                               children: s.type2
                           }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                              label: "Actions",
+                              label: "Действия",
                               children: [(0, o.createComponentVNode)(2, a.Button, {
-                                  content: "Transfer",
+                                  content: "Передать",
                                   icon: "sd-card",
                                   onClick: function() {
                                       return c("Transfer")
                                   }
                               }), (0, o.createComponentVNode)(2, a.Button, {
-                                  content: "Release",
+                                  content: "Выпустить",
                                   icon: "arrow-up",
                                   onClick: function() {
                                       return c("Release")
                                   }
                               }), (0, o.createComponentVNode)(2, a.Button, {
-                                  content: "Rename",
+                                  content: "Переименовать",
                                   icon: "pencil-alt",
                                   onClick: function() {
                                       return c("Rename")
                                   }
                               }), !!s.is_hacked && (0, o.createComponentVNode)(2, a.Button, {
-                                  content: "Set Trap",
+                                  content: "Установить Ловушку",
                                   icon: "bolt",
                                   color: "red",
                                   onClick: function() {
@@ -28575,7 +28575,7 @@
                   })]
               }) : (0, o.createComponentVNode)(2, a.Box, {
                   color: "red",
-                  children: "Mob entry missing!"
+                  children: "Запись о мобе отсутствует!"
               })
           })]
       })
@@ -29991,7 +29991,7 @@
                       return c("remove_tank")
                   },
                   icon: "eject",
-                  children: "Eject"
+                  children: "Извлечь"
               }),
               children: [(0, o.createComponentVNode)(2, a.Flex, {
                   children: [(0, o.createComponentVNode)(2, a.Flex.Item, {
@@ -30190,7 +30190,7 @@
                       return c("remove_tank")
                   },
                   icon: "eject",
-                  children: "Eject"
+                  children: "Извлечь"
               }),
               children: [(0, o.createComponentVNode)(2, a.Flex, {
                   children: [(0, o.createComponentVNode)(2, a.Flex.Item, {
@@ -33050,7 +33050,7 @@
                   my: "0.5rem"
               }), (0, o.createVNode)(1, "br"), (0, o.createComponentVNode)(2, c.Button.Confirm, {
                   icon: "trash",
-                  content: "Delete All Security Records",
+                  content: "Delete All Security Record",
                   onClick: function() {
                       return n("delete_security_all")
                   },
@@ -33072,7 +33072,7 @@
               d = i.general,
               u = i.security;
           return d && d.fields ? (0, o.createFragment)([(0, o.createComponentVNode)(2, c.Section, {
-              title: "General Data",
+              title: "Общие данные",
               level: 2,
               mt: "-6px",
               buttons: (0, o.createFragment)([(0, o.createComponentVNode)(2, c.Button, {
@@ -33085,7 +33085,7 @@
                   }
               }), (0, o.createComponentVNode)(2, c.Button.Confirm, {
                   icon: "trash",
-                  tooltip: "WARNING: This will also delete the Security and Medical records associated to this crew member!",
+                  tooltip: "ПРЕДУПРЕЖДЕНИЕ: Это также приведет к удалению данных службы безопасности и медицинских записей, связанных с этим членом экипажа!",
                   tooltipPosition: "bottom-left",
                   content: "Delete Record",
                   onClick: function() {
@@ -33094,13 +33094,13 @@
               })], 4),
               children: (0, o.createComponentVNode)(2, v)
           }), (0, o.createComponentVNode)(2, c.Section, {
-              title: "Security Data",
+              title: "Данные Службы Безопасности",
               level: 2,
               mt: "-12px",
               buttons: (0, o.createComponentVNode)(2, c.Button.Confirm, {
                   icon: "trash",
                   disabled: u.empty,
-                  content: "Delete Record",
+                  content: "Удалить Запись",
                   onClick: function() {
                       return r("delete_security")
                   }
@@ -33108,7 +33108,7 @@
               children: (0, o.createComponentVNode)(2, y)
           })], 4) : (0, o.createComponentVNode)(2, c.Box, {
               color: "bad",
-              children: "General records lost!"
+              children: "Общие данные утеряны!"
           })
       },
       v = function(e, t) {
@@ -33151,7 +33151,7 @@
               }))
           })], 4) : (0, o.createComponentVNode)(2, c.Box, {
               color: "bad",
-              children: "General records lost!"
+              children: "Общие данные утеряны!"
           })
       },
       y = function(e, t) {
@@ -33929,7 +33929,7 @@
                   }
               }), (0, o.createComponentVNode)(2, c.Button, {
                   icon: "user-slash",
-                  content: "Eject",
+                  content: "Извлечь",
                   onClick: function() {
                       return i("ejectify")
                   }
@@ -34027,7 +34027,7 @@
               }), (0, o.createComponentVNode)(2, c.Button, {
                   disabled: !d,
                   icon: "eject",
-                  content: "Eject",
+                  content: "Извлечь",
                   onClick: function() {
                       return r("removebeaker")
                   }
@@ -35743,15 +35743,15 @@
                       direction: "row",
                       justify: "space-around",
                       children: [(0, o.createComponentVNode)(2, a.Button, {
-                          content: "Upload GPS data",
-                          tooltip: "Loads the GPS data from the device.",
+                          content: "Загрузить данные GPS",
+                          tooltip: "Загружает данные GPS с устройства.",
                           icon: "upload",
                           onClick: function() {
                               return l("load")
                           }
                       }), (0, o.createComponentVNode)(2, a.Button, {
-                          content: "Eject",
-                          tooltip: "Ejects the GPS device",
+                          content: "Извлечь",
+                          tooltip: "Извлечь устройство GPS",
                           icon: "eject",
                           onClick: function() {
                               return l("eject")
