@@ -25,7 +25,7 @@
 
 /datum/data/pda/app/mob_hunter_game/stop()
 	..()
-	disconnect("Program Terminated")
+	disconnect("Программа Завершена")
 	STOP_PROCESSING(SSobj, pda)
 
 /datum/data/pda/app/mob_hunter_game/proc/scan_nearby()
@@ -47,7 +47,7 @@
 	SSmob_hunt.connected_clients += src
 	connected = 1
 	if(pda)
-		pda.atom_say("Connection established. Capture all of the mobs, [pda.owner ? pda.owner : "hunter"]!")
+		pda.atom_say("Соединение установлено. Захватите всех существ, [pda.owner ? pda.owner : "hunter"]!")
 	return 1
 
 /datum/data/pda/app/mob_hunter_game/proc/get_player()
@@ -67,7 +67,7 @@
 	connected = 0
 	//show a disconnect message if we were disconnected involuntarily (reason argument provided)
 	if(pda && reason)
-		pda.atom_say("Disconnected from server. Reason: [reason].")
+		pda.atom_say("Отключен от сервера. Причина: [reason].")
 
 /datum/data/pda/app/mob_hunter_game/program_process()
 	if(!SSmob_hunt || !connected)
@@ -125,7 +125,7 @@
 /datum/data/pda/app/mob_hunter_game/proc/release()
 	if(!my_collection.len)
 		return
-	if(alert("Are you sure you want to release this mob back into the wild?", "Confirm Release", "Yes", "No") == "Yes")
+	if(alert("Вы уверены, что хотите выпустить это существо обратно в дикую природу?", "Подтвердить Освобождение", "Да", "Нет") == "Да")
 		remove_mob()
 
 /datum/data/pda/app/mob_hunter_game/proc/print_card()
@@ -158,23 +158,23 @@
 
 	. = TRUE
 	switch(action)
-		if("Rename")
+		if("Переименовать")
 			assign_nickname()
-		if("Release")
+		if("Выпустить")
 			release()
-		if("Next")
+		if("След.")
 			current_index++
 			if(current_index > my_collection.len)
 				current_index = 1
-		if("Prev")
+		if("Пред.")
 			current_index--
 			if(current_index < 1)
 				current_index = my_collection.len
-		if("Reconnect")
+		if("Переподключиться")
 			reconnect()
-		if("Disconnect")
+		if("Отключиться")
 			disconnect()
-		if("Transfer")
+		if("Передат")
 			print_card()
-		if("Set_Trap")
+		if("Установить Ловушку")
 			set_trap()
