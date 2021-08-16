@@ -84,7 +84,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/emergency/evac
-	name = "Emergency Equipment Crate"
+	name = "Ящик С Аварийным Оборудованием"
 	contains = list(/mob/living/simple_animal/bot/floorbot,
 					/mob/living/simple_animal/bot/floorbot,
 					/mob/living/simple_animal/bot/medbot,
@@ -103,11 +103,11 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/grenade/gas/oxygen)
 	cost = 35
 	containertype = /obj/structure/closet/crate/internals
-	containername = "emergency crate"
+	containername = "ящик с аварийным оборудованием"
 	group = SUPPLY_EMERGENCY
 
 /datum/supply_packs/emergency/internals
-	name = "Internals Crate"
+	name = "ящик с дыхательными аппаратами"
 	contains = list(/obj/item/clothing/mask/gas,
 					/obj/item/clothing/mask/gas,
 					/obj/item/clothing/mask/gas,
@@ -115,10 +115,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/tank/air,
 					/obj/item/tank/air)
 	cost = 10
-	containername = "internals crate"
+	containername = "ящик с дыхательными аппаратами"
 
 /datum/supply_packs/emergency/firefighting
-	name = "Firefighting Crate"
+	name = "Ящик С Противопожарным Оборудованием"
 	contains = list(/obj/item/clothing/suit/fire/firefighter,
 					/obj/item/clothing/suit/fire/firefighter,
 					/obj/item/clothing/mask/gas,
@@ -133,40 +133,40 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/head/hardhat/red)
 	cost = 10
 	containertype = /obj/structure/closet/crate
-	containername = "firefighting crate"
+	containername = "ящик с противопожарным оборудованием"
 
 /datum/supply_packs/emergency/atmostank
-	name = "Firefighting Watertank Crate"
+	name = "Ящик С Противопожарным Рюкзаком-Контейнером"
 	contains = list(/obj/item/watertank/atmos)
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
-	containername = "firefighting watertank crate"
+	containername = "ящик с противопожарным рюкзаком-контейнером"
 	access = ACCESS_ATMOSPHERICS
 
 /datum/supply_packs/emergency/weedcontrol
-	name = "Weed Control Crate"
+	name = "Ящик С Оборудованием Для Борьбы С Сорняками"
 	contains = list(/obj/item/scythe,
 					/obj/item/clothing/mask/gas,
 					/obj/item/grenade/chem_grenade/antiweed,
 					/obj/item/grenade/chem_grenade/antiweed)
 	cost = 15
 	containertype = /obj/structure/closet/crate/secure/hydrosec
-	containername = "weed control crate"
+	containername = "ящик с оборудованием для борьбы с сорняками"
 	access = ACCESS_HYDROPONICS
 	announce_beacons = list("Hydroponics" = list("Hydroponics"))
 
 /datum/supply_packs/emergency/voxsupport
-	name = "Vox Life Support Supplies"
+	name = "Набор Жизнеобеспечения Воксов"
 	contains = list(/obj/item/clothing/mask/breath/vox,
 					/obj/item/clothing/mask/breath/vox,
 					/obj/item/tank/emergency_oxygen/vox,
 					/obj/item/tank/emergency_oxygen/vox)
 	cost = 50
 	containertype = /obj/structure/closet/crate/medical
-	containername = "vox life support supplies crate"
+	containername = "набор жизнеобеспечения воксов"
 
 /datum/supply_packs/emergency/plasmamansupport
-	name = "Plasmaman Supply Kit"
+	name = "Набор Жизнеобеспечения Плазмаменов"
 	contains = list(/obj/item/clothing/under/plasmaman,
 					/obj/item/clothing/under/plasmaman,
 					/obj/item/tank/plasma/plasmaman/belt/full,
@@ -177,11 +177,11 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/head/helmet/space/plasmaman)
 	cost = 20
 	containertype = /obj/structure/closet/crate/secure/plasma
-	containername = "plasmaman life support supplies crate"
+	containername = "набор жизнеобеспечения плазмаменов"
 	access = ACCESS_EVA
 
 /datum/supply_packs/emergency/specialops
-	name = "Special Ops Supplies"
+	name = "Ящик С Оборудованием Для Спец. Операций"
 	contains = list(/obj/item/storage/box/emps,
 					/obj/item/grenade/smokebomb,
 					/obj/item/grenade/smokebomb,
@@ -190,7 +190,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/grenade/chem_grenade/incendiary)
 	cost = 20
 	containertype = /obj/structure/closet/crate
-	containername = "special ops crate"
+	containername = "ящик с оборудованием для спец. операций"
 	hidden = 1
 
 /datum/supply_packs/emergency/syndicate
@@ -198,7 +198,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	contains = list(/obj/item/storage/box/syndicate)
 	cost = 140
 	containertype = /obj/structure/closet/crate
-	containername = "crate"
+	containername = "ящик"
 	hidden = 1
 
 //////////////////////////////////////////////////////////////////////////////
@@ -214,90 +214,90 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/security/supplies
-	name = "Security Supplies Crate"
+	name = "Ящик Со Снаряжением Службы Безопасности"
 	contains = list(/obj/item/storage/box/flashbangs,
 					/obj/item/storage/box/teargas,
 					/obj/item/storage/box/flashes,
 					/obj/item/storage/box/handcuffs)
 	cost = 10
-	containername = "security supply crate"
+	containername = "ящик со снаряжением службы безопасности"
 
 /datum/supply_packs/security/vending/security
-	name = "SecTech Supply Crate"
+	name = "Пополнение Запасов Автомата SecTech"
 	cost = 15
 	contains = list(/obj/item/vending_refill/security)
-	containername = "SecTech supply crate"
+	containername = "пополнение запасов автомата SecTech"
 
 ////// Armor: Basic
 
 /datum/supply_packs/security/helmets
-	name = "Helmets Crate"
+	name = "Ящик Со Шлемами"
 	contains = list(/obj/item/clothing/head/helmet,
 					/obj/item/clothing/head/helmet,
 					/obj/item/clothing/head/helmet)
 	cost = 10
-	containername = "helmet crate"
+	containername = "ящик со шлемами"
 
 /datum/supply_packs/security/justiceinbound
-	name = "Standard Justice Enforcer Crate"
+	name = "Ящик С Набором Истинного Офицера"
 	contains = list(/obj/item/clothing/head/helmet/justice,
 					/obj/item/clothing/head/helmet/justice,
 					/obj/item/clothing/mask/gas/sechailer,
 					/obj/item/clothing/mask/gas/sechailer)
 	cost = 60 //justice comes at a price. An expensive, noisy price.
-	containername = "justice enforcer crate"
+	containername = "ящик с набором истинного офицера"
 
 /datum/supply_packs/security/armor
-	name = "Armor Crate"
+	name = "Ящик С Бронежилетами"
 	contains = list(/obj/item/clothing/suit/armor/vest,
 					/obj/item/clothing/suit/armor/vest,
 					/obj/item/clothing/suit/armor/vest)
 	cost = 10
-	containername = "armor crate"
+	containername = "ящик с бронежилетами"
 
 ////// Weapons: Basic
 
 /datum/supply_packs/security/baton
-	name = "Stun Batons Crate"
+	name = "Ящик С Оглушающими Дубинками"
 	contains = list(/obj/item/melee/baton/loaded,
 					/obj/item/melee/baton/loaded,
 					/obj/item/melee/baton/loaded)
 	cost = 10
-	containername = "stun baton crate"
+	containername = "ящик с оглушающими дубинками"
 
 /datum/supply_packs/security/laser
-	name = "Lasers Crate"
+	name = "Ящик С Лазерными Карабинами"
 	contains = list(/obj/item/gun/energy/laser,
 					/obj/item/gun/energy/laser,
 					/obj/item/gun/energy/laser)
 	cost = 15
-	containername = "laser crate"
+	containername = "ящик с лазерными карабинами"
 
 /datum/supply_packs/security/taser
-	name = "Stun Guns Crate"
+	name = "Ящик С Тазерами"
 	contains = list(/obj/item/gun/energy/gun/advtaser,
 					/obj/item/gun/energy/gun/advtaser,
 					/obj/item/gun/energy/gun/advtaser)
 	cost = 15
-	containername = "stun gun crate"
+	containername = "ящик с тазерами"
 
 /datum/supply_packs/security/disabler
-	name = "Disabler Crate"
+	name = "Ящик С Дизейблерами"
 	contains = list(/obj/item/gun/energy/disabler,
 					/obj/item/gun/energy/disabler,
 					/obj/item/gun/energy/disabler)
 	cost = 10
-	containername = "disabler crate"
+	containername = "ящик с Дизейблерами"
 
 /datum/supply_packs/security/enforcer
-	name = "Enforcer Crate"
+	name = "Ящик С Энфорсерами"
 	contains = list(/obj/item/storage/box/enforcer/security,
 					/obj/item/storage/box/enforcer/security)
 	cost = 40
-	containername = "Enforcer crate"
+	containername = "ящик с Энфорсерами"
 
 /datum/supply_packs/security/forensics
-	name = "Forensics Crate"
+	name = "Ящик С Набором Детектива"
 	contains = list(/obj/item/storage/box/evidence,
 					/obj/item/camera,
 					/obj/item/taperecorder,
@@ -307,7 +307,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/storage/box/fingerprints,
 					/obj/item/storage/briefcase/crimekit)
 	cost = 20
-	containername = "forensics crate"
+	containername = "ящик с набором детектива"
 
 ///// Armory stuff
 
@@ -320,55 +320,55 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 ///// Armor: Specialist
 
 /datum/supply_packs/security/armory/riothelmets
-	name = "Riot Helmets Crate"
+	name = "Ящик Со Шлемами Для Противодействия Бунтам"
 	contains = list(/obj/item/clothing/head/helmet/riot,
 					/obj/item/clothing/head/helmet/riot,
 					/obj/item/clothing/head/helmet/riot)
 	cost = 15
-	containername = "riot helmets crate"
+	containername = "ящик со шлемами для противодействия бунтам"
 
 /datum/supply_packs/security/armory/riotarmor
-	name = "Riot Armor Crate"
+	name = "Ящик С Бронёй Для Противодействия Бунтам"
 	contains = list(/obj/item/clothing/suit/armor/riot,
 					/obj/item/clothing/suit/armor/riot,
 					/obj/item/clothing/suit/armor/riot)
 	cost = 15
-	containername = "riot armor crate"
+	containername = "ящик с бронёй для противодействия бунтам"
 
 /datum/supply_packs/security/armory/riotshields
-	name = "Riot Shields Crate"
+	name = "Ящик С Щитами Для Противодействия Бунтам"
 	contains = list(/obj/item/shield/riot,
 					/obj/item/shield/riot,
 					/obj/item/shield/riot)
 	cost = 20
-	containername = "riot shields crate"
+	containername = "ящик с щитами для противодействия бунтам"
 
 /datum/supply_packs/security/bullethelmets
-	name = "Bulletproof Helmets Crate"
+	name = "Ящик С Пуленепробиваемыми Шлемами"
 	contains = list(/obj/item/clothing/head/helmet/alt,
 					/obj/item/clothing/head/helmet/alt,
 					/obj/item/clothing/head/helmet/alt)
 	cost = 10
-	containername = "bulletproof helmet crate"
+	containername = "ящик с тактическими шлемами"
 
 /datum/supply_packs/security/armory/bulletarmor
-	name = "Bulletproof Armor Crate"
+	name = "Ящик С Пуленепробиваемыми Бронежилетами"
 	contains = list(/obj/item/clothing/suit/armor/bulletproof,
 					/obj/item/clothing/suit/armor/bulletproof,
 					/obj/item/clothing/suit/armor/bulletproof)
 	cost = 15
-	containername = "tactical armor crate"
+	containername = "ящик с тактическими бронежилетами"
 
 /datum/supply_packs/security/armory/webbing
-	name = "Webbing Crate"
+	name = "Ящик С Тактическими Разгрузками"
 	contains = list(/obj/item/storage/belt/security/webbing,
 					/obj/item/storage/belt/security/webbing,
 					/obj/item/storage/belt/security/webbing)
 	cost = 15
-	containername = "tactical webbing crate"
+	containername = "ящик с тактическими рагрузками"
 
 /datum/supply_packs/security/armory/swat
-	name = "SWAT gear crate"
+	name = "Ящик Со Снаряжением Спецподразделения SWAT"
 	contains = list(/obj/item/clothing/head/helmet/swat,
 					/obj/item/clothing/head/helmet/swat,
 					/obj/item/clothing/suit/space/swat,
@@ -380,28 +380,28 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/storage/belt/military/assault,
 					/obj/item/storage/belt/military/assault)
 	cost = 60
-	containername = "assault armor crate"
+	containername = "ящик для штурмовой брони"
 
 /datum/supply_packs/security/armory/laserarmor
-	name = "Ablative Armor Crate"
+	name = "Ящик Для Абляционной Брони Против Лазерного Оружия"
 	contains = list(/obj/item/clothing/suit/armor/laserproof,
 					/obj/item/clothing/suit/armor/laserproof)		// Only two vests to keep costs down for balance
 	cost = 20
 	containertype = /obj/structure/closet/crate/secure/plasma
-	containername = "ablative armor crate"
+	containername = "ящик с абляционной броней"
 
 /datum/supply_packs/security/armory/sibyl
-	name = "Sibyl Attachments Crate"
+	name = "Ящик С Системами Авторизации Пользователя Sibyl"
 	contains = list(/obj/item/sibyl_system_mod,
 					/obj/item/sibyl_system_mod,
 					/obj/item/sibyl_system_mod)
 	cost = 50														//По 15 за один блокиратор и 5 за ящик
-	containername = "sibyl attachments crate"
+	containername = "ящик для принадлежностей Sibyl"
 
 /////// Weapons: Specialist
 
 /datum/supply_packs/security/armory/ballistic
-	name = "Riot Shotguns Crate"
+	name = "Набор Служебных Дробовиков"
 	contains = list(/obj/item/gun/projectile/shotgun/riot,
 					/obj/item/gun/projectile/shotgun/riot,
 					/obj/item/gun/projectile/shotgun/riot,
@@ -409,10 +409,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/storage/belt/bandolier,
 					/obj/item/storage/belt/bandolier)
 	cost = 50
-	containername = "riot shotgun crate"
+	containername = "набор служебных дробовиков"
 
 /datum/supply_packs/security/armory/ballisticauto
-	name = "Combat Shotguns Crate"
+	name = "Ящик С Боевыми Дробовиками"
 	contains = list(/obj/item/gun/projectile/shotgun/automatic/combat,
 					/obj/item/gun/projectile/shotgun/automatic/combat,
 					/obj/item/gun/projectile/shotgun/automatic/combat,
@@ -420,10 +420,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/storage/belt/bandolier,
 					/obj/item/storage/belt/bandolier)
 	cost = 80
-	containername = "combat shotgun crate"
+	containername = "ящик с боевыми дробовиками"
 
 /datum/supply_packs/security/armory/buckshotammo
-	name = "Buckshot Ammo Crate"
+	name = "Ящик С Пачками Картечи 12g"
 	contains = list(/obj/item/ammo_box/shotgun/buck,
 					/obj/item/storage/box/buck,
 					/obj/item/storage/box/buck,
@@ -431,10 +431,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/storage/box/buck,
 					/obj/item/storage/box/buck)
 	cost = 45
-	containername = "buckshot ammo crate"
+	containername = "ящик с пачками картечи 12g"
 
 /datum/supply_packs/security/armory/slugammo
-	name = "Slug Ammo Crate"
+	name = "Ящик С Пачками Пуль 12g"
 	contains = list(/obj/item/ammo_box/shotgun,
 					/obj/item/storage/box/slug,
 					/obj/item/storage/box/slug,
@@ -442,27 +442,27 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/storage/box/slug,
 					/obj/item/storage/box/slug)
 	cost = 45
-	containername = "slug ammo crate"
+	containername = "ящик с пачками пуль 12g"
 
 /datum/supply_packs/security/armory/expenergy
-	name = "Energy Guns Crate"
+	name = "Ящик С Энергетическими Карабинами"
 	contains = list(/obj/item/gun/energy/gun,
 					/obj/item/gun/energy/gun)
 	cost = 25
 	containertype = /obj/structure/closet/crate/secure/plasma
-	containername = "energy gun crate"
+	containername = "ящик с энергетическими карабинами"
 
 /datum/supply_packs/security/armory/epistol	// costs 3/5ths of the normal e-guns for 3/4ths the total ammo, making it cheaper to arm more people, but less convient for any one person
-	name = "Energy Pistol Crate"
+	name = "Ящик С Миниатюрными Энергетическими Пистолетами"
 	contains = list(/obj/item/gun/energy/gun/mini,
 					/obj/item/gun/energy/gun/mini,
 					/obj/item/gun/energy/gun/mini)
 	cost = 15
 	containertype = /obj/structure/closet/crate/secure/plasma
-	containername = "energy gun crate"
+	containername = "ящик с миниатюрными энергетическими пистолетами"
 
 /datum/supply_packs/security/armory/eweapons
-	name = "Incendiary Weapons Crate"
+	name = "Ящик С Зажигательным Вооружением"
 	contains = list(/obj/item/flamethrower/full,
 					/obj/item/tank/plasma,
 					/obj/item/tank/plasma,
@@ -472,62 +472,62 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/grenade/chem_grenade/incendiary)
 	cost = 15	// its a fecking flamethrower and some plasma, why the shit did this cost so much before!?
 	containertype = /obj/structure/closet/crate/secure/plasma
-	containername = "incendiary weapons crate"
+	containername = "ящик с зажигательным вооружением"
 	access = ACCESS_HEADS
 
 /datum/supply_packs/security/armory/wt550
-	name = "WT-550 Auto Rifle Crate"
+	name = "Ящик С Карабинами WT-550"
 	contains = list(/obj/item/gun/projectile/automatic/wt550,
 					/obj/item/gun/projectile/automatic/wt550)
 	cost = 35
-	containername = "auto rifle crate"
+	containername = "ящик с автоматическими винтовками"
 
 /datum/supply_packs/security/armory/wt550ammo
-	name = "WT-550 Rifle Ammo Crate"
+	name = "Ящик С Патронами Для Карабина WT-550"
 	contains = list(/obj/item/ammo_box/magazine/wt550m9,
 					/obj/item/ammo_box/magazine/wt550m9,
 					/obj/item/ammo_box/magazine/wt550m9,
 					/obj/item/ammo_box/magazine/wt550m9,)
 	cost = 30
-	containername = "auto rifle ammo crate"
+	containername = "ящик с боезапасом к автоматическим винтовкам"
 
 /////// Implants & etc
 
 /datum/supply_packs/security/armory/mindshield
-	name = "Mindshield Implants Crate"
+	name = "Ящик С Имплантом Mindshield"
 	contains = list (/obj/item/storage/lockbox/mindshield)
 	cost = 40
-	containername = "mindshield implant crate"
+	containername = "ящик с имплантом Mindshield"
 
 /datum/supply_packs/security/armory/trackingimp
-	name = "Tracking Implants Crate"
+	name = "Ящик С Имплантами Tracking"
 	contains = list (/obj/item/storage/box/trackimp)
 	cost = 20
-	containername = "tracking implant crate"
+	containername = "ящик с имплантами Tracking"
 
 /datum/supply_packs/security/armory/chemimp
-	name = "Chemical Implants Crate"
+	name = "Ящик С Имплантами Chemical"
 	contains = list (/obj/item/storage/box/chemimp)
 	cost = 20
-	containername = "chemical implant crate"
+	containername = "ящик с имплантами Chemical"
 
 /datum/supply_packs/security/armory/exileimp
-	name = "Exile Implants Crate"
+	name = "Ящик С Имплантами Exile"
 	contains = list (/obj/item/storage/box/exileimp)
 	cost = 30
-	containername = "exile implant crate"
+	containername = "ящик с имплантами Exile"
 
 /datum/supply_packs/security/securitybarriers
-	name = "Security Barriers Crate"
+	name = "Ящик С Развертываемыми Барьерами"
 	contains = list(/obj/item/grenade/barrier,
 					/obj/item/grenade/barrier,
 					/obj/item/grenade/barrier,
 					/obj/item/grenade/barrier)
 	cost = 20
-	containername = "security barriers crate"
+	containername = "ящик с развертываемыми барьерами"
 
 /datum/supply_packs/security/securityclothes
-	name = "Security Clothing Crate"
+	name = "Ящик С Одеждой Службы Безопасности"
 	contains = list(/obj/item/clothing/under/rank/security/corp,
 					/obj/item/clothing/under/rank/security/corp,
 					/obj/item/clothing/head/soft/sec/corp,
@@ -537,10 +537,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/under/rank/head_of_security/corp,
 					/obj/item/clothing/head/HoS/beret)
 	cost = 30
-	containername = "security clothing crate"
+	containername = "ящик с одеждой службы безопасности"
 
 /datum/supply_packs/security/officerpack // Starter pack for an officer. Contains everything in a locker but backpack (officer already start with one). Convenient way to equip new officer on highpop.
-	name = "Officer Starter Pack"
+	name = "Ящик Со Снаряжением Офицера"
 	contains = 	list(/obj/item/clothing/suit/armor/vest/security,
 				/obj/item/radio/headset/headset_sec/alt,
 				/obj/item/clothing/head/soft/sec,
@@ -555,7 +555,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 				/obj/item/melee/baton/loaded,
 				/obj/item/clothing/suit/armor/secjacket)
 	cost = 30 // Convenience has a price and this pack is genuinely loaded
-	containername = "officer starter crate"
+	containername = "ящик со снаряжением офицера"
 
 
 
@@ -571,14 +571,14 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/engineering/fueltank
-	name = "Fuel Tank Crate"
+	name = "Бак С Топливом"
 	contains = list(/obj/structure/reagent_dispensers/fueltank)
 	cost = 8
 	containertype = /obj/structure/largecrate
-	containername = "fuel tank crate"
+	containername = "бак с топливом"
 
 /datum/supply_packs/engineering/tools		//the most robust crate
-	name = "Toolbox Crate"
+	name = "Набор Ящиков С Инструментами"
 	contains = list(/obj/item/storage/toolbox/electrical,
 					/obj/item/storage/toolbox/electrical,
 					/obj/item/storage/toolbox/electrical,
@@ -586,34 +586,34 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/storage/toolbox/mechanical,
 					/obj/item/storage/toolbox/mechanical)
 	cost = 10
-	containername = "electrical maintenance crate"
+	containername = "набор ящиков с инструментами"
 
 /datum/supply_packs/vending/engivend
-	name = "EngiVend Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов EngiVend"
 	cost = 15
 	contains = list(/obj/item/vending_refill/engivend)
-	containername = "engineering supply crate"
+	containername = "набор пополнения ассортимента автоматов EngiVend"
 
 /datum/supply_packs/engineering/powergamermitts
-	name = "Insulated Gloves Crate"
+	name = "Набор Изолирующих Перчаток"
 	contains = list(/obj/item/clothing/gloves/color/yellow,
 					/obj/item/clothing/gloves/color/yellow,
 					/obj/item/clothing/gloves/color/yellow)
 	cost = 20	//Made of pure-grade bullshittinium
-	containername = "insulated gloves crate"
+	containername = "набор изолирующих перчаток"
 	containertype = /obj/structure/closet/crate/engineering/electrical
 
 /datum/supply_packs/engineering/power
-	name = "Power Cell Crate"
+	name = "Набор Батареек Повышенной Емкости"
 	contains = list(/obj/item/stock_parts/cell/high,		//Changed to an extra high powercell because normal cells are useless
 					/obj/item/stock_parts/cell/high,
 					/obj/item/stock_parts/cell/high)
 	cost = 10
-	containername = "electrical maintenance crate"
+	containername = "набор батареек повышенной емкости"
 	containertype = /obj/structure/closet/crate/engineering/electrical
 
 /datum/supply_packs/engineering/engiequipment
-	name = "Engineering Gear Crate"
+	name = "Набор Снаряжения Инженеров"
 	contains = list(/obj/item/storage/belt/utility,
 					/obj/item/storage/belt/utility,
 					/obj/item/storage/belt/utility,
@@ -627,10 +627,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/head/hardhat,
 					/obj/item/clothing/head/hardhat)
 	cost = 10
-	containername = "engineering gear crate"
+	containername = "набор снаряжения инженеров"
 
 /datum/supply_packs/engineering/solar
-	name = "Solar Pack Crate"
+	name = "Набор Для Сборки Солнечных Панелей"
 	contains  = list(/obj/item/solar_assembly,
 					/obj/item/solar_assembly,
 					/obj/item/solar_assembly,
@@ -656,62 +656,62 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/tracker_electronics,
 					/obj/item/paper/solar)
 	cost = 20
-	containername = "solar pack crate"
+	containername = "набор для сборки солнечных панелей"
 	containertype = /obj/structure/closet/crate/engineering/electrical
 
 /datum/supply_packs/engineering/engine
-	name = "Emitter Crate"
+	name = "Набор Эмиттеров"
 	contains = list(/obj/machinery/power/emitter,
 					/obj/machinery/power/emitter)
 	cost = 10
-	containername = "emitter crate"
+	containername = "набор эмиттеров"
 	access = ACCESS_CE
 	containertype = /obj/structure/closet/crate/secure/engineering
 
 /datum/supply_packs/engineering/engine/field_gen
-	name = "Field Generator Crate"
+	name = "Набор Генераторов Защитного Поля"
 	contains = list(/obj/machinery/field/generator,
 					/obj/machinery/field/generator)
 	cost = 10
-	containername = "field generator crate"
+	containername = "набор генераторов защитного поля"
 
 /datum/supply_packs/engineering/engine/sing_gen
-	name = "Singularity Generator Crate"
+	name = "Генератор Двигателя Сингулярность"
 	contains = list(/obj/machinery/the_singularitygen)
 	cost = 10
-	containername = "singularity generator crate"
+	containername = "генератор двигателя Сингулярность"
 
 /datum/supply_packs/engineering/engine/tesla
-	name = "Energy Ball Generator Crate"
+	name = "Генератор Двигателя Тесла"
 	contains = list(/obj/machinery/the_singularitygen/tesla)
 	cost = 10
-	containername = "energy ball generator crate"
+	containername = "генератор двигателя Тесла"
 
 /datum/supply_packs/engineering/engine/coil
-	name = "Tesla Coil Crate"
+	name = "Катушка Теслы"
 	contains = list(/obj/machinery/power/tesla_coil,
 					/obj/machinery/power/tesla_coil,
 					/obj/machinery/power/tesla_coil)
 	cost = 10
-	containername = "tesla coil crate"
+	containername = "катушка теслы"
 
 /datum/supply_packs/engineering/engine/grounding
-	name = "Grounding Rod Crate"
+	name = "Набор Заземлителей"
 	contains = list(/obj/machinery/power/grounding_rod,
 					/obj/machinery/power/grounding_rod)
 	cost = 10
-	containername = "grounding rod crate"
+	containername = "набор заземлителей"
 
 /datum/supply_packs/engineering/engine/collector
-	name = "Collector Crate"
+	name = "Набор Радиационных Накопителей"
 	contains = list(/obj/machinery/power/rad_collector,
 					/obj/machinery/power/rad_collector,
 					/obj/machinery/power/rad_collector)
 	cost = 10
-	containername = "collector crate"
+	containername = "набор радиационных накопителей"
 
 /datum/supply_packs/engineering/engine/PA
-	name = "Particle Accelerator Crate"
+	name = "Набор Для Постройки Ускорителя Частиц"
 	contains = list(/obj/structure/particle_accelerator/fuel_chamber,
 					/obj/machinery/particle_accelerator/control_box,
 					/obj/structure/particle_accelerator/particle_emitter/center,
@@ -720,10 +720,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/structure/particle_accelerator/power_box,
 					/obj/structure/particle_accelerator/end_cap)
 	cost = 25
-	containername = "particle accelerator crate"
+	containername = "набор для постройки Ускорителя Частиц"
 
 /datum/supply_packs/engineering/engine/spacesuit
-	name = "Space Suit Crate"
+	name = "Костюм Для Выхода В Космос"
 	contains = list(/obj/item/clothing/suit/space,
 					/obj/item/clothing/suit/space,
 					/obj/item/clothing/head/helmet/space,
@@ -732,39 +732,39 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/mask/breath)
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure
-	containername = "space suit crate"
+	containername = "костюм для выхода в космос"
 	access = ACCESS_EVA
 
 /datum/supply_packs/engineering/inflatable
-	name = "Inflatable barriers Crate"
+	name = "Набор Быстроразвертываемых Мембранных Конструкций"
 	contains = list(/obj/item/storage/briefcase/inflatable,
 					/obj/item/storage/briefcase/inflatable,
 					/obj/item/storage/briefcase/inflatable)
 	cost = 20
-	containername = "inflatable barrier crate"
+	containername = "набор быстроразвертываемых мембранных конструкций"
 
 /datum/supply_packs/engineering/engine/supermatter_shard
-	name = "Supermatter Shard Crate"
+	name = "Осколок Суперматерии"
 	contains = list(/obj/machinery/power/supermatter_shard)
 	cost = 50 //So cargo thinks twice before killing themselves with it
 	containertype = /obj/structure/closet/crate/secure/engineering
-	containername = "supermatter shard crate"
+	containername = "осколок суперматерии"
 	access = ACCESS_CE
 
 /datum/supply_packs/engineering/engine/teg
-	name = "Thermo-Electric Generator Crate"
+	name = "Набор Для Создания Термоэлектрогенератора"
 	contains = list(
 		/obj/machinery/power/generator,
 		/obj/item/pipe/circulator,
 		/obj/item/pipe/circulator)
 	cost = 25
 	containertype = /obj/structure/closet/crate/secure/engineering
-	containername = "thermo-electric generator crate"
+	containername = "набор для создания Термоэлектрогенератора"
 	access = ACCESS_CE
 	announce_beacons = list("Engineering" = list("Chief Engineer's Desk", "Atmospherics"))
 
 /datum/supply_packs/engineering/conveyor
-	name = "Conveyor Assembly Crate"
+	name = "Набор Создания Конвейерной Ленты"
 	contains = list(/obj/item/conveyor_construct,
 					/obj/item/conveyor_construct,
 					/obj/item/conveyor_construct,
@@ -774,7 +774,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/conveyor_switch_construct,
 					/obj/item/paper/conveyor)
 	cost = 15
-	containername = "conveyor assembly crate"
+	containername = "набор создания конвейерной ленты"
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Medical /////////////////////////////////////////
@@ -788,7 +788,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/medical/supplies
-	name = "Medical Supplies Crate"
+	name = "Набор Снабжения Медбея"
 	contains = list(/obj/item/reagent_containers/glass/bottle/charcoal,
 					/obj/item/reagent_containers/glass/bottle/charcoal,
 					/obj/item/reagent_containers/glass/bottle/epinephrine,
@@ -808,69 +808,69 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 				    /obj/item/vending_refill/medical)
 	cost = 20
 	containertype = /obj/structure/closet/crate/medical
-	containername = "medical supplies crate"
+	containername = "набор снабжения медбея"
 
 /datum/supply_packs/medical/firstaid
-	name = "First Aid Kits Crate"
+	name = "Набор Аптечек Первой Помощи"
 	contains = list(/obj/item/storage/firstaid/regular,
 					/obj/item/storage/firstaid/regular,
 					/obj/item/storage/firstaid/regular,
 					/obj/item/storage/firstaid/regular)
 	cost = 10
-	containername = "first aid kits crate"
+	containername = "набор аптечек первой помощи"
 
 /datum/supply_packs/medical/firstaidadv
-	name = "Advanced First Aid Kits Crate"
+	name = "Набор Продвинутых Аптечек Первой Помощи"
 	contains = list(/obj/item/storage/firstaid/adv,
 					/obj/item/storage/firstaid/adv,
 					/obj/item/storage/firstaid/adv,
 					/obj/item/storage/firstaid/adv)
 	cost = 10
-	containername = "advanced first aid kits crate"
+	containername = "набор продвинутых аптечек первой помощи"
 
 /datum/supply_packs/medical/firstaidmachine
-	name = "Machine First Aid Kits Crate"
+	name = "Набор Аптечек Для КПБ"
 	contains = list(/obj/item/storage/firstaid/machine,
 					/obj/item/storage/firstaid/machine,
 					/obj/item/storage/firstaid/machine,
 					/obj/item/storage/firstaid/machine)
 	cost = 10
-	containername = "machine first aid kits crate"
+	containername = "набор аптечек для КПБ"
 
 /datum/supply_packs/medical/firstaibrute
-	name = "Brute Treatment Kits Crate"
+	name = "Набор Аптечек Для Лечения Механических Повреждений"
 	contains = list(/obj/item/storage/firstaid/brute,
 					/obj/item/storage/firstaid/brute,
 					/obj/item/storage/firstaid/brute)
 	cost = 10
-	containername = "brute first aid kits crate"
+	containername = "набор аптечек для лечения механических повреждений"
 
 /datum/supply_packs/medical/firstaidburns
-	name = "Burns Treatment Kits Crate"
+	name = "Набор Аптечек Для Лечения Физических Повреждений"
 	contains = list(/obj/item/storage/firstaid/fire,
 					/obj/item/storage/firstaid/fire,
 					/obj/item/storage/firstaid/fire)
 	cost = 10
-	containername = "fire first aid kits crate"
+	containername = "набор аптечек для лечения физических повреждений"
 
 /datum/supply_packs/medical/firstaidtoxins
-	name = "Toxin Treatment Kits Crate"
+	name = "Набор Аптечек Первой Помощи При Отравлении"
 	contains = list(/obj/item/storage/firstaid/toxin,
 					/obj/item/storage/firstaid/toxin,
 					/obj/item/storage/firstaid/toxin)
 	cost = 10
-	containername = "toxin first aid kits crate"
+	containername = "набор аптечек первой помощи при отравлении"
 
 /datum/supply_packs/medical/firstaidoxygen
-	name = "Oxygen Treatment Kits Crate"
+	name = "Набор Аптечек Первой Помощи При Асфиксии"
 	contains = list(/obj/item/storage/firstaid/o2,
 					/obj/item/storage/firstaid/o2,
 					/obj/item/storage/firstaid/o2)
 	cost = 10
-	containername = "oxygen first aid kits crate"
+	containername = "набор аптечек первой помощи при асфиксии"
 
 /datum/supply_packs/medical/virus
-	name = "Virus Crate"
+	name = "Набор Различных Вирусов"
 	contains = list(/obj/item/reagent_containers/glass/bottle/flu_virion,
 					/obj/item/reagent_containers/glass/bottle/cold,
 					/obj/item/reagent_containers/glass/bottle/epiglottis_virion,
@@ -887,19 +887,19 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/reagent_containers/glass/bottle/mutagen)
 	cost = 25
 	containertype = /obj/structure/closet/crate/secure/plasma
-	containername = "virus crate"
+	containername = "набор различных вирусов"
 	access = ACCESS_CMO
 	announce_beacons = list("Medbay" = list("Virology", "Chief Medical Officer's Desk"))
 
 /datum/supply_packs/medical/vending
-	name = "Medical Vending Crate"
+	name = "Набор Пополнения Запасов Наномедов"
 	cost = 20
 	contains = list(/obj/item/vending_refill/medical,
 					/obj/item/vending_refill/wallmed)
-	containername = "medical vending crate"
+	containername = "набор пополнения запасов Наномедов"
 
 /datum/supply_packs/medical/bloodpacks
-	name = "Blood Pack Variety Crate"
+	name = "Набор Пакетов С Различными Группами Крови"
 	contains = list(/obj/item/reagent_containers/iv_bag,
 					/obj/item/reagent_containers/iv_bag,
 					/obj/item/reagent_containers/iv_bag/blood/APlus,
@@ -910,18 +910,18 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/reagent_containers/iv_bag/blood/OMinus)
 	cost = 35
 	containertype = /obj/structure/closet/crate/freezer
-	containername = "blood pack crate"
+	containername = "набор пакетов с различными группами крови"
 
 /datum/supply_packs/medical/iv_drip
-	name = "IV Drip Crate"
+	name = "Стойка Для Капельницы"
 	contains = list(/obj/machinery/iv_drip)
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure
-	containername = "IV drip crate"
+	containername = "стойка для капельницы"
 	access = ACCESS_MEDICAL
 
 /datum/supply_packs/medical/surgery
-	name = "Surgery Crate"
+	name = "Набор Хирурга"
 	contains = list(/obj/item/cautery,
 					/obj/item/surgicaldrill,
 					/obj/item/clothing/mask/breath/medical,
@@ -935,7 +935,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/circular_saw)
 	cost = 25
 	containertype = /obj/structure/closet/crate/secure
-	containername = "surgery crate"
+	containername = "набор хирурга"
 	access = ACCESS_MEDICAL
 
 
@@ -950,7 +950,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containertype = /obj/structure/closet/crate/sci
 
 /datum/supply_packs/science/robotics
-	name = "Robotics Assembly Crate"
+	name = "Набор Снабжения Роботехников"
 	contains = list(/obj/item/assembly/prox_sensor,
 					/obj/item/assembly/prox_sensor,
 					/obj/item/assembly/prox_sensor,
@@ -960,28 +960,28 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/stock_parts/cell/high)
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure/scisec
-	containername = "robotics assembly crate"
+	containername = "набор снабжения роботехников"
 	access = ACCESS_ROBOTICS
 	announce_beacons = list("Research Division" = list("Robotics", "Research Director's Desk"))
 
 
 /datum/supply_packs/science/robotics/mecha_ripley
-	name = "Circuit Crate (Ripley APLU)"
+	name = "Платы Для Меха Ripley APLU"
 	contains = list(/obj/item/book/manual/ripley_build_and_repair,
 					/obj/item/circuitboard/mecha/ripley/main, //TEMPORARY due to lack of circuitboard printer
 					/obj/item/circuitboard/mecha/ripley/peripherals) //TEMPORARY due to lack of circuitboard printer
 	cost = 30
-	containername = "\improper APLU \"Ripley\" circuit crate"
+	containername = "платы для меха Ripley APLU"
 
 /datum/supply_packs/science/robotics/mecha_odysseus
-	name = "Circuit Crate (Odysseus)"
+	name = "Платы Для Медицинского Меха Odysseus"
 	contains = list(/obj/item/circuitboard/mecha/odysseus/peripherals, //TEMPORARY due to lack of circuitboard printer
 					/obj/item/circuitboard/mecha/odysseus/main) //TEMPORARY due to lack of circuitboard printer
 	cost = 25
-	containername = "\improper \"Odysseus\" circuit crate"
+	containername = "платы для медицинского меха Odysseus"
 
 /datum/supply_packs/science/plasma
-	name = "Plasma Assembly Crate"
+	name = "Набор Для Создания СВУ"
 	contains = list(/obj/item/tank/plasma,
 					/obj/item/tank/plasma,
 					/obj/item/tank/plasma,
@@ -996,45 +996,45 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/assembly/timer)
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure/plasma
-	containername = "plasma assembly crate"
+	containername = "набор для создания СВУ"
 	access = ACCESS_TOX_STORAGE
 	group = SUPPLY_SCIENCE
 
 /datum/supply_packs/science/shieldwalls
-	name = "Shield Generators Crate"
+	name = "Набор Генераторов Силового Поля"
 	contains = list(/obj/machinery/shieldwallgen,
 					/obj/machinery/shieldwallgen,
 					/obj/machinery/shieldwallgen,
 					/obj/machinery/shieldwallgen)
 	cost = 20
 	containertype = /obj/structure/closet/crate/secure/scisec
-	containername = "shield generators crate"
+	containername = "набор генераторов силового поля"
 	access = ACCESS_TELEPORTER
 
 /datum/supply_packs/science/transfer_valves
-	name = "Tank Transfer Valves Crate"
+	name = "Набор Труб С Регуляторами Давления"
 	contains = list(/obj/item/transfer_valve,
 					/obj/item/transfer_valve)
 	cost = 60
 	containertype = /obj/structure/closet/crate/secure/scisec
-	containername = "tank transfer valves crate"
+	containername = "набор труб с регуляторами давления"
 	access = ACCESS_RD
 
 /datum/supply_packs/science/prototype
-	name = "Machine Prototype Crate"
+	name = "Прототип Машины"
 	contains = list(/obj/item/machineprototype)
 	cost = 80
 	containertype = /obj/structure/closet/crate/secure/scisec
-	containername = "machine prototype crate"
+	containername = "прототип машины"
 	access = ACCESS_RESEARCH
 
 /datum/supply_packs/science/oil
-    name = "Oil Tank Crate"
+    name = "Бак С Машинным Маслом"
     contains = list(/obj/structure/reagent_dispensers/oil,
 					/obj/item/reagent_containers/food/drinks/oilcan)
     cost = 10
     containertype = /obj/structure/largecrate
-    containername = "oil tank crate"
+    containername = "бак с машинным маслом"
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Organic /////////////////////////////////////////
@@ -1047,7 +1047,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/organic/food
-	name = "Food Crate"
+	name = "Набор Еды"
 	contains = list(/obj/item/reagent_containers/food/condiment/flour,
 					/obj/item/reagent_containers/food/condiment/rice,
 					/obj/item/reagent_containers/food/condiment/milk,
@@ -1065,53 +1065,53 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/reagent_containers/food/snacks/grown/banana,
 					/obj/item/reagent_containers/food/snacks/grown/banana)
 	cost = 10
-	containername = "food crate"
+	containername = "набор еды"
 	announce_beacons = list("Kitchen" = list("Kitchen"))
 
 /datum/supply_packs/organic/pizza
-	name = "Pizza Crate"
+	name = "Набор Из Различных Пицц"
 	contains = list(/obj/item/pizzabox/margherita,
 					/obj/item/pizzabox/mushroom,
 					/obj/item/pizzabox/meat,
 					/obj/item/pizzabox/vegetable,
 					/obj/item/pizzabox/hawaiian)
 	cost = 60
-	containername = "Pizza crate"
+	containername = "набор из различных пицц"
 
 /datum/supply_packs/organic/monkey
-	name = "Monkey Crate"
+	name = "Ящик С Обезьянами"
 	contains = list (/obj/item/storage/box/monkeycubes)
 	cost = 20
-	containername = "monkey crate"
+	containername = "ящик с обезьянами"
 
 /datum/supply_packs/organic/farwa
-	name = "Farwa Crate"
+	name = "Ящик С Фарвами"
 	contains = list (/obj/item/storage/box/monkeycubes/farwacubes)
 	cost = 20
-	containername = "farwa crate"
+	containername = "ящик с фарвами"
 
 
 /datum/supply_packs/organic/wolpin
-	name = "Wolpin Crate"
+	name = "Ящик С Вульпинами"
 	contains = list (/obj/item/storage/box/monkeycubes/wolpincubes)
 	cost = 20
-	containername = "wolpin crate"
+	containername = "ящик с вульпинами"
 
 
 /datum/supply_packs/organic/skrell
-	name = "Neaera Crate"
+	name = "Ящик С Неарами"
 	contains = list (/obj/item/storage/box/monkeycubes/neaeracubes)
 	cost = 20
-	containername = "neaera crate"
+	containername = "ящик с неарами"
 
 /datum/supply_packs/organic/stok
-	name = "Stok Crate"
+	name = "Ящик С Стоками"
 	contains = list (/obj/item/storage/box/monkeycubes/stokcubes)
 	cost = 20
-	containername = "stok crate"
+	containername = "ящик с стоками"
 
 /datum/supply_packs/organic/party
-	name = "Party Equipment Crate"
+	name = "Праздничный Набор Выпивки"
 	contains = list(/obj/item/storage/box/drinkingglasses,
 					/obj/item/reagent_containers/food/drinks/shaker,
 					/obj/item/reagent_containers/food/drinks/bottle/patron,
@@ -1125,94 +1125,94 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/grenade/confetti,
 					/obj/item/grenade/confetti)
 	cost = 20
-	containername = "party equipment"
+	containername = "праздничный набор выпивки"
 	announce_beacons = list("Bar" = list("Bar"))
 
 /datum/supply_packs/organic/bar
-	name = "Bar Starter Kit"
+	name = "Стартовый Комплект Для Бара"
 	contains = list(/obj/item/storage/box/drinkingglasses,
 					/obj/item/circuitboard/chem_dispenser/soda,
 					/obj/item/circuitboard/chem_dispenser/beer)
 	cost = 20
-	containername = "beer starter kit"
+	containername = "стартовый комплект для бара"
 	announce_beacons = list("Bar" = list("Bar"))
 
 //////// livestock
 /datum/supply_packs/organic/cow
-	name = "Cow Crate"
+	name = "Корова"
 	cost = 30
 	containertype = /obj/structure/closet/critter/cow
-	containername = "cow crate"
+	containername = "корова"
 
 /datum/supply_packs/organic/pig
-	name = "Pig Crate"
+	name = "Свинья"
 	cost = 25
 	containertype = /obj/structure/closet/critter/pig
-	containername = "pig crate"
+	containername = "свинья"
 
 /datum/supply_packs/organic/goat
-	name = "Goat Crate"
+	name = "Коза"
 	cost = 25
 	containertype = /obj/structure/closet/critter/goat
-	containername = "goat crate"
+	containername = "коза"
 
 /datum/supply_packs/organic/chicken
-	name = "Chicken Crate"
+	name = "Курица"
 	cost = 20
 	containertype = /obj/structure/closet/critter/chick
-	containername = "chicken crate"
+	containername = "курица"
 
 /datum/supply_packs/organic/turkey
-	name = "Turkey Crate"
+	name = "Индейка"
 	cost = 20
 	containertype = /obj/structure/closet/critter/turkey
-	containername = "turkey crate"
+	containername = "индейка"
 
 /datum/supply_packs/organic/corgi
-	name = "Corgi Crate"
+	name = "Корги"
 	cost = 50
 	containertype = /obj/structure/closet/critter/corgi
 	contains = list(/obj/item/clothing/accessory/petcollar)
-	containername = "corgi crate"
+	containername = "корги"
 
 /datum/supply_packs/organic/cat
-	name = "Cat Crate"
+	name = "Кот"
 	cost = 50 //Cats are worth as much as corgis.
 	containertype = /obj/structure/closet/critter/cat
 	contains = list(/obj/item/clothing/accessory/petcollar,
 					/obj/item/toy/cattoy)
-	containername = "cat crate"
+	containername = "кота"
 
 /datum/supply_packs/organic/pug
-	name = "Pug Crate"
+	name = "Мопс"
 	cost = 50
 	containertype = /obj/structure/closet/critter/pug
 	contains = list(/obj/item/clothing/accessory/petcollar)
-	containername = "pug crate"
+	containername = "мопса"
 
 /datum/supply_packs/organic/fox
-	name = "Fox Crate"
+	name = "Лиса"
 	cost = 55 //Foxes are cool.
 	containertype = /obj/structure/closet/critter/fox
 	contains = list(/obj/item/clothing/accessory/petcollar)
-	containername = "fox crate"
+	containername = "лиса"
 
 /datum/supply_packs/organic/butterfly
-	name = "Butterfly Crate"
+	name = "Бабочка"
 	cost = 50
 	containertype = /obj/structure/closet/critter/butterfly
-	containername = "butterfly crate"
+	containername = "бабочка"
 
 /datum/supply_packs/organic/deer
-	name = "Deer Crate"
+	name = "Олень"
 	cost = 56 //Deer are best.
 	containertype = /obj/structure/closet/critter/deer
-	containername = "deer crate"
+	containername = "олень"
 
 ////// hippy gear
 
 /datum/supply_packs/organic/hydroponics // -- Skie
-	name = "Hydroponics Supply Crate"
+	name = "Набор Снаряжения Ботаника"
 	contains = list(/obj/item/reagent_containers/spray/plantbgone,
 					/obj/item/reagent_containers/spray/plantbgone,
 					/obj/item/reagent_containers/glass/bottle/ammonia,
@@ -1224,20 +1224,20 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/suit/apron) // Updated with new things
 	cost = 15
 	containertype = /obj/structure/closet/crate/hydroponics
-	containername = "hydroponics crate"
+	containername = "набор снаряжения ботаника"
 	announce_beacons = list("Hydroponics" = list("Hydroponics"))
 
 /datum/supply_packs/organic/hydroponics/hydrotank
-	name = "Hydroponics Watertank Crate"
+	name = "Рюкзак-Баллон Для Жидкостей С Распылителем"
 	contains = list(/obj/item/watertank)
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
-	containername = "hydroponics watertank crate"
+	containername = "рюкзак-баллон для жидкостей с распылителем"
 	access = ACCESS_HYDROPONICS
 	announce_beacons = list("Hydroponics" = list("Hydroponics"))
 
 /datum/supply_packs/organic/hydroponics/seeds
-	name = "Seeds Crate"
+	name = "Набор Различных Семян"
 	contains = list(/obj/item/seeds/chili,
 					/obj/item/seeds/cotton,
 					/obj/item/seeds/berry,
@@ -1253,18 +1253,18 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/seeds/potato,
 					/obj/item/seeds/sugarcane)
 	cost = 10
-	containername = "seeds crate"
+	containername = "набор различных семян"
 
 /datum/supply_packs/organic/vending/hydro_refills
-	name = "Hydroponics Vending Machines Refills"
+	name = "Набор Пополнения Ассортимента Автомата Ботаники"
 	cost = 20
 	containertype = /obj/structure/closet/crate
 	contains = list(/obj/item/vending_refill/hydroseeds,
 					/obj/item/vending_refill/hydronutrients)
-	containername = "hydroponics supply crate"
+	containername = "набор пополнения ассортимента автомата ботаники"
 
 /datum/supply_packs/organic/hydroponics/exoticseeds
-	name = "Exotic Seeds Crate"
+	name = "Уникальные Семена Растений"
 	contains = list(/obj/item/seeds/nettle,
 					/obj/item/seeds/replicapod,
 					/obj/item/seeds/replicapod,
@@ -1282,10 +1282,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/seeds/random,
 					/obj/item/seeds/random)
 	cost = 15
-	containername = "exotic seeds crate"
+	containername = "уникальные семена растений"
 
 /datum/supply_packs/organic/hydroponics/beekeeping_fullkit
-	name = "Beekeeping Starter Kit"
+	name = "Набор Пчеловода"
 	contains = list(/obj/structure/beebox/unwrenched,
 					/obj/item/honey_frame,
 					/obj/item/honey_frame,
@@ -1295,24 +1295,24 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/suit/beekeeper_suit,
 					/obj/item/melee/flyswatter)
 	cost = 15
-	containername = "beekeeping starter kit"
+	containername = "набор пчеловода"
 
 /datum/supply_packs/organic/hydroponics/beekeeping_suits
-	name = "2 Beekeeper suits"
+	name = "2 Набора Одежды Пчеловода"
 	contains = list(/obj/item/clothing/head/beekeeper_head,
 					/obj/item/clothing/suit/beekeeper_suit,
 					/obj/item/clothing/head/beekeeper_head,
 					/obj/item/clothing/suit/beekeeper_suit)
 	cost = 10
-	containername = "beekeeper suits"
+	containername = "2 набора одежды пчеловода"
 
 //Bottler
 /datum/supply_packs/organic/bottler
-	name = "Brewing Buddy Bottler Unit"
+	name = "Устройство Розлива"
 	contains = list(/obj/machinery/bottler,
 					/obj/item/wrench)
 	cost = 35
-	containername = "bottler crate"
+	containername = "устройство розлива"
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Materials ///////////////////////////////////////
@@ -1325,61 +1325,61 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/materials/metal50
-	name = "50 Metal Sheets Crate"
+	name = "Набор Металла - 50х"
 	contains = list(/obj/item/stack/sheet/metal)
 	amount = 50
 	cost = 10
-	containername = "metal sheets crate"
+	containername = "набор металла - 50х"
 
 /datum/supply_packs/materials/plasteel20
-	name = "20 Plasteel Sheets Crate"
+	name = "Набор Пластали - 20х"
 	contains = list(/obj/item/stack/sheet/plasteel/lowplasma)
 	amount = 20
 	cost = 30
-	containername = "plasteel sheets crate"
+	containername = "набор пластали - 20х"
 
 /datum/supply_packs/materials/plasteel50
-	name = "50 Plasteel Sheets Crate"
+	name = "Набор Пластали - 50х"
 	contains = list(/obj/item/stack/sheet/plasteel/lowplasma)
 	amount = 50
 	cost = 50
-	containername = "plasteel sheets crate"
+	containername = "набор пластали - 50х"
 
 /datum/supply_packs/materials/glass50
-	name = "50 Glass Sheets Crate"
+	name = "Набор Стекла - 50х"
 	contains = list(/obj/item/stack/sheet/glass)
 	amount = 50
 	cost = 10
-	containername = "glass sheets crate"
+	containername = "набор стекла - 50х"
 
 /datum/supply_packs/materials/wood30
-	name = "30 Wood Planks Crate"
+	name = "Набор Досок - 30х"
 	contains = list(/obj/item/stack/sheet/wood)
 	amount = 30
 	cost = 15
-	containername = "wood planks crate"
+	containername = "набор досок - 30х"
 
 /datum/supply_packs/materials/cardboard50
-	name = "50 Cardboard Sheets Crate"
+	name = "Набор Картона - 50х"
 	contains = list(/obj/item/stack/sheet/cardboard)
 	amount = 50
 	cost = 10
-	containername = "cardboard sheets crate"
+	containername = "набор картона - 50х"
 
 /datum/supply_packs/materials/sandstone30
-	name = "30 Sandstone Blocks Crate"
+	name = "Набор Песчаника - 30х"
 	contains = list(/obj/item/stack/sheet/mineral/sandstone)
 	amount = 30
 	cost = 20
-	containername = "sandstone blocks crate"
+	containername = "набор песчаника - 30х"
 
 
 /datum/supply_packs/materials/plastic30
-	name = "30 Plastic Sheets Crate"
+	name = "Набор Пластика - 30х"
 	contains = list(/obj/item/stack/sheet/plastic)
 	amount = 30
 	cost = 20
-	containername = "plastic sheets crate"
+	containername = "набор пластика - 30х"
 
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////// Miscellaneous ///////////////////////////////////
@@ -1390,28 +1390,28 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	group = SUPPLY_MISC
 
 /datum/supply_packs/misc/mule
-	name = "MULEbot Crate"
+	name = "МУЛЕбот"
 	contains = list(/mob/living/simple_animal/bot/mulebot)
 	cost = 20
 	containertype = /obj/structure/largecrate/mule
-	containername = "\improper MULEbot crate"
+	containername = "МУЛЕбот"
 
 /datum/supply_packs/misc/watertank
-	name = "Water Tank Crate"
+	name = "Бак С Водой"
 	contains = list(/obj/structure/reagent_dispensers/watertank)
 	cost = 8
 	containertype = /obj/structure/largecrate
-	containername = "water tank crate"
+	containername = "бак с водой"
 
 /datum/supply_packs/misc/hightank
-	name = "High-Capacity Water Tank Crate"
+	name = "Большой Бак С Водой"
 	contains = list(/obj/structure/reagent_dispensers/watertank/high)
 	cost = 12
 	containertype = /obj/structure/largecrate
-	containername = "high-capacity water tank crate"
+	containername = "большой бак с водой"
 
 /datum/supply_packs/misc/lasertag
-	name = "Laser Tag Crate"
+	name = "Набор Лазертага"
 	contains = list(/obj/item/gun/energy/laser/tag/red,
 					/obj/item/gun/energy/laser/tag/red,
 					/obj/item/gun/energy/laser/tag/red,
@@ -1427,10 +1427,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/head/helmet/redtaghelm,
 					/obj/item/clothing/head/helmet/bluetaghelm)
 	cost = 15
-	containername = "laser tag crate"
+	containername = "набор лазертага"
 
 /datum/supply_packs/misc/religious_supplies
-	name = "Religious Supplies Crate"
+	name = "Набор Священника"
 	contains = list(/obj/item/reagent_containers/food/drinks/bottle/holywater,
 					/obj/item/reagent_containers/food/drinks/bottle/holywater,
 					/obj/item/storage/bible/booze,
@@ -1440,21 +1440,21 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/under/burial,
 					/obj/item/clothing/under/burial)
 	cost = 40
-	containername = "religious supplies crate"
+	containername = "набор священника"
 
 /datum/supply_packs/misc/minerkit
-	name = "Shaft Miner Starter Kit"
+	name = "Набор Шахтера"
 	cost = 30
 	access = ACCESS_QM
 	contains = list(/obj/item/storage/backpack/duffel/mining_conscript)
 	containertype = /obj/structure/closet/crate/secure
-	containername = "shaft miner starter kit"
+	containername = "набор шахтера"
 
 
 ///////////// Paper Work
 
 /datum/supply_packs/misc/paper
-	name = "Bureaucracy Crate"
+	name = "Набор Канцелярии Для Карго"
 	contains = list(/obj/structure/filingcabinet/chestdrawer,
 					/obj/item/camera_film,
 					/obj/item/hand_labeler,
@@ -1473,13 +1473,13 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clipboard,
 					/obj/item/clipboard)
 	cost = 15
-	containername = "bureaucracy crate"
+	containername = "набор канцелярии для карго"
 
 /datum/supply_packs/misc/book_crate
-	name = "Research Crate"
+	name = "Набор Книг"
 	contains = list(/obj/item/book/codex_gigas)
 	cost = 15
-	containername = "book crate"
+	containername = "набор книг"
 
 /datum/supply_packs/misc/book_crate/New()
 	contains += pick(subtypesof(/obj/item/book/manual))
@@ -1489,16 +1489,16 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	..()
 
 /datum/supply_packs/misc/tape
-	name = "Sticky Tape Crate"
+	name = "Скотч"
 	contains = list(/obj/item/stack/tape_roll,
 	/obj/item/stack/tape_roll,
 	/obj/item/stack/tape_roll)
 	cost = 10
-	containername = "sticky tape crate"
+	containername = "скотч"
 	containertype = /obj/structure/closet/crate/tape
 
 /datum/supply_packs/misc/toner
-	name = "Toner Cartridges Crate"
+	name = "Набор Катриджей"
 	contains = list(/obj/item/toner,
 					/obj/item/toner,
 					/obj/item/toner,
@@ -1506,10 +1506,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/toner,
 					/obj/item/toner)
 	cost = 10
-	containername = "toner cartridges crate"
+	containername = "набор катриджей"
 
 /datum/supply_packs/misc/artscrafts
-	name = "Arts and Crafts Supplies Crate"
+	name = "Набор Для Украшения Станции"
 	contains = list(/obj/item/storage/fancy/crayons,
 	/obj/item/camera,
 	/obj/item/camera_film,
@@ -1529,22 +1529,22 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	/obj/item/stack/wrapping_paper,
 	/obj/item/stack/wrapping_paper)
 	cost = 10
-	containername = "arts and crafts crate"
+	containername = "набор для украшения станции"
 
 /datum/supply_packs/misc/posters
-	name = "Corporate Posters Crate"
+	name = "Набор Постеров Корпорации"
 	contains = list(/obj/item/poster/random_official,
 					/obj/item/poster/random_official,
 					/obj/item/poster/random_official,
 					/obj/item/poster/random_official,
 					/obj/item/poster/random_official)
 	cost = 8
-	containername = "corporate posters crate"
+	containername = "набор постеров корпорации"
 
 ///////////// Janitor Supplies
 
 /datum/supply_packs/misc/janitor
-	name = "Janitorial Supplies Crate"
+	name = "Набор Уборщика"
 	contains = list(/obj/item/reagent_containers/glass/bucket,
 					/obj/item/reagent_containers/glass/bucket,
 					/obj/item/reagent_containers/glass/bucket,
@@ -1559,43 +1559,43 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/grenade/chem_grenade/cleaner,
 					/obj/item/grenade/chem_grenade/cleaner)
 	cost = 10
-	containername = "janitorial supplies crate"
+	containername = "набор уборщика"
 	announce_beacons = list("Janitor" = list("Janitorial"))
 
 /datum/supply_packs/misc/janitor/janicart
-	name = "Janitorial Cart and Galoshes Crate"
+	name = "Тележка Уборщика И Галоши"
 	contains = list(/obj/structure/janitorialcart,
 					/obj/item/clothing/shoes/galoshes)
 	cost = 10
 	containertype = /obj/structure/largecrate
-	containername = "janitorial cart crate"
+	containername = "тележка уборщика и галоши"
 
 /datum/supply_packs/misc/janitor/janitank
-	name = "Janitor Watertank Backpack"
+	name = "Рюкзак-Баллон Уборщика"
 	contains = list(/obj/item/watertank/janitor)
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
-	containername = "janitor watertank crate"
+	containername = "рюкзак-баллон уборщика"
 	access = ACCESS_JANITOR
 
 /datum/supply_packs/misc/janitor/lightbulbs
-	name = "Replacement Lights Crate"
+	name = "Набор Запасных Лампочек"
 	contains = list(/obj/item/storage/box/lights/mixed,
 					/obj/item/storage/box/lights/mixed,
 					/obj/item/storage/box/lights/mixed)
 	cost = 10
-	containername = "replacement lights crate"
+	containername = "набор запасных лампочек"
 
 /datum/supply_packs/misc/noslipfloor
-	name = "High-traction Floor Tiles"
+	name = "Нескользящий Пол - 20х"
 	contains = list(/obj/item/stack/tile/noslip/loaded)
 	cost = 20
-	containername = "high-traction floor tiles"
+	containername = "нескользящий пол - 20х"
 
 ///////////// Costumes
 
 /datum/supply_packs/misc/costume
-	name = "Standard Costume Crate"
+	name = "Набор Костюмов"
 	contains = list(/obj/item/storage/backpack/clown,
 					/obj/item/clothing/shoes/clown_shoes,
 					/obj/item/clothing/mask/gas/clown_hat,
@@ -1613,20 +1613,20 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					)
 	cost = 10
 	containertype = /obj/structure/closet/crate/secure
-	containername = "standard costumes"
+	containername = "набор костюмов"
 	access = ACCESS_THEATRE
 
 /datum/supply_packs/misc/wizard
-	name = "Wizard Costume Crate"
+	name = "Набор Волшебника"
 	contains = list(/obj/item/twohanded/staff,
 					/obj/item/clothing/suit/wizrobe/fake,
 					/obj/item/clothing/shoes/sandal,
 					/obj/item/clothing/head/wizard/fake)
 	cost = 20
-	containername = "wizard costume crate"
+	containername = "набор волшебника"
 
 /datum/supply_packs/misc/mafia
-	name = "Mafia Supply Crate"
+	name = "Набор Мафиозника"
 	contains = list(/obj/item/clothing/suit/browntrenchcoat,
 					/obj/item/clothing/suit/blacktrenchcoat,
 					/obj/item/clothing/head/fedora/whitefedora,
@@ -1641,15 +1641,15 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/gun/projectile/shotgun/toy/tommygun,
 					/obj/item/gun/projectile/shotgun/toy/tommygun)
 	cost = 15
-	containername = "mafia supply crate"
+	containername = "набор мафиозника"
 
 /datum/supply_packs/misc/sunglasses
-	name = "Sunglasses Crate"
+	name = "Солнцезащитные Очки"
 	contains = list(/obj/item/clothing/glasses/sunglasses,
 					/obj/item/clothing/glasses/sunglasses,
 					/obj/item/clothing/glasses/sunglasses)
 	cost = 30
-	containername = "sunglasses crate"
+	containername = "солнцезащитные очки"
 /datum/supply_packs/misc/randomised
 	var/num_contained = 3 //number of items picked to be contained in a randomised crate
 	contains = list(/obj/item/clothing/head/collectable/chef,
@@ -1673,9 +1673,9 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/head/collectable/slime,
 					/obj/item/clothing/head/collectable/xenom,
 					/obj/item/clothing/head/collectable/petehat)
-	name = "Collectible Hats Crate"
+	name = "Набор Случайных Коллекционных Головных Уборов"
 	cost = 200
-	containername = "collectable hats crate! Brought to you by Bass.inc!"
+	containername = "набор случайных коллекционных головных уборов от Bass.inc!"
 
 /datum/supply_packs/misc/randomised/New()
 	manifest += "Contains any [num_contained] of:"
@@ -1683,7 +1683,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/misc/foamforce
-	name = "Foam Force Crate"
+	name = "Набор Игрушечных Ружей"
 	contains = list(/obj/item/gun/projectile/shotgun/toy,
 					/obj/item/gun/projectile/shotgun/toy,
 					/obj/item/gun/projectile/shotgun/toy,
@@ -1693,20 +1693,20 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/gun/projectile/shotgun/toy,
 					/obj/item/gun/projectile/shotgun/toy)
 	cost = 10
-	containername = "foam force crate"
+	containername = "набор игрушечных ружей"
 
 /datum/supply_packs/misc/foamforce/bonus
-	name = "Foam Force Pistols Crate"
+	name = "Набор Игрушечных Пистолетов"
 	contains = list(/obj/item/gun/projectile/automatic/toy/pistol,
 					/obj/item/gun/projectile/automatic/toy/pistol,
 					/obj/item/ammo_box/magazine/toy/pistol,
 					/obj/item/ammo_box/magazine/toy/pistol)
 	cost = 40
-	containername = "foam force pistols crate"
+	containername = "набор игрушечных пистолетов"
 	contraband = 1
 
 /datum/supply_packs/misc/bigband
-	name = "Big band instrument collection"
+	name = "Набор Музыкальных Инструментов"
 	contains = list(/obj/item/instrument/violin,
 					/obj/item/instrument/guitar,
 					/obj/item/instrument/eguitar,
@@ -1719,7 +1719,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/instrument/xylophone,
 					/obj/structure/piano)
 	cost = 50
-	containername = "Big band musical instruments collection"
+	containername = "набор музыкальных инструментов"
 
 /datum/supply_packs/misc/randomised/contraband
 	num_contained = 5
@@ -1727,13 +1727,13 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/poster/random_contraband,
 					/obj/item/storage/fancy/cigarettes/dromedaryco,
 					/obj/item/storage/fancy/cigarettes/cigpack_shadyjims)
-	name = "Contraband Crate"
+	name = "Ящик Контрабанды"
 	cost = 30
-	containername = "crate"	//let's keep it subtle, eh?
+	containername = "ящик"	//let's keep it subtle, eh?
 	contraband = 1
 
 /datum/supply_packs/misc/formalwear //This is a very classy crate.
-	name = "Formal Wear Crate"
+	name = "Набор Униформы И Одежды"
 	contains = list(/obj/item/clothing/under/blacktango,
 					/obj/item/clothing/under/assistantformal,
 					/obj/item/clothing/under/assistantformal,
@@ -1762,10 +1762,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/under/suit_jacket/tan,
 					/obj/item/lipstick/random)
 	cost = 30 //Lots of very expensive items. You gotta pay up to look good!
-	containername = "formal-wear crate"
+	containername = "набор униформы и одежды"
 
 /datum/supply_packs/misc/teamcolors		//For team sports like space polo
-	name = "Team Jerseys Crate"
+	name = "Набор Для Отдыха На Пляже"
 	// 4 red jerseys, 4 blue jerseys, and 1 beach ball
 	contains = list(/obj/item/clothing/under/color/red/jersey,
 					/obj/item/clothing/under/color/red/jersey,
@@ -1777,10 +1777,10 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/under/color/blue/jersey,
 					/obj/item/beach_ball)
 	cost = 15
-	containername = "team jerseys crate"
+	containername = "набор для отдыха на пляже"
 
 /datum/supply_packs/misc/polo			//For space polo! Or horsehead Quiditch
-	name = "Polo Supply Crate"
+	name = "Набор Для Развлечения"
 	// 6 brooms, 6 horse masks for the brooms, and 1 beach ball
 	contains = list(/obj/item/twohanded/staff/broom,
 					/obj/item/twohanded/staff/broom,
@@ -1796,17 +1796,17 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/clothing/mask/horsehead,
 					/obj/item/beach_ball)
 	cost = 20
-	containername = "polo supply crate"
+	containername = "набор для развлечения"
 
 /datum/supply_packs/misc/boxing			//For non log spamming cargo brawls!
-	name = "Boxing Supply Crate"
+	name = "Набор Перчаток Для Бокса"
 	// 4 boxing gloves
 	contains = list(/obj/item/clothing/gloves/boxing/blue,
 					/obj/item/clothing/gloves/boxing/green,
 					/obj/item/clothing/gloves/boxing/yellow,
 					/obj/item/clothing/gloves/boxing)
 	cost = 15
-	containername = "boxing supply crate"
+	containername = "набор перчаток для бокса"
 
 ///////////// Station Goals
 
@@ -1818,35 +1818,35 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	containertype = /obj/structure/closet/crate/engineering
 
 /datum/supply_packs/misc/station_goal/bsa
-	name = "Bluespace Artillery Parts"
+	name = "Платы Bluespace Артиллерии"
 	cost = 150
 	contains = list(/obj/item/circuitboard/machine/bsa/front,
 					/obj/item/circuitboard/machine/bsa/middle,
 					/obj/item/circuitboard/machine/bsa/back,
 					/obj/item/circuitboard/computer/bsa_control
 					)
-	containername = "bluespace artillery parts crate"
+	containername = "Платы Bluespace артиллерии"
 
 
 /datum/supply_packs/misc/station_goal/bluespace_tap
-	name = "Bluespace Harvester Parts"
+	name = "Платы Bluespace Сборщика"
 	cost = 150
 	contains = list(
 					/obj/item/circuitboard/machine/bluespace_tap,
 					/obj/item/paper/bluespace_tap
 					)
-	containername = "bluespace harvester parts crate"
+	containername = "Платы Bluespace сборщика"
 
 /datum/supply_packs/misc/station_goal/dna_vault
-	name = "DNA Vault Parts"
+	name = "Плата Для Постройки ДНК Хранилища"
 	cost = 120
 	contains = list(
 					/obj/item/circuitboard/machine/dna_vault
 					)
-	containername = "dna vault parts crate"
+	containername = "плата для постройки ДНК хранилища"
 
 /datum/supply_packs/misc/station_goal/dna_probes
-	name = "DNA Vault Samplers"
+	name = "Сборщики ДНК"
 	cost = 30
 	contains = list(/obj/item/dna_probe,
 					/obj/item/dna_probe,
@@ -1854,48 +1854,48 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 					/obj/item/dna_probe,
 					/obj/item/dna_probe
 					)
-	containername = "dna samplers crate"
+	containername = "сборщики ДНК"
 
 /datum/supply_packs/misc/station_goal/shield_sat
-	name = "Shield Generator Satellite"
+	name = "Набор Щитов От Метеоров"
 	cost = 30
 	contains = list(
 					/obj/machinery/satellite/meteor_shield,
 					/obj/machinery/satellite/meteor_shield,
 					/obj/machinery/satellite/meteor_shield
 					)
-	containername = "shield sat crate"
+	containername = "набор щитов от метеоров"
 
 /datum/supply_packs/misc/station_goal/shield_sat_control
-	name = "Shield System Control Board"
+	name = "Консоль Управления Метеоритными Щитами"
 	cost = 50
 	contains = list(
 					/obj/item/circuitboard/computer/sat_control
 					)
-	containername = "shield control board crate"
+	containername = "консоль управления метеоритными щитами"
 
 ///////////// Bathroom Fixtures
 
 /datum/supply_packs/misc/toilet
-	name = "Lavatory Crate"
+	name = "Набор Для Уборной"
 	cost = 10
 	contains = list(
 					/obj/item/bathroom_parts,
 					/obj/item/bathroom_parts/urinal
 					)
-	containername = "lavatory crate"
+	containername = "набор для уборной"
 
 /datum/supply_packs/misc/hygiene
-	name = "Hygiene Station Crate"
+	name = "Набор Для Гигиены"
 	cost = 10
 	contains = list(
 					/obj/item/bathroom_parts/sink,
 					/obj/item/mounted/shower
 					)
-	containername = "hygiene station crate"
+	containername = "набор для гигиены"
 
 /datum/supply_packs/misc/snow_machine
-	name = "Snow Machine Crate"
+	name = "Ящик Снегоуборочной Машины"
 	cost = 20
 	contains = list(
 					/obj/machinery/snow_machine
@@ -1911,97 +1911,97 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	group = SUPPLY_VEND
 
 /datum/supply_packs/vending/autodrobe
-	name = "Autodrobe Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Autodrobe"
 	contains = list(/obj/item/vending_refill/autodrobe)
 	cost = 15
-	containername = "autodrobe supply crate"
+	containername = "набор пополнения ассортимента автоматов Autodrobe"
 
 /datum/supply_packs/vending/clothes
-	name = "ClothesMate Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов ClothesMate"
 	contains = list(/obj/item/vending_refill/clothing)
 	cost = 15
-	containername = "clothesmate supply crate"
+	containername = "набор пополнения ассортимента автоматов ClothesMate"
 
 /datum/supply_packs/vending/suit
-	name = "Suitlord Supply Crate"
+	name = "Костюм Лорда"
 	contains = list(/obj/item/vending_refill/suitdispenser)
 	cost = 15
-	containername = "suitlord supply crate"
+	containername = "костюм лорда"
 
 /datum/supply_packs/vending/hat
-	name = "Hatlord Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Hatlord"
 	contains = list(/obj/item/vending_refill/hatdispenser)
 	cost = 15
-	containername = "hatlord supply crate"
+	containername = "набор пополнения ассортимента автоматов Hatlord"
 
 /datum/supply_packs/vending/shoes
-	name = "Shoelord Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Shoelord"
 	contains = list(/obj/item/vending_refill/shoedispenser)
 	cost = 15
-	containername = "shoelord supply crate"
+	containername = "набор пополнения ассортимента автоматов Shoelord"
 
 /datum/supply_packs/vending/pets
-	name = "Pet Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов CritterCare"
 	contains = list(/obj/item/vending_refill/crittercare)
 	cost = 15
-	containername = "pet supply crate"
+	containername = "набор пополнения ассортимента автоматов CritterCare"
 
 /datum/supply_packs/vending/bartending
-	name = "Booze-o-mat and Coffee Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Booze-o-mat И Coffee"
 	cost = 20
 	contains = list(/obj/item/vending_refill/boozeomat,
 					/obj/item/vending_refill/coffee)
-	containername = "bartending supply crate"
+	containername = "набор пополнения ассортимента автоматов Booze-o-mat и Coffee"
 	announce_beacons = list("Bar" = list("Bar"))
 
 /datum/supply_packs/vending/cigarette
-	name = "Cigarette Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Cigarette"
 	contains = list(/obj/item/vending_refill/cigarette)
 	cost = 15
-	containername = "cigarette supply crate"
+	containername = "набор пополнения ассортимента автоматов Cigarette"
 	containertype = /obj/structure/closet/crate
 
 /datum/supply_packs/vending/dinnerware
-	name = "Dinnerware Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Chef's Dinnerware"
 	cost = 10
 	contains = list(/obj/item/vending_refill/dinnerware)
-	containername = "dinnerware supply crate"
+	containername = "набор пополнения ассортимента автоматов Chef's Dinnerware"
 
 /datum/supply_packs/vending/imported
-	name = "Imported Vending Machines"
+	name = "Набор Пополнения Ассортимента Автоматов Robotech"
 	cost = 40
 	contains = list(/obj/item/vending_refill/sustenance,
 					/obj/item/vending_refill/robotics,
 					/obj/item/vending_refill/sovietsoda,
 					/obj/item/vending_refill/engineering)
-	containername = "unlabeled supply crate"
+	containername = "набор пополнения ассортимента автоматов Robotech"
 
 /datum/supply_packs/vending/ptech
-	name = "PTech Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов PTech"
 	cost = 15
 	contains = list(/obj/item/vending_refill/cart)
-	containername = "ptech supply crate"
+	containername = "набор пополнения ассортимента автоматов PTech"
 
 /datum/supply_packs/vending/snack
-	name = "Snack Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Getmore Chocolate"
 	contains = list(/obj/item/vending_refill/snack)
 	cost = 15
-	containername = "snacks supply crate"
+	containername = "набор пополнения ассортимента автоматов Getmore Chocolate"
 
 /datum/supply_packs/vending/cola
-	name = "Softdrinks Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Robust Softdrinks"
 	contains = list(/obj/item/vending_refill/cola)
 	cost = 15
-	containername = "softdrinks supply crate"
+	containername = "набор пополнения ассортимента автоматов Robust Softdrinks"
 
 /datum/supply_packs/vending/vendomat
-	name = "Vendomat Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов Vendomat"
 	cost = 10
 	contains = list(/obj/item/vending_refill/assist)
-	containername = "vendomat supply crate"
+	containername = "набор пополнения ассортимента автоматов Vendomat"
 
 /datum/supply_packs/vending/chinese
-	name = "Chinese Supply Crate"
+	name = "Набор Пополнения Ассортимента Автоматов MrChangs"
 	contains = list(/obj/item/vending_refill/chinese)
 	cost = 15
-	containername = "chinese supply crate"
+	containername = "набор пополнения ассортимента автоматов MrChangs"
