@@ -1,5 +1,5 @@
 /datum/data/pda/app/status_display
-	name = "Status Display"
+	name = "Дисплеи Статуса"
 	icon = "list-alt"
 	template = "pda_status_display"
 	category = "Utilities"
@@ -9,8 +9,8 @@
 
 /datum/data/pda/app/status_display/update_ui(mob/user as mob, list/data)
 	data["records"] = list(
-		"message1" = message1 ? message1 : "(none)",
-		"message2" = message2 ? message2 : "(none)")
+		"message1" = message1 ? message1 : "(пусто)",
+		"message2" = message2 ? message2 : "(пусто)")
 
 /datum/data/pda/app/status_display/ui_act(action, list/params)
 	if(..())
@@ -48,8 +48,8 @@
 			var/mob/user = pda.fingerprintslast
 			if(istype(pda.loc, /mob/living))
 				name = pda.loc
-			log_admin("STATUS: [user] set status screen with [pda]. Message: [data1] [data2]")
-			message_admins("STATUS: [user] set status screen with [pda]. Message: [data1] [data2]")
+			log_admin("СТАТУС: [user] установил статус через [pda]. Сообщение: [data1] [data2]")
+			message_admins("СТАТУС: [user] установил статус через [pda]. Сообщение: [data1] [data2]")
 
 		if("alert")
 			status_signal.data["picture_state"] = data1

@@ -49,7 +49,7 @@
 		AI.subsystem_crew_monitor()
 
 /obj/screen/ai/crew_manifest
-	name = "Crew Manifest"
+	name = "Манифест Экипажа"
 	icon_state = "manifest"
 
 /obj/screen/ai/crew_manifest/Click()

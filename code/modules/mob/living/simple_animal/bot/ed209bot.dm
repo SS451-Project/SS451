@@ -371,7 +371,7 @@
 			oldtarget_name = C.name
 			speak("Level [threatlevel] infraction alert!")
 			playsound(loc, pick('sound/voice/ed209_20sec.ogg', 'sound/voice/edplaceholder.ogg'), 50, 0)
-			visible_message("<b>[src]</b> points at [C.name]!")
+			visible_message("<b>[src]</b> указывает на [C.name]!")
 			mode = BOT_HUNT
 			spawn(0)
 				handle_automated_action()	// ensure bot quickly responds to a perp

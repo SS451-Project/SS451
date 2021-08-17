@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda
 	name = "PDA"
-	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
+	desc = "Портативный микрокомпьютер фирмы Thinktronic Systems, LTD. Функциональность определяется запрограммированным картриджем ROM."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
@@ -137,7 +137,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/verb/verb_reset_pda()
 	set category = "Object"
-	set name = "Reset PDA"
+	set name = "Сбросить PDA"
 	set src in usr
 
 	if(issilicon(usr))
@@ -147,10 +147,10 @@ GLOBAL_LIST_EMPTY(PDAs)
 		start_program(find_program(/datum/data/pda/app/main_menu))
 		notifying_programs.Cut()
 		overlays -= image('icons/obj/pda.dmi', "pda-r")
-		to_chat(usr, "<span class='notice'>You press the reset button on \the [src].</span>")
+		to_chat(usr, "<span class='notice'>Вы нажимаете кнопку сброса на [src].</span>")
 		SStgui.update_uis(src)
 	else
-		to_chat(usr, "<span class='notice'>You cannot do this while restrained.</span>")
+		to_chat(usr, "<span class='notice'>Вы не можете сделать это, будучи сковыванным.</span>")
 
 /obj/item/pda/AltClick(mob/user)
 	..()
@@ -161,7 +161,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		if(id)
 			remove_id(user)
 		else
-			to_chat(user, "<span class='warning'>This PDA does not have an ID in it!</span>")
+			to_chat(user, "<span class='warning'>В этом PDA нет ID-карты!</span>")
 
 /obj/item/pda/CtrlClick(mob/user)
 	..()
@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		if(ismob(loc))
 			var/mob/M = loc
 			M.put_in_hands(id)
-			to_chat(user, "<span class='notice'>You remove the ID from the [name].</span>")
+			to_chat(user, "<span class='notice'>Вы вытаскиваете ID-карту из [name].</span>")
 			SStgui.update_uis(src)
 		else
 			id.forceMove(get_turf(src))
@@ -185,7 +185,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/verb/verb_remove_id()
 	set category = "Object"
-	set name = "Remove id"
+	set name = "Вытащить ID-карту"
 	set src in usr
 
 	if(issilicon(usr))
@@ -195,13 +195,13 @@ GLOBAL_LIST_EMPTY(PDAs)
 		if(id)
 			remove_id(usr)
 		else
-			to_chat(usr, "<span class='notice'>This PDA does not have an ID in it.</span>")
+			to_chat(usr, "<span class='notice'>В этом PDA нет ID-карты.</span>")
 	else
-		to_chat(usr, "<span class='notice'>You cannot do this while restrained.</span>")
+		to_chat(usr, "<span class='notice'>Вы не можете сделать это, будучи сковыванным.</span>")
 
 /obj/item/pda/verb/verb_remove_pen()
 	set category = "Object"
-	set name = "Remove pen"
+	set name = "Вытащить ручку"
 	set src in usr
 	remove_pen(usr)
 
@@ -213,7 +213,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 	if( can_use(user) )
 		var/obj/item/pen/O = locate() in src
 		if(O)
-			to_chat(user, "<span class='notice'>You remove the [O] from [src].</span>")
+			to_chat(user, "<span class='notice'>Ты вытащил [O] из [src].</span>")
 			if(istype(loc, /mob))
 				var/mob/M = loc
 				if(M.get_active_hand() == null)
@@ -221,9 +221,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 					return
 			O.forceMove(get_turf(src))
 		else
-			to_chat(user, "<span class='warning'>This PDA does not have a pen in it.</span>")
+			to_chat(user, "<span class='warning'>В этом PDA нет ручки.</span>")
 	else
-		to_chat(user, "<span class='notice'>You cannot do this while restrained.</span>")
+		to_chat(user, "<span class='notice'>Вы не можете сделать это, будучи сковыванным.</span>")
 
 /obj/item/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
 	if(choice == 1)
@@ -253,7 +253,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		cartridge.forceMove(src)
 		cartridge.update_programs(src)
 		update_shortcuts()
-		to_chat(user, "<span class='notice'>You insert [cartridge] into [src].</span>")
+		to_chat(user, "<span class='notice'>Вы вставили [cartridge] в [src].</span>")
 		SStgui.update_uis(src)
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
@@ -261,21 +261,21 @@ GLOBAL_LIST_EMPTY(PDAs)
 	else if(istype(C, /obj/item/card/id))
 		var/obj/item/card/id/idcard = C
 		if(!idcard.registered_name)
-			to_chat(user, "<span class='notice'>\The [src] rejects the ID.</span>")
+			to_chat(user, "<span class='notice'>[src] отклоняет эту ID-карту.</span>")
 			return
 		if(!owner)
 			owner = idcard.registered_name
 			ownjob = idcard.assignment
 			ownrank = idcard.rank
 			name = "PDA-[owner] ([ownjob])"
-			to_chat(user, "<span class='notice'>Card scanned.</span>")
+			to_chat(user, "<span class='notice'>Карта отсканирована.</span>")
 			SStgui.update_uis(src)
 		else
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
 				if( can_use(user) )//If they can still act.
 					id_check(user, 2)
-					to_chat(user, "<span class='notice'>You put the ID into \the [src]'s slot.<br>You can remove it with ALT click.</span>")
+					to_chat(user, "<span class='notice'>Ты вставил ID-карту в слот [src].<br>Вы можете вытащить его через ALT+ЛКМ.</span>")
 					overlays += image('icons/goonstation/objects/pda_overlay.dmi', C.icon_state)
 					SStgui.update_uis(src)
 
@@ -283,16 +283,16 @@ GLOBAL_LIST_EMPTY(PDAs)
 		user.drop_item()
 		C.forceMove(src)
 		pai = C
-		to_chat(user, "<span class='notice'>You slot \the [C] into [src].</span>")
+		to_chat(user, "<span class='notice'>Ты установил [C] в [src].</span>")
 		SStgui.update_uis(src)
 	else if(istype(C, /obj/item/pen))
 		var/obj/item/pen/O = locate() in src
 		if(O)
-			to_chat(user, "<span class='notice'>There is already a pen in \the [src].</span>")
+			to_chat(user, "<span class='notice'>В [src] уже есть ручка.</span>")
 		else
 			user.drop_item()
 			C.forceMove(src)
-			to_chat(user, "<span class='notice'>You slide \the [C] into \the [src].</span>")
+			to_chat(user, "<span class='notice'>Вы вставляете [C] в [src].</span>")
 	else if(istype(C, /obj/item/nanomob_card))
 		if(cartridge && istype(cartridge, /obj/item/cartridge/mob_hunt_game))
 			cartridge.attackby(C, user, params)
@@ -312,7 +312,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 	if(ismob(loc))
 		var/mob/M = loc
-		M.show_message("<span class='danger'>Your [src] explodes!</span>", 1)
+		M.show_message("<span class='danger'>Твой [src] взрывается!</span>", 1)
 
 	if(T)
 		T.hotspot_expose(700,125)
@@ -351,11 +351,11 @@ GLOBAL_LIST_EMPTY(PDAs)
 		O.show_message(text("[bicon(src)] *[ttone]*"))
 
 /obj/item/pda/proc/set_ringtone()
-	var/t = input("Please enter new ringtone", name, ttone) as text
+	var/t = input("Пожалуйста, введите новый рингтон", name, ttone) as text
 	if(in_range(src, usr) && loc == usr)
 		if(t)
 			if(hidden_uplink && hidden_uplink.check_trigger(usr, lowertext(t), lowertext(lock_code)))
-				to_chat(usr, "The PDA softly beeps.")
+				to_chat(usr, "PDA тихо пищит.")
 				close(usr)
 			else
 				t = sanitize(copytext_char(t, 1, 20))

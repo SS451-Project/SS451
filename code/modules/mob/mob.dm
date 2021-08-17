@@ -575,11 +575,11 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
-	set name = "Examine"
+	set name = "Изучить"
 	set category = "IC"
 
 	if(!has_vision(information_only = TRUE) && !isobserver(src))
-		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
+		to_chat(src, "<span class='notice'>Что-то здесь есть, но вы этого не видите.</span>")
 		return 1
 
 	var/is_antag = (isAntag(src) || isobserver(src)) //ghosts don't have minds

@@ -106,25 +106,25 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 		if((HULK in mutations) && health >= 25)
 			S.message = "[uppertext(S.message)]!!!"
-			verb = pick("yells", "roars", "hollers")
+			verb = pick("кричит", "рычит", "вопит")
 
 		if(slurring)
 			if(robot)
 				S.message = slur(S.message, list("@", "!", "#", "$", "%", "&", "?"))
 			else
 				S.message = slur(S.message)
-			verb = "slurs"
+			verb = "бормочит"
 
 		if(stuttering)
 			if(robot)
 				S.message = robostutter(S.message)
 			else
 				S.message = stutter(S.message)
-			verb = "stammers"
+			verb = "заикается"
 
 		if(cultslurring)
 			S.message = cultslur(S.message)
-			verb = "slurs"
+			verb = "бормочит"
 
 		if(!IsVocal())
 			S.message = ""
@@ -132,7 +132,7 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 /mob/living/proc/handle_message_mode(message_mode, list/message_pieces, verb, used_radios)
 	switch(message_mode)
-		if("whisper") //all mobs can whisper by default
+		if("шепчет") //all mobs can whisper by default
 			whisper_say(message_pieces)
 			return 1
 	return 0
@@ -145,7 +145,7 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 	return returns
 
 
-/mob/living/say(var/message, var/verb = "says", var/sanitize = TRUE, var/ignore_speech_problems = FALSE, var/ignore_atmospherics = FALSE)
+/mob/living/say(var/message, var/verb = "говорит", var/sanitize = TRUE, var/ignore_speech_problems = FALSE, var/ignore_atmospherics = FALSE)
 	if(client)
 		client.check_say_flood(5)
 		if(client.prefs.muted & MUTE_IC)
@@ -205,7 +205,7 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 			return
 		else if(G.mute == MUZZLE_MUTE_MUFFLE)
 			muffledspeech_all(message_pieces)
-			verb = "mumbles"
+			verb = "мычит"
 
 	if(!ignore_speech_problems)
 		var/list/hsp = handle_speech_problems(message_pieces, verb)

@@ -75,7 +75,7 @@
 
 // Utilities just have a button on the home screen, but custom code when clicked
 /datum/data/pda/utility
-	name = "Utility"
+	name = "Утилиты"
 	icon = "gear"
 	size = 1
 	category = "Utilities"
@@ -87,17 +87,17 @@
 
 /datum/data/pda/utility/scanmode/New(obj/item/cartridge/C)
 	..(C)
-	name = "Enable [base_name]"
+	name = "Включить [base_name]"
 
 /datum/data/pda/utility/scanmode/start()
 	if(pda.scanmode)
-		pda.scanmode.name = "Enable [pda.scanmode.base_name]"
+		pda.scanmode.name = "Включить [pda.scanmode.base_name]"
 
 	if(pda.scanmode == src)
 		pda.scanmode = null
 	else
 		pda.scanmode = src
-		name = "Disable [base_name]"
+		name = "Выключить [base_name]"
 
 	pda.update_shortcuts()
 	return TRUE

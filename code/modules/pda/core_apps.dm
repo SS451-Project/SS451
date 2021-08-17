@@ -43,7 +43,7 @@
 								pda.pai = null
 
 /datum/data/pda/app/notekeeper
-	name = "Notekeeper"
+	name = "Заметки"
 	icon = "sticky-note-o"
 	template = "pda_notes"
 
@@ -52,7 +52,7 @@
 /datum/data/pda/app/notekeeper/start()
 	. = ..()
 	if(!note)
-		note = "Congratulations, your station has chosen the [pda.model_name]!"
+		note = "Поздравляю, ваша станция выбрала модель [pda.model_name]!"
 
 /datum/data/pda/app/notekeeper/update_ui(mob/user as mob, list/data)
 	data["note"] = note	// current pda notes
@@ -64,8 +64,8 @@
 	. = TRUE
 
 	switch(action)
-		if("Edit")
-			var/n = input("Please enter message", name, note) as message
+		if("Изменить")
+			var/n = input("Пожалуйста, введите информацию, которую нужно сохранить.", name, note) as message
 			if(pda.loc == usr)
 				// TGUI will auto-reject supplied HTML
 				// However, the admin var-edit window will not
@@ -75,7 +75,7 @@
 				pda.close(usr)
 
 /datum/data/pda/app/manifest
-	name = "Crew Manifest"
+	name = "Манифест Экипажа"
 	icon = "user"
 	template = "pda_manifest"
 	update = PDA_APP_UPDATE_SLOW
@@ -85,7 +85,7 @@
 	data["manifest"] = GLOB.PDA_Manifest
 
 /datum/data/pda/app/atmos_scanner
-	name = "Atmospheric Scan"
+	name = "Сканирование Атмосферы"
 	icon = "fire"
 	template = "pda_atmos_scan"
 	category = "Utilities"
@@ -107,13 +107,13 @@
 			var/plasma_level = environment.toxins/total_moles
 			var/unknown_level =  1-(o2_level+n2_level+co2_level+plasma_level)
 			results = list(
-				list("entry" = "Pressure", "units" = "kPa", "val" = "[round(pressure,0.1)]", "bad_high" = 120, "poor_high" = 110, "poor_low" = 95, "bad_low" = 80),
-				list("entry" = "Temperature", "units" = "C", "val" = "[round(environment.temperature-T0C,0.1)]", "bad_high" = 35, "poor_high" = 25, "poor_low" = 15, "bad_low" = 5),
-				list("entry" = "Oxygen", "units" = "%", "val" = "[round(o2_level*100,0.1)]", "bad_high" = 140, "poor_high" = 135, "poor_low" = 19, "bad_low" = 17),
-				list("entry" = "Nitrogen", "units" = "%", "val" = "[round(n2_level*100,0.1)]", "bad_high" = 105, "poor_high" = 85, "poor_low" = 50, "bad_low" = 40),
-				list("entry" = "Carbon Dioxide", "units" = "%", "val" = "[round(co2_level*100,0.1)]", "bad_high" = 10, "poor_high" = 5, "poor_low" = 0, "bad_low" = 0),
-				list("entry" = "Plasma", "units" = "%", "val" = "[round(plasma_level*100,0.01)]", "bad_high" = 0.5, "poor_high" = 0, "poor_low" = 0, "bad_low" = 0),
-				list("entry" = "Other", "units" = "%", "val" = "[round(unknown_level, 0.01)]", "bad_high" = 1, "poor_high" = 0.5, "poor_low" = 0, "bad_low" = 0)
+				list("entry" = "Давление", "units" = "kPa", "val" = "[round(pressure,0.1)]", "bad_high" = 120, "poor_high" = 110, "poor_low" = 95, "bad_low" = 80),
+				list("entry" = "Температура", "units" = "C", "val" = "[round(environment.temperature-T0C,0.1)]", "bad_high" = 35, "poor_high" = 25, "poor_low" = 15, "bad_low" = 5),
+				list("entry" = "Кислород", "units" = "%", "val" = "[round(o2_level*100,0.1)]", "bad_high" = 140, "poor_high" = 135, "poor_low" = 19, "bad_low" = 17),
+				list("entry" = "Азот", "units" = "%", "val" = "[round(n2_level*100,0.1)]", "bad_high" = 105, "poor_high" = 85, "poor_low" = 50, "bad_low" = 40),
+				list("entry" = "Углекислый Газ", "units" = "%", "val" = "[round(co2_level*100,0.1)]", "bad_high" = 10, "poor_high" = 5, "poor_low" = 0, "bad_low" = 0),
+				list("entry" = "Плама", "units" = "%", "val" = "[round(plasma_level*100,0.01)]", "bad_high" = 0.5, "poor_high" = 0, "poor_low" = 0, "bad_low" = 0),
+				list("entry" = "Другое", "units" = "%", "val" = "[round(unknown_level, 0.01)]", "bad_high" = 1, "poor_high" = 0.5, "poor_low" = 0, "bad_low" = 0)
 			)
 
 	if(isnull(results))

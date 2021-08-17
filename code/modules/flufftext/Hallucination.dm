@@ -738,8 +738,8 @@ GLOBAL_LIST_INIT(non_fakeattack_weapons, list(/obj/item/gun/projectile, /obj/ite
 /obj/effect/hallucination/whispers/New(loc,var/mob/living/carbon/T)
 	. = ..()
 	target = T
-	var/speak_messages = list("I'm watching you...","[target.name]!","Get out!","Kchck-Chkck? Kchchck!","Did you hear that?","What did you do ?","Why?","Give me that!","Honk!","HELP!!", "EI NATH!!", "RUN!!", "Kill me!","O bidai nabora se'sma!")
-	var/radio_messages = list("Xenos!","Singularity loose!","Comms down!","They are arming the nuke!","They butchered Ian!","H-help!","[pick("Cult", "Wizard", "Ling", "Ops", "Revenant", "Murderer", "Harm", "I hear flashing", "Help")] in [pick(GLOB.teleportlocs)][prob(50)?"!":"!!"]","Where's [target.name]?","Call the shuttle!","AI rogue!!")
+	var/speak_messages = list("Я наблюдаю за тобой...","[target.name]!","Пошёл прочь!","Кцчкц-Кцчц? Кцкцкц!","Ты это слышал?","Что ты сделал ?","Почему?","Дай сюда!","Хонк!","НА ПОМОЩЬ!!", "EI NATH!!", "БЕГИ!!", "Убей меня!","O bidai nabora se'sma!")
+	var/radio_messages = list("Ксены!","Сингулярность освободилась!","Связь отключена!","Они вооружают ядерную бомбу!","Они убили Иана!","П-Помогите!","[pick("Культ", "Маг", "Генокрад", "Оперативники", "Ревенант", "Убийца", "Вред", "Я слышу мигание", "Помощь")] в [pick(GLOB.teleportlocs)][prob(50)?"!":"!!"]","Где [target.name]?","Вызовите шаттл!","AI взломан!!")
 
 	var/list/mob/living/carbon/people = list()
 	var/mob/living/carbon/person = null
@@ -870,8 +870,8 @@ GLOBAL_LIST_INIT(non_fakeattack_weapons, list(/obj/item/gun/projectile, /obj/ite
 				if(13)
 					to_chat(src, "<span class='warning'>You feel a tiny prick!</span>")
 				if(14)
-					to_chat(src, "<h1 class='alert'>Priority Announcement</h1>")
-					to_chat(src, "<br><br><span class='alert'>The Emergency Shuttle has docked with the station. You have 3 minutes to board the Emergency Shuttle.</span><br><br>")
+					to_chat(src, "<h1 class='alert'>Приоритетное Объявление</h1>")
+					to_chat(src, "<br><br><span class='alert'>Аварийный шаттл состыковался со станцией. У вас есть 3 минуты, чтобы сесть на аварийный шаттл.</span><br><br>")
 					playsound_local(null, 'sound/AI/shuttledock.ogg', 100)
 				if(15)
 					playsound_local(null, 'sound/items/welder.ogg', 15, 1)
@@ -889,8 +889,8 @@ GLOBAL_LIST_INIT(non_fakeattack_weapons, list(/obj/item/gun/projectile, /obj/ite
 				if(17)
 					playsound_local(null, 'sound/weapons/saberon.ogg', 35, 1)
 				if(18)
-					to_chat(src, "<h1 class='alert'>Biohazard Alert</h1>")
-					to_chat(src, "<br><br><span class='alert'>Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.</span><br><br>")
+					to_chat(src, "<h1 class='alert'>Предупреждение О Биологической Опасности</h1>")
+					to_chat(src, "<br><br><span class='alert'>Подтверждена вспышка биологической опасности 5-го уровня на борту [station_name()]. Весь персонал должен сдерживать вспышку.</span><br><br>")
 					playsound_local(null, 'sound/AI/outbreak5.ogg')
 				if(19) //Tesla loose!
 					playsound_local(null, 'sound/magic/lightningbolt.ogg', 35, 1)

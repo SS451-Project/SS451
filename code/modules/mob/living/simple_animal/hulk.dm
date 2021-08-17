@@ -1,8 +1,8 @@
 //Human hulk
 /mob/living/simple_animal/hulk
-	name = "Hulk"
-	real_name = "Hulk"
-	desc = "Huge and strong!"
+	name = "Халк"
+	real_name = "Халк"
+	desc = "Огромный и сильный!"
 	icon = 'icons/mob/hulk.dmi'
 	icon_state = "Hulk"
 	icon_living = "Hulk"

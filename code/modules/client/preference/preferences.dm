@@ -456,7 +456,7 @@ GLOBAL_LIST_INIT(special_role_times, list( //minimum age (in days) for accounts 
 			dat += "<b>Уши за призрака:</b> <a href='?_src_=prefs;preference=ghost_ears'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTEARS) ? "Вся речь" : "Ближайшие существа"]</b></a><br>"
 			dat += "<b>Радио за призрака:</b> <a href='?_src_=prefs;preference=ghost_radio'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTRADIO) ? "Вся болтовня" : "Ближайшие вещатели"]</b></a><br>"
 			dat += "<b>Зрение на призрака:</b> <a href='?_src_=prefs;preference=ghost_sight'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTSIGHT) ? "Все эмоции" : "Ближайшие существа"]</b></a><br>"
-			dat += "<b>ПДА за призрака:</b> <a href='?_src_=prefs;preference=ghost_pda'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTPDA) ? "Все сообщения ПДА" : "Без сообщений ПДА"]</b></a><br>"
+			dat += "<b>PDA за призрака:</b> <a href='?_src_=prefs;preference=ghost_pda'><b>[(toggles & PREFTOGGLE_CHAT_GHOSTPDA) ? "Все сообщения PDA" : "Без сообщений PDA"]</b></a><br>"
 			if(check_rights(R_ADMIN,0))
 				dat += "<b>Цвет OOC:</b> <span style='border: 1px solid #161616; background-color: [ooccolor ? ooccolor : GLOB.normal_ooc_colour];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=ooccolor;task=input'><b>Изменить</b></a><br>"
 			if(config.allow_Metadata)

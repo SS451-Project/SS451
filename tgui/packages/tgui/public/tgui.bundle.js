@@ -20754,10 +20754,10 @@
               }, e.id)
           }));
           h = (0, o.createComponentVNode)(2, a.Section, {
-              title: "Messages Received",
+              title: "Полученные Сообщения",
               buttons: (0, o.createComponentVNode)(2, a.Button, {
                   icon: "arrow-circle-left",
-                  content: "Back To Main Menu",
+                  content: "Вернуться В Главное Меню",
                   onClick: function() {
                       return l("main")
                   }
@@ -20774,17 +20774,17 @@
                   children: (0, o.createComponentVNode)(2, c.Window.Content, {
                       scrollable: !0,
                       children: [s, (0, o.createComponentVNode)(2, a.Section, {
-                          title: "Captain-Only Actions",
+                          title: "Действия Только Для Капитана",
                           children: (0, o.createComponentVNode)(2, a.LabeledList, {
                               children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Current Alert",
+                                  label: "Код",
                                   color: d.security_level_color,
                                   children: C
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Change Alert",
+                                  label: "Изменить Код",
                                   children: N
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Announcement",
+                                  label: "Объявление",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "bullhorn",
                                       content: m,
@@ -20794,7 +20794,7 @@
                                       }
                                   })
                               }), !!d.emagged && (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Transmit",
+                                  label: "Передать",
                                   children: [(0, o.createComponentVNode)(2, a.Button, {
                                       icon: "broadcast-tower",
                                       color: "red",
@@ -20812,7 +20812,7 @@
                                       }
                                   })]
                               }) || (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Transmit",
+                                  label: "Передать",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "broadcast-tower",
                                       content: p,
@@ -20822,7 +20822,7 @@
                                       }
                                   })
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Nuclear Device",
+                                  label: "Ядерное Устройство",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "bomb",
                                       content: f,
@@ -20834,20 +20834,20 @@
                               })]
                           })
                       }), (0, o.createComponentVNode)(2, a.Section, {
-                          title: "Command Staff Actions",
+                          title: "Действия Командного Состава",
                           children: (0, o.createComponentVNode)(2, a.LabeledList, {
                               children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Displays",
+                                  label: "Дисплеи",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "tv",
-                                      content: "Change Status Displays",
+                                      content: "Сменить Статус",
                                       disabled: !d.authenticated,
                                       onClick: function() {
                                           return l("status")
                                       }
                                   })
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Incoming Messages",
+                                  label: "Входящие Сообщения",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "folder-open",
                                       content: u,
@@ -20857,10 +20857,10 @@
                                       }
                                   })
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Misc",
+                                  label: "Разное",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "sync-alt",
-                                      content: "Restart Nano-Mob Hunter GO! Server",
+                                      content: "Перезапуск Сервера Nano-Mob Hunter GO!",
                                       disabled: !d.authenticated,
                                       onClick: function() {
                                           return l("RestartNanoMob")
@@ -20875,7 +20875,7 @@
               return (0, o.createComponentVNode)(2, c.Window, {
                   children: (0, o.createComponentVNode)(2, c.Window.Content, {
                       children: [s, (0, o.createComponentVNode)(2, a.Section, {
-                          title: "Modify Status Screens",
+                          title: "Изменение Экранов Состояния",
                           buttons: (0, o.createComponentVNode)(2, a.Button, {
                               icon: "arrow-circle-left",
                               content: "Back To Main Menu",
@@ -20885,13 +20885,13 @@
                           }),
                           children: (0, o.createComponentVNode)(2, a.LabeledList, {
                               children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Presets",
+                                  label: "Пресеты",
                                   children: b
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Alerts",
+                                  label: "Оповещения",
                                   children: g
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Message Line 1",
+                                  label: "Строка сообщения 1",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "pencil-alt",
                                       content: d.stat_display.line_1,
@@ -20901,7 +20901,7 @@
                                       }
                                   })
                               }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Message Line 2",
+                                  label: "Строка сообщения 2",
                                   children: (0, o.createComponentVNode)(2, a.Button, {
                                       icon: "pencil-alt",
                                       content: d.stat_display.line_2,
@@ -20924,7 +20924,7 @@
           default:
               return (0, o.createComponentVNode)(2, c.Window, {
                   children: (0, o.createComponentVNode)(2, c.Window.Content, {
-                      children: [s, "ERRROR. Unknown menu_state: ", d.menu_state, "Please report this to NT Technical Support."]
+                      children: [s, "ERRROR. Unknown menu_state: ", d.menu_state, "Пожалуйста, сообщите об этом в службу технической поддержки NT."]
                   })
               })
       }
@@ -26323,10 +26323,10 @@
                   })
               }), (0, o.createComponentVNode)(2, c.Section, {
                   flexShrink: "1",
-                  children: ["Interested in serving Nanotrasen?", (0, o.createVNode)(1, "br"), "Sign up for any of the above position now at the ", (0, o.createVNode)(1, "b", null, "Head of Personnel's Office!", 16), (0, o.createVNode)(1, "br"), (0, o.createComponentVNode)(2, c.Box, {
+                  children: ["Заинтересованы в обслуживании Nanotrasen?", (0, o.createVNode)(1, "br"), "Запишитесь на любую из вышеперечисленных должностей прямо сейчас в ", (0, o.createVNode)(1, "b", null, "Офисе Главы Персонала!", 16), (0, o.createVNode)(1, "br"), (0, o.createComponentVNode)(2, c.Box, {
                       as: "small",
                       color: "label",
-                      children: "By signing up for a job at Nanotrasen, you agree to transfer your soul to the loyalty department of the omnipresent and helpful watcher of humanity."
+                      children: "Устраиваясь на работу в Nanotrasen, вы соглашаетесь передать свою душу в отдел лояльности вездесущего и полезного наблюдателя человечества."
                   })]
               })]
           })
@@ -28371,7 +28371,7 @@
                   label: "ID",
                   children: (0, o.createComponentVNode)(2, a.Button, {
                       icon: "sync",
-                      content: "Обновите информацию ПДА",
+                      content: "Обновить информацию PDA",
                       disabled: !u,
                       onClick: function() {
                           return c("UpdateInfo")

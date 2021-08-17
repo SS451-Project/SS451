@@ -178,7 +178,7 @@
 		return
 
 	if(src && !QDELETED(src) && !QDELETED(host))
-		var/say_string = (docile) ? "slurs" :"states"
+		var/say_string = (docile) ? "бормочет" :"заявляет"
 		if(host)
 			to_chat(host, "<span class='changeling'><i>[truename] [say_string]:</i> [input]</span>")
 			log_say("(BORER to [key_name(host)]) [input]", src)

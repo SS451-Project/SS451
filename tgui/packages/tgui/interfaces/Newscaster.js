@@ -370,7 +370,7 @@ const NewscasterJobs = (properties, context) => {
         Interested in serving Nanotrasen?<br />
         Sign up for any of the above position now at the <b>Head of Personnel&apos;s Office!</b><br />
         <Box as="small" color="label">
-          By signing up for a job at Nanotrasen, you agree to transfer your soul to the loyalty department of the omnipresent and helpful watcher of humanity.
+        Устраиваясь на работу в Nanotrasen, вы соглашаетесь передать свою душу в отдел лояльности вездесущего и полезного наблюдателя человечества.
         </Box>
       </Section>
     </Flex>

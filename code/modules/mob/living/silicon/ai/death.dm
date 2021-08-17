@@ -27,7 +27,7 @@
 		if(SSshuttle.emergency.mode == SHUTTLE_STRANDED)
 			SSshuttle.emergency.mode = SHUTTLE_DOCKED
 			SSshuttle.emergency.timer = world.time
-			GLOB.priority_announcement.Announce("Hostile environment resolved. You have 3 minutes to board the Emergency Shuttle.", "Priority Announcement", 'sound/AI/shuttledock.ogg')
+			GLOB.priority_announcement.Announce("Враждебное окружение устранено. У вас есть 3 минуты, чтобы сесть на аварийный шаттл.", "Priority Announcement", 'sound/AI/shuttledock.ogg')
 		qdel(doomsday_device)
 
 	if(explosive)

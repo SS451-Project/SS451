@@ -221,7 +221,7 @@
 //mob verbs are a lot faster than object verbs
 //for more info on why this is not atom/pull, see examinate() in mob.dm
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
-	set name = "Pull"
+	set name = "Тянуть"
 	set category = "Object"
 
 	if(istype(AM) && Adjacent(AM))
@@ -235,7 +235,7 @@
 		pullin.update_icon(src)
 
 /mob/living/verb/stop_pulling1()
-	set name = "Stop Pulling"
+	set name = "Прекратить тянуть"
 	set category = "IC"
 	stop_pulling()
 
@@ -250,13 +250,13 @@
 	var/obj/item/hand_item = get_active_hand()
 	if(istype(hand_item, /obj/item/gun) && A != hand_item)
 		if(a_intent == INTENT_HELP || !ismob(A))
-			visible_message("<b>[src]</b> points to [A] with [hand_item]")
+			visible_message("<b>[src]</b> указывает на [A] с [hand_item]")
 			return TRUE
-		A.visible_message("<span class='danger'>[src] points [hand_item] at [A]!</span>",
-											"<span class='userdanger'>[src] points [hand_item] at you!</span>")
+		A.visible_message("<span class='danger'>[src] указывает [hand_item] на [A]!</span>",
+											"<span class='userdanger'>[src] указывает [hand_item] на тебя!</span>")
 		A << 'sound/weapons/targeton.ogg'
 		return TRUE
-	visible_message("<b>[src]</b> points to [A]")
+	visible_message("<b>[src]</b> указывает на [A]")
 	return TRUE
 
 /mob/living/verb/succumb()
@@ -828,7 +828,7 @@
 				add_attack_logs(src, who, "Equipped [what]")
 
 /mob/living/singularity_act()
-	investigate_log("([key_name(src)]) has been consumed by the singularity.","singulo") //Oh that's where the clown ended up!
+	investigate_log("([key_name(src)]) был поглощен сингулярностью.","singulo") //Oh that's where the clown ended up!
 	gib()
 	return 20
 
@@ -909,7 +909,7 @@
 	if(user.a_intent == INTENT_HARM && stat == DEAD && butcher_results) //can we butcher it?
 		var/sharpness = is_sharp(I)
 		if(sharpness)
-			to_chat(user, "<span class='notice'>You begin to butcher [src]...</span>")
+			to_chat(user, "<span class='notice'>Вы начинаете разделывать [src]...</span>")
 			playsound(loc, 'sound/weapons/slice.ogg', 50, 1, -1)
 			if(do_mob(user, src, 80 / sharpness) && Adjacent(I))
 				harvest(user)
@@ -949,7 +949,7 @@
 
 /mob/living/proc/can_use_guns(var/obj/item/gun/G)
 	if(G.trigger_guard != TRIGGER_GUARD_ALLOW_ALL && !IsAdvancedToolUser() && !issmall(src))
-		to_chat(src, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(src, "<span class='warning'>У тебя не хватит ловкости, чтобы сделать это!</span>")
 		return 0
 	return 1
 
