@@ -276,7 +276,7 @@
 	playsound(_loc, 'sound/goonstation/machines/printer_thermal.ogg', 50, 1)
 	reqform.name = "Форма Заявки - [crates] '[object.name]' для [orderedby]"
 	reqform.info += "<h3>[station_name()] Форма Заявки на Поставку</h3><hr>"
-	reqform.info += "ИНДЕКС: #[SSshuttle.ordernum]<br>"
+	reqform.info += "ИНДЕКС: #[--SSshuttle.ordernum]<br>"
 	reqform.info += "ЗАПРОСИЛ/А: [orderedby]<br>"
 	reqform.info += "РАНГ: [orderedbyRank]<br>"
 	reqform.info += "ПРИЧИНА: [comment]<br>"
@@ -313,14 +313,14 @@
 
 	slip.name = "Путевой манифест - '[object.name]' для [orderedby]"
 	slip.info = "<h3>[command_name()] Путевой Манифест</h3><hr><br>"
-	slip.info +="ЗАКАЗ: #[++ordernum]<br>"
+	slip.info +="ЗАКАЗ: #[ordernum]<br>"
 	slip.info +="МЕСТО НАЗНАЧЕНИЯ: [stationName]<br>"
 	slip.info +="ЗАПРОСИЛ/А: [orderedby]<br>"
 	slip.info +="РАНГ: [orderedbyRank]<br>"
 	slip.info +="ПРИЧИНА: [comment]<br>"
 	slip.info +="ТИП ЯЩИКА: [object.name]<br>"
 	slip.info +="ОГРАНИЧЕНИЕ ДОСТУПА: [object.access ? get_access_desc(object.access) : "Никаких"]<br>"
-	slip.info +="ПОСЫЛКИ В ЭТОЙ ОТПРАВКЕ - [packagesAmt] ШТ.<br>"
+	slip.info +="ПОСЫЛОК В ЭТОЙ ОТПРАВКЕ - [packagesAmt] ШТ.<br>"
 	slip.info +="СОДЕРЖИМОЕ:<br><ul>"
 
 	//we now create the actual contents

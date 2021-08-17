@@ -6,7 +6,7 @@ SUBSYSTEM_DEF(shuttle)
 	init_order = INIT_ORDER_SHUTTLE
 	flags = SS_KEEP_TIMING|SS_NO_TICK_CHECK
 	runlevels = RUNLEVEL_SETUP | RUNLEVEL_GAME
-	offline_implications = "Shuttles will no longer function and cargo will not generate points. Immediate server restart recommended."
+	offline_implications = "Шаттлы больше не будут функционировать, а грузы не будут генерировать очки. Рекомендуется немедленная перезагрузка сервера."
 	var/list/mobile = list()
 	var/list/stationary = list()
 	var/list/transit = list()
@@ -61,7 +61,7 @@ SUBSYSTEM_DEF(shuttle)
 		supply_packs["[P.type]"] = P
 	initial_move()
 
-	centcom_message = "<center>---[station_time_timestamp()]---</center><br>Remember to stamp and send back the supply manifests.<hr>"
+	centcom_message = "<center>---[station_time_timestamp()]---</center><br>Не забудьте поставить штамп и отправить обратно манифест о поставках.<hr>"
 
 	return ..()
 
