@@ -12,7 +12,7 @@
 
 //Distant interactions
 /mob/living/carbon/human/verb/interact(mob/M as mob)
-	set name = "Interact"
+	set name = "Взаимодействовать"
 	set category = "IC"
 
 	if (istype(M, /mob/living/carbon/human) && usr != M && src != M)

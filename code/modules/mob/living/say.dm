@@ -106,14 +106,14 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 		if((HULK in mutations) && health >= 25)
 			S.message = "[uppertext(S.message)]!!!"
-			verb = pick("кричит", "рычит", "вопит")
+			verb = pick("выкрикивает", "рычит", "вопит")
 
 		if(slurring)
 			if(robot)
 				S.message = slur(S.message, list("@", "!", "#", "$", "%", "&", "?"))
 			else
 				S.message = slur(S.message)
-			verb = "бормочит"
+			verb = "бормочет"
 
 		if(stuttering)
 			if(robot)
@@ -124,7 +124,7 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 		if(cultslurring)
 			S.message = cultslur(S.message)
-			verb = "бормочит"
+			verb = "бормочет"
 
 		if(!IsVocal())
 			S.message = ""
@@ -401,7 +401,7 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 
 	var/message = multilingual_to_message(message_pieces)
 
-	say_log += "whisper: [message]"
+	say_log += "шепчет: [message]"
 	log_whisper(message, src)
 	var/message_range = 1
 	var/eavesdropping_range = 2
@@ -414,21 +414,21 @@ GLOBAL_LIST_EMPTY(channel_to_radio_key)
 	if(first_piece.speaking)
 		if(first_piece.speaking.whisper_verb)
 			verb = first_piece.speaking.whisper_verb
-			not_heard = "[verb] something"
+			not_heard = "[verb] что-то"
 		else
-			var/adverb = pick("quietly", "softly")
+			var/adverb = pick("тихо", "тихонько")
 			adverb_added = TRUE
 			verb = "[first_piece.speaking.speech_verb] [adverb]"
-			not_heard = "[first_piece.speaking.speech_verb] something [adverb]"
+			not_heard = "[first_piece.speaking.speech_verb] что-то [adverb]"
 	else
-		not_heard = "[verb] something"
+		not_heard = "[verb] что-то"
 
 	var/list/hsp = handle_speech_problems(message_pieces, verb)
 	verb = hsp["verb"]
-	if(verb == "yells loudly")
-		verb = "slurs emphatically"
+	if(verb == "громко кричит")
+		verb = "подчёркивает бормотанием"
 	else if(!adverb_added)
-		var/adverb = pick("quietly", "softly")
+		var/adverb = pick("тихо", "тихонько")
 		verb = "[verb] [adverb]"
 
 	var/atom/whisper_loc = get_whisper_loc()

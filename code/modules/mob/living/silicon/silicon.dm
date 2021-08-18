@@ -316,15 +316,15 @@
 	return -10
 
 /mob/living/silicon/verb/pose()
-	set name = "Set Pose"
-	set desc = "Sets a description which will be shown when someone examines you."
+	set name = "Установить позу"
+	set desc = "Устанавливает короткое описание отображаемое при осмотре вас."
 	set category = "IC"
 
 	pose =  sanitize(copytext_char(input(usr, "This is [src]. It is...", "Pose", null)  as text, 1, MAX_MESSAGE_LEN))
 
 /mob/living/silicon/verb/set_flavor()
-	set name = "Set Flavour Text"
-	set desc = "Sets an extended description of your character's features."
+	set name = "Установить подробное описание"
+	set desc = "Устанавливает подробное описание внешности вашего персонажа."
 	set category = "IC"
 
 	update_flavor_text()

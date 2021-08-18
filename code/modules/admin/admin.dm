@@ -365,8 +365,8 @@ GLOBAL_VAR_INIT(nologevent, 0)
 
 /datum/admins/proc/restart()
 	set category = "Server"
-	set name = "Restart"
-	set desc = "Restarts the world."
+	set name = "Перезапуск"
+	set desc = "Перезапустить сервер."
 
 	if(!check_rights(R_SERVER))
 		return
@@ -376,47 +376,47 @@ GLOBAL_VAR_INIT(nologevent, 0)
 	if(usr.client.is_connecting_from_localhost())
 		is_live_server = FALSE
 
-	var/list/options = list("Regular Restart", "Hard Restart")
+	var/list/options = list("Простой Перезапуск", "Жёсткий Перезапуск")
 	if(world.TgsAvailable()) // TGS lets you kill the process entirely
-		options += "Terminate Process (Kill and restart DD)"
+		options += "Завершить процесс (Убить и перезапустить DD)"
 
-	var/result = input(usr, "Select reboot method", "World Reboot", options[1]) as null|anything in options
+	var/result = input(usr, "Выберите метод перезагрузки", "Перезагрузка мира", options[1]) as null|anything in options
 
 	if(is_live_server)
-		if(alert(usr, "WARNING: THIS IS A LIVE SERVER, NOT A LOCAL TEST SERVER. DO YOU STILL WANT TO RESTART","This server is live","Restart","Cancel") != "Restart")
+		if(alert(usr, "ВНИМАНИЕ: ЭТО ЖИВОЙ СЕРВЕР, А НЕ ЛОКАЛЬНЫЙ ТЕСТОВЫЙ СЕРВЕР. ВЫ ВСЕ ЕЩЕ ХОТИТЕ ПЕРЕЗАПУСТИТЬ?","Этот сервер живой","Перезапуск","Отменить") != "Перезапуск")
 			return FALSE
 
 	if(result)
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Reboot World") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		var/init_by = "Initiated by [usr.client.holder.fakekey ? "Admin" : usr.key]."
+		var/init_by = "Инициировано [usr.client.holder.fakekey ? "Admin" : usr.key]."
 		switch(result)
 
-			if("Regular Restart")
-				var/delay = input("What delay should the restart have (in seconds)?", "Restart Delay", 5) as num|null
+			if("Простой Перезапуск")
+				var/delay = input("Какая задержка должна быть до перезапуска (в секундах)?", "Задержка перезапуска", 5) as num|null
 				if(!delay)
 					return FALSE
 
 
 				// These are pasted each time so that they dont false send if reboot is cancelled
-				message_admins("[key_name_admin(usr)] has initiated a server restart of type [result]")
-				log_admin("[key_name(usr)] has initiated a server restart of type [result]")
+				message_admins("[key_name_admin(usr)] инициировал перезапуск сервера типа [result]")
+				log_admin("[key_name(usr)] инициировал перезапуск сервера типа [result]")
 				SSticker.delay_end = FALSE // We arent delayed anymore
 				SSticker.reboot_helper(init_by, "admin reboot - by [usr.key] [usr.client.holder.fakekey ? "(stealth)" : ""]", delay * 10)
 
-			if("Hard Restart")
-				message_admins("[key_name_admin(usr)] has initiated a server restart of type [result]")
-				log_admin("[key_name(usr)] has initiated a server restart of type [result]")
+			if("Жёсткий Перезапуск")
+				message_admins("[key_name_admin(usr)] инициировал перезапуск сервера типа [result]")
+				log_admin("[key_name(usr)] инициировал перезапуск сервера типа [result]")
 				world.Reboot(fast_track = TRUE)
 
-			if("Terminate Process (Kill and restart DD)")
-				message_admins("[key_name_admin(usr)] has initiated a server restart of type [result]")
-				log_admin("[key_name(usr)] has initiated a server restart of type [result]")
+			if("Завершить процесс (Убить и перезапустить DD)")
+				message_admins("[key_name_admin(usr)] инициировал перезапуск сервера типа [result]")
+				log_admin("[key_name(usr)] инициировал перезапуск сервера типа [result]")
 				world.TgsEndProcess() // Just nuke the entire process if we are royally fucked
 
 /datum/admins/proc/end_round()
 	set category = "Server"
-	set name = "End Round"
-	set desc = "Instantly ends the round and brings up the scoreboard, like shadowlings or wizards dying."
+	set name = "Завершить раунд"
+	set desc = "Мгновенно завершает раунд и выводит табло, как будто умирает тенеморф или маг."
 	if(!check_rights(R_SERVER))
 		return
 	var/input = sanitize(copytext(input(usr, "What text should players see announcing the round end? Input nothing to cancel.", "Specify Announcement Text", "Shift Has Ended!"), 1, MAX_MESSAGE_LEN))

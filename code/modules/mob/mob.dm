@@ -653,7 +653,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 
 
 /mob/verb/mode()
-	set name = "Activate Held Object"
+	set name = "Активировать удерживаемый объект"
 	set category = null
 	set src = usr
 
@@ -684,15 +684,15 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 
 
 /mob/verb/memory()
-	set name = "Notes"
+	set name = "Заметки"
 	set category = "IC"
 	if(mind)
 		mind.show_memory(src)
 	else
-		to_chat(src, "The game appears to have misplaced your mind datum, so we can't show you your notes.")
+		to_chat(src, "Похоже, что в игре были потеряны данные вашего разума, поэтому мы не можем показать вам ваши заметки.")
 
 /mob/verb/add_memory(msg as message)
-	set name = "Add Note"
+	set name = "Добавить заметку"
 	set category = "IC"
 
 	msg = copytext(msg, 1, MAX_MESSAGE_LEN)
@@ -702,10 +702,10 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 	if(mind && (combined < MAX_PAPER_MESSAGE_LEN))
 		mind.store_memory(msg)
 	else if(combined >= MAX_PAPER_MESSAGE_LEN)
-		to_chat(src, "Your brain can't hold that much information!")
+		to_chat(src, "Твой мозг не может вместить столько информации!")
 		return
 	else
-		to_chat(src, "The game appears to have misplaced your mind datum, so we can't show you your notes.")
+		to_chat(src, "Похоже, что в игре были потеряны данные вашего разума, поэтому мы не можем показать вам ваши заметки.")
 
 /mob/proc/store_memory(msg as message, popup, sane = 1)
 	msg = copytext(msg, 1, MAX_MESSAGE_LEN)
@@ -725,7 +725,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 	set src in usr
 	if(usr != src)
 		to_chat(usr, "No.")
-	var/msg = input(usr,"Set the flavor text in your 'examine' verb. The flavor text should be a physical descriptor of your character at a glance.","Flavor Text",html_decode(flavor_text)) as message|null
+	var/msg = input(usr,"Установите текст особенности в действии 'Исследовать'. Текст особенности должен быть физическим описанием вашего персонажа с первого взгляда.","Текст",html_decode(flavor_text)) as message|null
 
 	if(msg != null)
 		msg = copytext_char(msg, 1, MAX_PAPER_MESSAGE_LEN)

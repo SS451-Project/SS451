@@ -964,7 +964,7 @@
 #undef SSD_WARNING_TIMER
 
 /client/verb/toggle_fullscreen()
-	set name = "Toggle Fullscreen"
+	set name = "Полный экран"
 	set category = "OOC"
 
 	fullscreen = !fullscreen
@@ -986,9 +986,9 @@
 	fit_viewport()
 
 /client/verb/fit_viewport()
-	set name = "Fit Viewport"
+	set name = "Подогнать окно"
 	set category = "OOC"
-	set desc = "Fit the width of the map window to match the viewport"
+	set desc = "Подгоняет ширину окна в соответствии с экраном / "
 
 	// Fetch aspect ratio
 	var/view_size = getviewsize(view)
@@ -1064,16 +1064,16 @@
 			prefs.load_preferences(usr)
 
 /client/verb/resend_ui_resources()
-	set name = "Reload UI Resources"
-	set desc = "Reload your UI assets if they are not working"
+	set name = "Перезагрузить ресурсы пользовательского интерфейса"
+	set desc = "Перезагрузите ресурсы пользовательского интерфейса, если они не работают"
 	set category = "Special Verbs"
 
 	if(last_ui_resource_send > world.time)
-		to_chat(usr, "<span class='warning'>You requested your UI resource files too quickly. Please try again in [(last_ui_resource_send - world.time)/10] seconds.</span>")
+		to_chat(usr, "<span class='warning'>Вы слишком быстро запросили файлы ресурсов пользовательского интерфейса. Пожалуйста, повторите попытку через [(last_ui_resource_send - world.time)/10] секунд.</span>")
 		return
 
-	var/choice = alert(usr, "This will reload your TGUI resources. If you have any open UIs this may break them. Are you sure?", "Resource Reloading", "Yes", "No")
-	if(choice == "Yes")
+	var/choice = alert(usr, "Это перезагрузит ваши ресурсы графического интерфейса. Если у вас есть какие-либо открытые интерфейсы, это может привести к их нарушению. Вы уверены?", "Перезагрузка ресурсов", "Да", "Нет")
+	if(choice == "Да")
 		// 600 deciseconds = 1 minute
 		last_ui_resource_send = world.time + 60 SECONDS
 
@@ -1092,7 +1092,7 @@
 		// This is not fully clearing their BYOND cache, just their assets sent from the server this round
 		cache = list()
 
-		to_chat(usr, "<span class='notice'>UI resource files resent successfully. If you are still having issues, please try manually clearing your BYOND cache. <b>This can be achieved by opening your BYOND launcher, pressing the cog in the top right, selecting preferences, going to the Games tab, and pressing 'Clear Cache'.</b></span>")
+		to_chat(usr, "<span class='notice'>Файлы ресурсов пользовательского интерфейса успешно перезагружены. Если у вас все еще возникают проблемы, пожалуйста, попробуйте вручную очистить кэш BYOND. <b>Этого можно сделать, открыв свой лаунчер BYOND, нажав на шестеренку в правом верхнем углу, выбрав настройки, перейдя на вкладку Игры и нажав 'Clear cahce'.</b></span>")
 
 /client/proc/check_say_flood(rate = 5)
 	client_keysend_amount += rate
@@ -1109,7 +1109,7 @@
 			keysend_tripped = TRUE
 			next_keysend_trip_reset = world.time + (2 SECONDS)
 		else
-			log_admin("Client [ckey] was just autokicked for flooding Say sends; likely abuse but potentially lagspike.")
+			log_admin("Клиент [ckey] был автоматически кикнут из-за флуда отправки сообщений; вероятно, злоупотребление, но потенциально лагспик.")
 			message_admins("Client [ckey] was just autokicked for flooding Say sends; likely abuse but potentially lagspike.")
 			qdel(src)
 			return

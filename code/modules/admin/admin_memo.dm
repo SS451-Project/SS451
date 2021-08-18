@@ -1,12 +1,12 @@
 /client/proc/admin_memo()
-	set name = "Memo"
+	set name = "Памятка"
 	set category = "Server"
 	if(!check_rights(R_SERVER))
 		return
 	if(!SSdbcore.IsConnected())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Не удалось установить соединение с базой данных.</span>")
 		return
-	var/memotask = input(usr,"Choose task.","Memo") in list("Show","Write","Edit","Remove")
+	var/memotask = input(usr,"Выберите задачу.","Памятка") in list("Показать","Записать","Изменить","Удалить")
 	if(!memotask)
 		return
 	admin_memo_output(memotask)
@@ -17,7 +17,7 @@
 	if(!task)
 		return
 	if(!SSdbcore.IsConnected())
-		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src, "<span class='danger'>Не удалось установить соединение с базой данных.</span>")
 		return
 	switch(task)
 		if("Write")
@@ -31,12 +31,12 @@
 				return
 
 			if(query_memocheck.NextRow())
-				to_chat(src, "You already have set a memo.")
+				to_chat(src, "Вы уже установили памятку.")
 				qdel(query_memocheck)
 				return
 
 			qdel(query_memocheck)
-			var/memotext = input(src, "Write your Memo", "Memo") as message
+			var/memotext = input(src, "Напишите свою памятку", "Памятка") as message
 			if(!memotext)
 				return
 
@@ -52,8 +52,8 @@
 				qdel(query_memoadd)
 				return
 
-			log_admin("[key_name(src)] has set a memo: [memotext]")
-			message_admins("[key_name_admin(src)] has set a memo:<br>[memotext]")
+			log_admin("[key_name(src)] установил памятку: [memotext]")
+			message_admins("[key_name_admin(src)] установил памятку:<br>[memotext]")
 			qdel(query_memoadd)
 
 		if("Edit")
@@ -70,10 +70,10 @@
 
 			qdel(query_memolist)
 			if(!length(memolist))
-				to_chat(src, "No memos found in database.")
+				to_chat(src, "Никаких заметок в базе данных не найдено.")
 				return
 
-			var/target_ckey = input(src, "Select whose memo to edit", "Select memo") as null|anything in memolist
+			var/target_ckey = input(src, "Выберите, какую памятку редактировать", "Выбрать памятку") as null|anything in memolist
 			if(!target_ckey)
 				return
 
@@ -88,7 +88,7 @@
 
 			if(query_memofind.NextRow())
 				var/old_memo = query_memofind.item[1]
-				var/new_memo = input("Input new memo", "New Memo", "[old_memo]", null) as message
+				var/new_memo = input("Введите новую памятку", "Новая памятка", "[old_memo]", null) as message
 				if(!new_memo)
 					qdel(query_memofind)
 					return
@@ -137,7 +137,7 @@
 			if(output)
 				to_chat(src, output)
 			else if(!silent)
-				to_chat(src, "No memos found in database.")
+				to_chat(src, "Никаких заметок в базе данных не найдено.")
 			qdel(query_memoshow)
 
 		if("Remove")
@@ -153,10 +153,10 @@
 
 			qdel(query_memodellist)
 			if(!memolist.len)
-				to_chat(src, "No memos found in database.")
+				to_chat(src, "Никаких заметок в базе данных не найдено.")
 				return
 
-			var/target_ckey = input(src, "Select whose memo to delete", "Select memo") as null|anything in memolist
+			var/target_ckey = input(src, "Выберите памятку для удаления", "Выбрать памятку") as null|anything in memolist
 			if(!target_ckey)
 				return
 

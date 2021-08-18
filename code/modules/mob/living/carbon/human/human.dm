@@ -1429,46 +1429,46 @@
 
 /mob/living/carbon/human/proc/bloody_doodle()
 	set category = "IC"
-	set name = "Write in blood"
-	set desc = "Use blood on your hands to write a short message on the floor or a wall, murder mystery style."
+	set name = "Написать кровью"
+	set desc = "Используйте кровь на своих руках, чтобы написать короткое сообщение на полу или стене в стиле тайных убийств."
 
 	if(usr != src)
 		return 0 //something is terribly wrong
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You can't write on the floor in your current state!</span>")
+		to_chat(src, "<span class='warning'>Вы не можете писать на полу в вашем нынешнем состоянии!</span>")
 		return
 	if(!bloody_hands)
 		verbs -= /mob/living/carbon/human/proc/bloody_doodle
 
 	if(gloves)
-		to_chat(src, "<span class='warning'>[gloves] are preventing you from writing anything down!</span>")
+		to_chat(src, "<span class='warning'>[gloves] мешают вам что-либо записать!</span>")
 		return
 
 	var/turf/simulated/T = loc
 	if(!istype(T)) //to prevent doodling out of mechs and lockers
-		to_chat(src, "<span class='warning'>You cannot reach the floor.</span>")
+		to_chat(src, "<span class='warning'>Вы не можете дотянуться до пола.</span>")
 		return
 
 	var/turf/origin = T
-	var/direction = input(src,"Which way?","Tile selection") as anything in list("Here","North","South","East","West")
-	if(direction != "Here")
+	var/direction = input(src,"В какую сторону?","Выбор тайла") as anything in list("Здесь","Север","Юг","Восток","Запад")
+	if(direction != "Здесь")
 		T = get_step(T,text2dir(direction))
 	if(!istype(T))
-		to_chat(src, "<span class='warning'>You cannot doodle there.</span>")
+		to_chat(src, "<span class='warning'>Вы не можете рисовать здесь каракули.</span>")
 		return
 
 	var/num_doodles = 0
 	for(var/obj/effect/decal/cleanable/blood/writing/W in T)
 		num_doodles++
 	if(num_doodles > 4)
-		to_chat(src, "<span class='warning'>There is no space to write on!</span>")
+		to_chat(src, "<span class='warning'>Здесь нет места для записи!</span>")
 		return
 
 	var/max_length = bloody_hands * 30 //tweeter style
 
-	var/message = stripped_input(src,"Write a message. It cannot be longer than [max_length] characters.","Blood writing", "")
+	var/message = stripped_input(src,"Напишите сообщение. Не может быть дольше, чем [max_length] символов.","Кровавая надпись", "")
 	if(origin != loc)
-		to_chat(src, "<span class='notice'>Stay still while writing!</span>")
+		to_chat(src, "<span class='notice'>Не двигайтесь, пока пишете!</span>")
 		return
 	if(message)
 		var/used_blood_amount = round(length(message) / 30, 1)

@@ -6,12 +6,12 @@
 	return
 
 /mob/verb/whisper(message as text)
-	set name = "Whisper"
+	set name = "Прошептать"
 	set category = "IC"
 	return
 
 /mob/verb/say_verb(message as text)
-	set name = "Say"
+	set name = "Сказать"
 	set category = "IC"
 
 	//Let's try to make users fix their errors - we try to detect single, out-of-place letters and 'unintended' words
@@ -32,7 +32,7 @@
 
 
 /mob/verb/me_verb(message as text)
-	set name = "Me"
+	set name = "Me (действие 1-ого лица)"
 	set category = "IC"
 
 	message = strip_html_properly(message)
@@ -48,21 +48,21 @@
 	if(client)
 		if(!client.holder)
 			if(!config.dsay_allowed)
-				to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
+				to_chat(src, "<span class='danger'>Мертвый чат глобально отключен.</span>")
 				return
 
 		if(client.prefs.muted & MUTE_DEADCHAT)
-			to_chat(src, "<span class='warning'>You cannot talk in deadchat (muted).</span>")
+			to_chat(src, "<span class='warning'>Вы не можете разговаривать в мертвом чате (в муте).</span>")
 			return
 
 		if(!(client.prefs.toggles & PREFTOGGLE_CHAT_DEAD))
-			to_chat(src, "<span class='danger'>You have deadchat muted.</span>")
+			to_chat(src, "<span class='danger'>У вас замьючен мертвый чат.</span>")
 			return
 
 		if(client.handle_spam_prevention(message, MUTE_DEADCHAT))
 			return
 
-	say_dead_direct("[pick("complains", "moans", "whines", "laments", "blubbers", "salts")], <span class='message'>\"[message]\"</span>", src)
+	say_dead_direct("[pick("жалуется", "стонет", "скулит", "причетает", "плачет", "солит")], <span class='message'>\"[message]\"</span>", src)
 	create_log(DEADCHAT_LOG, message)
 	log_ghostsay(message, src)
 
@@ -98,16 +98,16 @@
 
 
 /mob/proc/say_quote(var/message, var/datum/language/speaking = null)
-	var/verb = "says"
+	var/verb = "говорит"
 	var/ending = copytext(message, length(message))
 
 	if(speaking)
 		verb = speaking.get_spoken_verb(ending)
 	else
 		if(ending == "!")
-			verb = pick("exclaims", "shouts", "yells")
+			verb = pick("восклицает", "возглашает", "выкрикивает")
 		else if(ending == "?")
-			verb = "asks"
+			verb = "спрашивает"
 	return verb
 
 

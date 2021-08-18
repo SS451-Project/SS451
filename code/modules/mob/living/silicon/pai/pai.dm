@@ -325,9 +325,9 @@
 
 /mob/living/silicon/pai/proc/choose_verbs()
 	set category = "pAI Commands"
-	set name = "Choose Speech Verbs"
+	set name = "Выберать глаголы речи"
 
-	var/choice = input(usr,"What theme would you like to use for your speech verbs? This decision can only be made once.") as null|anything in possible_say_verbs
+	var/choice = input(usr,"Какую тему вы хотели бы использовать для своих речевых глаголов? Это решение может быть принято только один раз.") as null|anything in possible_say_verbs
 	if(!choice) return
 
 	var/list/sayverbs = possible_say_verbs[choice]
@@ -339,7 +339,7 @@
 
 
 /mob/living/silicon/pai/lay_down()
-	set name = "Rest"
+	set name = "Отдыхать"
 	set category = "IC"
 
 	// Pass lying down or getting up to our pet human, if we're in a rig.
@@ -347,7 +347,7 @@
 		resting = 0
 	else
 		resting = !resting
-		to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+		to_chat(src, "<span class='notice'>Теперь вы [resting ? "отдыхаете" : "встали"]</span>")
 
 	update_icons()
 	update_canmove()

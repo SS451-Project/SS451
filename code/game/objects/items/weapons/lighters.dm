@@ -84,7 +84,7 @@
 			if(istype(src, /obj/item/lighter/zippo))
 				cig.light("<span class='rose'>[user] выхватывает [name] и держит его для [M]. Рука [user.p_their(TRUE)] так же тверда, как мерцающее пламя [user.p_they()] light[user.p_s()], подкуривающее [cig].</span>")
 			else
-				cig.light("<span class='notice'>[user] удерживает [name] для [M], и зажигает [cig.name].</span>")
+				cig.light("<span class='notice'>[user] удерживает [name] для [M], и поджигает [cig.name].</span>")
 			M.update_inv_wear_mask()
 	else
 		..()
@@ -109,7 +109,7 @@
 /obj/item/lighter/zippo/turn_on_lighter(mob/living/user)
 	. = ..()
 	if(world.time > next_on_message)
-		user.visible_message("<span class='rose'>Даже не сбавляя шага, [user] открывает и зажигает [src] одним плавным движением.</span>")
+		user.visible_message("<span class='rose'>Не сбавляя шага, [user] открывает и зажигает [src] одним плавным движением.</span>")
 		playsound(src.loc, 'sound/items/zippolight.ogg', 25, 1)
 		next_on_message = world.time + 5 SECONDS
 	else
@@ -118,7 +118,7 @@
 /obj/item/lighter/zippo/turn_off_lighter(mob/living/user)
 	. = ..()
 	if(world.time > next_off_message)
-		user.visible_message("<span class='rose'>Вы слышите тихий щелчок, когда [user] закрывает [src] даже не глядя на то, что [user.p_theyre()] делает. Вау.")
+		user.visible_message("<span class='rose'>Вы слышите тихий щелчок, когда [user] закрывает [src] даже не глядя на то, что делает. Вау.")
 		playsound(src.loc, 'sound/items/zippoclose.ogg', 25, 1)
 		next_off_message = world.time + 5 SECONDS
 	else
@@ -300,7 +300,7 @@
 
 /obj/item/match/firebrand
 	name = "головешка"
-	desc = "Незажженная головешка. Это заставляет задуматься, почему это не называется просто палкой."
+	desc = "Незажженная головешка. Заставляет задуматься, почему это не просто палка."
 	smoketime = 20 //40 seconds
 
 /obj/item/match/firebrand/New()

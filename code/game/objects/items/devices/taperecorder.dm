@@ -95,18 +95,18 @@
 		var/ending = copytext(msg, length(msg))
 		mytape.timestamp += mytape.used_capacity
 		if(M.stuttering)
-			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] stammers, \"[msg]\""
+			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] заикается, \"[msg]\""
 			return
 		if(M.getBrainLoss() >= 60)
-			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] gibbers, \"[msg]\""
+			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] тарабанит, \"[msg]\""
 			return
 		if(ending == "?")
-			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] asks, \"[msg]\""
+			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] спрашивает, \"[msg]\""
 			return
 		else if(ending == "!")
-			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] exclaims, \"[msg]\""
+			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] восклицает, \"[msg]\""
 			return
-		mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] says, \"[msg]\""
+		mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] говорит, \"[msg]\""
 
 /obj/item/taperecorder/hear_message(mob/living/M as mob, msg)
 	if(mytape && recording)

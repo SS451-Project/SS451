@@ -296,7 +296,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	)
 
 /client/proc/hide_verbs()
-	set name = "Adminverbs - Hide All"
+	set name = "Действия администратора - Скрыть всё"
 	set category = "Admin"
 
 	if(!holder)
@@ -305,12 +305,12 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	remove_admin_verbs()
 	verbs += /client/proc/show_verbs
 
-	to_chat(src, "<span class='interface'>Almost all of your adminverbs have been hidden.</span>")
+	to_chat(src, "<span class='interface'>Почти все ваши действия администратора были скрыты.</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Hide Admin Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
 /client/proc/show_verbs()
-	set name = "Adminverbs - Show"
+	set name = "Действия администратора - Показать"
 	set category = "Admin"
 
 	if(!holder)
@@ -319,7 +319,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	verbs -= /client/proc/show_verbs
 	add_admin_verbs()
 
-	to_chat(src, "<span class='interface'>All of your adminverbs are now visible.</span>")
+	to_chat(src, "<span class='interface'>Все ваши действия администратора теперь видны.</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Admin Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/admin_ghost()
@@ -340,21 +340,21 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			var/mob/living/carbon/human/H = mob
 			H.regenerate_icons() // workaround for #13269
 	else if(isnewplayer(mob))
-		to_chat(src, "<font color='red'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or observe first.</font>")
+		to_chat(src, "<font color='red'>Ошибка: Aghost: Нельзя управлять призраком, находясь в лобби. Присоединитесь или начните наблюдать за раундом.</font>")
 	else
 		//ghostize
 		var/mob/body = mob
 		body.ghostize(1)
 		if(body && !body.key)
 			body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus
-		log_admin("[key_name(usr)] has admin-ghosted")
+		log_admin("[key_name(usr)] админ-гостнул себя")
 		// TODO: SStgui.on_transfer() to move windows from old and new
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Aghost") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/invisimin()
-	set name = "Invisimin"
+	set name = "Невидимка"
 	set category = "Admin"
-	set desc = "Toggles ghost-like invisibility (Don't abuse this)"
+	set desc = "Делает вас невидимкой (не злоупотребляйте этим)"
 
 	if(!check_rights(R_ADMIN))
 		return
@@ -371,7 +371,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			mob.remove_from_all_data_huds()
 
 /client/proc/player_panel_new()
-	set name = "Player Panel"
+	set name = "Панель - Игрок"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN|R_MOD))
@@ -382,7 +382,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	return
 
 /client/proc/check_antagonists()
-	set name = "Check Antagonists"
+	set name = "Посмотреть Антагонистов"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
@@ -394,7 +394,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	return
 
 /client/proc/ban_panel()
-	set name = "Ban Panel"
+	set name = "Панель - Баны"
 	set category = "Admin"
 
 	if(!check_rights(R_BAN))
@@ -408,7 +408,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	return
 
 /client/proc/game_panel()
-	set name = "Game Panel"
+	set name = "Панель - Игра"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
@@ -419,7 +419,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	return
 
 /client/proc/secrets()
-	set name = "Secrets"
+	set name = "Секреты"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
@@ -445,7 +445,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 /client/proc/stealth()
 	set category = "Admin"
-	set name = "Stealth Mode"
+	set name = "Скрытный режим"
 
 	if(!check_rights(R_ADMIN))
 		return
@@ -455,19 +455,19 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 		if(holder.fakekey)
 			holder.fakekey = null
 		else
-			var/new_key = ckeyEx(clean_input("Enter your desired display name.", "Fake Key", key))
+			var/new_key = ckeyEx(clean_input("Введите желаемое отображаемое имя.", "Поддельный Ключ", key))
 			if(!new_key)	return
 			if(length(new_key) >= 26)
 				new_key = copytext(new_key, 1, 26)
 			holder.fakekey = new_key
 			createStealthKey()
-		log_admin("[key_name(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]")
-		message_admins("[key_name_admin(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]", 1)
+		log_admin("[key_name(usr)] переключил скрытный режим: [holder.fakekey ? "ВКЛ" : "ВЫКЛ"]")
+		message_admins("[key_name_admin(usr)] переключил скрытный режим: [holder.fakekey ? "ВКЛ" : "ВЫКЛ"]", 1)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Stealth Mode") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/big_brother()
 	set category = "Admin"
-	set name = "Big Brother Mode"
+	set name = "Режим Большого Брата"
 
 	if(!check_rights(R_PERMISSIONS))
 		return
@@ -477,7 +477,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			holder.fakekey = null
 			holder.big_brother = 0
 		else
-			var/new_key = ckeyEx(clean_input("Enter your desired display name. Unlike normal stealth mode, this will not appear in Who at all, except for other heads.", "Fake Key", key))
+			var/new_key = ckeyEx(clean_input("Введите желаемое отображаемое имя. В отличие от обычного скрытого режима, это вообще не появится в Who, за исключением некоторых лиц.", "Поддельный Ключ", key))
 			if(!new_key)
 				return
 			if(length(new_key) >= 26)
@@ -485,7 +485,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			holder.fakekey = new_key
 			holder.big_brother = 1
 			createStealthKey()
-		log_admin("[key_name(usr)] has turned BB mode [holder.fakekey ? "ON" : "OFF"]")
+		log_admin("[key_name(usr)] переключил режим ББ в [holder.fakekey ? "ВКЛ" : "ВЫКЛ"]")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Big Brother Mode")
 
 #define MAX_WARNS 3
@@ -536,35 +536,35 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 /client/proc/drop_bomb() // Some admin dickery that can probably be done better -- TLE
 	set category = "Event"
-	set name = "Drop Bomb"
-	set desc = "Cause an explosion of varying strength at your location."
+	set name = "Сбросить бомбу"
+	set desc = "Вызовите взрыв различной силы в вашем местоположении."
 
 	if(!check_rights(R_EVENT))
 		return
 
 	var/turf/epicenter = mob.loc
-	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
+	var/list/choices = list("Маленькая Бомба", "Средняя Бомба", "Большая Бомба", "Пользовательская Бомба")
 	var/choice = input("What size explosion would you like to produce?") as null|anything in choices
 	switch(choice)
 		if(null)
 			return 0
-		if("Small Bomb")
+		if("Маленькая Бомба")
 			explosion(epicenter, 1, 2, 3, 3)
-		if("Medium Bomb")
+		if("Средняя Бомба")
 			explosion(epicenter, 2, 3, 4, 4)
-		if("Big Bomb")
+		if("Большая Бомба")
 			explosion(epicenter, 3, 5, 7, 5)
-		if("Custom Bomb")
-			var/devastation_range = input("Devastation range (in tiles):") as null|num
+		if("Пользовательская Бомба")
+			var/devastation_range = input("Диапазон разрушения (в тайлах):") as null|num
 			if(devastation_range == null)
 				return
-			var/heavy_impact_range = input("Heavy impact range (in tiles):") as null|num
+			var/heavy_impact_range = input("Дальность удара (в тайлах):") as null|num
 			if(heavy_impact_range == null)
 				return
-			var/light_impact_range = input("Light impact range (in tiles):") as null|num
+			var/light_impact_range = input("Диапазон светового воздействия (в тайлах):") as null|num
 			if(light_impact_range == null)
 				return
-			var/flash_range = input("Flash range (in tiles):") as null|num
+			var/flash_range = input("Диапазон вспышки (в тайлах):") as null|num
 			if(flash_range == null)
 				return
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, 1, 1)
@@ -574,8 +574,8 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 /client/proc/give_spell(mob/T as mob in GLOB.mob_list) // -- Urist
 	set category = "Event"
-	set name = "Give Spell"
-	set desc = "Gives a spell to a mob."
+	set name = "Выдать - Заклинание"
+	set desc = "Дает заклинание мобам."
 
 	if(!check_rights(R_EVENT))
 		return
@@ -584,7 +584,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	var/type_length = length("/obj/effect/proc_holder/spell") + 2
 	for(var/A in GLOB.spells)
 		spell_list[copytext("[A]", type_length)] = A
-	var/obj/effect/proc_holder/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in spell_list
+	var/obj/effect/proc_holder/spell/S = input("Выбери заклинание, чтобы дать этому парню", "АБРАКАДАБРА") as null|anything in spell_list
 	if(!S)
 		return
 	S = spell_list[S]
@@ -599,35 +599,35 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 /client/proc/give_disease(mob/T in GLOB.mob_list)
 	set category = "Event"
-	set name = "Give Disease"
-	set desc = "Gives a Disease to a mob."
-	var/datum/disease/D = input("Choose the disease to give to that guy", "ACHOO") as null|anything in GLOB.diseases
+	set name = "Выдать - Болезнь"
+	set desc = "Дает болезнь мобам."
+	var/datum/disease/D = input("Выбери болезнь, чтобы передать ее этому парню", "ПЧХИ") as null|anything in GLOB.diseases
 	if(!D) return
 	T.ForceContractDisease(new D)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Disease") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] the disease [D].")
-	message_admins("<span class='adminnotice'>[key_name_admin(usr)] gave [key_name(T)] the disease [D].</span>")
+	log_admin("[key_name(usr)] наделил [key_name(T)] болезнью [D].")
+	message_admins("<span class='adminnotice'>[key_name_admin(usr)] наделил [key_name(T)] болезнью [D].</span>")
 
 /client/proc/make_sound(var/obj/O in view()) // -- TLE
 	set category = "Event"
-	set name = "Make Sound"
-	set desc = "Display a message to everyone who can hear the target"
+	set name = "Издать звук"
+	set desc = "Отобразите сообщение для всех, кто может слышать цель (при взаимодействиями с тайлами или что-то в это роде, я так и не понял)"
 
 	if(!check_rights(R_EVENT))
 		return
 
 	if(O)
-		var/message = clean_input("What do you want the message to be?", "Make Sound")
+		var/message = clean_input("Каким вы хотите, чтобы было сообщение?", "Издать звук")
 		if(!message)
 			return
 		for(var/mob/V in hearers(O))
 			V.show_message(admin_pencode_to_html(message), 2)
-		log_admin("[key_name(usr)] made [O] at [O.x], [O.y], [O.z] make a sound")
-		message_admins("<span class='notice'>[key_name_admin(usr)] made [O] at [O.x], [O.y], [O.z] make a sound</span>")
+		log_admin("[key_name(usr)] сделал [O] в [O.x], [O.y], [O.z] звук")
+		message_admins("<span class='notice'>[key_name_admin(usr)] сделал [O] в [O.x], [O.y], [O.z] звук</span>")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Make Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/togglebuildmodeself()
-	set name = "Toggle Build Mode Self"
+	set name = "Режим стройки"
 	set category = "Event"
 
 	if(!check_rights(R_EVENT))
@@ -640,7 +640,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 /client/proc/object_talk(var/msg as text) // -- TLE
 	set category = "Event"
 	set name = "oSay"
-	set desc = "Display a message to everyone who can hear the target"
+	set desc = "Отобразите сообщение для всех, кто может слышать цель"
 
 	if(!check_rights(R_EVENT))
 		return
@@ -649,31 +649,32 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 		if(!msg)
 			return
 		for(var/mob/V in hearers(mob.control_object))
-			V.show_message("<b>[mob.control_object.name]</b> says: \"" + msg + "\"", 2)
-		log_admin("[key_name(usr)] used oSay on [mob.control_object]: [msg]")
-		message_admins("[key_name_admin(usr)] used oSay on [mob.control_object]: [msg]")
+			V.show_message("<b>[mob.control_object.name]</b> говорит: \"" + msg + "\"", 2)
+		log_admin("[key_name(usr)] использовал oSay на [mob.control_object]: [msg]")
+		message_admins("[key_name_admin(usr)] использовал oSay на [mob.control_object]: [msg]")
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "oSay") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/deadmin_self()
-	set name = "De-admin self"
+	set name = "Де-админнуть себя"
 	set category = "Admin"
+	set desc = "Отбирает ваши административные полномочия."
 
 	if(!check_rights(R_ADMIN|R_MOD|R_MENTOR))
 		return
 
-	log_admin("[key_name(usr)] deadmined themself.")
-	message_admins("[key_name_admin(usr)] deadmined themself.")
+	log_admin("[key_name(usr)] де-админнул себя.")
+	message_admins("[key_name_admin(usr)] де-админнул себя.")
 	deadmin()
 	verbs += /client/proc/readmin
 	GLOB.deadmins += ckey
-	to_chat(src, "<span class='interface'>You are now a normal player.</span>")
+	to_chat(src, "<span class='interface'>Теперь вы простой игрок.</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "De-admin") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/readmin()
-	set name = "Re-admin self"
+	set name = "Ре-админнуть себя"
 	set category = "Admin"
-	set desc = "Regain your admin powers."
+	set desc = "Восстановит ваши административные полномочия."
 
 	var/datum/admins/D = GLOB.admin_datums[ckey]
 	var/rank = null
@@ -694,7 +695,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 	else
 		if(!SSdbcore.IsConnected())
-			to_chat(src, "Warning, MYSQL database is not connected.")
+			to_chat(src, "Внимание, база данных MYSQL не подключена.")
 			return
 
 		var/datum/db_query/rank_read = SSdbcore.NewQuery(
@@ -713,14 +714,14 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	if(!D)
 		if(config.admin_legacy_system)
 			if(GLOB.admin_ranks[rank] == null)
-				error("Error while re-adminning [src], admin rank ([rank]) does not exist.")
-				to_chat(src, "Error while re-adminning, admin rank ([rank]) does not exist.")
+				error("Ошибка при ре-админне [src], ранга ([rank]) не существует.")
+				to_chat(src, "Ошибка при ре-админне, ранга ([rank]) не существует.")
 				return
 
 			D = new(rank, GLOB.admin_ranks[rank], ckey)
 		else
 			if(!SSdbcore.IsConnected())
-				to_chat(src, "Warning, MYSQL database is not connected.")
+				to_chat(src, "Внимание, база данных MYSQL не подключена.")
 				return
 
 			var/datum/db_query/admin_read = SSdbcore.NewQuery(
@@ -737,11 +738,11 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 				var/admin_rank = admin_read.item[2]
 				var/flags = admin_read.item[3]
 				if(!admin_ckey)
-					to_chat(src, "Error while re-adminning, ckey [admin_ckey] was not found in the admin database.")
+					to_chat(src, "Ошибка при ре-админне, ckey [admin_ckey] не найден в базе данных.")
 					qdel(admin_read)
 					return
 				if(admin_rank == "Удален") //This person was de-adminned. They are only in the admin list for archive purposes.
-					to_chat(src, "Error while re-adminning, ckey [admin_ckey] is not an admin.")
+					to_chat(src, "Ошибка при ре-админне, ckey [admin_ckey] не является админом или не найден в базе данных.")
 					qdel(admin_read)
 					return
 
@@ -753,19 +754,19 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 		var/client/C = GLOB.directory[ckey]
 		D.associate(C)
-		message_admins("[key_name_admin(usr)] re-adminned themselves.")
-		log_admin("[key_name(usr)] re-adminned themselves.")
+		message_admins("[key_name_admin(usr)] ре-админул себя.")
+		log_admin("[key_name(usr)] ре-админул себя.")
 		GLOB.deadmins -= ckey
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Re-admin")
 		return
 	else
-		to_chat(src, "You are already an admin.")
+		to_chat(src, "Вы уже админ.")
 		verbs -= /client/proc/readmin
 		GLOB.deadmins -= ckey
 		return
 
 /client/proc/toggle_log_hrefs()
-	set name = "Toggle href logging"
+	set name = "Ведение лога HREF"
 	set category = "Server"
 
 	if(!check_rights(R_SERVER))
@@ -774,13 +775,13 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	if(config)
 		if(config.log_hrefs)
 			config.log_hrefs = 0
-			to_chat(src, "<b>Stopped logging hrefs</b>")
+			to_chat(src, "<b>Перестал регистрировать href</b>")
 		else
 			config.log_hrefs = 1
-			to_chat(src, "<b>Started logging hrefs</b>")
+			to_chat(src, "<b>Начал регистрировать href</b>")
 
 /client/proc/toggle_twitch_censor()
-	set name = "Toggle Twitch censor"
+	set name = "Включить цензуру для Twitch"
 	set category = "Server"
 
 	if(!check_rights(R_SERVER))
@@ -788,10 +789,10 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 	if(config)
 		config.twitch_censor = !config.twitch_censor
-		to_chat(src, "<b>Twitch censor is [config.twitch_censor ? "enabled" : "disabled"]</b>")
+		to_chat(src, "<b>Twitch цензура [config.twitch_censor ? "включена" : "отключена"]</b>")
 
 /client/proc/check_ai_laws()
-	set name = "Check AI Laws"
+	set name = "Посмотреть законы ИИ"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
@@ -800,13 +801,13 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	holder.output_ai_laws()
 
 /client/proc/manage_silicon_laws()
-	set name = "Manage Silicon Laws"
+	set name = "Управление законами Синтетов"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/mob/living/silicon/S = input("Select silicon.", "Manage Silicon Laws") as null|anything in GLOB.silicon_mob_list
+	var/mob/living/silicon/S = input("Выберите Синтета.", "Управление законами Синтетов") as null|anything in GLOB.silicon_mob_list
 	if(!S) return
 
 	var/datum/ui_module/law_manager/L = new(S)
@@ -815,8 +816,8 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Manage Silicon Laws") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_admin(mob/living/carbon/human/H in GLOB.mob_list)
-	set name = "C.M.A. - Admin"
-	set desc = "Allows you to change the mob appearance"
+	set name = "Изменить внешний вид - Админ"
+	set desc = "Позволяет изменять внешний вид моба"
 	set category = null
 
 	if(!check_rights(R_EVENT))
@@ -841,8 +842,8 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "CMA - Admin") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_self(mob/living/carbon/human/H in GLOB.mob_list)
-	set name = "C.M.A. - Self"
-	set desc = "Allows the mob to change its appearance"
+	set name = "Изменить внешний вид - Себя"
+	set desc = "Позволяет изменять свой внешний вид"
 	set category = null
 
 	if(!check_rights(R_EVENT))
@@ -862,7 +863,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 			return
 
 	if(!H.client)
-		to_chat(usr, "Only mobs with clients can alter their own appearance.")
+		to_chat(usr, "Только игроки с клиентами могут изменять свой внешний вид.")
 		return
 
 	switch(alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel"))
@@ -875,7 +876,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "CMA - Self") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/free_slot()
-	set name = "Free Job Slot"
+	set name = "Освободить слот профессии"
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))
@@ -886,16 +887,16 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 		if(J.current_positions >= J.total_positions && J.total_positions != -1)
 			jobs += J.title
 	if(!jobs.len)
-		to_chat(usr, "There are no fully staffed jobs.")
+		to_chat(usr, "Нет полностью укомплектованных рабочих мест.")
 		return
-	var/job = input("Please select job slot to free", "Free Job Slot") as null|anything in jobs
+	var/job = input("Пожалуйста, выберите профессию, чтобы освободить слот", "Освободить слот профессии") as null|anything in jobs
 	if(job)
 		SSjobs.FreeRole(job)
-		log_admin("[key_name(usr)] has freed a job slot for [job].")
-		message_admins("[key_name_admin(usr)] has freed a job slot for [job].")
+		log_admin("[key_name(usr)] освободил слот профессии для [job].")
+		message_admins("[key_name_admin(usr)] освободил слот профессии для [job].")
 
 /client/proc/toggleattacklogs()
-	set name = "Toggle Attack Log Messages"
+	set name = "Переключение лога атаки"
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN))
@@ -903,28 +904,28 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 	if(prefs.atklog == ATKLOG_ALL)
 		prefs.atklog = ATKLOG_ALMOSTALL
-		to_chat(usr, "Your attack logs preference is now: show ALMOST ALL attack logs (notable exceptions: NPCs attacking other NPCs, vampire bites, equipping/stripping, people pushing each other over)")
+		to_chat(usr, "Теперь вы предпочитаете логи атак: показывать ПОЧТИ ВСЕ логов атаки (заметные исключения: NPC, атакующие других NPC, укусы вампиров, оснащение/раздевание, люди, толкающие друг друга).")
 	else if(prefs.atklog == ATKLOG_ALMOSTALL)
 		prefs.atklog = ATKLOG_MOST
-		to_chat(usr, "Your attack logs preference is now: show MOST attack logs (like ALMOST ALL, except that it also hides player v. NPC combat, and certain areas like lavaland syndie base and thunderdome)")
+		to_chat(usr, "Теперь вы предпочитаете логи атак: показывать БОЛЬШИНСТВО логов атаки (как и ПОЧТИ ВСЕ, за исключением того, что они также скрывают бой игрока против NPC и некоторые области, такие как база Lavaland, Syndie Base и Thunderdome).")
 	else if(prefs.atklog == ATKLOG_MOST)
 		prefs.atklog = ATKLOG_FEW
-		to_chat(usr, "Your attack logs preference is now: show FEW attack logs (only the most important stuff: attacks on SSDs, use of explosives, messing with the engine, gibbing, AI wiping, forcefeeding, acid sprays, and organ extraction)")
+		to_chat(usr, "Теперь вы предпочитаете логи атак: показывать НЕСКОЛЬКО логи атак (только самые важные вещи: атаки SSD, использование взрывчатых веществ, возня с двигателем, разрыв на части, стирание ИИ, принудительное кормление, распыление кислоты и извлечение органов).")
 	else if(prefs.atklog == ATKLOG_FEW)
 		prefs.atklog = ATKLOG_NONE
-		to_chat(usr, "Your attack logs preference is now: show NO attack logs")
+		to_chat(usr, "Теперь вы предпочитаете логи атак: не показывать логи атак")
 	else if(prefs.atklog == ATKLOG_NONE)
 		prefs.atklog = ATKLOG_ALL
-		to_chat(usr, "Your attack logs preference is now: show ALL attack logs")
+		to_chat(usr, "Теперь вы предпочитаете логи атак: показывать ВСЕ логи атак")
 	else
 		prefs.atklog = ATKLOG_ALL
-		to_chat(usr, "Your attack logs preference is now: show ALL attack logs (your preference was set to an invalid value, it has been reset)")
+		to_chat(usr, "Теперь вы предпочитаете логи атак: показывать ВСЕ логи атак (для вашего предпочтения было установлено недопустимое значение, оно было сброшено).")
 
 	prefs.save_preferences(src)
 
 
 /client/proc/toggleadminlogs()
-	set name = "Toggle Admin Log Messages"
+	set name = "Сообщения - логи Администратора"
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN))
@@ -933,12 +934,12 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	prefs.toggles ^= PREFTOGGLE_CHAT_NO_ADMINLOGS
 	prefs.save_preferences(src)
 	if(prefs.toggles & PREFTOGGLE_CHAT_NO_ADMINLOGS)
-		to_chat(usr, "You now won't get admin log messages.")
+		to_chat(usr, "Теперь вы не будете получать сообщения логов администратора.")
 	else
-		to_chat(usr, "You now will get admin log messages.")
+		to_chat(usr, "Теперь вы получаете сообщения логов администратора.")
 
 /client/proc/toggleMentorTicketLogs()
-	set name = "Toggle Mentor Ticket Messages"
+	set name = "Сообщения - тикеты Менторов"
 	set category = "Preferences"
 
 	if(!check_rights(R_MENTOR|R_ADMIN))
@@ -947,12 +948,12 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	prefs.toggles ^= PREFTOGGLE_CHAT_NO_MENTORTICKETLOGS
 	prefs.save_preferences(src)
 	if(prefs.toggles & PREFTOGGLE_CHAT_NO_MENTORTICKETLOGS)
-		to_chat(usr, "You now won't get mentor ticket messages.")
+		to_chat(usr, "Теперь вы не будете получать сообщения логов о тикетах Менторов.")
 	else
-		to_chat(usr, "You now will get mentor ticket messages.")
+		to_chat(usr, "Теперь вы получаете сообщения логов о тикетах Менторов.")
 
 /client/proc/toggleticketlogs()
-	set name = "Toggle Admin Ticket Messgaes"
+	set name = "Сообщения - тикеты Администраторов"
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN))
@@ -961,23 +962,23 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	prefs.toggles ^= PREFTOGGLE_CHAT_NO_TICKETLOGS
 	prefs.save_preferences(src)
 	if(prefs.toggles & PREFTOGGLE_CHAT_NO_TICKETLOGS)
-		to_chat(usr, "You now won't get admin ticket messages.")
+		to_chat(usr, "Теперь вы не будете получать сообщения о тикетах Администраторов.")
 	else
-		to_chat(usr, "You now will get admin ticket messages.")
+		to_chat(usr, "Теперь вы получаете сообщения о тикетах Администраторов.")
 
 /client/proc/toggledrones()
-	set name = "Toggle Maintenance Drones"
+	set name = "Дроны тех. обслуживания"
 	set category = "Server"
 
 	if(!check_rights(R_SERVER))
 		return
 
 	config.allow_drone_spawn = !(config.allow_drone_spawn)
-	log_admin("[key_name(usr)] has [config.allow_drone_spawn ? "enabled" : "disabled"] maintenance drones.")
-	message_admins("[key_name_admin(usr)] has [config.allow_drone_spawn ? "enabled" : "disabled"] maintenance drones.")
+	log_admin("[key_name(usr)] [config.allow_drone_spawn ? "включил" : "отключил"] дронов в тех. тонелях.")
+	message_admins("[key_name_admin(usr)] [config.allow_drone_spawn ? "включил" : "отключил"] дронов в тех. тонелях.")
 
 /client/proc/toggledebuglogs()
-	set name = "Toggle Debug Log Messages"
+	set name = "Сообщения - лог Отладки"
 	set category = "Preferences"
 
 	if(!check_rights(R_DEBUG))
@@ -986,15 +987,14 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	prefs.toggles ^= PREFTOGGLE_CHAT_DEBUGLOGS
 	prefs.save_preferences(src)
 	if(prefs.toggles & PREFTOGGLE_CHAT_DEBUGLOGS)
-		to_chat(usr, "You now will get debug log messages")
+		to_chat(usr, "Теперь вы не будете получать сообщения о логах отладки.")
 	else
-		to_chat(usr, "You now won't get debug log messages")
+		to_chat(usr, "Теперь вы получаете сообщения о логах отладки.")
 
 /client/proc/man_up(mob/T as mob in GLOB.player_list)
 	set category = null
 	set name = "Man Up"
-	set desc = "Tells mob to man up and deal with it."
-
+	set desc = "Говорит всем собраться с духом и разобраться с этим."
 	if(!check_rights(R_ADMIN))
 		return
 
@@ -1002,36 +1002,36 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	to_chat(T, "<span class='notice'>Move on.</span>")
 	T << 'sound/voice/manup1.ogg'
 
-	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.")
-	message_admins("[key_name_admin(usr)] told [key_name(T)] to man up and deal with it.")
+	log_admin("[key_name(usr)] сказал [key_name(T)] man up and deal with it.")
+	message_admins("[key_name_admin(usr)] сказал [key_name(T)] man up and deal with it.")
 
 /client/proc/global_man_up()
 	set category = "Admin"
-	set name = "Man Up Global"
-	set desc = "Tells everyone to man up and deal with it."
+	set name = "Глобальный Man Up"
+	set desc = "Говорит всем собраться с духом и разобраться с этим."
 
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/confirm = alert("Are you sure you want to send the global message?", "Confirm Man Up Global", "Yes", "No")
+	var/confirm = alert("Вы уверены, что хотите отправить глобальное сообщение?", "Подтвердите глобальный Man Up", "Да", "Нет")
 
-	if(confirm == "Yes")
+	if(confirm == "Да")
 		for(var/mob/T as mob in GLOB.mob_list)
 			to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
 			T << 'sound/voice/manup1.ogg'
 
-		log_admin("[key_name(usr)] told everyone to man up and deal with it.")
-		message_admins("[key_name_admin(usr)] told everyone to man up and deal with it.")
+		log_admin("[key_name(usr)] сказал всем man up and deal with it.")
+		message_admins("[key_name_admin(usr)] сказал всем man up and deal with it.")
 
 /client/proc/toggle_advanced_interaction()
-	set name = "Toggle Advanced Admin Interaction"
+	set name = "Расширенное взаимодействия - Администратор"
 	set category = "Admin"
-	set desc = "Allows you to interact with atoms such as buttons and doors, on top of regular machinery interaction."
+	set desc = "Позволяет взаимодействовать с тайлами, такими как кнопки и двери, в дополнение к обычному взаимодействию с механизмами."
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	advanced_admin_interaction = !advanced_admin_interaction
 
-	log_admin("[key_name(usr)] has [advanced_admin_interaction ? "activated" : "deactivated"] their advanced admin interaction.")
-	message_admins("[key_name_admin(usr)] has [advanced_admin_interaction ? "activated" : "deactivated"] their advanced admin interaction.")
+	log_admin("[key_name(usr)] [advanced_admin_interaction ? "включил" : "выключил"] расширенное взаимодействие с тайлами.")
+	message_admins("[key_name_admin(usr)] has [advanced_admin_interaction ? "включил" : "выключил"] расширенное взаимодействие с тайлами.")

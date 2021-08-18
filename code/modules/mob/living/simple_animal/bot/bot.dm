@@ -933,26 +933,26 @@ Pass a positive integer as an argument to override a bot's default speed.
 /mob/living/simple_animal/bot/proc/hack(mob/user)
 	var/hack
 	if(issilicon(user) || user.can_admin_interact()) //Allows silicons or admins to toggle the emag status of a bot.
-		hack += "[emagged == 2 ? "Software compromised! Unit may exhibit dangerous or erratic behavior." : "Unit operating normally. Release safety lock?"]<BR>"
-		hack += "Harm Prevention Safety System: <A href='?src=[UID()];operation=hack'>[emagged ? "<span class='bad'>DANGER</span>" : "Engaged"]</A><BR>"
+		hack += "[emagged == 2 ? "Программное обеспечение скомпрометировано! Устройство может проявлять опасное или неустойчивое поведение." : "Устройство работает нормально. Снять предохранитель?"]<BR>"
+		hack += "Система Безопасности Для Предотвращения Вреда: <A href='?src=[UID()];operation=hack'>[emagged ? "<span class='bad'>ОПАСНОСТЬ</span>" : "Занят"]</A><BR>"
 	else if(!locked) //Humans with access can use this option to hide a bot from the AI's remote control panel and PDA control.
-		hack += "Remote network control radio: <A href='?src=[UID()];operation=remote'>[remote_disabled ? "Disconnected" : "Connected"]</A><BR>"
+		hack += "Радио дистанционного управления сетью: <A href='?src=[UID()];operation=remote'>[remote_disabled ? "Отключено" : "Подключено"]</A><BR>"
 	return hack
 
 /mob/living/simple_animal/bot/proc/showpai(mob/user)
 	var/eject = ""
 	if(!locked || issilicon(usr) || user.can_admin_interact())
 		if(paicard || allow_pai)
-			eject += "Personality card status: "
+			eject += "Статус ID-карты: "
 			if(paicard)
 				if(client)
-					eject += "<A href='?src=[UID()];operation=ejectpai'>Active</A>"
+					eject += "<A href='?src=[UID()];operation=ejectpai'>Активен</A>"
 				else
-					eject += "<A href='?src=[UID()];operation=ejectpai'>Inactive</A>"
+					eject += "<A href='?src=[UID()];operation=ejectpai'>Не активен</A>"
 			else if(!allow_pai || key)
-				eject += "Unavailable"
+				eject += "Недоступно"
 			else
-				eject += "Not inserted"
+				eject += "Не вставлен"
 			eject += "<BR>"
 		eject += "<BR>"
 	return eject
@@ -1007,22 +1007,22 @@ Pass a positive integer as an argument to override a bot's default speed.
 	faction -= "silicon"
 
 /mob/living/simple_animal/bot/verb/show_laws()
-	set name = "Show Directives"
+	set name = "Показать директивы"
 	set category = "IC"
 
-	to_chat(src, "<b>Directives:</b>")
+	to_chat(src, "<b>Директивы:</b>")
 	if(paicard && paicard.pai && paicard.pai.master && paicard.pai.pai_law0)
-		to_chat(src, "<span class='warning'>Your master, [paicard.pai.master], may overrule any and all laws.</span>")
+		to_chat(src, "<span class='warning'>Ваш хозяин, [paicard.pai.master], может изменить любые законы.</span>")
 		to_chat(src, "0. [paicard.pai.pai_law0]")
 	if(emagged >= 2)
 		to_chat(src, "<span class='danger'>1. #$!@#$32K#$</span>")
 	else
-		to_chat(src, "1. You are a machine built to serve the station's crew and AI(s).")
-		to_chat(src, "2. Your function is to [bot_purpose].")
-		to_chat(src, "3. You cannot serve your function if you are broken.")
-		to_chat(src, "4. Serve your function to the best of your ability.")
+		to_chat(src, "1. Вы - машина, созданная для обслуживания экипажа станции и искусственного интеллекта(ов).")
+		to_chat(src, "2. Ваша функция состоит в том, чтобы [bot_purpose].")
+		to_chat(src, "3. Вы не сможете выполнять свои функции, если будете неисправны.")
+		to_chat(src, "4. Выполняйте свои функции в пределах своих возможностей.")
 	if(paicard && paicard.pai && paicard.pai.pai_laws)
-		to_chat(src, "<b>Supplemental Directive(s):</b>")
+		to_chat(src, "<b>Дополнительные директивы:</b>")
 		to_chat(src, "[paicard.pai.pai_laws]")
 
 /mob/living/simple_animal/bot/get_access()

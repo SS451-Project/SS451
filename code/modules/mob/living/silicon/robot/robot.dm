@@ -1299,7 +1299,7 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		src.verbs -= /mob/living/silicon/robot/proc/ResetSecurityCodes
 
 /mob/living/silicon/robot/mode()
-	set name = "Activate Held Object"
+	set name = "Активировать удерживаемый объект"
 	set category = "IC"
 	set src = usr
 
@@ -1344,7 +1344,7 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 		var/list/names = splittext(icontype, "-")
 		custom_panel = trim(names[1])
 	else
-		to_chat(src, "Something is badly wrong with the sprite selection. Harass a coder.")
+		to_chat(src, "Что-то не так с выбором спрайта. Доебись до программиста. Это срочно!")
 		icon_state = module_sprites[1]
 		lockcharge = null
 		return
@@ -1352,8 +1352,8 @@ GLOBAL_LIST_INIT(robot_verbs_default, list(
 	update_icons()
 
 	if(triesleft >= 1)
-		var/choice = input("Look at your icon - is this what you want?") in list("Yes","No")
-		if(choice=="No")
+		var/choice = input("Посмотреть на свой значок - это то, чего вы хотите?") in list("Да","Нет")
+		if(choice=="Нет")
 			choose_icon(triesleft, module_sprites)
 			return
 		else

@@ -250,13 +250,13 @@
 	var/obj/item/hand_item = get_active_hand()
 	if(istype(hand_item, /obj/item/gun) && A != hand_item)
 		if(a_intent == INTENT_HELP || !ismob(A))
-			visible_message("<b>[src]</b> указывает на [A] с [hand_item]")
+			visible_message("<b>[src]</b> указывает на [name] с [hand_item]") //A
 			return TRUE
-		A.visible_message("<span class='danger'>[src] указывает [hand_item] на [A]!</span>",
+		A.visible_message("<span class='danger'>[src] указывает [hand_item] на [name]!</span>", //A
 											"<span class='userdanger'>[src] указывает [hand_item] на тебя!</span>")
 		A << 'sound/weapons/targeton.ogg'
 		return TRUE
-	visible_message("<b>[src]</b> указывает на [A]")
+	visible_message("<b>[src]</b> указывает на [name]") //A
 	return TRUE
 
 /mob/living/verb/succumb()
@@ -670,7 +670,7 @@
 	return !((next_move > world.time) || incapacitated(ignore_restraints = TRUE, ignore_lying = TRUE))
 
 /mob/living/verb/resist()
-	set name = "Resist"
+	set name = "Сопротивляться"
 	set category = "IC"
 
 	if(!can_resist())

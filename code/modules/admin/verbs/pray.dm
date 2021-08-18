@@ -1,6 +1,6 @@
 /mob/living/verb/pray(msg as text)
 	set category = "IC"
-	set name = "Pray"
+	set name = "Молиться"
 
 	msg = sanitize(copytext_char(msg, 1, MAX_MESSAGE_LEN))
 	if(!msg)
@@ -8,7 +8,7 @@
 
 	if(usr.client)
 		if(usr.client.prefs.muted & MUTE_PRAY)
-			to_chat(usr, "<span class='warning'>You cannot pray (muted).</span>")
+			to_chat(usr, "<span class='warning'>Вы не можете молиться (мут).</span>")
 			return
 		if(client.handle_spam_prevention(msg, MUTE_PRAY, OOC_COOLDOWN))
 			return
@@ -37,7 +37,7 @@
 			to_chat(X, msg)
 			if(X.prefs.sound & SOUND_PRAYERNOTIFY)
 				SEND_SOUND(X, 'sound/items/PDA/ambicha4-short.ogg')
-	to_chat(usr, "Your prayers have been received by the gods.")
+	to_chat(usr, "Твои молитвы были услышаны богами.")
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Pray") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -70,9 +70,9 @@
 
 /proc/ERT_Announce(var/text , var/mob/Sender, var/repeat_warning)
 	var/msg = sanitize(copytext_char(text, 1, MAX_MESSAGE_LEN))
-	msg = "<span class='adminnotice'><b><font color=orange>ERT REQUEST: </font>[key_name(Sender, 1)] ([ADMIN_PP(Sender,"PP")]) ([ADMIN_VV(Sender,"VV")]) ([ADMIN_TP(Sender,"TP")]) ([ADMIN_SM(Sender,"SM")]) ([admin_jump_link(Sender)]) ([ADMIN_BSA(Sender,"BSA")]) (<A HREF='?_src_=holder;ErtReply=[Sender.UID()]'>RESPOND</A>):</b> [msg]</span>"
+	msg = "<span class='adminnotice'><b><font color=orange>ERT ЗАПРОС: </font>[key_name(Sender, 1)] ([ADMIN_PP(Sender,"PP")]) ([ADMIN_VV(Sender,"VV")]) ([ADMIN_TP(Sender,"TP")]) ([ADMIN_SM(Sender,"SM")]) ([admin_jump_link(Sender)]) ([ADMIN_BSA(Sender,"BSA")]) (<A HREF='?_src_=holder;ErtReply=[Sender.UID()]'>RESPOND</A>):</b> [msg]</span>"
 	if(repeat_warning)
-		msg += "<BR><span class='adminnotice'><b>WARNING: ERT request has gone 5 minutes with no reply!</b></span>"
+		msg += "<BR><span class='adminnotice'><b>ВНИМАНИЕ: запрос ERT прошел 5 минут без ответа!</b></span>"
 	for(var/client/X in GLOB.admins)
 		if(check_rights(R_EVENT,0,X.mob))
 			to_chat(X, msg)
@@ -82,10 +82,10 @@
 /proc/Nuke_request(text , mob/Sender)
 	var/nuke_code = get_nuke_code()
 	var/msg = sanitize(copytext_char(text, 1, MAX_MESSAGE_LEN))
-	msg = "<span class='adminnotice'><b><font color=orange>NUKE CODE REQUEST: </font>[key_name(Sender)] ([ADMIN_PP(Sender,"PP")]) ([ADMIN_VV(Sender,"VV")]) ([ADMIN_TP(Sender,"TP")]) ([ADMIN_SM(Sender,"SM")]) ([admin_jump_link(Sender)]) ([ADMIN_BSA(Sender,"BSA")]) ([ADMIN_CENTCOM_REPLY(Sender,"RPLY")]):</b> [msg]</span>"
+	msg = "<span class='adminnotice'><b><font color=orange>ЗАПРОС ЯДЕРНОГО КОДА: </font>[key_name(Sender)] ([ADMIN_PP(Sender,"PP")]) ([ADMIN_VV(Sender,"VV")]) ([ADMIN_TP(Sender,"TP")]) ([ADMIN_SM(Sender,"SM")]) ([admin_jump_link(Sender)]) ([ADMIN_BSA(Sender,"BSA")]) ([ADMIN_CENTCOM_REPLY(Sender,"RPLY")]):</b> [msg]</span>"
 	for(var/client/X in GLOB.admins)
 		if(check_rights(R_EVENT,0,X.mob))
 			to_chat(X, msg)
-			to_chat(X, "<span class='adminnotice'><b>The nuke code is [nuke_code].</b></span>")
+			to_chat(X, "<span class='adminnotice'><b>Ядерный код - [nuke_code].</b></span>")
 			if(X.prefs.sound & SOUND_ADMINHELP)
 				X << 'sound/effects/adminhelp.ogg'

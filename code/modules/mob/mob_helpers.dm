@@ -112,13 +112,13 @@
 	return SUIT_SENSOR_OFF
 
 /proc/offer_control(mob/M)
-	to_chat(M, "Control of your mob has been offered to dead players.")
-	log_admin("[key_name(usr)] has offered control of ([key_name(M)]) to ghosts.")
-	var/minhours = input(usr, "Minimum hours required to play [M]?", "Set Min Hrs", 10) as num
-	message_admins("[key_name_admin(usr)] has offered control of ([key_name_admin(M)]) to ghosts with [minhours] hrs playtime")
-	var/question = "Do you want to play as [M.real_name ? M.real_name : M.name][M.job ? " ([M.job])" : ""]"
-	if(alert("Do you want to show the antag status?","Show antag status","Yes","No") == "Yes")
-		question += ", [M.mind?.special_role ? M.mind?.special_role : "No special role"]"
+	to_chat(M, "Контроль над вашим мобом был предложен мертвым игрокам.")
+	log_admin("[key_name(usr)] предложил контроль над ([key_name(M)]) призракам.")
+	var/minhours = input(usr, "Минимум часов, необходимые для игры [M]?", "Set Min Hrs", 10) as num
+	message_admins("[key_name_admin(usr)] предложил контроль над ([key_name_admin(M)]) призракам с [minhours] ч. игрового времени")
+	var/question = "Вы хотите играть как [M.real_name ? M.real_name : M.name][M.job ? " ([M.job])" : ""]"
+	if(alert("Вы хотите показать статус антаг?","Показать антаг статус","Да","Нет") == "Да")
+		question += ", [M.mind?.special_role ? M.mind?.special_role : "Никакой особой роли"]"
 	var/list/mob/dead/observer/candidates = SSghost_spawns.poll_candidates("[question]?", poll_time = 10 SECONDS, min_hours = minhours, source = M)
 	var/mob/dead/observer/theghost = null
 
@@ -210,7 +210,7 @@
 		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2)
 		if(rand(1,3)==3)
 			if(lowertext(newletter)=="o")	newletter="u"
-			if(lowertext(newletter)=="s")	newletter="ch"
+			if(lowertext(newletter)=="ч")	newletter="сш"
 			if(lowertext(newletter)=="a")	newletter="ah"
 			if(lowertext(newletter)=="c")	newletter="k"
 			if(lowertext(newletter)=="о")	newletter="у"
@@ -410,26 +410,26 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 
 
 /mob/living/verb/mob_sleep()
-	set name = "Sleep"
+	set name = "Спать"
 	set category = "IC"
 
 	if(sleeping)
-		to_chat(src, "<span class='notice'>You are already sleeping.</span>")
+		to_chat(src, "<span class='notice'>Вы уже спите.</span>")
 		return
 	else
-		if(alert(src, "You sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
+		if(alert(src, "Ты уверен, что хочешь немного поспать?", "Спать", "Да", "Нет") == "Да")
 			SetSleeping(20) //Short nap
 
 /mob/living/verb/lay_down()
-	set name = "Rest"
+	set name = "Отдыхать"
 	set category = "IC"
 
 	if(!resting)
 		client.move_delay = world.time + 20
-		to_chat(src, "<span class='notice'>You are now resting.</span>")
+		to_chat(src, "<span class='notice'>Сейчас вы отдыхаете.</span>")
 		StartResting()
 	else if(resting)
-		to_chat(src, "<span class='notice'>You are now getting up.</span>")
+		to_chat(src, "<span class='notice'>Сейчас вы встали.</span>")
 		StopResting()
 
 /proc/get_multitool(mob/user as mob)
@@ -629,9 +629,9 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 			if(lowertext(newletter)=="o")
 				newletter="u"
 			if(lowertext(newletter)=="t")
-				newletter="ch"
+				newletter="ч"
 			if(lowertext(newletter)=="a")
-				newletter="ah"
+				newletter="aх"
 			if(lowertext(newletter)=="u")
 				newletter="oo"
 			if(lowertext(newletter)=="c")
@@ -652,9 +652,9 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 				newletter=" СИ "
 		if(rand(1,4)==4)
 			if(newletter==" ")
-				newletter=" no hope... "
+				newletter=" никакой надежды... "
 			if(newletter=="H")
-				newletter=" IT COMES... "
+				newletter=" ЭТО ПРИБУДЕТ... "
 			if(newletter=="Х")
 				newletter=" ИДЁТ... "
 
@@ -676,7 +676,7 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 	if(!client)
 		return FALSE
 	if(!client.prefs)
-		log_runtime(EXCEPTION("Mob '[src]', ckey '[ckey]' is missing a prefs datum on the client!"))
+		log_runtime(EXCEPTION("Моб '[src]', ckey '[ckey]' - отсутствует информация о префиксах на клиенте!"))
 		return FALSE
 	// Cast to 1/0
 	return !!(client.prefs.toggles & toggleflag)
@@ -696,10 +696,10 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 	if(client.prefs.be_special.len > 0)
 		has_antags = TRUE
 	if(!client.prefs.check_any_job())
-		to_chat(src, "<span class='danger'>You have no jobs enabled, along with return to lobby if job is unavailable. This makes you ineligible for any round start role, please update your job preferences.</span>")
+		to_chat(src, "<span class='danger'>У вас нет включенных заданий, а также вы можете вернуться в лобби, если задание недоступно. Это делает вас неподходящим для любой роли в начале раунда, пожалуйста, обновите свои предпочтения в профессиях.</span>")
 		if(has_antags)
-			log_admin("[src.ckey] just got booted back to lobby with no jobs, but antags enabled.")
-			message_admins("[src.ckey] just got booted back to lobby with no jobs enabled, but antag rolling enabled. Likely antag rolling abuse.")
+			log_admin("[src.ckey] только что загрузился обратно в лобби без работы, но с включенными антагами.")
+			message_admins("[src.ckey] только что загрузился обратно в лобби без включенных заданий, но с включенным антагами. Вероятное злоупотребление антагонистами.")
 		return FALSE //This is the only case someone should actually be completely blocked from antag rolling as well
 	return TRUE
 
