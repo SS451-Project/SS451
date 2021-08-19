@@ -149,8 +149,8 @@
 /datum/language/unathi
 	name = "Sinta'unathi"
 	desc = "Общий язык Могесов, состоящий из шипящего шипения и дребезжания. Родной язык Унатхи."
-	speech_verb = "шыпит"
-	ask_verb = "шыпит"
+	speech_verb = "шипит"
+	ask_verb = "шипит"
 	exclaim_verbs = list("рычит")
 	colour = "soghun"
 	key = "o"

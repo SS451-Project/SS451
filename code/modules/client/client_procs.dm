@@ -1109,7 +1109,7 @@
 			keysend_tripped = TRUE
 			next_keysend_trip_reset = world.time + (2 SECONDS)
 		else
-			log_admin("Клиент [ckey] был автоматически кикнут из-за флуда отправки сообщений; вероятно, злоупотребление, но потенциально лагспик.")
+			log_admin("Клиент [ckey] был автоматически кикнут за флуд; вероятно, злоупотребление, но потенциально lagspike.")
 			message_admins("Client [ckey] was just autokicked for flooding Say sends; likely abuse but potentially lagspike.")
 			qdel(src)
 			return
