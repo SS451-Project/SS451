@@ -54,7 +54,7 @@
 
 		var/tasks_completed=0
 
-		text += "<br>[employee.name] как [employee.assigned_role]:"
+		text += "<br>[employee.name] в роли [employee.assigned_role]:"
 
 		var/count = 1
 		for(var/datum/job_objective/objective in employee.job_objectives)

@@ -8,7 +8,7 @@
 	per_unit = 1
 
 /datum/job_objective/further_research/get_description()
-	var/desc = "Исследуйте технические уровни и отправьте их грузом в CentComm."
+	var/desc = "Исследуйте технологии и отправьте их грузом на ЦК."
 	desc += "([units_completed] выполнено.)"
 	return desc
 

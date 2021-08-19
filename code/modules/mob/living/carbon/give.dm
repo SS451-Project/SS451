@@ -35,11 +35,11 @@
 					return
 				if(I != get_active_hand())
 					to_chat(usr, "<span class='warning'> Вам нужно держать предмет в активной руке.</span>")
-					to_chat(target, "<span class='warning'> [usr.name] кажется, я отказался от того, чтобы отдавать вам [I].</span>")
+					to_chat(target, "<span class='warning'> [usr.name] кажется передумал отдавать вам [I].</span>")
 					return
 				if(target.r_hand != null && target.l_hand != null)
-					to_chat(target, "<span class='warning'> У тебя полны руки.</span>")
-					to_chat(usr, "<span class='warning'> У [usr.name] полны руки.</span>")
+					to_chat(target, "<span class='warning'> Твои руки заняты.</span>")
+					to_chat(usr, "<span class='warning'> У [usr.name] заняты руки.</span>")
 					return
 				usr.unEquip(I)
 				target.put_in_hands(I)
@@ -49,4 +49,4 @@
 			if("Нет")
 				target.visible_message("<span class='warning'> [usr.name] пытается передать [I] [target.name] но [target.name] отказался.</span>")
 	else
-		to_chat(usr, "<span class='warning'> Руки [target.name] оказались полными.</span>")
+		to_chat(usr, "<span class='warning'> Руки [target.name] оказались заняты.</span>")
