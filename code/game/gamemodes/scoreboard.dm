@@ -168,19 +168,19 @@
 
 	dat += {"
 	<b><u>Общая Статистика</u></b><br>
-	<u>Хорошо</u><br>
+	<u>Хорошее</u><br>
 	<b>Добыто Руды:</b> [GLOB.score_oremined] ([GLOB.score_oremined * 2] Очков)<br>"}
 	if(SSshuttle.emergency.mode == SHUTTLE_ENDGAME) dat += "<b>Беглецы На Шаттле:</b> [GLOB.score_escapees] ([GLOB.score_escapees * 25] Очков)<br>"
 	dat += {"
 	<b>Вся Станция Запитана:</b> [GLOB.score_powerbonus ? "Да" : "Нет"] ([GLOB.score_powerbonus * 2500] Очков)<br><br>
 
-	<U>Плохо</U><br>
+	<U>Плохое</U><br>
 	<b>Трупы На Станции:</b> [GLOB.score_deadcrew] (-[GLOB.score_deadcrew * 25] Очков)<br>
 	<b>Неочищенные Беспорядки:</b> [GLOB.score_mess] (-[GLOB.score_mess] Очков)<br>
 	<b>Проблемы С Питанием Станции:</b> [GLOB.score_powerloss] (-[GLOB.score_powerloss * 20] Очков)<br>
 	<b>ИИ Уничтожен:</b> [GLOB.score_deadaipenalty ? "Да" : "Нет"] (-[GLOB.score_deadaipenalty * 250] Очков)<br><br>
 
-	<U>Странно</U><br>
+	<U>Странноe</U><br>
 	<b>Съеденная Пища:</b> [GLOB.score_foodeaten] укусов/глотков<br>
 	<b>Раз, Когда Над Клоуном Издевались:</b> [GLOB.score_clownabuse]<br><br>
 	"}
@@ -205,15 +205,15 @@
 		if(-99999 to SINGULARITY_DESERVES_BETTER) score_rating = 					"Даже Сингулярность Заслуживает Лучшего"
 		if(SINGULARITY_DESERVES_BETTER+1 to SINGULARITY_FODDER) score_rating = 		"Корм Для Сингулярности"
 		if(SINGULARITY_FODDER+1 to ALL_FIRED) score_rating = 						"Вы Все Уволены"
-		if(ALL_FIRED+1 to WASTE_OF_OXYGEN) score_rating = 							"Пустая Трата Совершенно Хорошего Кислорода"
-		if(WASTE_OF_OXYGEN+1 to HEAP_OF_SCUM) score_rating = 						"Жалкая Куча Отбросов"
-		if(HEAP_OF_SCUM+1 to LAB_MONKEYS) score_rating = 							"Превосходят Лабораторных Крыс"
+		if(ALL_FIRED+1 to WASTE_OF_OXYGEN) score_rating = 							"Пустая Трата Вполне Хорошего Кислорода"
+		if(WASTE_OF_OXYGEN+1 to HEAP_OF_SCUM) score_rating = 						"Жалкая Куча Отбросов и Бездарностей"
+		if(HEAP_OF_SCUM+1 to LAB_MONKEYS) score_rating = 							"Превзойдённые Лабораторными Обезьянами"
 		if(LAB_MONKEYS+1 to UNDESIREABLES) score_rating = 							"Нежелательные"
 		if(UNDESIREABLES+1 to SERVANTS_OF_SCIENCE-1) score_rating = 				"Амбивалентно Средний"
 		if(SERVANTS_OF_SCIENCE to GOOD_BUNCH-1) score_rating = 						"Искусные Служители Науки"
 		if(GOOD_BUNCH to MACHINE_THIRTEEN-1) score_rating = 						"Лучший Из Хорошей Компании"
 		if(MACHINE_THIRTEEN to PROMOTIONS_FOR_EVERYONE-1) score_rating = 			"Lean Mean Machine Thirteen"
-		if(PROMOTIONS_FOR_EVERYONE to AMBASSADORS_OF_DISCOVERY-1) score_rating = 	"Акции Для Всех"
+		if(PROMOTIONS_FOR_EVERYONE to AMBASSADORS_OF_DISCOVERY-1) score_rating = 	"Повышение Для Всех"
 		if(AMBASSADORS_OF_DISCOVERY to PRIDE_OF_SCIENCE-1) score_rating = 			"Послы Новых Открытий"
 		if(PRIDE_OF_SCIENCE to NANOTRANSEN_FINEST-1) score_rating = 				"Гордость Самой Науки"
 		if(NANOTRANSEN_FINEST to INFINITY) score_rating = 							"Лучшие Из Nanotrasen"
