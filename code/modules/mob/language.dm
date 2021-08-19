@@ -169,9 +169,9 @@
 
 /datum/language/tajaran
 	name = "Siik'tajr"
-	desc = "Традиционно используемый язык Адомай, состоящий из выразительного воя и щебета. Родной язык Таяран."
-	speech_verb = "мычит"
-	ask_verb = "мычит"
+	desc = "Традиционно используемый язык Адомай, состоящий из выразительного воя и мурчания. Родной язык Таяран."
+	speech_verb = "мурчит"
+	ask_verb = "мурчит"
 	exclaim_verbs = list("вопит")
 	colour = "tajaran"
 	key = "j"
@@ -184,7 +184,7 @@
 /datum/language/tajaran/get_random_name(gender)
 	var/new_name = ..(gender,1)
 	if(prob(80))
-		new_name += " [pick(list("Hadii","Kaytam","Zhan-Khazan","Hharar","Njarir'Akhan"))]"
+		new_name += " [pick(list("Хадии","Кайтам","Жан-Хазан","Харар","Ньярир'Ахан"))]"
 	else
 		new_name += " [..(gender,1)]"
 	return new_name
@@ -193,7 +193,7 @@
 	name = "Canilunzt"
 	desc = "Гортанный язык, на котором говорят и которым пользуются жители системы Ваззенд, состоит из рычания, лая, тявканья и интенсивного использования движений ушей и хвоста. Вульпканины с легкостью говорят на этом языке."
 	speech_verb = "рычит"
-	ask_verb = "руршит"
+	ask_verb = "урчит"
 	exclaim_verbs = list("лает")
 	colour = "vulpkanin"
 	key = "7"
@@ -248,8 +248,8 @@
 	syllables = list("hs","zt","kr","st","sh")
 
 /datum/language/diona/get_random_name()
-	var/new_name = "[pick(list("To Sleep Beneath", "Wind Over", "Embrace Of", "Dreams Of", "Witnessing", "To Walk Beneath", "Approaching The", "Glimmer Of", "The Ripple Of", "Colors Of", "The Still Of", "Silence Of", "Gentle Breeze Of", "Glistening Waters Under", "Child Of", "Blessed Plant-Ling Of", "Grass-Walker Of", "Element Of", "Spawn Of"))]"
-	new_name += " [pick(list("The Void", "The Sky", "Encroaching Night", "Planetsong", "Starsong", "The Wandering Star", "The Empty Day", "Daybreak", "Nightfall", "The Rain", "The Stars", "The Waves", "Dusk", "Night", "The Wind", "The Summer Wind", "The Blazing Sun", "The Scorching Sun", "Eternal Fields", "The Soothing Plains", "The Undying Fiona", "Mother Nature's Bousum"))]"
+	var/new_name = "[pick(list("Спящий Из", "Ветер", "Объятия", "Мечты Из", "Очевидец", "Шаги Из", "Приближающийся Из", "Мерцание", "Рябь", "Цвета", "Неподвижный Из", "Молчание", "Легкий Ветерок", "Сверкающие Воды", "Дитя", "Благословенное Растение-Линг", "Травоход Из", "Элемент", "Отродье"))]"
+	new_name += " [pick(list("Пустоты", "Неба", "Надвигающейся Ночь", "Песни Планет", "Песни Звезды", "Блуждающей Звезды", "Пустого Дня", "Рассвета", "Сумерек", "Дождя", "Звёзд", "Волн", "Полумрака", "Ночи", "Ветра", "Летнего Ветра", "Пылающего Солнца", "Палящего Солнца", "Вечных Полей", "Успокаивающих Равнин", "Бессмертной Фионы", "Бус Матери-Природы"))]"
 	return new_name
 
 /datum/language/trinary
@@ -266,7 +266,7 @@
 /datum/language/trinary/get_random_name()
 	var/new_name
 	if(prob(70))
-		new_name = "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
+		new_name = "[pick(list("КПБ","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
 	else
 		new_name = pick(GLOB.ai_names)
 	return new_name
@@ -283,11 +283,11 @@
 	syllables = list("клик","клак")
 
 /datum/language/kidan/get_random_name()
-	var/new_name = "[pick(list("Vrax", "Krek", "Vriz", "Zrik", "Zarak", "Click", "Zerk", "Drax", "Zven", "Drexx"))]"
+	var/new_name = "[pick(list("Вракс", "Крег", "Вриз", "Зрик", "Зарак", "Клик", "Зерк", "Дракс", "Звен", "Дрекс"))]"
 	new_name += ", "
-	new_name += "[pick(list("Noble", "Worker", "Scout", "Builder", "Farmer", "Gatherer", "Soldier", "Guard", "Prospector"))]"
-	new_name += " of Clan "
-	new_name += "[pick(list("Tristan", "Zarlan", "Clack", "Kkraz", "Zramn", "Orlan", "Zrax"))]"	//I ran out of ideas after the first two tbh -_-
+	new_name += "[pick(list("Благородный", "Работник", "Разведчик", "Строитель", "Фермер", "Собиратель", "Солдат", "Стражник", "Изыскатель"))]"
+	new_name += " из Клана "
+	new_name += "[pick(list("Тристан", "Зарлан", "Клак", "Ккраз", "Зрамн", "Орлан", "Зракс"))]"	//I ran out of ideas after the first two tbh -_-
 	return new_name
 
 
@@ -321,13 +321,13 @@
 		var/obj/item/organ/external/rhand = S.get_organ("r_hand")
 		var/obj/item/organ/external/lhand = S.get_organ("l_hand")
 		if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
-			to_chat(speaker,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
+			to_chat(speaker,"<span class='warning'>Вы не можете общаться без возможности пользоваться руками!</span>")
 			return FALSE
 	if(speaker.incapacitated(ignore_lying = 1))
-		to_chat(speaker,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
+		to_chat(speaker,"<span class='warning'>Вы не можете общаться без возможности поднять руки к голове!</span>")
 		return FALSE
 
-	speaker.visible_message("<span class='notice'>[speaker] touches [speaker.p_their()] fingers to [speaker.p_their()] temple.</span>") //If placed in grey/broadcast, it will happen regardless of the success of the action.
+	speaker.visible_message("<span class='notice'>[speaker] прикасается пальцами к вискам [speaker.p_their()].</span>") //If placed in grey/broadcast, it will happen regardless of the success of the action.
 
 	return TRUE
 
@@ -348,9 +348,9 @@
 	syllables = list("hoorb","vrrm","ooorm","urrrum","ooum","ee","ffm","hhh","mn","ongg")
 
 /datum/language/drask/get_random_name()
-	var/new_name = "[pick(list("Hoorm","Viisk","Saar","Mnoo","Oumn","Fmong","Gnii","Vrrm","Oorm","Dromnn","Ssooumn","Ovv", "Hoorb","Vaar","Gaar","Goom","Ruum","Rumum"))]"
-	new_name += "-[pick(list("Hoorm","Viisk","Saar","Mnoo","Oumn","Fmong","Gnii","Vrrm","Oorm","Dromnn","Ssooumn","Ovv", "Hoorb","Vaar","Gaar","Goom","Ruum","Rumum"))]"
-	new_name += "-[pick(list("Hoorm","Viisk","Saar","Mnoo","Oumn","Fmong","Gnii","Vrrm","Oorm","Dromnn","Ssooumn","Ovv", "Hoorb","Vaar","Gaar","Goom","Ruum","Rumum"))]"
+	var/new_name = "[pick(list("Хорм","Вииск","Саар","Мну","Умн","Фмонг","Гнии","Вррм","Оорм","Дромнн","Ссоумн","Овв", "Хоорб","Ваар","Гаар","Гоом","Руум","Румум"))]"
+	new_name += "-[pick(list("Хорм","Вииск","Саар","Мну","Умн","Фмонг","Гнии","Вррм","Оорм","Дромнн","Ссоумн","Овв", "Хоорб","Ваар","Гаар","Гоом","Руум","Румум"))]"
+	new_name += "-[pick(list("Хорм","Вииск","Саар","Мну","Умн","Фмонг","Гнии","Вррм","Оорм","Дромнн","Ссоумн","Овв", "Хоорб","Ваар","Гаар","Гоом","Руум","Румум"))]"
 	return new_name
 
 /datum/language/common
@@ -415,7 +415,7 @@
 
 /datum/language/com_srus
 	name = "Neo-Russkiya"
-	desc = "Нео-Русская, ублюдочная смесь сточной канавы, Сол-Коммон и Древнерусского. Официальный язык USP. Он начал использоваться за пределами периферии в кружках хобби и группах протеста. Лингвистический дух критики Sol-Gov."
+	desc = "Нео-Русская, ублюдочная смесь сточной канавы, Sol Common и Древнерусского. Официальный язык USSP. Он начал использоваться за пределами периферии в кружках хобби и группах протеста. Лингвистический дух критики Sol-Gov."
 	speech_verb = "артикулирует"
 	whisper_verb = "бормочет"
 	exclaim_verbs = list("преувеличивает")
@@ -523,9 +523,9 @@
 /datum/language/abductor
 	name = "Abductor Mindlink"
 	desc = "Абдукторы не способны говорить, но у них есть психическая связь, настроенная на их собственную команду."
-	speech_verb = "тарабанит"
-	ask_verb = "тарабанит"
-	exclaim_verbs = list("тарабанит")
+	speech_verb = "тараторит"
+	ask_verb = "тараторит"
+	exclaim_verbs = list("тараторит")
 	colour = "abductor"
 	key = "zw" //doesn't matter, this is their default and only language
 	flags = RESTRICTED | HIVEMIND | NOBABEL
