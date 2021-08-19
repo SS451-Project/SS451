@@ -98,7 +98,7 @@
 			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] заикается, \"[msg]\""
 			return
 		if(M.getBrainLoss() >= 60)
-			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] бормочет, \"[msg]\""
+			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] тарабанит, \"[msg]\""
 			return
 		if(ending == "?")
 			mytape.storedinfo += "\[[time2text(mytape.used_capacity * 10,"mm:ss")]\] [M.name] спрашивает, \"[msg]\""
