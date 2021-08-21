@@ -132,7 +132,7 @@
 
 /obj/item/apc_electronics
 	name = "power control module"
-	desc = "Heavy-duty switching circuits for power control."
+	desc = "Мощные коммутационные схемы для регулирования мощности."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "power_mod"
 	w_class = WEIGHT_CLASS_SMALL
@@ -220,9 +220,9 @@
 		// no-op, keep the name
 	else if(isarea(A) && !areastring)
 		area = A
-		name = "\improper [area.name] APC"
+		name = "[area.name] APC"
 	else
-		name = "\improper [get_area_name(area, TRUE)] APC"
+		name = "[get_area_name(area, TRUE)] APC"
 	area.apc |= src
 
 	update_icon()
@@ -235,7 +235,7 @@
 	. = ..()
 	if(in_range(user, src))
 		if(stat & BROKEN)
-			. += "Looks broken."
+			. += "Выглядит разбитым."
 		else if(opened)
 			if(has_electronics && terminal)
 				. += "The cover is [opened==2?"removed":"open"] and the power cell is [ cell ? "installed" : "missing"]."
@@ -818,7 +818,7 @@
 
 	var/powerChannels[0]
 	powerChannels[++powerChannels.len] = list(
-		"title" = "Equipment",
+		"title" = "Оборудование",
 		"powerLoad" = round(lastused_equip),
 		"status" = equipment,
 		"topicParams" = list(
@@ -828,7 +828,7 @@
 		)
 	)
 	powerChannels[++powerChannels.len] = list(
-		"title" = "Lighting",
+		"title" = "Освещение",
 		"powerLoad" = round(lastused_light),
 		"status" = lighting,
 		"topicParams" = list(
@@ -838,7 +838,7 @@
 		)
 	)
 	powerChannels[++powerChannels.len] = list(
-		"title" = "Environment",
+		"title" = "Окружение",
 		"powerLoad" = round(lastused_environ),
 		"status" = environ,
 		"topicParams" = list(

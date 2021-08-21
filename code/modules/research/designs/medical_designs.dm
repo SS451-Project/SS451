@@ -13,8 +13,8 @@
 	category = list("Medical")
 
 /datum/design/bluespacebeaker
-	name = "Bluespace Пробирка"
-	desc = "Bluespace пробирка, оснащенный экспериментальной технологией Bluespace и Element Cuban в сочетании с соединениями Питом. Может вместить до 300 юнитов."
+	name = "Bluespace Мензурка"
+	desc = "Bluespace Мензурка, оснащенный экспериментальной технологией Bluespace и Element Cuban в сочетании с соединениями Питом. Может вместить до 300 юнитов."
 	id = "bluespacebeaker"
 	req_tech = list("bluespace" = 6, "materials" = 5, "plasmatech" = 4)
 	build_type = PROTOLATHE
@@ -23,8 +23,8 @@
 	category = list("Medical")
 
 /datum/design/noreactbeaker
-	name = "Пробирка для криостаза"
-	desc = "Пробирка для криостаза, которая позволяет хранить химические вещества без реакций. Может вместить до 50 юнитов."
+	name = "Мензурка Для Криостаза"
+	desc = "Мензурка для криостаза, которая позволяет хранить химические вещества без реакций. Может вместить до 50 юнитов."
 	id = "splitbeaker"
 	req_tech = list("materials" = 3, "engineering" = 3, "plasmatech" = 3)
 	build_type = PROTOLATHE
@@ -43,7 +43,7 @@
 	category = list("Medical")
 
 /datum/design/healthanalyzer_upgrade
-	name = "Улучшение Health Analyzer"
+	name = "Улучшение Для Анализатора Здоровья"
 	desc = "Модуль обновления для расширения функциональности анализатора здоровья."
 	id = "healthanalyzer_upgrade"
 	req_tech = list("biotech" = 2, "magnets" = 3)

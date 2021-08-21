@@ -138,19 +138,19 @@
 	qdel(src)
 
 /datum/disease/transformation/dragon
-	name = "dragon transformation"
+	name = "Трансформация дракона"
 	cure_text = "nothing"
 	cures = list("adminordrazine")
 	agent = "dragon's blood"
-	desc = "What do dragons have to do with Space Station 13?"
+	desc = "Какое отношение драконы имеют к Космической Станции?"
 	stage_prob = 20
 	severity = BIOHAZARD
 	visibility_flags = 0
-	stage1	= list("Your bones ache.")
-	stage2	= list("Your skin feels scaley.")
-	stage3	= list("<span class='danger'>You have an overwhelming urge to terrorize some peasants.</span>", "<span class='danger'>Your teeth feel sharper.</span>")
-	stage4	= list("<span class='danger'>Your blood burns.</span>")
-	stage5	= list("<span class='danger'>You're a fucking dragon. However, any previous allegiances you held still apply. It'd be incredibly rude to eat your still human friends for no reason.</span>")
+	stage1	= list("У тебя ломит кости.")
+	stage2	= list("Твоя кожа кажется чешуйчатой.")
+	stage3	= list("<span class='danger'>У вас непреодолимое желание терроризировать некоторых крестьян.</span>", "<span class='danger'>Your teeth feel sharper.</span>")
+	stage4	= list("<span class='danger'>Твоя кровь горит.</span>")
+	stage5	= list("<span class='danger'>Ты ебаный дракон. Тем не менее, любые предыдущие обязательства, которые вы придерживались, все еще применимы. Было бы невероятно грубо есть своих все еще человеческих друзей без причины.</span>")
 	new_form = /mob/living/simple_animal/hostile/megafauna/dragon/lesser
 
 //Lava Staff

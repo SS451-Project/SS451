@@ -6653,15 +6653,15 @@
                           children: "Draw"
                       }), (0, o.createComponentVNode)(2, u.Table.Cell, {
                           collapsing: !0,
-                          title: "Equipment",
+                          title: "Оборудование",
                           children: "Eqp"
                       }), (0, o.createComponentVNode)(2, u.Table.Cell, {
                           collapsing: !0,
-                          title: "Lighting",
+                          title: "Освещение",
                           children: "Lgt"
                       }), (0, o.createComponentVNode)(2, u.Table.Cell, {
                           collapsing: !0,
-                          title: "Environment",
+                          title: "Окружение",
                           children: "Env"
                       })]
                   }), w.map((function(e, t) {
@@ -14435,14 +14435,14 @@
               h = d[u.malfStatus] || d[0],
               C = u.powerCellStatus / 100;
           return (0, o.createFragment)([(0, o.createComponentVNode)(2, i.InterfaceLockNoticeBox), (0, o.createComponentVNode)(2, a.Section, {
-              title: "Power Status",
+              title: "Состояние Энергоснабжения",
               children: (0, o.createComponentVNode)(2, a.LabeledList, {
                   children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                      label: "Main Breaker",
+                      label: "Главный Выключатель",
                       color: m.color,
                       buttons: (0, o.createComponentVNode)(2, a.Button, {
                           icon: u.isOperating ? "power-off" : "times",
-                          content: u.isOperating ? "On" : "Off",
+                          content: u.isOperating ? "Вкл" : "Выкл",
                           selected: u.isOperating && !s,
                           color: u.isOperating ? "" : "bad",
                           disabled: s,
@@ -14452,17 +14452,17 @@
                       }),
                       children: ["[ ", m.externalPowerText, " ]"]
                   }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                      label: "Power Cell",
+                      label: "Энергоячейки",
                       children: (0, o.createComponentVNode)(2, a.ProgressBar, {
                           color: "good",
                           value: C
                       })
                   }), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                      label: "Charge Mode",
+                      label: "Режим Подзарядки",
                       color: p.color,
                       buttons: (0, o.createComponentVNode)(2, a.Button, {
                           icon: u.chargeMode ? "sync" : "times",
-                          content: u.chargeMode ? "Auto" : "Off",
+                          content: u.chargeMode ? "Авто" : "Выкл",
                           selected: u.chargeMode,
                           disabled: s,
                           onClick: function() {
@@ -14473,7 +14473,7 @@
                   })]
               })
           }), (0, o.createComponentVNode)(2, a.Section, {
-              title: "Power Channels",
+              title: "Каналы энергоснабжения",
               children: (0, o.createComponentVNode)(2, a.LabeledList, {
                   children: [f.map((function(e) {
                       var t = e.topicParams;
@@ -14483,10 +14483,10 @@
                               inline: !0,
                               mx: 2,
                               color: e.status >= 2 ? "good" : "bad",
-                              children: e.status >= 2 ? "On" : "Off"
+                              children: e.status >= 2 ? "Вкл" : "Выкл"
                           }), (0, o.createComponentVNode)(2, a.Button, {
                               icon: "sync",
-                              content: "Auto",
+                              content: "Авто",
                               selected: !s && (1 === e.status || 3 === e.status),
                               disabled: s,
                               onClick: function() {
@@ -14494,7 +14494,7 @@
                               }
                           }), (0, o.createComponentVNode)(2, a.Button, {
                               icon: "power-off",
-                              content: "On",
+                              content: "Вкл",
                               selected: !s && 2 === e.status,
                               disabled: s,
                               onClick: function() {
@@ -14502,7 +14502,7 @@
                               }
                           }), (0, o.createComponentVNode)(2, a.Button, {
                               icon: "times",
-                              content: "Off",
+                              content: "Выкд",
                               selected: !s && 0 === e.status,
                               disabled: s,
                               onClick: function() {
@@ -14512,12 +14512,12 @@
                           children: [e.powerLoad, " W"]
                       }, e.title)
                   })), (0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                      label: "Total Load",
+                      label: "Общая Нагрузка",
                       children: (0, o.createVNode)(1, "b", null, [u.totalLoad, (0, o.createTextVNode)(" W")], 0)
                   })]
               })
           }), (0, o.createComponentVNode)(2, a.Section, {
-              title: "Misc",
+              title: "Прочее",
               buttons: !!u.siliconUser && (0, o.createFragment)([!!u.malfStatus && (0, o.createComponentVNode)(2, a.Button, {
                   icon: h.icon,
                   content: h.content,
@@ -14527,17 +14527,17 @@
                   }
               }), (0, o.createComponentVNode)(2, a.Button, {
                   icon: "lightbulb-o",
-                  content: "Overload",
+                  content: "Перегрузка",
                   onClick: function() {
                       return c("overload")
                   }
               })], 0),
               children: (0, o.createComponentVNode)(2, a.LabeledList, {
                   children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                      label: "Cover Lock",
+                      label: "Замок Крышки",
                       buttons: (0, o.createComponentVNode)(2, a.Button, {
                           icon: u.coverLocked ? "lock" : "unlock",
-                          content: u.coverLocked ? "Engaged" : "Disengaged",
+                          content: u.coverLocked ? "Вкл" : "Disengaged",
                           selected: u.coverLocked,
                           disabled: s,
                           onClick: function() {
@@ -17663,7 +17663,7 @@
           children: (0, o.createComponentVNode)(2, c.Window.Content, {
               scrollable: !0,
               children: [(0, o.createComponentVNode)(2, a.NoticeBox, {
-                  children: ["Swipe an ID card to ", d ? "unlock" : "lock", " this interface."]
+                  children: ["Проведите ID-картой для ", d ? "разблокировки" : "блокировки", " этого интерфейса."]
               }), (0, o.createComponentVNode)(2, a.Section, {
                   title: "General Settings",
                   children: (0, o.createComponentVNode)(2, a.LabeledList, {
@@ -17780,7 +17780,7 @@
           children: (0, o.createComponentVNode)(2, c.Window.Content, {
               scrollable: !0,
               children: [(0, o.createComponentVNode)(2, a.NoticeBox, {
-                  children: ["Swipe an ID card to ", d ? "unlock" : "lock", " this interface."]
+                  children: ["Проведите ID-картой для ", d ? "разблокировки" : "блокировки", " этого интерфейса."]
               }), (0, o.createComponentVNode)(2, a.Section, {
                   title: "General Settings",
                   children: (0, o.createComponentVNode)(2, a.LabeledList, {
@@ -28133,7 +28133,7 @@
               scrollable: !0,
               children: (0, o.createComponentVNode)(2, a.Section, {
                   title: "Error",
-                  children: "No user data found. Please swipe an ID card."
+                  children: "Пользовательские данные не найдены. Пожалуйста, проведите ID-картой."
               })
           })
       });
@@ -30258,7 +30258,7 @@
           children: (0, o.createComponentVNode)(2, c.Window.Content, {
               scrollable: !0,
               children: [(0, o.createComponentVNode)(2, a.NoticeBox, {
-                  children: ["Swipe an ID card to ", u ? "unlock" : "lock", " this interface."]
+                  children: ["Проведите ID-картой для ", u ? "разблокировки" : "блокировки", " этого интерфейса."]
               }), (0, o.createComponentVNode)(2, a.Section, {
                   children: (0, o.createComponentVNode)(2, a.LabeledList, {
                       children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
@@ -32684,7 +32684,7 @@
                   return (0, o.createComponentVNode)(2, a.Button, {
                       disabled: d || t && !u,
                       icon: "arrow-" + (t ? "right" : "left"),
-                      content: (t ? "Right" : "Left") + " " + e,
+                      content: (t ? "Право" : "Лево") + " " + e,
                       iconRight: t,
                       onClick: function() {
                           return c(t ? "turnleft" : "turnright", {
@@ -32701,7 +32701,7 @@
               children: [(0, o.createComponentVNode)(2, a.Button, {
                   disabled: u,
                   icon: d ? "lock" : "lock-open",
-                  content: d ? "Close" : "Open",
+                  content: d ? "Закрыть" : "Открыть",
                   mb: "0.5rem",
                   onClick: function() {
                       return c("open")
@@ -32749,12 +32749,12 @@
       d = function(e, t) {
           return (0, o.createComponentVNode)(2, a.Section, {
               className: "Safe--help",
-              title: "Safe opening instructions (because you all keep forgetting)",
+              title: "Инструкции по открытию сейфа (потому что вы все время забываете)",
               children: [(0, o.createComponentVNode)(2, a.Box, {
-                  children: ["1. Turn the dial left to the first number.", (0, o.createVNode)(1, "br"), "2. Turn the dial right to the second number.", (0, o.createVNode)(1, "br"), "3. Continue repeating this process for each number, switching between left and right each time.", (0, o.createVNode)(1, "br"), "4. Open the safe."]
+                  children: ["1. Поверните диск влево на первый номер.", (0, o.createVNode)(1, "br"), "2. Поверните диск вправо на второй номер.", (0, o.createVNode)(1, "br"), "3. Продолжайте повторять этот процесс для каждого номера, каждый раз переключаясь между левым и правым.", (0, o.createVNode)(1, "br"), "4. Откройте сейф."]
               }), (0, o.createComponentVNode)(2, a.Box, {
                   bold: !0,
-                  children: "To lock fully, turn the dial to the left after closing the safe."
+                  children: "Для полной блокировки поверните диск влево после закрытия сейфа. Запомните уже блять."
               })]
           })
       }

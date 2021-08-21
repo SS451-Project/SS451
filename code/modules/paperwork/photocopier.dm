@@ -4,7 +4,7 @@
 #define MODE_AIPIC 	"mode_aipic"
 
 /obj/machinery/photocopier
-	name = "photocopier"
+	name = "Фотокопирователь"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "bigscanner"
 	var/insert_anim = "bigscanner1"
@@ -56,7 +56,7 @@
 	switch(action)
 		if("copy")
 			if(emag_cooldown > world.time)
-				to_chat(usr, "<span class='warning'>[src] is busy, try again in a few seconds.</span>")
+				to_chat(usr, "<span class='warning'>[src] занят, повторите попытку через несколько секунд.</span>")
 				return
 
 			playsound(loc, 'sound/goonstation/machines/printer_dotmatrix.ogg', 50, 1)
@@ -66,9 +66,9 @@
 
 				if(GLOB.copier_items_printed >= GLOB.copier_max_items) //global vars defined in misc.dm
 					if(prob(10))
-						visible_message("<span class='warning'>The printer screen reads \"PC LOAD LETTER\".</span>")
+						visible_message("<span class='warning'>На экране принтера отображается надпись \"ПИСЬМО О ЗАГРУЗКЕ ПК\".</span>")
 					else
-						visible_message("<span class='warning'>The printer screen reads \"PHOTOCOPIER NETWORK OFFLINE, PLEASE CONTACT SYSTEM ADMINISTRATOR\".</span>")
+						visible_message("<span class='warning'>На экране принтера отображается надпись \"СЕТЬ ОТКЛЮЧЕНА, ПОЖАЛУЙСТА, СВЯЖИТЕСЬ С СИСТЕМНЫМ АДМИНИСТРАТОРОМ\".</span>")
 					if(!GLOB.copier_items_printed_logged)
 						message_admins("Photocopier cap of [GLOB.copier_max_items] papers reached, all photocopiers are now disabled. This may be the cause of any lag.")
 						GLOB.copier_items_printed_logged = TRUE

@@ -186,13 +186,13 @@ const DataView = (props, context) => {
             <Table.Cell textAlign="right">
               Draw
             </Table.Cell>
-            <Table.Cell collapsing title="Equipment">
+            <Table.Cell collapsing title="Оборудование">
               Eqp
             </Table.Cell>
-            <Table.Cell collapsing title="Lighting">
+            <Table.Cell collapsing title="Освещение">
               Lgt
             </Table.Cell>
-            <Table.Cell collapsing title="Environment">
+            <Table.Cell collapsing title="Окружение">
               Env
             </Table.Cell>
           </Table.Row>

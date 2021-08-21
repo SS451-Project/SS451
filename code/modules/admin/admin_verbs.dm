@@ -296,7 +296,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	)
 
 /client/proc/hide_verbs()
-	set name = "Действия администратора - Скрыть всё"
+	set name = "Действия (А) - Скрыть всё"
 	set category = "Admin"
 
 	if(!holder)
@@ -310,7 +310,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 	return
 
 /client/proc/show_verbs()
-	set name = "Действия администратора - Показать"
+	set name = "Действия (А) - Показать"
 	set category = "Admin"
 
 	if(!holder)
@@ -1024,7 +1024,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 		message_admins("[key_name_admin(usr)] сказал всем man up and deal with it.")
 
 /client/proc/toggle_advanced_interaction()
-	set name = "Расширенное взаимодействия - Администратор"
+	set name = "Взаимодействие - Администратор"
 	set category = "Admin"
 	set desc = "Позволяет взаимодействовать с тайлами, такими как кнопки и двери, в дополнение к обычному взаимодействию с механизмами."
 

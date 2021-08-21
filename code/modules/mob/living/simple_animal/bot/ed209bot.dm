@@ -369,7 +369,7 @@
 		else if(threatlevel >= 4)
 			target = C
 			oldtarget_name = C.name
-			speak("Level [threatlevel] infraction alert!")
+			speak("Уровень [threatlevel] предупреждение о нарушении!")
 			playsound(loc, pick('sound/voice/ed209_20sec.ogg', 'sound/voice/edplaceholder.ogg'), 50, 0)
 			visible_message("<b>[src]</b> указывает на [C.name]!")
 			mode = BOT_HUNT

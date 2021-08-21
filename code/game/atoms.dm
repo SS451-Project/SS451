@@ -313,10 +313,10 @@
 		else
 			f_name = "" // Тоже ничего не нужно сюда писать
 		if(blood_color != "#030303")
-			f_name += "<span class='danger'>окровавленный</span> [name]!"
+			f_name += "[name] - <span class='danger'>в пятнах крови</span>!"
 		else
 			f_name += "[name] в масляных пятнах."
-	. = list("[bicon(src)] Это [f_name]")
+	. = list("[bicon(src)] [f_name]")
 	if(desc)
 		. += desc
 

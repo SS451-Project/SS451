@@ -114,8 +114,8 @@
 		return ..()
 
 /obj/item/reagent_containers/glass/beaker
-	name = "пробирка"
-	desc = "Пробирка. Может содержать 50 едениц."
+	name = "Мензурка"
+	desc = "Мензурка. Может содержать 50 едениц."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"
@@ -213,8 +213,8 @@
 		assembly.hear_message(M, msg)
 
 /obj/item/reagent_containers/glass/beaker/large
-	name = "большая пробирка"
-	desc = "Большая пробирка. Может вместить до 100 юнитов."
+	name = "Большая мензурка"
+	desc = "Большая мензурка. Может вместить до 100 юнитов."
 	icon_state = "beakerlarge"
 	materials = list(MAT_GLASS=2500)
 	volume = 100
@@ -223,7 +223,7 @@
 	container_type = OPENCONTAINER
 
 /obj/item/reagent_containers/glass/beaker/vial
-	name = "флакон"
+	name = "Флакон"
 	desc = "Маленький стеклянный флакончик. Может вместить до 25 юнитов."
 	icon_state = "vial"
 	materials = list(MAT_GLASS=250)
@@ -234,7 +234,7 @@
 	can_assembly = 0
 
 /obj/item/reagent_containers/glass/beaker/drugs
-	name = "пакетик"
+	name = "Пакетик"
 	desc = "Пакетик. Может вместить до 10 юнитов."
 	icon_state = "baggie"
 	amount_per_transfer_from_this = 2
@@ -244,7 +244,7 @@
 	can_assembly = 0
 
 /obj/item/reagent_containers/glass/beaker/thermite
-	name = "термит"
+	name = "Термит"
 	desc = "Пакетик термита. Может содержать до 20 юнитов."
 	icon_state = "baggie"
 	amount_per_transfer_from_this = 20
@@ -255,8 +255,8 @@
 	list_reagents = list("thermite" = 20)
 
 /obj/item/reagent_containers/glass/beaker/noreact
-	name = "пробирка для криостаза"
-	desc = "Пробирка для криостаза, которая позволяет хранить химические вещества без реакций. Может вместить до 50 юнитов."
+	name = "Мензурка для криостаза"
+	desc = "мензурка для криостаза, которая позволяет хранить химические вещества без реакций. Может вместить до 50 юнитов."
 	icon_state = "beakernoreact"
 	materials = list(MAT_METAL=3000)
 	volume = 50
@@ -269,8 +269,8 @@
 	reagents.set_reacting(FALSE)
 
 /obj/item/reagent_containers/glass/beaker/bluespace
-	name = "bluespace пробирка"
-	desc = "Bluespace пробирка, работает на основе экспериментальной технологии Bluespace и Element Cuban в сочетании с соединениями Пита. Может вместить до 300 юнитов."
+	name = "Bluespace мензурка"
+	desc = "Bluespace мензурка, работает на основе экспериментальной технологии Bluespace и Element Cuban в сочетании с соединениями Пита. Может вместить до 300 юнитов."
 	icon_state = "beakerbluespace"
 	materials = list(MAT_GLASS=3000)
 	volume = 300
@@ -295,7 +295,7 @@
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "Это ведро."
-	name = "ведро"
+	name = "Ведро"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	item_state = "bucket"
@@ -310,7 +310,7 @@
 	container_type = OPENCONTAINER
 
 /obj/item/reagent_containers/glass/bucket/wooden
-	name = "деревянное ведро"
+	name = "Деревянное ведро"
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	materials = null
@@ -335,7 +335,7 @@
 		..()
 
 /obj/item/reagent_containers/glass/beaker/waterbottle
-	name = "бутылка воды"
+	name = "Бутылка воды"
 	desc = "Бутылка воды, наполненная на заводе по розливу старой Земли."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "smallbottle"

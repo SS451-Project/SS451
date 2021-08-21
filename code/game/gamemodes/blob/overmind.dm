@@ -85,7 +85,7 @@
 	if(!message)
 		return
 
-	var/verb = "states,"
+	var/verb = "заявляет,"
 	var/rendered = "<font color=\"#EE4000\"><i><span class='game say'>Blob Telepathy, <span class='name'>[name]([blob_reagent_datum.name])</span> <span class='message'>[verb] \"[message]\"</span></span></i></font>"
 
 	for(var/mob/M in GLOB.mob_list)

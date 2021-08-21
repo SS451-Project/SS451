@@ -501,7 +501,7 @@
 /datum/game_mode/proc/send_station_goals_message()
 	var/message_text = "<div style='text-align:center;'><img src='ntlogo.png'>"
 	message_text += "<h3>[command_name()] Orders</h3></div><hr>"
-	message_text += "<b>Special Orders for [station_name()]:</b><br><br>"
+	message_text += "<b>Спец Заказы для [station_name()]:</b><br><br>"
 
 	for(var/datum/station_goal/G in station_goals)
 		G.on_report()

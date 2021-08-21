@@ -7,8 +7,8 @@ FIRE ALARM
 #define FIRE_ALARM_READY	2
 
 /obj/machinery/firealarm
-	name = "fire alarm"
-	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
+	name = "Пожарная сигнализация"
+	desc = "<i>\"Потяните в случае крайней необходимости\"</i>. Таким образом, тянинте его вечность."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "fire0"
 	var/detecting = 1.0

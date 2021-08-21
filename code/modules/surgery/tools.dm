@@ -1,5 +1,5 @@
 /obj/item/retractor
-	name = "ретрактор"
+	name = "Ретрактор"
 	desc = "Оттягивает разные штуки, но лучше не знать какие."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "retractor"
@@ -14,7 +14,7 @@
 	toolspeed = 0.5
 
 /obj/item/hemostat
-	name = "зажим"
+	name = "Зажим"
 	desc = "Ты думаешь, что где-то видел это раньше."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "hemostat"
@@ -29,7 +29,7 @@
 	toolspeed = 0.5
 
 /obj/item/cautery
-	name = "термокаутер"
+	name = "Каутер"
 	desc = "Это останавливает кровотечение."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "cautery"
@@ -44,7 +44,7 @@
 	toolspeed = 0.5
 
 /obj/item/surgicaldrill
-	name = "хирургическая дрель"
+	name = "Хирургическая дрель"
 	desc = "Ты можешь сверлить ею. Врубаешься?"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "drill"
@@ -70,7 +70,7 @@
 	toolspeed = 0.5
 
 /obj/item/scalpel
-	name = "скальпель"
+	name = "Скальпель"
 	desc = "Резать, резать и еще раз резать."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "scalpel"
@@ -102,38 +102,38 @@
  * Researchable Scalpels
  */
 /obj/item/scalpel/laser //parent type
-	name = "лазерный скальпель"
+	name = "Лазерный скальпель"
 	desc = "Скальпель, дополненный направленным лазером."
 	icon_state = "scalpel_laser1_on"
 	damtype = "fire"
 	hitsound = 'sound/weapons/sear.ogg'
 
 /obj/item/scalpel/laser/laser1 //lasers also count as catuarys
-	name = "лазерный скальпель"
+	name = "Лазерный скальпель"
 	desc = "Скальпель, дополненный направленным лазером, для более точной резки без попадания крови в поле. Выглядит простым и может быть улучшено."
 	icon_state = "scalpel_laser1_on"
 	toolspeed = 0.8
 
 /obj/item/scalpel/laser/laser2
-	name = "лазерный скальпель"
+	name = "Лазерный скальпель"
 	desc = "Скальпель, дополненный направленным лазером, для более точной резки без попадания крови в поле. Выглядит несколько продвинутым."
 	icon_state = "scalpel_laser2_on"
 	toolspeed = 0.6
 
 /obj/item/scalpel/laser/laser3
-	name = "лазерный скальпель"
+	name = "Лазерный скальпель"
 	desc = "Скальпель, дополненный направленным лазером, для более точной резки без попадания крови в поле. Этот, похоже, является вершиной прецизионных энергетических приборов!"
 	icon_state = "scalpel_laser3_on"
 	toolspeed = 0.4
 
 /obj/item/scalpel/laser/manager //super tool! Retractor/hemostat
-	name = "система управления разрезами"
+	name = "Система управления надрезами"
 	desc = "Истинное продолжение тела хирурга, это чудо мгновенно и полностью подготавливает разрез, позволяющий немедленно приступить к терапевтическим этапам."
 	icon_state = "scalpel_manager_on"
 	toolspeed = 0.2
 
 /obj/item/circular_saw
-	name = "циркулярная пила"
+	name = "Хирургическая пила"
 	desc = "Для резки в тяжелых условиях."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw3"
@@ -158,7 +158,7 @@
 
 //misc, formerly from code/defines/weapons.dm
 /obj/item/bonegel
-	name = "костный гель"
+	name = "Костный гель"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
 	force = 0
@@ -182,7 +182,7 @@
 	toolspeed = 0.5
 
 /obj/item/bonesetter
-	name = "костный сеттер"
+	name = "Костный сеттер"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone setter"
 	force = 8.0
@@ -197,7 +197,7 @@
 	toolspeed = 0.5
 
 /obj/item/surgical_drapes
-	name = "хирургические шторы"
+	name = "Хирургические шторы"
 	desc = "Хирургические шторы марки Nanotrasen обеспечивают оптимальную безопасность и контроль за инфекцией."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgical_drapes"

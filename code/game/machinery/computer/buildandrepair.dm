@@ -67,49 +67,49 @@
 		. += "<span class='notice'>Required components: [english_list(nice_list)].</span>"
 
 /obj/item/circuitboard/message_monitor
-	name = "Circuit board (Message Monitor)"
+	name = "Circuit board (Монитор Сообщений)"
 	build_path = /obj/machinery/computer/message_monitor
 	origin_tech = "programming=2"
 /obj/item/circuitboard/camera
-	name = "Circuit board (Camera Monitor)"
+	name = "Circuit board (Монитор Камеры)"
 	build_path = /obj/machinery/computer/security
 	origin_tech = "programming=2;combat=2"
 
 /obj/item/circuitboard/camera/telescreen
-	name = "Circuit board (Telescreen)"
+	name = "Circuit board (Телеэкран)"
 	build_path = /obj/machinery/computer/security/telescreen
 /obj/item/circuitboard/camera/telescreen/entertainment
-	name = "Circuit board (Entertainment Monitor)"
+	name = "Circuit board (Развлекательный Монитор)"
 	build_path = /obj/machinery/computer/security/telescreen/entertainment
 /obj/item/circuitboard/camera/wooden_tv
-	name = "Circuit board (Wooden TV)"
+	name = "Circuit board (Деревянный Телевизор)"
 	build_path = /obj/machinery/computer/security/wooden_tv
 /obj/item/circuitboard/camera/mining
-	name = "Circuit board (Outpost Camera Monitor)"
+	name = "Circuit board (Монитор Камеры Аванпоста)"
 	build_path = /obj/machinery/computer/security/mining
 /obj/item/circuitboard/camera/engineering
-	name = "Circuit board (Engineering Camera Monitor)"
+	name = "Circuit board (Монитор Инженерной Камеры)"
 	build_path = /obj/machinery/computer/security/engineering
 
 
 /obj/item/circuitboard/xenobiology
-	name = "Circuit board (Xenobiology Console)"
+	name = "Circuit board (Консоль Ксенобиологии)"
 	build_path = /obj/machinery/computer/camera_advanced/xenobio
 	origin_tech = "programming=3;biotech=3"
 /obj/item/circuitboard/aicore
-	name = "Circuit board (AI Core)"
+	name = "Circuit board (Ядро ИИ)"
 	origin_tech = "programming=3"
 	board_type = "other"
 /obj/item/circuitboard/aiupload
-	name = "Circuit board (AI Upload)"
+	name = "Circuit board (Загрузка ИИ)"
 	build_path = /obj/machinery/computer/aiupload
 	origin_tech = "programming=4;engineering=4"
 /obj/item/circuitboard/borgupload
-	name = "Circuit board (Cyborg Upload)"
+	name = "Circuit board (Загрузка Киборгов)"
 	build_path = /obj/machinery/computer/borgupload
 	origin_tech = "programming=4;engineering=4"
 /obj/item/circuitboard/med_data
-	name = "Circuit board (Medical Records)"
+	name = "Circuit board (Медицинские Записи)"
 	build_path = /obj/machinery/computer/med_data
 	origin_tech = "programming=2;biotech=2"
 /obj/item/circuitboard/pandemic
@@ -117,50 +117,50 @@
 	build_path = /obj/machinery/computer/pandemic
 	origin_tech = "programming=2;biotech=2"
 /obj/item/circuitboard/scan_consolenew
-	name = "Circuit board (DNA Machine)"
+	name = "Circuit board (ДНК Машина)"
 	build_path = /obj/machinery/computer/scan_consolenew
 	origin_tech = "programming=2;biotech=2"
 /obj/item/circuitboard/communications
-	name = "Circuit board (Communications Console)"
+	name = "Circuit board (Консоль Связи)"
 	build_path = /obj/machinery/computer/communications
 	origin_tech = "programming=3;magnets=3"
 /obj/item/circuitboard/card
-	name = "Circuit board (ID Computer)"
+	name = "Circuit board (Идентификационный Компьютер)"
 	build_path = /obj/machinery/computer/card
 	origin_tech = "programming=3"
 /obj/item/circuitboard/card/minor
-	name = "Circuit board (Dept ID Computer)"
+	name = "Circuit board (Идентификационный Компьютер Отдела)"
 	build_path = /obj/machinery/computer/card/minor
 	var/target_dept = TARGET_DEPT_GENERIC
 /obj/item/circuitboard/card/minor/hos
-	name = "Circuit board (Sec ID Computer)"
+	name = "Circuit board (Идентификационный Компьютер Службы Безопасности)"
 	build_path = /obj/machinery/computer/card/minor/hos
 	target_dept = TARGET_DEPT_SEC
 /obj/item/circuitboard/card/minor/cmo
-	name = "Circuit board (Medical ID Computer)"
+	name = "Circuit board (Идентификационный Компьютер Мед. Отдела)"
 	build_path = /obj/machinery/computer/card/minor/cmo
 	target_dept = TARGET_DEPT_MED
 /obj/item/circuitboard/card/minor/rd
-	name = "Circuit board (Science ID Computer)"
+	name = "Circuit board (Идентификационный Компьютер Научного Отдела)"
 	build_path = /obj/machinery/computer/card/minor/rd
 	target_dept = TARGET_DEPT_SCI
 /obj/item/circuitboard/card/minor/ce
-	name = "Circuit board (Engineering ID Computer)"
+	name = "Circuit board (Идентификационный Компьютер Инженерного Отдела)"
 	build_path = /obj/machinery/computer/card/minor/ce
 	target_dept = TARGET_DEPT_ENG
 /obj/item/circuitboard/card/centcom
-	name = "Circuit board (CentComm ID Computer)"
+	name = "Circuit board (Идентификационный Компьютер Центрального Командования)"
 	build_path = /obj/machinery/computer/card/centcom
 /obj/item/circuitboard/teleporter
-	name = "Circuit board (Teleporter Console)"
+	name = "Circuit board (Консоль Телепортера)"
 	build_path = /obj/machinery/computer/teleporter
 	origin_tech = "programming=3;bluespace=3;plasmatech=3"
 /obj/item/circuitboard/secure_data
-	name = "Circuit board (Security Records)"
+	name = "Circuit board (Записи Службы Безопасности)"
 	build_path = /obj/machinery/computer/secure_data
 	origin_tech = "programming=2;combat=2"
 /obj/item/circuitboard/stationalert_engineering
-	name = "Circuit Board (Station Alert Console (Engineering))"
+	name = "Circuit Board (Консоль Оповещения Станции (Инженерная))"
 	build_path = /obj/machinery/computer/station_alert
 /obj/item/circuitboard/stationalert
 	name = "Circuit Board (Station Alert Console)"

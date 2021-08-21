@@ -403,15 +403,15 @@ GLOBAL_VAR(bomb_set)
 
 //==========DAT FUKKEN DISK===============
 /obj/item/disk/nuclear
-	name = "nuclear authentication disk"
-	desc = "Better keep this safe."
+	name = "диск ядерной аутентификации"
+	desc = "Лучше хранить это в безопасности."
 	icon_state = "nucleardisk"
 	max_integrity = 250
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/disk/nuclear/unrestricted
-	desc = "Seems to have been stripped of its safeties, you better not lose it."
+	desc = "Похоже, его лишили своей безопасности, вам лучше его не терять."
 
 /obj/item/disk/nuclear/New()
 	..()
@@ -422,7 +422,7 @@ GLOBAL_VAR(bomb_set)
 	if(!check_disk_loc())
 		var/holder = get(src, /mob)
 		if(holder)
-			to_chat(holder, "<span class='danger'>You can't help but feel that you just lost something back there...</span>")
+			to_chat(holder, "<span class='danger'>Ты не можешь не чувствовать, что только что что-то потерял...</span>")
 		qdel(src)
 
  //station disk is allowed on z1, escape shuttle/pods, CC, and syndicate shuttles/base, reset otherwise

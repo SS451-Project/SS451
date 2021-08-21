@@ -35,7 +35,7 @@ export const PDA = (props, context) => {
       <Window>
         <Window.Content scrollable>
           <Section title="Error">
-            No user data found. Please swipe an ID card.
+          Пользовательские данные не найдены. Пожалуйста, проведите ID-картой.
           </Section>
         </Window.Content>
       </Window>

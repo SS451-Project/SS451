@@ -988,7 +988,7 @@
 /client/verb/fit_viewport()
 	set name = "Подогнать окно"
 	set category = "OOC"
-	set desc = "Подгоняет ширину окна в соответствии с экраном / "
+	set desc = "Подгоняет ширину окна в соответствии с экраном"
 
 	// Fetch aspect ratio
 	var/view_size = getviewsize(view)

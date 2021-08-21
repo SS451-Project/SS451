@@ -190,8 +190,8 @@ GLOBAL_VAR(syndicate_code_response) //Code response for traitors.
 
 /proc/GenerateKey()
 	var/newKey
-	newKey += pick("the", "if", "of", "as", "in", "a", "you", "from", "to", "an", "too", "little", "snow", "dead", "drunk", "rosebud", "duck", "al", "le")
-	newKey += pick("diamond", "beer", "mushroom", "civilian", "clown", "captain", "twinkie", "security", "nuke", "small", "big", "escape", "yellow", "gloves", "monkey", "engine", "nuclear", "ai")
+	newKey += pick("если", "от", "как", "в", "ты", "из", "к", "тоже", "маленький", "снег", "труп", "пьяный", "бутон розы", "утка", "аль", "ле")
+	newKey += pick("алмаз", "пиво", "гриб", "гражданский", "клоун", "капитан", "твинки", "служба безопасности", "ядерное", "маленький", "большой", "побег", "желтый", "перчатки", "обезьяна", "двигатель", "ядерный", "ии")
 	newKey += pick("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	return newKey
 

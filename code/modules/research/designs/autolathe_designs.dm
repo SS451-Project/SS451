@@ -376,7 +376,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/circular_saw
-	name = "Циркульная Пила"
+	name = "Хирургическая Пила"
 	id = "circular_saw"
 	build_type = AUTOLATHE
 	materials = list(MAT_METAL = 10000, MAT_GLASS = 6000)
@@ -400,7 +400,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/cautery
-	name = "Термокаутер"
+	name = "Каутер"
 	id = "cautery"
 	build_type = AUTOLATHE
 	materials = list(MAT_METAL = 2500, MAT_GLASS = 750)
@@ -408,7 +408,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/hemostat
-	name = "Хирургический зажим"
+	name = "Зажим"
 	id = "hemostat"
 	build_type = AUTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 2500)
@@ -416,7 +416,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/bonesetter
-	name = "Костоправ"
+	name = "Костный Сеттер"
 	id = "bonesetter"
 	build_type = AUTOLATHE
 	materials = list(MAT_METAL = 4000)
@@ -424,7 +424,7 @@
 	category = list("initial", "Medical")
 
 /datum/design/fixovein
-	name = "Фиксовен"
+	name = "FixOVein"
 	id = "fixovein"
 	build_type = AUTOLATHE
 	materials = list(MAT_METAL = 5000, MAT_GLASS = 3000)

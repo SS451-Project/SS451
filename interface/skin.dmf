@@ -315,7 +315,7 @@ window "rpane"
 		anchor1 = none
 		anchor2 = none
 		saved-params = "is-checked"
-		text = "Forum"
+		text = "Форум"
 		command = "forum"
 	elem "rulesb"
 		type = BUTTON
@@ -324,7 +324,7 @@ window "rpane"
 		anchor1 = none
 		anchor2 = none
 		saved-params = "is-checked"
-		text = "Rules"
+		text = "Правила"
 		command = "rules"
 	elem "githubb"
 		type = BUTTON
@@ -338,11 +338,11 @@ window "rpane"
 	elem "changelog"
 		type = BUTTON
 		pos = 415,7
-		size = 67x16
+		size = 70x16
 		anchor1 = none
 		anchor2 = none
 		saved-params = "is-checked"
-		text = "Changelog"
+		text = "Изменения"
 		command = "Changelog"
 	elem "discordb"
 		type = BUTTON
@@ -366,19 +366,19 @@ window "rpane"
 		text-color = #ffffff
 		background-color = #ff4500
 		saved-params = "is-checked"
-		text = "Karma"
+		text = "Карма"
 		command = "karmashop"
 	elem "donate"
 		type = BUTTON
 		pos = 617,7
-		size = 60x16
+		size = 110x16
 		anchor1 = none
 		anchor2 = none
 		font-style = "bold"
 		text-color = #ffffff
 		background-color = #008000
 		saved-params = "is-checked"
-		text = "Donate"
+		text = "Пожертвовать"
 		command = "Donate"
 	elem "browseb"
 		type = BUTTON

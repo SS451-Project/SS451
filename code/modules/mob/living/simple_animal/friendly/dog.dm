@@ -1,7 +1,7 @@
 //Dogs.
 
 /mob/living/simple_animal/pet/dog
-	name = "dog"
+	name = "Собака"
 	icon_state = "blackdog"
 	icon_living = "blackdog"
 	icon_dead = "blackdog_dead"
@@ -356,10 +356,10 @@
 	name = real_name
 	desc = initial(desc)
 	// BYOND/DM doesn't support the use of initial on lists.
-	speak = list("YAP", "Woof!", "Bark!", "AUUUUUU")
-	speak_emote = list("barks", "woofs")
-	emote_hear = list("barks!", "woofs!", "yaps.","pants.")
-	emote_see = list("shakes its head.", "chases its tail.","shivers.")
+	speak = list("ТЯВ", "Вааф!", "ГАФ!", "АУУУУУУУУУУ")
+	speak_emote = list("лает", "гавкает")
+	emote_hear = list("лает!", "гавкает!", "тявкает.","рыхтит.")
+	emote_see = list("затряс головой.", "гоняется за своим хвостом.","дрожит.")
 	desc = initial(desc)
 	set_light(0)
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 1, "min_co2" = 0, "max_co2" = 5, "min_n2" = 0, "max_n2" = 0)
@@ -417,15 +417,15 @@
 
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/pet/dog/corgi/Ian
-	name = "Ian"
-	real_name = "Ian"	//Intended to hold the name without altering it.
+	name = "Иан"
+	real_name = "Иан"	//Intended to hold the name without altering it.
 	gender = MALE
-	desc = "It's the HoP's beloved corgi."
+	desc = "Это любимый корги Главы Персонала, и не только."
 	var/turns_since_scan = 0
 	var/obj/movement_target
-	response_help  = "pets"
+	response_help  = "ласкает"
 	response_disarm = "bops"
-	response_harm   = "kicks"
+	response_harm   = "пинает"
 	gold_core_spawnable = NO_SPAWN
 	unique_pet = TRUE
 	var/age = 0
@@ -447,10 +447,10 @@
 		var/turf/target = get_turf(loc)
 		if(target)
 			var/mob/living/simple_animal/pet/dog/corgi/puppy/P = new /mob/living/simple_animal/pet/dog/corgi/puppy(target)
-			P.name = "Ian"
-			P.real_name = "Ian"
+			P.name = "Иан"
+			P.real_name = "Иан"
 			P.gender = MALE
-			P.desc = "It's the HoP's beloved corgi puppy."
+			P.desc = "Это любимый щенок корги Главы Персонала, и не только."
 			write_memory(FALSE)
 			SSpersistent_data.registered_atoms -= src // We already wrote here, dont overwrite!
 			qdel(src)

@@ -72,38 +72,38 @@ GLOBAL_VAR_INIT(nologevent, 0)
 
 /datum/admins/proc/show_player_panel(var/mob/M in GLOB.mob_list)
 	set category = null
-	set name = "Show Player Panel"
+	set name = "Панель игрока"
 	set desc="Edit player (respawn, ban, heal, etc)"
 
 	if(!M)
-		to_chat(usr, "You seem to be selecting a mob that doesn't exist anymore.")
+		to_chat(usr, "Похоже, вы выбираете моба, которого больше не существует.")
 		return
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return
 
-	var/body = {"<html><meta charset="UTF-8"><head><title>Options for [M.key]</title></head>"}
-	body += "<body>Options panel for <b>[M]</b>"
+	var/body = {"<html><meta charset="UTF-8"><head><title>Настройки для [M.key]</title></head>"}
+	body += "<body>Настройки для <b>[M]</b>"
 	if(M.client)
-		body += " played by <b>[M.client]</b> "
+		body += " - Ckey: <b>[M.client]</b> "
 		if(check_rights(R_PERMISSIONS, 0))
 			body += "\[<A href='?_src_=holder;editrights=rank;ckey=[M.ckey]'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\] "
 		else
 			body += "\[[M.client.holder ? M.client.holder.rank : "Player"]\] "
-		body += "\[<A href='?_src_=holder;getplaytimewindow=[M.UID()]'>" + M.client.get_exp_type(EXP_TYPE_CREW) + " as [EXP_TYPE_CREW]</a>\]"
-		body += "<br>BYOND account registration date: [M.client.byondacc_date || "ERROR"] [M.client.byondacc_age <= config.byond_account_age_threshold ? "<b>" : ""]([M.client.byondacc_age] days old)[M.client.byondacc_age <= config.byond_account_age_threshold ? "</b>" : ""]"
-		body += "<br>Global Ban DB Lookup: [config.centcom_ban_db_url ? "<a href='?_src_=holder;open_ccbdb=[M.client.ckey]'>Lookup</a>" : "<i>Disabled</i>"]"
+		body += "\[<A href='?_src_=holder;getplaytimewindow=[M.UID()]'>" + M.client.get_exp_type(EXP_TYPE_CREW) + " за [EXP_TYPE_CREW]</a>\]"
+		body += "<br>Дата регистрации учетной записи BYOND: [M.client.byondacc_date || "ОШИБКА"] [M.client.byondacc_age <= config.byond_account_age_threshold ? "<b>" : ""]([M.client.byondacc_age] дней назад)[M.client.byondacc_age <= config.byond_account_age_threshold ? "</b>" : ""]"
+		body += "<br>Поиск в базе данных глобального бана: [config.centcom_ban_db_url ? "<a href='?_src_=holder;open_ccbdb=[M.client.ckey]'>Просмотреть</a>" : "<i>Отключено</i>"]"
 
 		body += "<br>"
 
 	if(isnewplayer(M))
-		body += " <B>Hasn't Entered Game</B> "
+		body += " <B>Еще не вступил в игру</B> "
 	else
-		body += " \[<A href='?_src_=holder;revive=[M.UID()]'>Heal</A>\] "
+		body += " \[<A href='?_src_=holder;revive=[M.UID()]'>Вылечить</A>\] "
 
 
 	body += "<br><br>\[ "
-	body += "<a href='?_src_=holder;open_logging_view=[M.UID()];'>LOGS</a> - "
+	body += "<a href='?_src_=holder;open_logging_view=[M.UID()];'>ЛОГИ</a> - "
 	body += "<a href='?_src_=vars;Vars=[M.UID()]'>VV</a> - "
 	body += "[ADMIN_TP(M,"TP")] - "
 	if(M.client)
@@ -112,7 +112,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 	if(ishuman(M) && M.mind)
 		body += "<a href='?_src_=holder;HeadsetMessage=[M.UID()]'>HM</a> -"
 	body += "[admin_jump_link(M)]\] </b><br>"
-	body += "<b>Mob type:</b> [M.type]<br>"
+	body += "<b>Тип моба:</b> [M.type]<br>"
 	if(M.client)
 		if(M.client.prefs.discord_id)
 			if(length(M.client.prefs.discord_id) < 32)
@@ -120,114 +120,114 @@ GLOBAL_VAR_INIT(nologevent, 0)
 			else
 				body += "<b>Discord: Привязка не завершена!</b><br>"
 		if(M.client.related_accounts_cid.len)
-			body += "<b>Related accounts by CID:</b> [jointext(M.client.related_accounts_cid, " - ")]<br>"
+			body += "<b>Связанные учетные записи по CID:</b> [jointext(M.client.related_accounts_cid, " - ")]<br>"
 		if(M.client.related_accounts_ip.len)
-			body += "<b>Related accounts by IP:</b> [jointext(M.client.related_accounts_ip, " - ")]<br><br>"
+			body += "<b>Связанные учетные записи по IP:</b> [jointext(M.client.related_accounts_ip, " - ")]<br><br>"
 
 	if(M.ckey)
-		body += "<A href='?_src_=holder;boot2=[M.UID()]'>Kick</A> | "
-		body += "<A href='?_src_=holder;warn=[M.ckey]'>Warn</A> | "
-		body += "<A href='?_src_=holder;newban=[M.UID()];dbbanaddckey=[M.ckey]'>Ban</A> | "
-		body += "<A href='?_src_=holder;jobban2=[M.UID()];dbbanaddckey=[M.ckey]'>Jobban</A> | "
-		body += "<A href='?_src_=holder;appearanceban=[M.UID()];dbbanaddckey=[M.ckey]'>Appearance Ban</A> | "
-		body += "<A href='?_src_=holder;randomizename=[M.UID()]'>Randomize Name</A> | "
-		body += "<A href='?_src_=holder;shownoteckey=[M.ckey]'>Notes</A> | "
+		body += "<A href='?_src_=holder;boot2=[M.UID()]'>Кик</A> | "
+		body += "<A href='?_src_=holder;warn=[M.ckey]'>Варн</A> | "
+		body += "<A href='?_src_=holder;newban=[M.UID()];dbbanaddckey=[M.ckey]'>Бан</A> | "
+		body += "<A href='?_src_=holder;jobban2=[M.UID()];dbbanaddckey=[M.ckey]'>Джоббан</A> | "
+		body += "<A href='?_src_=holder;appearanceban=[M.UID()];dbbanaddckey=[M.ckey]'>Бан На Появление</A> | "
+		body += "<A href='?_src_=holder;randomizename=[M.UID()]'>Случайное Имя</A> | "
+		body += "<A href='?_src_=holder;shownoteckey=[M.ckey]'>Заметки</A> | "
 		body += "<A href='?_src_=holder;geoip=[M.UID()]'>GeoIP</A> | "
 		if(config.forum_playerinfo_url)
 			body += "<A href='?_src_=holder;webtools=[M.ckey]'>WebInfo</A> | "
 	if(M.client)
 		if(check_watchlist(M.client.ckey))
-			body += "<A href='?_src_=holder;watchremove=[M.ckey]'>Remove from Watchlist</A> | "
-			body += "<A href='?_src_=holder;watchedit=[M.ckey]'>Edit Watchlist Reason</A> "
+			body += "<A href='?_src_=holder;watchremove=[M.ckey]'>Убрать Из Watchlist</A> | "
+			body += "<A href='?_src_=holder;watchedit=[M.ckey]'>Изменить Причину Watchlist</A> "
 		else
-			body += "<A href='?_src_=holder;watchadd=[M.ckey]'>Add to Watchlist</A> "
+			body += "<A href='?_src_=holder;watchadd=[M.ckey]'>Добавить В Watchlist</A> "
 
-		body += "| <A href='?_src_=holder;sendtoprison=[M.UID()]'>Prison</A> | "
-		body += "\ <A href='?_src_=holder;sendbacktolobby=[M.UID()]'>Send back to Lobby</A> | "
-		body += "\ <A href='?_src_=holder;eraseflavortext=[M.UID()]'>Erase Flavor Text</A> | "
-		body += "\ <A href='?_src_=holder;userandomname=[M.UID()]'>Use Random Name</A> | "
+		body += "| <A href='?_src_=holder;sendtoprison=[M.UID()]'>Тюрьма</A> | "
+		body += "\ <A href='?_src_=holder;sendbacktolobby=[M.UID()]'>Отправить Обратно В Лобби</A> | "
+		body += "\ <A href='?_src_=holder;eraseflavortext=[M.UID()]'>Стереть Текст Описания</A> | "
+		body += "\ <A href='?_src_=holder;userandomname=[M.UID()]'>Использовать Случайное Имя</A> | "
 		var/muted = M.client.prefs.muted
-		body += {"<br><b>Mute: </b>
+		body += {"<br><b>Мут: </b>
 			\[<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_IC]'><font color='[(muted & MUTE_IC)?"red":"#6685f5"]'>IC</font></a> |
 			<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_OOC]'><font color='[(muted & MUTE_OOC)?"red":"#6685f5"]'>OOC</font></a> |
-			<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_PRAY]'><font color='[(muted & MUTE_PRAY)?"red":"#6685f5"]'>PRAY</font></a> |
+			<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_PRAY]'><font color='[(muted & MUTE_PRAY)?"red":"#6685f5"]'>Молиться</font></a> |
 			<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_ADMINHELP]'><font color='[(muted & MUTE_ADMINHELP)?"red":"#6685f5"]'>ADMINHELP</font></a> |
-			<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"#6685f5"]'>DEADCHAT</font></a>\]
-			(<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_ALL]'><font color='[(muted & MUTE_ALL)?"red":"#6685f5"]'>toggle all</font></a>)
+			<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"#6685f5"]'>Чат за мёртвых</font></a>\]
+			(<A href='?_src_=holder;mute=[M.UID()];mute_type=[MUTE_ALL]'><font color='[(muted & MUTE_ALL)?"red":"#6685f5"]'>ВСЁ</font></a>)
 		"}
 
 	var/jumptoeye = ""
 	if(isAI(M))
 		var/mob/living/silicon/ai/A = M
 		if(A.client && A.eyeobj) // No point following clientless AI eyes
-			jumptoeye = " <b>(<A href='?_src_=holder;jumpto=[A.eyeobj.UID()]'>Eye</A>)</b>"
+			jumptoeye = " <b>(<A href='?_src_=holder;jumpto=[A.eyeobj.UID()]'>Следить</A>)</b>"
 	body += {"<br><br>
-		<A href='?_src_=holder;jumpto=[M.UID()]'><b>Jump to</b></A>[jumptoeye] |
-		<A href='?_src_=holder;getmob=[M.UID()]'>Get</A> |
-		<A href='?_src_=holder;sendmob=[M.UID()]'>Send To</A>
+		<A href='?_src_=holder;jumpto=[M.UID()]'><b>Прыжок: К Нему</b></A>[jumptoeye] |
+		<A href='?_src_=holder;getmob=[M.UID()]'>Его К Себе</A> |
+		<A href='?_src_=holder;sendmob=[M.UID()]'>Отправить В</A>
 		<br><br>
-		[check_rights(R_ADMIN,0) ? "[ADMIN_TP(M,"Traitor panel")] | " : "" ]
-		<A href='?_src_=holder;narrateto=[M.UID()]'>Narrate to</A> |
-		[ADMIN_SM(M,"Subtle message")]
+		[check_rights(R_ADMIN,0) ? "[ADMIN_TP(M,"Панель предателей")] | " : "" ]
+		<A href='?_src_=holder;narrateto=[M.UID()]'>Сказать (может не заметить сообщение)</A> |
+		[ADMIN_SM(M,"Послание (Ты слышишь голос в голове...)")]
 	"}
 
 	if(check_rights(R_EVENT, 0))
-		body += {" | <A href='?_src_=holder;Bless=[M.UID()]'>Bless</A> | <A href='?_src_=holder;Smite=[M.UID()]'>Smite</A>"}
+		body += {" | <A href='?_src_=holder;Bless=[M.UID()]'>Благословить</A> | <A href='?_src_=holder;Smite=[M.UID()]'>Покарать</A>"}
 
 	if(isLivingSSD(M))
 		if(istype(M.loc, /obj/machinery/cryopod))
-			body += {" | <A href='?_src_=holder;cryossd=[M.UID()]'>De-Spawn</A> "}
+			body += {" | <A href='?_src_=holder;cryossd=[M.UID()]'>Де-Спавнуть</A> "}
 		else
-			body += {" | <A href='?_src_=holder;cryossd=[M.UID()]'>Cryo</A> "}
+			body += {" | <A href='?_src_=holder;cryossd=[M.UID()]'>Отправить В Крио</A> "}
 
 	if(M.client)
 		if(!isnewplayer(M))
 			body += "<br><br>"
-			body += "<b>Transformation:</b>"
+			body += "<b>Превращение:</b>"
 			body += "<br>"
 
 			//Monkey
 			if(issmall(M))
-				body += "<B>Monkeyized</B> | "
+				body += "<B>Обезьяна</B> | "
 			else
-				body += "<A href='?_src_=holder;monkeyone=[M.UID()]'>Monkeyize</A> | "
+				body += "<A href='?_src_=holder;monkeyone=[M.UID()]'>Обезьяна</A> | "
 
 			//Corgi
 			if(iscorgi(M))
-				body += "<B>Corgized</B> | "
+				body += "<B>Корги</B> | "
 			else
-				body += "<A href='?_src_=holder;corgione=[M.UID()]'>Corgize</A> | "
+				body += "<A href='?_src_=holder;corgione=[M.UID()]'>Корги</A> | "
 
 			//AI / Cyborg
 			if(isAI(M))
-				body += "<B>Is an AI</B> "
+				body += "<B>Уже ИИ</B> "
 			else if(ishuman(M))
-				body += {"<A href='?_src_=holder;makeai=[M.UID()]'>Make AI</A> |
-					<A href='?_src_=holder;makerobot=[M.UID()]'>Make Robot</A> |
-					<A href='?_src_=holder;makealien=[M.UID()]'>Make Alien</A> |
-					<A href='?_src_=holder;makeslime=[M.UID()]'>Make Slime</A> |
-					<A href='?_src_=holder;makesuper=[M.UID()]'>Make Superhero</A>
+				body += {"<A href='?_src_=holder;makeai=[M.UID()]'>Сделать ИИ</A> |
+					<A href='?_src_=holder;makerobot=[M.UID()]'>Сделать Роботом</A> |
+					<A href='?_src_=holder;makealien=[M.UID()]'>Сделать Чужим</A> |
+					<A href='?_src_=holder;makeslime=[M.UID()]'>Сделать Слаймом</A> |
+					<A href='?_src_=holder;makesuper=[M.UID()]'>Сделать Супергероем</A>
 				"}
 
 			//Simple Animals
 			if(isanimal(M))
-				body += "<A href='?_src_=holder;makeanimal=[M.UID()]'>Re-Animalize</A> | "
+				body += "<A href='?_src_=holder;makeanimal=[M.UID()]'>Другое Животное</A> | "
 			else
-				body += "<A href='?_src_=holder;makeanimal=[M.UID()]'>Animalize</A> | "
+				body += "<A href='?_src_=holder;makeanimal=[M.UID()]'>Животное</A> | "
 
 			if(istype(M, /mob/dead/observer))
-				body += "<A href='?_src_=holder;incarn_ghost=[M.UID()]'>Re-incarnate</a> | "
-				body += {"<A href='?_src_=holder;togglerespawnability=[M.UID()]'>Toggle Respawnability</A> | "}
+				body += "<A href='?_src_=holder;incarn_ghost=[M.UID()]'>Реинкарнировать</a> | "
+				body += {"<A href='?_src_=holder;togglerespawnability=[M.UID()]'>Вкл Способность Респавна</A> | "}
 
 			if(ispAI(M))
-				body += "<B>Is a pAI</B> "
+				body += "<B>Уже пИИ</B> "
 			else
-				body += "<A href='?_src_=holder;makePAI=[M.UID()]'>Make pAI</A> | "
+				body += "<A href='?_src_=holder;makePAI=[M.UID()]'>Сделать пИИ</A> | "
 
 			// DNA2 - Admin Hax
 			if(M.dna && iscarbon(M))
 				body += "<br><br>"
-				body += "<b>DNA Blocks:</b><br><table border='0'><tr><th>&nbsp;</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>"
+				body += "<b>Блоки ДНК:</b><br><table border='0'><tr><th>&nbsp;</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>"
 				var/bname
 				for(var/block=1;block<=DNA_SE_LENGTH;block++)
 					if(((block-1)%5)==0)
@@ -244,33 +244,33 @@ GLOBAL_VAR_INIT(nologevent, 0)
 				body += "</tr></table>"
 
 			body += {"<br><br>
-				<b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>
-				<A href='?_src_=holder;simplemake=observer;mob=[M.UID()]'>Observer</A> |
-				\[ Alien: <A href='?_src_=holder;simplemake=drone;mob=[M.UID()]'>Drone</A>,
-				<A href='?_src_=holder;simplemake=hunter;mob=[M.UID()]'>Hunter</A>,
-				<A href='?_src_=holder;simplemake=queen;mob=[M.UID()]'>Queen</A>,
-				<A href='?_src_=holder;simplemake=sentinel;mob=[M.UID()]'>Sentinel</A>,
-				<A href='?_src_=holder;simplemake=larva;mob=[M.UID()]'>Larva</A> \]
-				<A href='?_src_=holder;simplemake=human;mob=[M.UID()]'>Human</A>
-				\[ slime: <A href='?_src_=holder;simplemake=slime;mob=[M.UID()]'>Baby</A>,
-				<A href='?_src_=holder;simplemake=adultslime;mob=[M.UID()]'>Adult</A> \]
-				<A href='?_src_=holder;simplemake=monkey;mob=[M.UID()]'>Monkey</A> |
-				<A href='?_src_=holder;simplemake=robot;mob=[M.UID()]'>Cyborg</A> |
-				<A href='?_src_=holder;simplemake=cat;mob=[M.UID()]'>Cat</A> |
-				<A href='?_src_=holder;simplemake=runtime;mob=[M.UID()]'>Runtime</A> |
-				<A href='?_src_=holder;simplemake=corgi;mob=[M.UID()]'>Corgi</A> |
-				<A href='?_src_=holder;simplemake=ian;mob=[M.UID()]'>Ian</A> |
-				<A href='?_src_=holder;simplemake=crab;mob=[M.UID()]'>Crab</A> |
-				<A href='?_src_=holder;simplemake=coffee;mob=[M.UID()]'>Coffee</A> |
-				\[ Construct: <A href='?_src_=holder;simplemake=constructarmoured;mob=[M.UID()]'>Armoured</A> ,
-				<A href='?_src_=holder;simplemake=constructbuilder;mob=[M.UID()]'>Builder</A> ,
-				<A href='?_src_=holder;simplemake=constructwraith;mob=[M.UID()]'>Wraith</A> \]
-				<A href='?_src_=holder;simplemake=shade;mob=[M.UID()]'>Shade</A>
+				<b>Рудиментарная трансформация:</b><font size=2><br>Эти преобразования только создают новый тип моба и копируют его. Они не учитывают MMIS и аналогичные специфические для мобов вещи. Кнопки в разделе 'Превращение' предпочтительнее, если это возможно.</font><br>
+				<A href='?_src_=holder;simplemake=observer;mob=[M.UID()]'>Наблюдатель</A> |
+				\[ Инопланетные: <A href='?_src_=holder;simplemake=drone;mob=[M.UID()]'>Дрон</A>,
+				<A href='?_src_=holder;simplemake=hunter;mob=[M.UID()]'>Чужой</A>,
+				<A href='?_src_=holder;simplemake=queen;mob=[M.UID()]'>Королева</A>,
+				<A href='?_src_=holder;simplemake=sentinel;mob=[M.UID()]'>Страж</A>,
+				<A href='?_src_=holder;simplemake=larva;mob=[M.UID()]'>Ларва</A> \]
+				<A href='?_src_=holder;simplemake=human;mob=[M.UID()]'>Человек</A>
+				\[ слайм: <A href='?_src_=holder;simplemake=slime;mob=[M.UID()]'>Малыш</A>,
+				<A href='?_src_=holder;simplemake=adultslime;mob=[M.UID()]'>Взрослый</A> \]
+				<A href='?_src_=holder;simplemake=monkey;mob=[M.UID()]'>Обезьяна</A> |
+				<A href='?_src_=holder;simplemake=robot;mob=[M.UID()]'>Киборг</A> |
+				<A href='?_src_=holder;simplemake=cat;mob=[M.UID()]'>Кот</A> |
+				<A href='?_src_=holder;simplemake=runtime;mob=[M.UID()]'>Runtime (кот)</A> |
+				<A href='?_src_=holder;simplemake=corgi;mob=[M.UID()]'>Корги</A> |
+				<A href='?_src_=holder;simplemake=ian;mob=[M.UID()]'>Иан (корги)</A> |
+				<A href='?_src_=holder;simplemake=crab;mob=[M.UID()]'>Краб</A> |
+				<A href='?_src_=holder;simplemake=coffee;mob=[M.UID()]'>Билли К. (краб)</A> |
+				\[ Конструкты: <A href='?_src_=holder;simplemake=constructarmoured;mob=[M.UID()]'>Джаггернаут</A> ,
+				<A href='?_src_=holder;simplemake=constructbuilder;mob=[M.UID()]'>Ремесленник</A> ,
+				<A href='?_src_=holder;simplemake=constructwraith;mob=[M.UID()]'>Фантом</A> \]
+				<A href='?_src_=holder;simplemake=shade;mob=[M.UID()]'>Тень</A>
 			"}
 
 	if(M.client)
 		body += {"<br><br>
-			<b>Other actions:</b>
+			<b>Другие действия:</b>
 			<br>
 			<A href='?_src_=holder;forcespeech=[M.UID()]'>Forcesay</A> |
 			<A href='?_src_=holder;aroomwarp=[M.UID()]'>Admin Room</A> |
@@ -278,9 +278,9 @@ GLOBAL_VAR_INIT(nologevent, 0)
 			<A href='?_src_=holder;tdome2=[M.UID()]'>Thunderdome 2</A> |
 			<A href='?_src_=holder;tdomeadmin=[M.UID()]'>Thunderdome Admin</A> |
 			<A href='?_src_=holder;tdomeobserve=[M.UID()]'>Thunderdome Observer</A> |
-			<A href='?_src_=holder;contractor_stop=[M.UID()]'>Stop Syndicate Jail Timer</A> |
-			<A href='?_src_=holder;contractor_start=[M.UID()]'>Start Syndicate Jail Timer</A> |
-			<A href='?_src_=holder;contractor_release=[M.UID()]'>Release now from Syndicate Jail</A> |
+			<A href='?_src_=holder;contractor_stop=[M.UID()]'>Остановить Тюремное Заключение Синдиката</A> |
+			<A href='?_src_=holder;contractor_start=[M.UID()]'>Начать Тюремное Заключение Синдиката</A> |
+			<A href='?_src_=holder;contractor_release=[M.UID()]'>Вытащить Из Заключения Синдиката</A> |
 		"}
 
 	body += {"<br>
@@ -299,7 +299,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 #define PLAYER_NOTES_ENTRIES_PER_PAGE 50
 /datum/admins/proc/PlayerNotes()
 	set category = "Admin"
-	set name = "Player Notes"
+	set name = "Заметки игроков"
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return
@@ -308,7 +308,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 
 /datum/admins/proc/show_player_notes(var/key as text)
 	set category = "Admin"
-	set name = "Show Player Notes"
+	set name = "Показать заметки"
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return
@@ -320,7 +320,7 @@ GLOBAL_VAR_INIT(nologevent, 0)
 	set name = "VPN Ckey Whitelist"
 	if(!check_rights(R_BAN))
 		return
-	var/key = stripped_input(usr, "Enter ckey to add/remove, or leave blank to cancel:", "VPN Whitelist add/remove", max_length=32)
+	var/key = stripped_input(usr, "Введите ckey для добавления/удаления или оставьте пустым для отмены:", "VPN Whitelist добавить/удалить", max_length=32)
 	if(key)
 		vpn_whitelist_panel(key)
 
@@ -328,12 +328,12 @@ GLOBAL_VAR_INIT(nologevent, 0)
 	if(!check_rights(R_BAN))
 		return
 
-	var/dat = {"<meta charset="UTF-8"><B>Job Bans!</B><HR><table>"}
+	var/dat = {"<meta charset="UTF-8"><B>Джоббаны!</B><HR><table>"}
 	for(var/t in GLOB.jobban_keylist)
 		var/r = t
 		if( findtext(r,"##") )
 			r = copytext( r, 1, findtext(r,"##") )//removes the description
-		dat += text("<tr><td>[t] (<A href='?src=[UID()];removejobban=[r]'>unban</A>)</td></tr>")
+		dat += text("<tr><td>[t] (<A href='?src=[UID()];removejobban=[r]'>разбанить</A>)</td></tr>")
 	dat += "</table>"
 	usr << browse(dat, "window=ban;size=400x400")
 
@@ -342,18 +342,18 @@ GLOBAL_VAR_INIT(nologevent, 0)
 		return
 
 	var/dat = {"<meta charset="UTF-8">
-		<center><B>Game Panel</B></center><hr>\n
-		<A href='?src=[UID()];c_mode=1'>Change Game Mode</A><br>
+		<center><B>Игровая панель</B></center><hr>\n
+		<A href='?src=[UID()];c_mode=1'>Изменение Режима Игры</A><br>
 		"}
 	if(GLOB.master_mode == "secret")
 		dat += "<A href='?src=[UID()];f_secret=1'>(Force Secret Mode)</A><br>"
 
 	dat += {"
 		<BR>
-		<A href='?src=[UID()];create_object=1'>Create Object</A><br>
-		<A href='?src=[UID()];quick_create_object=1'>Quick Create Object</A><br>
-		<A href='?src=[UID()];create_turf=1'>Create Turf</A><br>
-		<A href='?src=[UID()];create_mob=1'>Create Mob</A><br>
+		<A href='?src=[UID()];create_object=1'>Создать объект</A><br>
+		<A href='?src=[UID()];quick_create_object=1'>Быстрое создание объекта</A><br>
+		<A href='?src=[UID()];create_turf=1'>Создать пол</A><br>
+		<A href='?src=[UID()];create_mob=1'>Создать моба</A><br>
 		"}
 
 	usr << browse(dat, "window=admin2;size=210x280")
@@ -434,220 +434,220 @@ GLOBAL_VAR_INIT(nologevent, 0)
 
 /datum/admins/proc/announce()
 	set category = "Admin"
-	set name = "Announce"
-	set desc = "Announce your desires to the world"
+	set name = "Объявление"
+	set desc = "Объявите о своих пожеланиях всему серверу"
 
 	if(!check_rights(R_ADMIN))
 		return
 
-	var/message = input("Global message to send:", "Admin Announce", null, null) as message|null
+	var/message = input("Сообщение для глобального объявления:", "Админ Объявление", null, null) as message|null
 	if(message)
 		if(!check_rights(R_SERVER,0))
 			message = adminscrub(message,500)
 		message = replacetext(message, "\n", "<br>") // required since we're putting it in a <p> tag
-		to_chat(world, "<span class='notice'><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Announces:</b><p style='text-indent: 50px'>[message]</p></span>")
+		to_chat(world, "<span class='notice'><b>[usr.client.holder.fakekey ? "Administrator" : usr.key] Объявляет:</b><p style='text-indent: 50px'>[message]</p></span>")
 		log_admin("Announce: [key_name(usr)] : [message]")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Announce") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleooc()
 	set category = "Server"
-	set desc="Globally Toggles OOC"
-	set name="Toggle OOC"
+	set desc="Глобально переключает возможность пользоваться OOC чатом"
+	set name="Переключить OOC"
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	toggle_ooc()
-	log_and_message_admins("toggled OOC.")
+	log_and_message_admins("[key_name(usr)] переключил OOC.")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle OOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/togglelooc()
 	set category = "Server"
-	set desc="Globally Toggles LOOC"
-	set name="Toggle LOOC"
+	set desc="Глобально переключает возможность пользоваться локальным OOC чатом"
+	set name="Переключить LOOC"
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	config.looc_allowed = !(config.looc_allowed)
 	if(config.looc_allowed)
-		to_chat(world, "<B>The LOOC channel has been globally enabled!</B>")
+		to_chat(world, "<B>Локальный OOC был глобально включен!</B>")
 	else
-		to_chat(world, "<B>The LOOC channel has been globally disabled!</B>")
-	log_and_message_admins("toggled LOOC.")
+		to_chat(world, "<B>Локальный OOC был глобально отключен!</B>")
+	log_and_message_admins("[key_name(usr)] переключил LOOC.")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle LOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggledsay()
 	set category = "Server"
-	set desc="Globally Toggles DSAY"
-	set name="Toggle DSAY"
+	set desc="Переключает возможность пользоваться SAY чатом для мёртвых игроков."
+	set name="SAY за мёртвых"
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	config.dsay_allowed = !(config.dsay_allowed)
 	if(config.dsay_allowed)
-		to_chat(world, "<B>Deadchat has been globally enabled!</B>")
+		to_chat(world, "<B>'SAY за мёртвых' был глобально включен!</B>")
 	else
-		to_chat(world, "<B>Deadchat has been globally disabled!</B>")
-	log_admin("[key_name(usr)] toggled deadchat.")
-	message_admins("[key_name_admin(usr)] toggled deadchat.", 1)
+		to_chat(world, "<B>'SAY за мёртвых' был глобально отключен!</B>")
+	log_admin("[key_name(usr)] переключил Deadchat.")
+	message_admins("[key_name_admin(usr)] переключил Deadchat.", 1)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Deadchat") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
 
 /datum/admins/proc/toggleoocdead()
 	set category = "Server"
-	set desc="Toggle Dead OOC."
-	set name="Toggle Dead OOC"
+	set desc="Переключает возможность пользоваться OOC чатом для мёртвых игроков."
+	set name="OOC за мёртвых"
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	config.dooc_allowed = !( config.dooc_allowed )
 	if(config.dooc_allowed)
-		to_chat(world, "<B>Dead OOC has been globally enabled!</B>")
+		to_chat(world, "<B>'OOC за мёртвых' был глобально включен!</B>")
 	else
-		to_chat(world, "<B>Dead OOC has been globally disabled!</B>")
-	log_admin("[key_name(usr)] toggled Dead OOC.")
-	message_admins("[key_name_admin(usr)] toggled Dead OOC.", 1)
+		to_chat(world, "<B>'OOC за мёртвых' был глобально отключен!</B>")
+	log_admin("[key_name(usr)] переключил Dead OOC.")
+	message_admins("[key_name_admin(usr)] переключил Dead OOC.", 1)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Dead OOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/togglevotedead()
 	set category = "Server"
-	set desc="Toggle Dead Vote."
-	set name="Toggle Dead Vote"
+	set desc="Переключает возможность голосовать для мёртвых игроков."
+	set name="Голоса за мёртвых"
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	config.vote_no_dead = !( config.vote_no_dead )
 	if(!config.vote_no_dead)
-		to_chat(world, "<B>Dead Vote has been globally enabled!</B>")
+		to_chat(world, "<B>Мертвое голосование было глобально включено!</B>")
 	else
-		to_chat(world, "<B>Dead Vote has been globally disabled!</B>")
-	log_admin("[key_name(usr)] toggled Dead Vote.")
-	message_admins("[key_name_admin(usr)] toggled Dead Vote.", 1)
+		to_chat(world, "<B>Мертвое голосование было глобально отключено!</B>")
+	log_admin("[key_name(usr)] переключил Dead Vote.")
+	message_admins("[key_name_admin(usr)] переключил Dead Vote.", 1)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Dead Vote") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleemoji()
 	set category = "Server"
-	set desc = "Toggle OOC Emoji"
-	set name = "Toggle OOC Emoji"
+	set desc = "Позволяет переключить возможность отправить эмодзи в OOC :clap:"
+	set name = "Эмодзи в OOC"
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	config.disable_ooc_emoji = !(config.disable_ooc_emoji)
-	log_admin("[key_name(usr)] toggled OOC Emoji.")
-	message_admins("[key_name_admin(usr)] toggled OOC Emoji.", 1)
+	log_admin("[key_name(usr)] переключил эмодзи в OOC.")
+	message_admins("[key_name_admin(usr)] переключил эмодзи в OOC.", 1)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle OOC Emoji")
 
 /datum/admins/proc/startnow()
 	set category = "Server"
-	set desc="Start the round RIGHT NOW"
-	set name="Start Now"
+	set desc="Начните раунд ПРЯМО СЕЙЧАС"
+	set name="Начать прямо сейчас"
 
 	if(!check_rights(R_SERVER))
 		return
 
 	if(!SSticker)
-		alert("Unable to start the game as it is not set up.")
+		alert("Не удается запустить игру, так как она не настроена.")
 		return
 
 	if(config.start_now_confirmation)
-		if(alert(usr, "This is a live server. Are you sure you want to start now?", "Start game", "Yes", "No") != "Yes")
+		if(alert(usr, "Это живой сервер. Вы уверены, что хотите начать прямо сейчас?", "Начало игры", "Да", "Нет") != "Да")
 			return
 
 	if(SSticker.current_state == GAME_STATE_PREGAME || SSticker.current_state == GAME_STATE_STARTUP)
 		SSticker.force_start = TRUE
-		log_admin("[usr.key] has started the game.")
+		log_admin("[usr.key] начал игру принудительно.")
 		var/msg = ""
 		if(SSticker.current_state == GAME_STATE_STARTUP)
-			msg = " (The server is still setting up, but the round will be started as soon as possible.)"
-		message_admins("<span class='darkmblue'>[usr.key] has started the game.[msg]</span>")
+			msg = " (Сервер все еще поднимается, раунд начнется как можно скорее.)"
+		message_admins("<span class='darkmblue'>[usr.key] начал игру принудительно.[msg]</span>")
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Start Game") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		return 1
 	else
-		to_chat(usr, "<font color='red'>Error: Start Now: Game has already started.</font>")
+		to_chat(usr, "<font color='red'>Ошибка: Начать прямо сейчас: Игра уже началась.</font>")
 		return
 
 /datum/admins/proc/toggleenter()
 	set category = "Server"
-	set desc="People can't enter"
-	set name="Toggle Entering"
+	set desc="Игроки не смогут вступить в игру, если раунд будет идти"
+	set name="Переключить вход новых игроков"
 
 	if(!check_rights(R_SERVER))
 		return
 
 	GLOB.enter_allowed = !( GLOB.enter_allowed )
 	if(!( GLOB.enter_allowed ))
-		to_chat(world, "<B>New players may no longer enter the game.</B>")
+		to_chat(world, "<B>Новые игроки больше не смогут входить в игру.</B>")
 	else
-		to_chat(world, "<B>New players may now enter the game.</B>")
-	log_admin("[key_name(usr)] toggled new player game entering.")
-	message_admins("[key_name_admin(usr)] toggled new player game entering.", 1)
+		to_chat(world, "<B>Теперь в игру могут вступить новые игроки.</B>")
+	log_admin("[key_name(usr)] переключил вход в игру для игроков.")
+	message_admins("[key_name_admin(usr)] переключил вход в игру для игроков.", 1)
 	world.update_status()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Entering") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleAI()
 	set category = "Event"
-	set desc="People can't be AI"
-	set name="Toggle AI"
+	set desc="Игроки не смогут быть ИИ"
+	set name="Переключить ИИ"
 
 	if(!check_rights(R_EVENT))
 		return
 
 	config.allow_ai = !( config.allow_ai )
 	if(!( config.allow_ai ))
-		to_chat(world, "<B>The AI job is no longer chooseable.</B>")
+		to_chat(world, "<B>ИИ больше нельзя выбирать как профессию.</B>")
 	else
-		to_chat(world, "<B>The AI job is chooseable now.</B>")
-	message_admins("[key_name_admin(usr)] toggled AI allowed.")
-	log_admin("[key_name(usr)] toggled AI allowed.")
+		to_chat(world, "<B>ИИ теперь можно выбирать как профессию.</B>")
+	message_admins("[key_name_admin(usr)] разрешил выбирать ИИ.")
+	log_admin("[key_name(usr)] разрешил выбирать ИИ.")
 	world.update_status()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle AI") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleaban()
 	set category = "Server"
-	set desc="Toggle the ability for players to respawn."
-	set name="Toggle Respawn"
+	set desc="Переключите возможность возрождения игроков."
+	set name="Переключить респавн"
 
 	if(!check_rights(R_SERVER))
 		return
 
 	GLOB.abandon_allowed = !( GLOB.abandon_allowed )
 	if(GLOB.abandon_allowed)
-		to_chat(world, "<B>You may now respawn.</B>")
+		to_chat(world, "<B>Теперь вы можете возродиться.</B>")
 	else
-		to_chat(world, "<B>You may no longer respawn :(</B>")
-	message_admins("[key_name_admin(usr)] toggled respawn to [GLOB.abandon_allowed ? "On" : "Off"].", 1)
-	log_admin("[key_name(usr)] toggled respawn to [GLOB.abandon_allowed ? "On" : "Off"].")
+		to_chat(world, "<B>Вы больше не можете возрождаться :(</B>")
+	message_admins("[key_name_admin(usr)] переключил респавн на [GLOB.abandon_allowed ? "Вкл" : "Выкл"].", 1)
+	log_admin("[key_name(usr)] переключил респаун на [GLOB.abandon_allowed ? "Вкл" : "Выкл"].")
 	world.update_status()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Toggle Respawn") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delay()
 	set category = "Server"
-	set desc="Delay the game start/end"
-	set name="Delay"
+	set desc="Задержка начала/окончания игры"
+	set name="Задержка"
 
 	if(!check_rights(R_SERVER))
 		return
 
 	if(!SSticker || SSticker.current_state != GAME_STATE_PREGAME)
 		SSticker.delay_end = !SSticker.delay_end
-		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
-		message_admins("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].", 1)
+		log_admin("[key_name(usr)] [SSticker.delay_end ? "отложил окончание раунда" : "перевёл конец раунда в норму"].")
+		message_admins("[key_name(usr)] [SSticker.delay_end ? "отложил окончание раунда" : "перевёл конец раунда в норму"].", 1)
 		if(SSticker.delay_end)
 			SSticker.real_reboot_time = 0 // Immediately show the "Admin delayed round end" message
 		return //alert("Round end delayed", null, null, null, null, null)
 	if(SSticker.ticker_going)
 		SSticker.ticker_going = FALSE
 		SSticker.delay_end = TRUE
-		to_chat(world, "<b>The game start has been delayed.</b>")
-		log_admin("[key_name(usr)] delayed the game.")
+		to_chat(world, "<b>Начало игры было отложено администратором, ожидайте.</b>")
+		log_admin("[key_name(usr)] задержал начало игры.")
 	else
 		SSticker.ticker_going = TRUE
-		to_chat(world, "<b>The game will start soon.</b>")
-		log_admin("[key_name(usr)] removed the delay.")
+		to_chat(world, "<b>Игра скоро начнется.</b>")
+		log_admin("[key_name(usr)] убрал задержку начала игры.")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Delay") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS

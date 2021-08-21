@@ -28,7 +28,7 @@ export const PortableTurret = (props, context) => {
     <Window>
       <Window.Content scrollable>
         <NoticeBox>
-          Swipe an ID card to {locked ? 'unlock' : 'lock'} this interface.
+          Проведите ID-картой для {locked ? 'разблокировки' : 'блокировки'} этого интерфейса.
         </NoticeBox>
         <Section>
           <LabeledList>

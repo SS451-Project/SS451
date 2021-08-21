@@ -159,7 +159,7 @@
 	dat += "<TT><B>Управление Медицинским Юнитом v1.1</B></TT><BR><BR>"
 	dat += "Статус: <A href='?src=[UID()];power=1'>[on ? "Вкл" : "Выкл"]</A><BR>"
 	dat += "Панель технического обслуживания [open ? "открыта" : "закрыта"]<BR>"
-	dat += "Пробирка: "
+	dat += "Мензурка: "
 	if(reagent_glass)
 		dat += "<A href='?src=[UID()];eject=1'>Загружено \[[reagent_glass.reagents.total_volume]/[reagent_glass.reagents.maximum_volume]\]</a>"
 	else
@@ -181,7 +181,7 @@
 		dat += "</TT><br>"
 
 		dat += "Источник реагентов: "
-		dat += "<a href='?src=[UID()];use_beaker=1'>[use_beaker ? "Загруженная пробирка (при наличии)" : "Внутренний синтезатор"]</a><br>"
+		dat += "<a href='?src=[UID()];use_beaker=1'>[use_beaker ? "Загруженная мензурка (при наличии)" : "Внутренний синтезатор"]</a><br>"
 
 		dat += "Лечение вирусных инфекций: <a href='?src=[UID()];virus=1'>[treat_virus ? "Да" : "Нет"]</a><br>"
 		dat += "Переключатель громкоговорителя [shut_up ? "Выкл" : "Вкл"]. <a href='?src=[UID()];togglevoice=[1]'>Toggle</a><br>"
@@ -242,7 +242,7 @@
 			to_chat(user, "<span class='warning'>Вы не можете вставить пробирку, потому что панель заблокирована!</span>")
 			return
 		if(!isnull(reagent_glass))
-			to_chat(user, "<span class='warning'>Пробирка уже заряжена!</span>")
+			to_chat(user, "<span class='warning'>Мензурка уже заряжена!</span>")
 			return
 		if(!user.drop_item())
 			return

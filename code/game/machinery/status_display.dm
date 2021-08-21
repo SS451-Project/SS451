@@ -46,7 +46,7 @@ GLOBAL_LIST_INIT(statdisp_picture_colors, list(
 /obj/machinery/status_display
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	name = "дисплей статуса"
+	name = "Дисплей статуса"
 	anchored = 1
 	density = 0
 	use_power = IDLE_POWER_USE

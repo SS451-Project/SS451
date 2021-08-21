@@ -207,8 +207,8 @@
 	circuit = /obj/item/circuitboard/camera/telescreen
 
 /obj/machinery/computer/security/telescreen/entertainment
-	name = "entertainment monitor"
-	desc = "Damn, they better have Paradise TV on these things."
+	name = "развлекательный монитор"
+	desc = "Черт возьми, лучше бы у них был Парадайз-ТВ на этих штуках."
 	icon_state = "entertainment_console"
 	icon_screen = "entertainment"
 	light_color = "#FFEEDB"

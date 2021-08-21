@@ -212,7 +212,7 @@
 		return
 	else if(istype(I, /obj/item/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, "<span class='warning'>Пробирка уже загружена в машину.</span>")
+			to_chat(user, "<span class='warning'>Мензурка уже загружена в машину.</span>")
 			return
 
 		if(!user.drop_item())

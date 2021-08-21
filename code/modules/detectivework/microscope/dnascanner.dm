@@ -23,7 +23,7 @@
 /obj/machinery/dnaforensics/attackby(obj/item/W as obj, mob/user as mob)
 
 	if(swab)
-		to_chat(user, "<span class='warning'>Внутри сканера уже есть пробирка.</span>")
+		to_chat(user, "<span class='warning'>Внутри сканера уже есть мензурка.</span>")
 		return
 
 	if(istype(W, /obj/item/forensics/swab))

@@ -1,5 +1,5 @@
 /obj/machinery/status_display/supply_display
-	name = "дисплей статуса доставки"
+	name = "Дисплей статуса доставки"
 	ignore_friendc = 1
 
 /obj/machinery/status_display/supply_display/update()
