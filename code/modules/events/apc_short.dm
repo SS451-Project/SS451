@@ -56,11 +56,11 @@
 			// no matter what, ensure the area knows something happened to the power
 			current_area.power_change()
 			affected_apc_count++
-	log_and_message_admins("APC Short event shorted out [affected_apc_count] APCs.")
+	log_and_message_admins("Короткое событие с ЛКП закоротило [affected_apc_count] ЛКП.")
 
 /proc/power_restore(announce=TRUE)
 	if(announce)
-		GLOB.event_announcement.Announce("Power has been restored to [station_name()]. We apologize for the inconvenience.", "Power Systems Nominal", new_sound = 'sound/AI/poweron.ogg')
+		GLOB.event_announcement.Announce("Питание на станции [station_name()] было восстановлено. Мы приносим извинения за доставленные неудобства.", "НОМИНАЛ СИСТЕМЫ ПИТАНИЯ", new_sound = 'sound/AI/poweron.ogg')
 
 	// recharge the APCs
 	for(var/thing in GLOB.apcs)
@@ -73,7 +73,7 @@
 
 /proc/power_restore_quick(announce=TRUE)
 	if(announce)
-		GLOB.event_announcement.Announce("All SMESs on [station_name()] have been recharged. We apologize for the inconvenience.", "Power Systems Nominal", new_sound = 'sound/AI/poweron.ogg')
+		GLOB.event_announcement.Announce("Все SMES'ы на станции [station_name()] были подзаряжены. Мы приносим извинения за доставленные неудобства.", "НОМИНАЛ СИСТЕМЫ ПИТАНИЯ", new_sound = 'sound/AI/poweron.ogg')
 
 	// fix all of the SMESs
 	for(var/obj/machinery/power/smes/S in GLOB.machines)

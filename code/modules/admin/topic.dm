@@ -2479,38 +2479,38 @@
 			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob/living/carbon/human</span>")
 			return
 		if(!istype(H.l_ear, /obj/item/radio/headset) && !istype(H.r_ear, /obj/item/radio/headset))
-			to_chat(usr, "<span class='warning'>The person you are trying to contact is not wearing a headset</span>")
+			to_chat(usr, "<span class='warning'>Человек, с которым вы пытаетесь связаться, не носит гарнитуру</span>")
 			return
 
 		var/input = input(src.owner, "Please enter a message to reply to [key_name(H)] via [H.p_their()] headset.","Outgoing message from HONKplanet", "")
 		if(!input)	return
 
-		to_chat(src.owner, "You sent [input] to [H] via a secure channel.")
-		log_admin("[src.owner] replied to [key_name(H)]'s HONKplanet message with the message [input].")
-		to_chat(H, "You hear something crackle in your headset for a moment before a voice speaks.  \"Please stand by for a message from your HONKbrothers.  Message as follows, HONK. [input].  Message ends, HONK.\"")
+		to_chat(src.owner, "Вы отправили [input] в [H] по защищенному каналу.")
+		log_admin("[src.owner] ответил на сообщение [key_name(H)] на HONKplanet сообщением [input].")
+		to_chat(H, "Вы слышите, как что-то потрескивает в вашей гарнитуре за мгновение до того, как раздается голос.  \"Пожалуйста, приготовьтесь к сообщению от ваших ХОНКбратьев.  Сообщение следующего содержания, ХОНК. [input].  Сообщение кончается, ХОНК.\"")
 
 	else if(href_list["ErtReply"])
 		if(!check_rights(R_ADMIN))
 			return
 
-		if(alert(src.owner, "Accept or Deny ERT request?", "CentComm Response", "Accept", "Deny") == "Deny")
+		if(alert(src.owner, "Принять или отказать в запросе ОБР", "Ответ ЦК", "Принять", "Отказать") == "Отказать")
 			var/mob/living/carbon/human/H = locateUID(href_list["ErtReply"])
 			if(!istype(H))
-				to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob/living/carbon/human</span>")
+				to_chat(usr, "<span class='warning'>Можно использовать только для /mob/living/carbon/human</span>")
 				return
 			if(H.stat != 0)
-				to_chat(usr, "<span class='warning'>The person you are trying to contact is not conscious.</span>")
+				to_chat(usr, "<span class='warning'>Человек, с которым вы пытаетесь связаться, не находится в сознании.</span>")
 				return
 			if(!istype(H.l_ear, /obj/item/radio/headset) && !istype(H.r_ear, /obj/item/radio/headset))
-				to_chat(usr, "<span class='warning'>The person you are trying to contact is not wearing a headset</span>")
+				to_chat(usr, "<span class='warning'>Человек, с которым вы пытаетесь связаться, не носит гарнитуру</span>")
 				return
 
-			var/input = input(src.owner, "Please enter a reason for denying [key_name(H)]'s ERT request.","Outgoing message from CentComm", "")
+			var/input = input(src.owner, "Пожалуйста, укажите причину отказа запроса [key_name(H)] на ОБР.","Исходящее сообщение от ЦК", "")
 			if(!input)	return
 			GLOB.ert_request_answered = TRUE
-			to_chat(src.owner, "You sent [input] to [H] via a secure channel.")
-			log_admin("[src.owner] denied [key_name(H)]'s ERT request with the message [input].")
-			to_chat(H, "<span class='specialnoticebold'>Incoming priority transmission from Central Command. Message as follows,</span><span class='specialnotice'> Your ERT request has been denied for the following reasons: [input].</span>")
+			to_chat(src.owner, "Вы отправили [input] в [H] по защищенному каналу.")
+			log_admin("[src.owner] отказал запрос [key_name(H)] на ОБР с сообщением [input].")
+			to_chat(H, "<span class='specialnoticebold'>Входящая приоритетная передача от Центрального Командования. Сообщение следующего содержания,</span><span class='specialnotice'> Ваш запрос ОБР был отклонен по следующим причинам: [input].</span>")
 		else
 			src.owner.response_team()
 
@@ -2698,17 +2698,17 @@
 		A.sent_by = usr
 		A.sent_at = world.time
 
-		to_chat(src.owner, "<span class='notice'>Message transmitted successfully.</span>")
+		to_chat(src.owner, "<span class='notice'>Сообщение успешно передано.</span>")
 		if(notify == "Yes")
 			var/mob/living/carbon/human/H = sender
 			if(istype(H) && H.stat == CONSCIOUS && (istype(H.l_ear, /obj/item/radio/headset) || istype(H.r_ear, /obj/item/radio/headset)))
-				to_chat(sender, "<span class='specialnoticebold'>Your headset pings, notifying you that a reply to your fax has arrived.</span>")
+				to_chat(sender, "<span class='specialnoticebold'>Ваша гарнитура издает звуковой сигнал, уведомляя вас о том, что пришел ответ на ваш факс.</span>")
 		if(sender)
-			log_admin("[key_name(src.owner)] replied to a fax message from [key_name(sender)]: [input]")
-			message_admins("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(sender)] (<a href='?_src_=holder;AdminFaxView=\ref[P]'>VIEW</a>).", 1)
+			log_admin("[key_name(src.owner)] ответил на факс сообщение от [key_name(sender)]: [input]")
+			message_admins("[key_name_admin(src.owner)] ответил на факс сообщение от [key_name_admin(sender)] (<a href='?_src_=holder;AdminFaxView=\ref[P]'>СМОТРЕТЬ</a>).", 1)
 		else
-			log_admin("[key_name(src.owner)] sent a fax message to [destination]: [input]")
-			message_admins("[key_name_admin(src.owner)] sent a fax message to [destination] (<a href='?_src_=holder;AdminFaxView=\ref[P]'>VIEW</a>).", 1)
+			log_admin("[key_name(src.owner)] отправил факс сообщение на [destination]: [input]")
+			message_admins("[key_name_admin(src.owner)] отправил факс сообщение на [destination] (<a href='?_src_=holder;AdminFaxView=\ref[P]'>СМОТРЕТЬ</a>).", 1)
 		return
 	else if(href_list["AdminFaxNotify"])
 		if(!check_rights(R_ADMIN))
@@ -2729,7 +2729,7 @@
 			return
 		var/mob/M = locateUID(href_list["getplaytimewindow"])
 		if(!istype(M, /mob))
-			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob</span>")
+			to_chat(usr, "<span class='warning'>Это можно использовать только для /mob</span>")
 			return
 		cmd_mentor_show_exp_panel(M.client)
 
@@ -2738,17 +2738,17 @@
 
 		var/mob/M = locateUID(href_list["jumpto"])
 		if(!istype(M, /mob))
-			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob</span>")
+			to_chat(usr, "<span class='warning'>Это можно использовать только для /mob</span>")
 			return
 		usr.client.jumptomob(M)
 
 	else if(href_list["getmob"])
 		if(!check_rights(R_ADMIN))	return
 
-		if(alert(usr, "Confirm?", "Message", "Yes", "No") != "Yes")	return
+		if(alert(usr, "Подтвердить", "Сообщение", "Да", "Нет") != "Да")	return
 		var/mob/M = locateUID(href_list["getmob"])
 		if(!istype(M, /mob))
-			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob</span>")
+			to_chat(usr, "<span class='warning'>Это можно использовать только для /mob</span>")
 			return
 		usr.client.Getmob(M)
 
@@ -2757,7 +2757,7 @@
 
 		var/mob/M = locateUID(href_list["sendmob"])
 		if(!istype(M, /mob))
-			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob</span>")
+			to_chat(usr, "<span class='warning'>Это можно использовать только для /mob</span>")
 			return
 		usr.client.sendmob(M)
 
@@ -2766,7 +2766,7 @@
 
 		var/mob/M = locateUID(href_list["narrateto"])
 		if(!istype(M, /mob))
-			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob</span>")
+			to_chat(usr, "<span class='warning'>Это можно использовать только для /mob</span>")
 			return
 		usr.client.cmd_admin_direct_narrate(M)
 
@@ -2776,7 +2776,7 @@
 
 		var/mob/M = locateUID(href_list["subtlemessage"])
 		if(!istype(M, /mob))
-			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob</span>")
+			to_chat(usr, "<span class='warning'>Это можно использовать только для /mob</span>")
 			return
 		usr.client.cmd_admin_subtle_message(M)
 
@@ -2784,12 +2784,12 @@
 		if(!check_rights(R_ADMIN|R_MOD))	return
 
 		if(!SSticker || !SSticker.mode)
-			alert("The game hasn't started yet!")
+			alert("Игра еще не началась!")
 			return
 
 		var/mob/M = locateUID(href_list["traitor"])
 		if(!istype(M, /mob))
-			to_chat(usr, "<span class='warning'>This can only be used on instances of type /mob</span>")
+			to_chat(usr, "<span class='warning'>Это можно использовать только для /mob</span>")
 			return
 		show_traitor_panel(M)
 
@@ -2831,10 +2831,10 @@
 			paths += path
 
 		if(!paths)
-			alert("The path list you sent is empty")
+			alert("Список путей, который вы отправили, пуст")
 			return
 		if(length(paths) > 5)
-			alert("Select fewer object types, (max 5)")
+			alert("Выберите меньшее количество типов объектов (максимум 5)")
 			return
 
 		var/list/offset = splittext(href_list["offset"],",")
@@ -2858,7 +2858,7 @@
 		switch(where)
 			if("inhand")
 				if(!iscarbon(usr) && !isrobot(usr))
-					to_chat(usr, "<span class='warning'>Can only spawn in hand when you're a carbon mob or cyborg.</span>")
+					to_chat(usr, "<span class='warning'>Может появляться только в руке, когда ты углеродный моб или киборг.</span>")
 					where = "onfloor"
 				target = usr
 
@@ -2870,10 +2870,10 @@
 						target = locate(loc.x + X,loc.y + Y,loc.z + Z)
 			if("inmarked")
 				if(!marked_datum)
-					to_chat(usr, "<span class='warning'>You don't have any object marked. Abandoning spawn.</span>")
+					to_chat(usr, "<span class='warning'>У вас нет никакого отмеченного объекта. Отмена спавна.</span>")
 					return
 				else if(!istype(marked_datum,/atom))
-					to_chat(usr, "<span class='warning'>The object you have marked cannot be used as a target. Target must be of type /atom. Abandoning spawn.</span>")
+					to_chat(usr, "<span class='warning'>Объект, который вы отметили, не может быть использован в качестве цели. Цель должна иметь тип /atom. Отмена спавна.</span>")
 					return
 				else
 					target = marked_datum
@@ -2910,16 +2910,16 @@
 										R.module.fix_modules()
 
 		if(number == 1)
-			log_admin("[key_name(usr)] created a [english_list(paths)]")
+			log_admin("[key_name(usr)] создал [english_list(paths)]")
 			for(var/path in paths)
 				if(ispath(path, /mob) || ispath(path, /obj))
-					message_admins("[key_name_admin(usr)] created a [english_list(paths)]")
+					message_admins("[key_name_admin(usr)] создал [english_list(paths)]")
 					break
 		else
-			log_admin("[key_name(usr)] created [number]ea [english_list(paths)]")
+			log_admin("[key_name(usr)] создал [number]ea [english_list(paths)]")
 			for(var/path in paths)
 				if(ispath(path, /mob) || ispath(path, /obj))
-					message_admins("[key_name_admin(usr)] created [number]ea [english_list(paths)]")
+					message_admins("[key_name_admin(usr)] создал [number]ea [english_list(paths)]")
 					break
 		return
 
@@ -2928,17 +2928,17 @@
 			return
 		if(SSticker && SSticker.current_state == GAME_STATE_PLAYING)
 			var/afkonly = text2num(href_list["afkonly"])
-			if(alert("Are you sure you want to kick all [afkonly ? "AFK" : ""] clients from the lobby?","Confirmation","Yes","Cancel") != "Yes")
+			if(alert("Ты уверен, что хочешь кикнуть всех [afkonly ? "AFK" : ""] клиентов из лобби?","Подтверждение","Да","Отмена") != "Да")
 				return
-			var/list/listkicked = kick_clients_in_lobby("<span class='danger'>You were kicked from the lobby by an Administrator.</span>", afkonly)
+			var/list/listkicked = kick_clients_in_lobby("<span class='danger'>Администратор выгнал вас из лобби.</span>", afkonly)
 
 			var/strkicked = ""
 			for(var/name in listkicked)
 				strkicked += "[name], "
-			message_admins("[key_name_admin(usr)] has kicked [afkonly ? "all AFK" : "all"] clients from the lobby. [length(listkicked)] clients kicked: [strkicked ? strkicked : "--"]")
-			log_admin("[key_name(usr)] has kicked [afkonly ? "all AFK" : "all"] clients from the lobby. [length(listkicked)] clients kicked: [strkicked ? strkicked : "--"]")
+			message_admins("[key_name_admin(usr)] кикнул [afkonly ? "все AFK" : "Всех"] клиентов из лобби. [length(listkicked)] Кикнуто: [strkicked ? strkicked : "--"]")
+			log_admin("[key_name(usr)] кикнул [afkonly ? "все AFK" : "Всех"] клиентов из лобби. [length(listkicked)] Кикнуто: [strkicked ? strkicked : "--"]")
 		else
-			to_chat(usr, "<span class='warning'>You may only use this when the game is running.</span>")
+			to_chat(usr, "<span class='warning'>Вы можете использовать это только во время игры.</span>")
 
 	else if(href_list["memoeditlist"])
 		if(!check_rights(R_SERVER)) return
@@ -3009,7 +3009,7 @@
 				SSblackbox.record_feedback("tally", "admin_secrets_fun_used", 1, "Triple AI")
 			if("gravity")
 				if(!(SSticker && SSticker.mode))
-					to_chat(usr, "<span class='warning'>Please wait until the game starts! Not sure how it will work otherwise.</span>")
+					to_chat(usr, "<span class='warning'>Пожалуйста, подождите, пока не начнется игра! В противном случае будет неизвестна дальнейшая работоспособность.</span>")
 					return
 				GLOB.gravity_is_on = !GLOB.gravity_is_on
 				for(var/area/A in world)

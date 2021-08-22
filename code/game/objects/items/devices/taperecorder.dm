@@ -31,7 +31,7 @@
 /obj/item/taperecorder/examine(mob/user)
 	. = ..()
 	if(in_range(user, src))
-		. += "The wire panel is [open_panel ? "opened" : "closed"]."
+		. += "Панель с проводами [open_panel ? "открыта" : "закрыта"]."
 
 
 /obj/item/taperecorder/attackby(obj/item/I, mob/user)
@@ -39,12 +39,12 @@
 		user.drop_item()
 		I.loc = src
 		mytape = I
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+		to_chat(user, "<span class='notice'>Вы вставили [I] в [src].</span>")
 		update_icon()
 
 /obj/item/taperecorder/proc/eject(mob/user)
 	if(mytape)
-		to_chat(user, "<span class='notice'>You remove [mytape] from [src].</span>")
+		to_chat(user, "<span class='notice'>Вы вытащили [mytape] из [src].</span>")
 		stop()
 		user.put_in_hands(mytape)
 		mytape = null
@@ -67,7 +67,7 @@
 
 
 /obj/item/taperecorder/verb/ejectverb()
-	set name = "Eject Tape"
+	set name = "Вытащить касету"
 	set category = "Object"
 
 	if(usr.stat)

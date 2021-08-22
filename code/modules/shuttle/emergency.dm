@@ -283,7 +283,7 @@
 				var/destination_dock = "emergency_away"
 				if(is_hijacked())
 					destination_dock = "emergency_syndicate"
-					GLOB.priority_announcement.Announce("Corruption detected in shuttle navigation protocols. Please contact your supervisor.")
+					GLOB.priority_announcement.Announce("Обнаружено повреждение в протоколах навигации шаттла. Пожалуйста, свяжитесь со своим руководителем.")
 
 				dock_id(destination_dock)
 

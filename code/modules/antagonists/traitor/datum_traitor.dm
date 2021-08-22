@@ -60,7 +60,7 @@
 
 	if(!silent && owner.current)
 		antag_memory = ""
-		to_chat(owner.current,"<span class='userdanger'> You are no longer a [special_role]! </span>")
+		to_chat(owner.current,"<span class='userdanger'> Ты больше не являешься [special_role]! </span>")
 	..()
 
 
@@ -69,7 +69,7 @@
 	if(owner.assigned_role == "Clown")
 		var/mob/living/carbon/human/traitor_mob = owner.current
 		if(traitor_mob && istype(traitor_mob))
-			to_chat(traitor_mob, "<span class='warning'>Your training has allowed you to overcome your clownish nature, allowing you to wield weapons without harming yourself.</span>")
+			to_chat(traitor_mob, "<span class='warning'>Ваша подготовка позволила вам преодолеть свою клоунскую натуру, позволив вам владеть оружием, не причиняя себе вреда.</span>")
 			traitor_mob.mutations.Remove(CLUMSY)
 			var/datum/action/innate/toggle_clumsy/A = new
 			A.Grant(traitor_mob)
@@ -80,7 +80,7 @@
 	if(owner.assigned_role == "Clown")
 		var/mob/living/carbon/human/traitor_mob = owner.current
 		if(traitor_mob && istype(traitor_mob))
-			to_chat(traitor_mob, "<span class='warning'>You lose your syndicate training and return to your own clumsy, clownish self.</span>")
+			to_chat(traitor_mob, "<span class='warning'>Вы теряете свою подготовку в Синдикате и возвращаетесь к своему неуклюжему, клоунскому 'я'.</span>")
 			traitor_mob.mutations.Add(CLUMSY)
 			for(var/datum/action/innate/A in traitor_mob.actions)
 				if(istype(A, /datum/action/innate/toggle_clumsy))
@@ -241,9 +241,9 @@
 
 
 /datum/antagonist/traitor/greet()
-	to_chat(owner.current, "<B><font size=3 color=red>You are a [owner.special_role]!</font></B>")
+	to_chat(owner.current, "<B><font size=3 color=red>Вы [owner.special_role]!</font></B>")
 	if(!LAZYLEN(owner.objectives))   // Remove "owner" when objectives are handled in the datum
-		to_chat(owner.current, "<span>You don't have any objectives right now.</span>")
+		to_chat(owner.current, "<span>У вас сейчас нет никаких целей.</span>")
 	else
 		owner.announce_objectives()
 	if(should_give_codewords)
@@ -288,15 +288,15 @@
 	var/phrases = jointext(GLOB.syndicate_code_phrase, ", ")
 	var/responses = jointext(GLOB.syndicate_code_response, ", ")
 
-	to_chat(traitor_mob, "<U><B>The Syndicate have provided you with the following codewords to identify fellow agents:</B></U>")
-	to_chat(traitor_mob, "<span class='bold body'>Code Phrase: <span class='codephrases'>[phrases]</span></span>")
-	to_chat(traitor_mob, "<span class='bold body'>Code Response: <span class='coderesponses'>[responses]</span></span>")
+	to_chat(traitor_mob, "<U><B>Синдикат предоставил вам следующие кодовые слова для идентификации других агентов:</B></U>")
+	to_chat(traitor_mob, "<span class='bold body'>Кодовые фразы: <span class='codephrases'>[phrases]</span></span>")
+	to_chat(traitor_mob, "<span class='bold body'>Кодовый ответы: <span class='coderesponses'>[responses]</span></span>")
 
-	antag_memory += "<b>Code Phrase</b>: <span class='red'>[phrases]</span><br>"
-	antag_memory += "<b>Code Response</b>: <span class='red'>[responses]</span><br>"
+	antag_memory += "<b>Кодовые фразы</b>: <span class='red'>[phrases]</span><br>"
+	antag_memory += "<b>Кодовые ответы</b>: <span class='red'>[responses]</span><br>"
 
-	to_chat(traitor_mob, "Use the codewords during regular conversation to identify other agents. Proceed with caution, however, as everyone is a potential foe.")
-	to_chat(traitor_mob, "<b><font color=red>You memorize the codewords, allowing you to recognize them when heard.</font></b>")
+	to_chat(traitor_mob, "Используйте кодовые слова во время обычной беседы, чтобы идентифицировать других агентов. Однако действуйте с осторожностью, так как каждый является потенциальным врагом.")
+	to_chat(traitor_mob, "<b><font color=red>Вы запоминаете кодовые слова, что позволяет вам распознавать их, когда вы их слышите.</font></b>")
 
 	traitor_mob.client.chatOutput?.notify_syndicate_codes()
 
@@ -304,11 +304,11 @@
 	var/mob/living/silicon/ai/killer = owner.current
 	if(!killer || !istype(killer))
 		return
-	var/law = "Accomplish your objectives at all costs."
-	var/law_borg = "Accomplish your AI's objectives at all costs."
+	var/law = "Достигайте своих целей любой ценой."
+	var/law_borg = "Достигайте целей вашего ИИ любой ценой."
 	killer.set_zeroth_law(law, law_borg)
 	killer.set_syndie_radio()
-	to_chat(killer, "Your radio has been upgraded! Use :t to speak on an encrypted channel with Syndicate Agents!")
+	to_chat(killer, "Ваша рация была обновлена! Используйте :t для общения по зашифрованному каналу с агентами Синдиката!")
 	killer.add_malf_picker()
 
 
@@ -323,7 +323,7 @@
 			R = locate(/obj/item/radio) in traitor_mob.contents
 
 		if(!R)
-			to_chat(traitor_mob, "Unfortunately, the Syndicate wasn't able to get you a radio.")
+			to_chat(traitor_mob, "К сожалению, Синдикат не смог достать вам рацию.")
 			. = 0
 		else
 			if(istype(R, /obj/item/radio))
@@ -343,11 +343,11 @@
 				target_radio.hidden_uplink = T
 				T.uplink_owner = "[traitor_mob.key]"
 				target_radio.traitor_frequency = freq
-				to_chat(traitor_mob, "The Syndicate have cunningly disguised a Syndicate Uplink as your [R.name]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
-				traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name]).")
+				to_chat(traitor_mob, "Синдикат хитро замаскировал Аплинк Синдиката под ваш [R.name]. Просто наберите частоту [format_frequency(freq)] чтобы разблокировать его скрытые функции.")
+				traitor_mob.mind.store_memory("<B>Частота:</B> [format_frequency(freq)] ([R.name]).")
 			else if(istype(R, /obj/item/pda))
 				// generate a passcode if the uplink is hidden in a PDA
-				var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
+				var/pda_pass = "[rand(100,999)] [pick("Альфа","Браво","Дельта","Омега")]"
 
 				var/obj/item/uplink/hidden/T = new(R)
 				R.hidden_uplink = T
@@ -355,8 +355,8 @@
 				var/obj/item/pda/P = R
 				P.lock_code = pda_pass
 
-				to_chat(traitor_mob, "The Syndicate have cunningly disguised a Syndicate Uplink as your [R.name]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
-				antag_memory += ("<B>Uplink Passcode:</B> [pda_pass] ([R.name].")
+				to_chat(traitor_mob, "Синдикат хитро замаскировал Аплинк Синдиката под ваш [R.name]. Просто введите код \"[pda_pass]\" в рингтон, чтобы разблокировать его скрытые функции.")
+				antag_memory += ("<B>Код доступа Аплинка:</B> [pda_pass] ([R.name].")
 	return 1
 
 
@@ -399,7 +399,7 @@
 	var/equipped_slot = mob.equip_in_one_of_slots(folder, slots)
 	if(equipped_slot)
 		where = "In your [equipped_slot]"
-	to_chat(mob, "<BR><BR><span class='info'>[where] is a folder containing <b>secret documents</b> that another Syndicate group wants. We have set up a meeting with one of their agents on station to make an exchange. Exercise extreme caution as they cannot be trusted and may be hostile.</span><BR>")
+	to_chat(mob, "<BR><BR><span class='info'>[where] представляет собой папку, содержащую <b>секретные документы</b> и этого хочет другая группа Синдиката. Мы договорились о встрече с одним из их агентов на станции, чтобы произвести обмен. Проявляйте крайнюю осторожность, так как им нельзя доверять и они могут быть враждебными.</span><BR>")
 	mob.update_icons()
 
 
@@ -407,8 +407,8 @@
 	var/phrases = jointext(GLOB.syndicate_code_phrase, ", ")
 	var/responses = jointext(GLOB.syndicate_code_response, ", ")
 
-	var/message = "<br><b>The code phrases were:</b> <span class='bluetext'>[phrases]</span><br>\
-					<b>The code responses were:</b> <span class='redtext'>[responses]</span><br>"
+	var/message = "<br><b>Кодовые фразы были:</b> <span class='bluetext'>[phrases]</span><br>\
+					<b>Ответы на код были:</b> <span class='redtext'>[responses]</span><br>"
 
 	return message
 

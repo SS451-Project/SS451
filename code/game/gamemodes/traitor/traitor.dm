@@ -30,8 +30,8 @@
 	var/list/datum/mind/selected_contractors = list()
 
 /datum/game_mode/traitor/announce()
-	to_chat(world, "<B>The current game mode is - Traitor!</B>")
-	to_chat(world, "<B>There is a syndicate traitor on the station. Do not let the traitor succeed!</B>")
+	to_chat(world, "<B>Текущий режим игры - Предатель!</B>")
+	to_chat(world, "<B>На станции есть предатели Синдиката. Не дайте предателю добиться успеха!</B>")
 
 
 /datum/game_mode/traitor/pre_setup()
@@ -51,7 +51,7 @@
 		num_traitors = max(1, round((num_players())/(config.traitor_scaling))+1)
 	else
 		num_traitors = max(1, min(num_players(), traitors_possible))
-		log_game("Number of traitors chosen: [num_traitors]")
+		log_game("Число избранных предателей: [num_traitors]")
 
 	var/num_contractors = max(min_contractors, CEILING(num_traitors * contractor_traitor_ratio, 1))
 
@@ -96,7 +96,7 @@
 
 /datum/game_mode/proc/auto_declare_completion_traitor()
 	if(traitors.len)
-		var/text = "<FONT size = 2><B>The traitors were:</B></FONT><br>"
+		var/text = "<FONT size = 2><B>Предателями были:</B></FONT><br>"
 		for(var/datum/mind/traitor in traitors)
 			var/traitorwin = 1
 			text += printplayer(traitor)
@@ -110,17 +110,17 @@
 					uplink_true=1
 					purchases += H.purchase_log
 
-			if(uplink_true) text += " (used [TC_uses] TC) [purchases]"
+			if(uplink_true) text += " (потратив [TC_uses] TC) [purchases]"
 
 
 			if(traitor.objectives && traitor.objectives.len)//If the traitor had no objectives, don't need to process this.
 				var/count = 1
 				for(var/datum/objective/objective in traitor.objectives)
 					if(objective.check_completion())
-						text += "<br><B>Objective #[count]</B>: [objective.explanation_text]"
+						text += "<br><B>Цель #[count]</B>: [objective.explanation_text]"
 						SSblackbox.record_feedback("nested tally", "traitor_objective", 1, list("[objective.type]", "SUCCESS"))
 					else
-						text += "<br><B>Objective #[count]</B>: [objective.explanation_text]"
+						text += "<br><B>Цель #[count]</B>: [objective.explanation_text]"
 						SSblackbox.record_feedback("nested tally", "traitor_objective", 1, list("[objective.type]", "FAIL"))
 						traitorwin = 0
 					count++
@@ -140,12 +140,12 @@
 					// Result
 					var/result = ""
 					if(C.status == CONTRACT_STATUS_COMPLETED)
-						result = "<font color='green'><B>Success!</B></font>"
+						result = "<font color='green'><B>Успех!</B></font>"
 					else if(C.status != CONTRACT_STATUS_INACTIVE)
-						result = "<font color='red'>Fail.</font>"
-					text += "<br><font color='orange'><B>Contract #[count]</B></font>: Kidnap and extract [C.target_name] at [display_locations]. [result]"
+						result = "<font color='red'>Провал.</font>"
+					text += "<br><font color='orange'><B>Контракт #[count]</B></font>: Похитить и извлечь [C.target_name] на [display_locations]. [result]"
 					count++
-				text += "<br><font color='orange'><B>[earned_tc] TC were earned from the contracts.</B></font>"
+				text += "<br><font color='orange'><B>[earned_tc] TC было заработано на контрактах.</B></font>"
 
 			if(traitorwin)
 				SSblackbox.record_feedback("tally", "traitor_success", 1, "SUCCESS")
@@ -153,18 +153,18 @@
 				SSblackbox.record_feedback("tally", "traitor_success", 1, "FAIL")
 
 		if(length(SSticker.mode.implanted))
-			text += "<br><br><FONT size = 2><B>The mindslaves were:</B></FONT><br>"
+			text += "<br><br><FONT size = 2><B>Рабами разума были:</B></FONT><br>"
 			for(var/datum/mind/mindslave in SSticker.mode.implanted)
 				text += printplayer(mindslave)
 				var/datum/mind/master_mind = SSticker.mode.implanted[mindslave]
 				var/mob/living/carbon/human/master = master_mind.current
-				text += " (slaved by: <b>[master]</b>)<br>"
+				text += " (порабощен: <b>[master]</b>)<br>"
 
 		var/phrases = jointext(GLOB.syndicate_code_phrase, ", ")
 		var/responses = jointext(GLOB.syndicate_code_response, ", ")
 
-		text += "<br><br><b>The code phrases were:</b> <span class='danger'>[phrases]</span><br>\
-					<b>The code responses were:</b> <span class='danger'>[responses]</span><br><br>"
+		text += "<br><br><b>Кодовые фразы были:</b> <span class='danger'>[phrases]</span><br>\
+					<b>Ответы на код были:</b> <span class='danger'>[responses]</span><br><br>"
 
 		to_chat(world, text)
 	return 1

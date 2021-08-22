@@ -1,7 +1,7 @@
 /datum/wires/apc
 	holder_type = /obj/machinery/power/apc
 	wire_count = 4
-	proper_name = "APC"
+	proper_name = "ЛКП"
 	window_x = 355
 	window_y = 97
 
@@ -12,8 +12,8 @@
 /datum/wires/apc/get_status()
 	. = ..()
 	var/obj/machinery/power/apc/A = holder
-	. += "The APC is [A.locked ? "" : "un"]locked."
-	. += A.shorted ? "The APCs power has been shorted." : "The APC is working properly!"
+	. += "ЛКП [A.locked ? "за" : "раз"]блокирован."
+	. += A.shorted ? "Питание ЛКП было закорочено." : "ЛКП работает исправно!"
 	. += "The 'AI control allowed' light is [A.aidisabled ? "off" : "on"]."
 
 

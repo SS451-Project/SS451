@@ -896,7 +896,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 		message_admins("[key_name_admin(usr)] освободил слот профессии для [job].")
 
 /client/proc/toggleattacklogs()
-	set name = "Переключение лога атаки"
+	set name = "Сообщения - лог Атаки"
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN))
@@ -925,7 +925,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 
 
 /client/proc/toggleadminlogs()
-	set name = "Сообщения - логи Администратора"
+	set name = "Сообщения - Админ лог"
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN))
@@ -939,7 +939,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 		to_chat(usr, "Теперь вы получаете сообщения логов администратора.")
 
 /client/proc/toggleMentorTicketLogs()
-	set name = "Сообщения - тикеты Менторов"
+	set name = "Сообщения - Ментор тикеты"
 	set category = "Preferences"
 
 	if(!check_rights(R_MENTOR|R_ADMIN))
@@ -953,7 +953,7 @@ GLOBAL_LIST_INIT(admin_verbs_ticket, list(
 		to_chat(usr, "Теперь вы получаете сообщения логов о тикетах Менторов.")
 
 /client/proc/toggleticketlogs()
-	set name = "Сообщения - тикеты Администраторов"
+	set name = "Сообщения - Админ тикеты"
 	set category = "Preferences"
 
 	if(!check_rights(R_ADMIN))

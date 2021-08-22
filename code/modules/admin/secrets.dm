@@ -17,27 +17,27 @@
 		if(0) // Debug
 			if(check_rights(R_ADMIN,0))
 				dat += {"
-						<center><B><h2>Admin Secrets</h2></B>
-						<B>Game</b><br>
-						<A href='?src=[UID()];secretsadmin=showailaws'>Show AI Laws</A>&nbsp;&nbsp;
-						<A href='?src=[UID()];secretsadmin=showgm'>Show Game Mode</A>&nbsp;&nbsp;
-						<A href='?src=[UID()];secretsadmin=manifest'>Show Crew Manifest</A><br>
-						<A href='?src=[UID()];secretsadmin=check_antagonist'>Show current traitors and objectives</A><BR>
-						<A href='?src=[UID()];secretsadmin=view_codewords'>Show code phrases and responses</A><BR>
-						<a href='?src=[UID()];secretsadmin=night_shift_set'>Set Night Shift Mode</a><br>
-						<B>Bombs</b><br>
+						<center><B><h2>Секреты</h2></B>
+						<B>Игра</b><br>
+						<A href='?src=[UID()];secretsadmin=showailaws'>Показать законы ИИ</A>&nbsp;&nbsp;
+						<A href='?src=[UID()];secretsadmin=showgm'>Показать режим игры</A>&nbsp;&nbsp;
+						<A href='?src=[UID()];secretsadmin=manifest'>Показать манифест экипажа</A><br>
+						<A href='?src=[UID()];secretsadmin=check_antagonist'>Покажите предателей и цели</A><BR>
+						<A href='?src=[UID()];secretsadmin=view_codewords'>Показать кодовые фразы и отклики</A><BR>
+						<a href='?src=[UID()];secretsadmin=night_shift_set'>Режим ночной смены</a><br>
+						<B>Бомбы</b><br>
 						[check_rights(R_SERVER, 0) ? "&nbsp;&nbsp;<A href='?src=[UID()];secretsfun=togglebombcap'>Toggle bomb cap</A><br>" : "<br>"]
-						<B>Lists</b><br>
-						<A href='?src=[UID()];secretsadmin=list_signalers'>Show last [length(GLOB.lastsignalers)] signalers</A>&nbsp;&nbsp;
-						<A href='?src=[UID()];secretsadmin=list_lawchanges'>Show last [length(GLOB.lawchanges)] law changes</A><BR>
-						<A href='?src=[UID()];secretsadmin=DNA'>List DNA (Blood)</A>&nbsp;&nbsp;
-						<A href='?src=[UID()];secretsadmin=fingerprints'>List Fingerprints</A><BR>
-						<B>Power</b><br>
-						<A href='?src=[UID()];secretsfun=blackout'>Break all lights</A>&nbsp;&nbsp;
-						<A href='?src=[UID()];secretsfun=whiteout'>Fix all lights</A><BR>
-						<A href='?src=[UID()];secretsfun=power'>Make all areas powered</A>&nbsp;&nbsp;
-						<A href='?src=[UID()];secretsfun=unpower'>Make all areas unpowered</A>&nbsp;&nbsp;
-						<A href='?src=[UID()];secretsfun=quickpower'>Power all SMES</A><BR>
+						<B>Списки</b><br>
+						<A href='?src=[UID()];secretsadmin=list_signalers'>Показать последние [length(GLOB.lastsignalers)] сигнализаторы</A>&nbsp;&nbsp;
+						<A href='?src=[UID()];secretsadmin=list_lawchanges'>Показать последние [length(GLOB.lawchanges)] изменения в законах</A><BR>
+						<A href='?src=[UID()];secretsadmin=DNA'>Список ДНК (Кровь)</A>&nbsp;&nbsp;
+						<A href='?src=[UID()];secretsadmin=fingerprints'>Список отпечатков пальцев</A><BR>
+						<B>Питание</b><br>
+						<A href='?src=[UID()];secretsfun=blackout'>Сломать все лампы</A>&nbsp;&nbsp;
+						<A href='?src=[UID()];secretsfun=whiteout'>Починить все лампы</A><BR>
+						<A href='?src=[UID()];secretsfun=power'>Обеспечьте питанием всех областей</A>&nbsp;&nbsp;
+						<A href='?src=[UID()];secretsfun=unpower'>Сделать все области необеспеченными питанием</A>&nbsp;&nbsp;
+						<A href='?src=[UID()];secretsfun=quickpower'>Запитать все SMES'ы</A><BR>
 						</center>
 					"}
 
@@ -47,16 +47,16 @@
 			if(check_rights(R_DEBUG,0))
 				dat += {"
 					<center>
-					<B>Security Level Elevated</B><BR>
+					<B>Повышение Уровеня Безопасности</B><BR>
 					<BR>
-					<A href='?src=[UID()];secretscoder=maint_access_engiebrig'>Change all maintenance doors to engie/brig access only</A><BR>
-					<A href='?src=[UID()];secretscoder=maint_ACCESS_BRIG'>Change all maintenance doors to brig access only</A><BR>
-					<A href='?src=[UID()];secretscoder=infinite_sec'>Remove cap on security officers</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretscoder=maint_access_engiebrig'>Изменить все двери технического обслуживания на доступ только для engie/brig</A><BR>
+					<A href='?src=[UID()];secretscoder=maint_ACCESS_BRIG'>Изменить все двери технического обслуживания на доступ только для брига</A><BR>
+					<A href='?src=[UID()];secretscoder=infinite_sec'>Убрать ограничение с Сотрудников Службы Безопасности</A>&nbsp;&nbsp;
 					<BR>
-					<B>Coder Secrets</B><BR>
+					<B>Секреты кодера</B><BR>
 					<BR>
-					<A href='?src=[UID()];secretsadmin=list_job_debug'>Show Job Debug</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretscoder=spawn_objects'>Admin Log</A><BR>
+					<A href='?src=[UID()];secretsadmin=list_job_debug'>Показать отладку профессий</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretscoder=spawn_objects'>Админ лог</A><BR>
 					<BR>
 					</center>
 					"}

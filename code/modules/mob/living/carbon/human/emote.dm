@@ -719,7 +719,7 @@
 					message = "<B>[src]</B> takes a drag from a cigarette and blows \"[M]\" out in smoke."
 					m_type = 1
 				else
-					message = "<B>[src]</B> says, \"[M], please. They had a family.\" [name] takes a drag from a cigarette and blows [p_their()] name out in smoke."
+					message = "<B>[src]</B> говорит, \"[M], please. They had a family.\" [name] takes a drag from a cigarette and blows [p_their()] name out in smoke."
 					m_type = 2
 
 		if("point", "points")
