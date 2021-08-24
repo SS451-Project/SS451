@@ -1,6 +1,6 @@
 /obj/vehicle/snowmobile
 	name = "Красный снегоход"
-	desc = "Уииииииииии!"
+	desc = "Уиииииииииии!"
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "snowmobile"
 	move_speed = 0
@@ -17,6 +17,7 @@
 
 /obj/vehicle/snowmobile/blue/key/New()
 	inserted_key = new /obj/item/key/snowmobile(null)
+
 /obj/item/key/snowmobile
 	name = "Ключ от снегохода"
 	desc = "Брелок с маленьким стальным ключом и биркой с красным крестом на ней; очевидно, это не означает, что вы собираетесь за этим в больницу..."
