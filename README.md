@@ -4,6 +4,10 @@
 За основу был взят SS220.
 В скором времени репозиторий перейдет на SS220, но всё будет зависеть от Азиза.
 
+Наш дискорд
+
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/qqSM4wh)
+
 [![CI](https://github.com/ParadiseSS13/Paradise/workflows/CI/badge.svg)](https://github.com/ParadiseSS13/Paradise/actions?query=workflow%3ACI)
 [![Render Nanomaps](https://github.com/ParadiseSS13/Paradise/workflows/Render%20Nanomaps/badge.svg)](https://github.com/ParadiseSS13/Paradise/actions?query=workflow%3A%22Render+Nanomaps%22)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/paradisess13/paradise.svg)](http://isitmaintained.com/project/paradisess13/paradise "Average time to resolve an issue")
@@ -13,13 +17,13 @@
 [![forthebadge](http://forthebadge.com/images/badges/contains-technical-debt.svg)](http://forthebadge.com)
 [![forthebadge](http://forthebadge.com/images/badges/fuck-it-ship-it.svg)](http://forthebadge.com)
 
-# Useful Links
+# Полезные ссылки
 
 - [Website](https://www.paradisestation.org/)
 - [Discord](https://discordapp.com/invite/YJDsXFE)
 - [Documentation](https://codedocs.paradisestation.org)
 
-# Useful Documents
+# Документация
 
 - [Installation Guide](.github/DOWNLOADING.md)
 - [Contribution Guide](.github/CONTRIBUTING.md)
