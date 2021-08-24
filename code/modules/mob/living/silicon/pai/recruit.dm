@@ -188,54 +188,54 @@ GLOBAL_DATUM_INIT(paiController, /datum/paiController, new) // Global handler fo
 
 	dat += {"
 	<body>
-		<b><font size="3px">pAI Personality Configuration</font></b>
-		<p class="top">Please configure your pAI personality's options. Remember, what you enter here could determine whether or not the user requesting a personality chooses you!</p>
+		<b><font size="3px">Конфигурация личности пИИ</font></b>
+		<p class="top">Пожалуйста, настройте параметры вашей личности пИИ. Помните, что то, что вы вводите здесь, может определить, выберет ли вас пользователь, запрашивающий личность, или нет!</p>
 
 		<table>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=[UID()];option=name;new=1;candidate=[candidate.UID()]'>Name</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[UID()];option=name;new=1;candidate=[candidate.UID()]'>Имя</a>:</th>
 				<td class="desc">[candidate.name]&nbsp;</td>
 			</tr>
 			<tr class="d1">
-				<td>What you plan to call yourself. Suggestions: Any character name you would choose for a station character OR an AI.</td>
+				<td>Как ты планируешь себя называть. Предложение: Любое имя персонажа, которое вы выбрали бы для персонажа станции или ИИ.</td>
 			</tr>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=[UID()];option=desc;new=1;candidate=[candidate.UID()]'>Description</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[UID()];option=desc;new=1;candidate=[candidate.UID()]'>Описание</a>:</th>
 				<td class="desc">[candidate.description]&nbsp;</td>
 			</tr>
 			<tr class="d1">
-				<td>What sort of pAI you typically play; your mannerisms, your quirks, etc. This can be as sparse or as detailed as you like.</td>
+				<td>Как вы обычно играете за пИИ; ваши манеры, ваши причуды и т.д. Это может быть настолько скудным или подробным, насколько вам нравится.</td>
 			</tr>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=[UID()];option=role;new=1;candidate=[candidate.UID()]'>Preferred Role</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[UID()];option=role;new=1;candidate=[candidate.UID()]'>Предпочитаемая Роль</a>:</th>
 				<td class="desc">[candidate.role]&nbsp;</td>
 			</tr>
 			<tr class="d1">
-				<td>Do you like to partner with sneaky social ninjas? Like to help security hunt down thugs? Enjoy watching an engineer's back while he saves the station yet again? This doesn't have to be limited to just station jobs. Pretty much any general descriptor for what you'd like to be doing works here.</td>
+				<td>Вам нравится сотрудничать с подлыми социальными ниндзя? Хотите помочь службе безопасности выследить головорезов? Нравится наблюдать за спиной инженера, пока он снова спасает станцию? Это не должно ограничиваться только работой на станции. Здесь работает практически любой общий дескриптор того, что вы хотели бы делать.</td>
 			</tr>
 			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=[UID()];option=ooc;new=1;candidate=[candidate.UID()]'>OOC Comments</a>:</th>
+				<th rowspan="2"><a href='byond://?src=[UID()];option=ooc;new=1;candidate=[candidate.UID()]'>OOC Комментарий</a>:</th>
 				<td class="desc">[candidate.comments]&nbsp;</td>
 			</tr>
 			<tr class="d1">
-				<td>Anything you'd like to address specifically to the player reading this in an OOC manner. \"I prefer more serious RP.\", \"I'm still learning the interface!\", etc. Feel free to leave this blank if you want.</td>
+				<td>Все, что вы хотели бы адресовать конкретно игроку, читающему это в OOC манере. \"Я предпочитаю более серьезный РП.\", \"Я все еще изучаю интерфейс!\", и т.д. Не стесняйтесь оставлять это поле пустым, если хотите.</td>
 			</tr>
 		</table>
 		<br>
 		<table>
 			<tr>
 				<td class="button">
-					<a href='byond://?src=[UID()];option=save;new=1;candidate=[candidate.UID()]' class="button">Save Personality</a>
+					<a href='byond://?src=[UID()];option=save;new=1;candidate=[candidate.UID()]' class="button">Сохранить Личность</a>
 				</td>
 			</tr>
 			<tr>
 				<td class="button">
-					<a href='byond://?src=[UID()];option=load;new=1;candidate=[candidate.UID()]' class="button">Load Personality</a>
+					<a href='byond://?src=[UID()];option=load;new=1;candidate=[candidate.UID()]' class="button">Загрузить Личность</a>
 				</td>
 			</tr>
 		</table><br>
 		<table>
-			<td class="button"><a href='byond://?src=[UID()];option=submit;new=1;candidate=[candidate.UID()]' class="button"><b><font size="4px">Submit Personality</font></b></a></td>
+			<td class="button"><a href='byond://?src=[UID()];option=submit;new=1;candidate=[candidate.UID()]' class="button"><b><font size="4px">Представить Личность</font></b></a></td>
 		</table><br>
 
 	</body>

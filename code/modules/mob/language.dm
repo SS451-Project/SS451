@@ -171,7 +171,7 @@
 	name = "Siik'tajr"
 	desc = "Традиционно используемый язык Адомай, состоящий из выразительного воя и мурчания. Родной язык Таяран."
 	speech_verb = "мурчит"
-	ask_verb = "мурчит"
+	ask_verb = "мяукает"
 	exclaim_verbs = list("вопит")
 	colour = "tajaran"
 	key = "j"

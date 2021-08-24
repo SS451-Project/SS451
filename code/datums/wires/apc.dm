@@ -1,7 +1,7 @@
 /datum/wires/apc
 	holder_type = /obj/machinery/power/apc
 	wire_count = 4
-	proper_name = "ЛКП"
+	proper_name = "APC"
 	window_x = 355
 	window_y = 97
 

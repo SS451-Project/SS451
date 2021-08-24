@@ -65,22 +65,22 @@
 			if(check_rights((R_EVENT|R_SERVER),0))
 				dat += {"
 					<center>
-					<h2><B>IC Events</B></h2>
-					<b>Teams</b><br>
-					<A href='?src=[UID()];secretsfun=infiltrators_syndicate'>Send SIT - Syndicate Infiltration Team</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=striketeam_syndicate'>Send in a Syndie Strike Team</A>&nbsp;&nbsp;
-					<BR><A href='?src=[UID()];secretsfun=striketeam'>Send in the Deathsquad</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=honksquad'>Send in a HONKsquad</A><BR>
-					<A href='?src=[UID()];secretsfun=gimmickteam'>Send in a Gimmick Team</A><BR>
-					<b>Change Security Level</b><BR>
-					<A href='?src=[UID()];secretsfun=securitylevel0'>Security Level - Green</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=securitylevel1'>Security Level - Blue</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=securitylevel2'>Security Level - Red</A><br>
-					<A href='?src=[UID()];secretsfun=securitylevel3'>Security Level - Gamma</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=securitylevel4'>Security Level - Epsilon</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=securitylevel5'>Security Level - Delta</A><BR>
-					<b>Create Weather</b><BR>
-					<A href='?src=[UID()];secretsfun=weatherashstorm'>Weather - Ash Storm</A>&nbsp;&nbsp;
+					<h2><B>IC События</B></h2>
+					<b>Команды</b><br>
+					<A href='?src=[UID()];secretsfun=infiltrators_syndicate'>Послать ДОС - Диверсионный Отряд Синдиката</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=striketeam_syndicate'>Послать УОС - Ударный Отряд Синдиката</A>&nbsp;&nbsp;
+					<BR><A href='?src=[UID()];secretsfun=striketeam'>Послать ОС - Отряд Смерти</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=honksquad'>Послать ХОНКОтряд</A><BR>
+					<A href='?src=[UID()];secretsfun=gimmickteam'>Послать команду из...</A><BR>
+					<b>Изменение Уровня Безопасности</b><BR>
+					<A href='?src=[UID()];secretsfun=securitylevel0'>Зелёный</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=securitylevel1'>Синий</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=securitylevel2'>Красный</A><br>
+					<A href='?src=[UID()];secretsfun=securitylevel3'>Гамма</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=securitylevel4'>Эпсилон</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=securitylevel5'>Дельта</A><BR>
+					<b>Создать погоду</b><BR>
+					<A href='?src=[UID()];secretsfun=weatherashstorm'>Пепельная буря</A>&nbsp;&nbsp;
 					<BR>
 					</center>"}
 
@@ -88,48 +88,48 @@
 			if(check_rights((R_SERVER|R_EVENT),0))
 				dat += {"
 					<center>
-					<h2><B>OOC Events</B></h2>
+					<h2><B>OOC События</B></h2>
 					<b>Thunderdome</b><br>
-					<A href='?src=[UID()];secretsfun=tdomestart'>Start a Thunderdome match</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=tdomereset'>Reset Thunderdome to default state</A><BR><br>
-					<b>ERT Armory</b><br>
-					<A href='?src=[UID()];secretsfun=armotyreset'>Reset Armory to default state</A><BR><br>
-					<A href='?src=[UID()];secretsfun=armotyreset1'>Set Armory to 1 option</A><BR><br>
-					<A href='?src=[UID()];secretsfun=armotyreset2'>Set Armory to 2 option</A><BR><br>
-					<A href='?src=[UID()];secretsfun=armotyreset3'>Set Armory to 3 option</A><BR><br>
-					<b>Clothing</b><br>
-					<A href='?src=[UID()];secretsfun=sec_clothes'>Remove 'internal' clothing</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=sec_all_clothes'>Remove ALL clothing</A><BR>
+					<A href='?src=[UID()];secretsfun=tdomestart'>Начать матч Thunderdome</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=tdomereset'>Сбросить матч Thunderdome в состояние по умолчанию</A><BR><br>
+					<b>Арсенал ОБР</b><br>
+					<A href='?src=[UID()];secretsfun=armotyreset'>Сбросить арсенал в состояние по умолчанию</A><BR><br>
+					<A href='?src=[UID()];secretsfun=armotyreset1'>Установить 1 вариант арсенала</A><BR><br>
+					<A href='?src=[UID()];secretsfun=armotyreset2'>Установить 2 вариант арсенала</A><BR><br>
+					<A href='?src=[UID()];secretsfun=armotyreset3'>Установить 3 вариант арсенала</A><BR><br>
+					<b>Одежда (НЕЛЬЗЯ ОТМЕНИТЬ)</b><br>
+					<A href='?src=[UID()];secretsfun=sec_clothes'>Убрать верхнюю одежду</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=sec_all_clothes'>Убрать ВСЮ одежду</A><BR>
 					<b>TDM</b><br>
-					<A href='?src=[UID()];secretsfun=traitor_all'>Everyone is the traitor</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=onlyone'>There can only be one!</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=onlyme'>There can only be me!</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=traitor_all'>Каждый из нас - предатель!</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=onlyone'>Выживит только один!</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=onlyme'>Здесь могу быть только Я!</A>&nbsp;&nbsp;
 					<A href='?src=[UID()];secretsfun=onlyoneteam'>Dodgeball (TDM)!</A><BR>
-					<b>Round-enders</b><br>
-					<A href='?src=[UID()];secretsfun=floorlava'>The floor is lava! (DANGEROUS: extremely lame)</A><BR>
-					<A href='?src=[UID()];secretsfun=fakelava'>The floor is fake-lava! (non-harmful)</A><BR>
-					<A href='?src=[UID()];secretsfun=monkey'>Turn all humans into monkeys</A><BR>
-					<A href='?src=[UID()];secretsfun=fakeguns'>Make all items look like guns</A><BR>
-					<A href='?src=[UID()];secretsfun=prisonwarp'>Warp all Players to Prison</A><BR>
-					<A href='?src=[UID()];secretsfun=stupify'>Make all players stupid</A><BR>
-					<b>Misc</b><br>
-					<A href='?src=[UID()];secretsfun=sec_classic1'>Remove firesuits, grilles, and pods</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=tripleAI'>Triple AI mode (needs to be used in the lobby)</A><BR>
-					<A href='?src=[UID()];secretsfun=flicklights'>Ghost Mode</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=schoolgirl'>Japanese Animes Mode</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=eagles'>Egalitarian Station Mode</A><BR>
-					<A href='?src=[UID()];secretsfun=guns'>Summon Guns</A>&nbsp;&nbsp;
-					<A href='?src=[UID()];secretsfun=magic'>Summon Magic</A>
+					<b>На конец раунда</b><br>
+					<A href='?src=[UID()];secretsfun=floorlava'>Пол - это лава! (ОПАСНО: крайне неубедительно)</A><BR>
+					<A href='?src=[UID()];secretsfun=fakelava'>Пол - это фальшивая лава! (не причиняет вреда)</A><BR>
+					<A href='?src=[UID()];secretsfun=monkey'>Превратить всех в обезьян</A><BR>
+					<A href='?src=[UID()];secretsfun=fakeguns'>Все предметы принимают вид пистолета</A><BR>
+					<A href='?src=[UID()];secretsfun=prisonwarp'>Телепортировать всех в тюрьму</A><BR>
+					<A href='?src=[UID()];secretsfun=stupify'>Сделать всех тупыми</A><BR>
+					<b>Прочее</b><br>
+					<A href='?src=[UID()];secretsfun=sec_classic1'>Удалить противопожарные костюмы, решетки и капсулы</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=tripleAI'>Режим тройного искусственного интеллекта (необходимо использовать в лобби)</A><BR>
+					<A href='?src=[UID()];secretsfun=flicklights'>Режим призрака</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=schoolgirl'>Китайский Аниме Режим</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=eagles'>Эгалитарный режим Станции</A><BR>
+					<A href='?src=[UID()];secretsfun=guns'>Призвать Оружие</A>&nbsp;&nbsp;
+					<A href='?src=[UID()];secretsfun=magic'>Призвать Магию</A>
 					<BR>
-					<A href='?src=[UID()];secretsfun=rolldice'>Roll the Dice</A><BR>
+					<A href='?src=[UID()];secretsfun=rolldice'>Бросить кости</A><BR>
 					<BR>
 					<BR>
-					<A href='?src=[UID()];secretsfun=moveferry'>Move Ferry</A><BR>
-					<A href='?src=[UID()];secretsfun=moveminingshuttle'>Move Mining Shuttle</A><BR>
-					<A href='?src=[UID()];secretsfun=movelaborshuttle'>Move Labor Shuttle</A><BR>
+					<A href='?src=[UID()];secretsfun=moveferry'>Сдвинуть переправу</A><BR>
+					<A href='?src=[UID()];secretsfun=moveminingshuttle'>Переместить Шахтерский Шаттл</A><BR>
+					<A href='?src=[UID()];secretsfun=movelaborshuttle'>Переместить Рабочий Шаттл</A><BR>
 					<BR>
 					</center>"}
 	dat += "</center></body></html>"
-	var/datum/browser/popup = new(usr, "secrets", "<div align='center'>Admin Secrets</div>", 630, 670)
+	var/datum/browser/popup = new(usr, "secrets", "<div align='center'>Секреты</div>", 630, 670)
 	popup.set_content(dat)
 	popup.open(0)

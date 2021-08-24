@@ -180,16 +180,16 @@
 		var/instability = DEFAULT_GENE_STABILITY - gene_stability
 		if(prob(instability * 0.1))
 			adjustFireLoss(min(5, instability * 0.67))
-			to_chat(src, "<span class='danger'>You feel like your skin is burning and bubbling off!</span>")
+			to_chat(src, "<span class='danger'>Ты чувствуешь, как твоя кожа горит и пузырится!</span>")
 		if(gene_stability < GENETIC_DAMAGE_STAGE_2)
 			if(prob(instability * 0.83))
 				adjustCloneLoss(min(4, instability * 0.05))
-				to_chat(src, "<span class='danger'>You feel as if your body is warping.</span>")
+				to_chat(src, "<span class='danger'>Ты чувствуешь, как будто твоя тело деформируется.</span>")
 			if(prob(instability * 0.1))
 				adjustToxLoss(min(5, instability * 0.67))
-				to_chat(src, "<span class='danger'>You feel weak and nauseous.</span>")
+				to_chat(src, "<span class='danger'>Ты чувствуешь слабость и тошноту.</span>")
 			if(gene_stability < GENETIC_DAMAGE_STAGE_3 && prob(1))
-				to_chat(src, "<span class='biggerdanger'>You feel incredibly sick... Something isn't right!</span>")
+				to_chat(src, "<span class='biggerdanger'>Ты чувствуешь себя невероятно больным... Что-то не так!</span>")
 				spawn(300)
 					if(gene_stability < GENETIC_DAMAGE_STAGE_3)
 						gib()
@@ -215,7 +215,7 @@
 					if(prob(5))
 						radiation = max(radiation-5, 0)
 						Weaken(3)
-						to_chat(src, "<span class='danger'>You feel weak.</span>")
+						to_chat(src, "<span class='danger'>Ты чувствуешь слабость.</span>")
 						emote("collapse")
 
 				if(75 to 100)
@@ -224,7 +224,7 @@
 					adjustFireLoss(2)
 					autopsy_damage = 4
 					if(prob(2))
-						to_chat(src, "<span class='danger'>You mutate!</span>")
+						to_chat(src, "<span class='danger'>Ты мутировал!</span>")
 						randmutb(src)
 						domutcheck(src, null)
 
@@ -234,7 +234,7 @@
 					adjustFireLoss(3)
 					autopsy_damage = 5
 					if(prob(4))
-						to_chat(src, "<span class='danger'>You mutate!</span>")
+						to_chat(src, "<span class='danger'>Ты мутировал!</span>")
 						randmutb(src)
 						domutcheck(src, null)
 
@@ -244,14 +244,14 @@
 					adjustFireLoss(3)
 					autopsy_damage = 5
 					if(prob(6))
-						to_chat(src, "<span class='danger'>You mutate!</span>")
+						to_chat(src, "<span class='danger'>Ты мутировал!!</span>")
 						randmutb(src)
 						domutcheck(src, null)
 
 			if(autopsy_damage)
 				var/obj/item/organ/external/chest/chest = get_organ("chest")
 				if(chest)
-					chest.add_autopsy_data("Radiation Poisoning", autopsy_damage)
+					chest.add_autopsy_data("Радиационное Отравление", autopsy_damage)
 
 /mob/living/carbon/human/breathe()
 	if(!dna.species.breathe(src))
@@ -635,15 +635,15 @@
 			metabolism_efficiency = 1
 		else if(nutrition > NUTRITION_LEVEL_FED && satiety > 80)
 			if(metabolism_efficiency != 1.25)
-				to_chat(src, "<span class='notice'>You feel vigorous.</span>")
+				to_chat(src, "<span class='notice'>Ты чувствуешь себя бодрым.</span>")
 				metabolism_efficiency = 1.25
 		else if(nutrition < NUTRITION_LEVEL_STARVING + 50)
 			if(metabolism_efficiency != 0.8)
-				to_chat(src, "<span class='notice'>You feel sluggish.</span>")
+				to_chat(src, "<span class='notice'>Ты чувствуешь себя вялым.</span>")
 			metabolism_efficiency = 0.8
 		else
 			if(metabolism_efficiency == 1.25)
-				to_chat(src, "<span class='notice'>You no longer feel vigorous.</span>")
+				to_chat(src, "<span class='notice'>Ты больше не чувствуешь себя бодрым.</span>")
 			metabolism_efficiency = 1
 
 	if(drowsyness)
@@ -784,7 +784,7 @@
 				if(-99 to -80)
 					adjustOxyLoss(1)
 					if(prob(4))
-						to_chat(src, "<span class='userdanger'>Your chest hurts...</span>")
+						to_chat(src, "<span class='userdanger'>У тебя болит грудь...</span>")
 						Paralyse(2)
 						var/datum/disease/D = new /datum/disease/critical/heart_failure
 						ForceContractDisease(D)
@@ -797,7 +797,7 @@
 						var/datum/disease/D = new /datum/disease/critical/heart_failure
 						ForceContractDisease(D)
 					if(prob(6))
-						to_chat(src, "<span class='userdanger'>You feel [pick("horrible pain", "awful", "like shit", "absolutely awful", "like death", "like you are dying", "nothing", "warm", "sweaty", "tingly", "really, really bad", "horrible")]!</span>")
+						to_chat(src, "<span class='userdanger'>Ты чувствуешь [pick("ужасную боль", "себя отвратительно", "себя как дерьмо", "себя абсолютно хуёво", "себя, как саму смерть", "будто ты умираешь", "абсолютно ничего", "жар", "наступающий пот", "покалывание", "очень, очень плохо", "ужасно")]!</span>")
 						Weaken(3)
 					if(prob(3))
 						Paralyse(2)
@@ -807,7 +807,7 @@
 						var/datum/disease/D = new /datum/disease/critical/shock
 						ForceContractDisease(D)
 					if(prob(5))
-						to_chat(src, "<span class='userdanger'>You feel [pick("terrible", "awful", "like shit", "sick", "numb", "cold", "sweaty", "tingly", "horrible")]!</span>")
+						to_chat(src, "<span class='userdanger'>Ты чувствуешь [pick("тяжесть", "себя отвратно", "себя как дерьмо", "больным", "что онемел", "замёрзшим", "наступающий пот", "покалывание", "ужасно")]!</span>")
 						Weaken(3)
 
 /mob/living/carbon/human/update_health_hud()

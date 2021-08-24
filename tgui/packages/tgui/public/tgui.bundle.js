@@ -3850,7 +3850,7 @@
                   resizable: !0,
                   children: (0, o.createComponentVNode)(2, r.Window.Content, {
                       scrollable: !0,
-                      children: ["notFound" === e && (0, o.createVNode)(1, "div", null, [(0, o.createTextVNode)("Interface "), (0, o.createVNode)(1, "b", null, t, 0), (0, o.createTextVNode)(" was not found.")], 4), "missingExport" === e && (0, o.createVNode)(1, "div", null, [(0, o.createTextVNode)("Interface "), (0, o.createVNode)(1, "b", null, t, 0), (0, o.createTextVNode)(" is missing an export.")], 4)]
+                      children: ["notFound" === e && (0, o.createVNode)(1, "div", null, [(0, o.createTextVNode)("Интерфейс "), (0, o.createVNode)(1, "b", null, t, 0), (0, o.createTextVNode)(" не найден. Свяжитесь с Тех. поддержкой Nanotrasen.")], 4), "missingExport" === e && (0, o.createVNode)(1, "div", null, [(0, o.createTextVNode)("Interface "), (0, o.createVNode)(1, "b", null, t, 0), (0, o.createTextVNode)(" is missing an export.")], 4)]
                   })
               })
           }

@@ -966,19 +966,19 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 
 
 /datum/supply_packs/science/robotics/mecha_ripley
-	name = "Платы Для Меха Ripley APLU"
+	name = "Платы Для Меха Рипли APLU"
 	contains = list(/obj/item/book/manual/ripley_build_and_repair,
 					/obj/item/circuitboard/mecha/ripley/main, //TEMPORARY due to lack of circuitboard printer
 					/obj/item/circuitboard/mecha/ripley/peripherals) //TEMPORARY due to lack of circuitboard printer
 	cost = 30
-	containername = "платы для меха Ripley APLU"
+	containername = "платы для меха Рипли APLU"
 
 /datum/supply_packs/science/robotics/mecha_odysseus
-	name = "Платы Для Медицинского Меха Odysseus"
+	name = "Платы Для Медицинского Меха Одиссей"
 	contains = list(/obj/item/circuitboard/mecha/odysseus/peripherals, //TEMPORARY due to lack of circuitboard printer
 					/obj/item/circuitboard/mecha/odysseus/main) //TEMPORARY due to lack of circuitboard printer
 	cost = 25
-	containername = "платы для медицинского меха Odysseus"
+	containername = "платы для медицинского меха Одиссей"
 
 /datum/supply_packs/science/plasma
 	name = "Набор Для Создания СВУ"

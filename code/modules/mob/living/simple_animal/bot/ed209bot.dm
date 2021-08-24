@@ -202,7 +202,7 @@
 		if(user)
 			to_chat(user, "<span class='warning'>You short out [src]'s target assessment circuits.</span>")
 			oldtarget_name = user.name
-		audible_message("<span class='danger'>[src] buzzes oddly!</span>")
+		audible_message("<span class='danger'>[src] странно жужжит!</span>")
 		declare_arrests = 0
 		icon_state = "[lasercolor]ed209[on]"
 		set_weapon()
@@ -369,7 +369,7 @@
 		else if(threatlevel >= 4)
 			target = C
 			oldtarget_name = C.name
-			speak("Уровень [threatlevel] предупреждение о нарушении!")
+			speak("Уровень [threatlevel] - предупреждение о нарушении!")
 			playsound(loc, pick('sound/voice/ed209_20sec.ogg', 'sound/voice/edplaceholder.ogg'), 50, 0)
 			visible_message("<b>[src]</b> указывает на [C.name]!")
 			mode = BOT_HUNT
@@ -386,7 +386,7 @@
 
 /mob/living/simple_animal/bot/ed209/explode()
 	walk_to(src,0)
-	visible_message("<span class='userdanger'>[src] blows apart!</span>")
+	visible_message("<span class='userdanger'>[src] разлетается на куски!</span>")
 	var/turf/Tsec = get_turf(src)
 
 	var/obj/item/ed209_assembly/Sa = new /obj/item/ed209_assembly(Tsec)
@@ -580,15 +580,15 @@
 	add_attack_logs(src, C, "stunned")
 	if(declare_arrests)
 		var/area/location = get_area(src)
-		speak("[arrest_type ? "Detaining" : "Arresting"] level [threat] scumbag <b>[C]</b> in [location].", radio_channel)
-	C.visible_message("<span class='danger'>[src] has stunned [C]!</span>",\
-							"<span class='userdanger'>[src] has stunned you!</span>")
+		speak("[arrest_type ? "Задерживаю" : "Арест"] [threat] уровень угрозы, ублюдка <b>[C]</b> в [location].", radio_channel)
+	C.visible_message("<span class='danger'>[src] оглушил [C]!</span>",\
+							"<span class='userdanger'>[src] оглушил тебя!</span>")
 
 /mob/living/simple_animal/bot/ed209/proc/cuff(mob/living/carbon/C)
 	mode = BOT_ARREST
 	playsound(loc, 'sound/weapons/cablecuff.ogg', 30, 1, -2)
-	C.visible_message("<span class='danger'>[src] is trying to put zipties on [C]!</span>",\
-						"<span class='userdanger'>[src] is trying to put zipties on you!</span>")
+	C.visible_message("<span class='danger'>[src] пытается застегнуть стяжки на [C]!</span>",\
+						"<span class='userdanger'>[src] пытается застегнуть стяжки на тебе!</span>")
 
 	spawn(60)
 		if( !Adjacent(C) || !isturf(C.loc) ) //if he's in a closet or not adjacent, we cancel cuffing.

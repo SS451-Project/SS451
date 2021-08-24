@@ -47,7 +47,7 @@
 ********************/
 /mob/living/silicon/proc/subsystem_crew_monitor()
 	set category = "Subsystems"
-	set name = "Crew Monitor"
+	set name = "Монитор Экипажа"
 	crew_monitor.ui_interact(usr, state = GLOB.self_state)
 
 /****************
