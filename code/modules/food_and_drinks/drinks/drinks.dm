@@ -111,23 +111,23 @@
 	. = ..()
 	if(in_range(user, src))
 		if(!reagents || reagents.total_volume == 0)
-			. += "<span class='notice'>[src] пуста!</span>"
+			. += "<span class='notice'>Пустой!</span>"
 		else if(reagents.total_volume <= volume/4)
-			. += "<span class='notice'>[src] почти пуста!</span>"
+			. += "<span class='notice'>Почти пустой!</span>"
 		else if(reagents.total_volume <= volume*0.66)
-			. += "<span class='notice'>[src] наполовину полон!</span>"// We're all optimistic, right?!
+			. += "<span class='notice'>Наполовину полон!</span>"// We're all optimistic, right?!
 
 		else if(reagents.total_volume <= volume*0.90)
-			. += "<span class='notice'>[src] почти полон!</span>"
+			. += "<span class='notice'>Почти полный!</span>"
 		else
-			. += "<span class='notice'>[src] полон!</span>"
+			. += "<span class='notice'>Полный!</span>"
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks. END
 ////////////////////////////////////////////////////////////////////////////////
 
 /obj/item/reagent_containers/food/drinks/trophy
-	name = "оловянный кубок"
+	name = "Оловянный кубок"
 	desc = "Каждый получит трофей."
 	icon_state = "pewter_cup"
 	w_class = WEIGHT_CLASS_TINY
@@ -142,7 +142,7 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/reagent_containers/food/drinks/trophy/gold_cup
-	name = "золотой кубок"
+	name = "Оолотой кубок"
 	desc = "Ты победитель!"
 	icon_state = "golden_cup"
 	w_class = WEIGHT_CLASS_BULKY
@@ -153,7 +153,7 @@
 	volume = 150
 
 /obj/item/reagent_containers/food/drinks/trophy/silver_cup
-	name = "серебряный кубок"
+	name = "Серебряный кубок"
 	desc = "Лучший неудачник!"
 	icon_state = "silver_cup"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -164,7 +164,7 @@
 	volume = 100
 
 /obj/item/reagent_containers/food/drinks/trophy/bronze_cup
-	name = "бронзовый кубок"
+	name = "Бронзовый кубок"
 	desc = "По крайней мере, ты занял место!"
 	icon_state = "bronze_cup"
 	w_class = WEIGHT_CLASS_SMALL
@@ -189,13 +189,13 @@
 	resistance_flags = FREEZE_PROOF
 
 /obj/item/reagent_containers/food/drinks/ice
-	name = "чашка со льдом"
+	name = "Чашка со льдом"
 	desc = "Осторожно, холодный лед. Не жуй."
 	icon_state = "icecup"
 	list_reagents = list("ice" = 30)
 
 /obj/item/reagent_containers/food/drinks/tea
-	name = "чай Duke Purple"
+	name = "Чай Duke Purple"
 	desc = "Оскорбление герцога Пурпурного - это оскорбление Космической Королевы! Любой порядочный джентльмен будет драться с тобой, если ты испортишь этот чай."
 	icon_state = "teacup"
 	item_state = "coffee"
@@ -207,7 +207,7 @@
 		reagents.add_reagent("mugwort", 3)
 
 /obj/item/reagent_containers/food/drinks/mugwort
-	name = "чай из полыни"
+	name = "Чай из полыни"
 	desc = "Горький травяной чай."
 	icon_state = "manlydorfglass"
 	item_state = "coffee"
@@ -222,7 +222,7 @@
 	resistance_flags = FREEZE_PROOF
 
 /obj/item/reagent_containers/food/drinks/chocolate
-	name = "горячий шоколад"
+	name = "Горячий шоколад"
 	desc = "Сделано в космической Швейцарии."
 	icon_state = "hot_coco"
 	item_state = "coffee"
@@ -230,13 +230,13 @@
 	resistance_flags = FREEZE_PROOF
 
 /obj/item/reagent_containers/food/drinks/weightloss
-	name = "коктейль для похудения"
+	name = "Коктейль для похудения"
 	desc = "Коктейль, предназначенная для снижения веса. Упаковка с гордостью заявляет, что она 'без ленточных червей'."
 	icon_state = "weightshake"
 	list_reagents = list("lipolicide" = 30, "chocolate" = 5)
 
 /obj/item/reagent_containers/food/drinks/dry_ramen
-	name = "чашка рамена"
+	name = "Чашка рамена"
 	desc = "Просто добавьте 10 мл воды и она самонагреется! Вкус, который напоминает вам о ваших школьных годах."
 	icon_state = "ramen"
 	item_state = "ramen"
@@ -248,14 +248,14 @@
 		reagents.add_reagent("enzyme", 3)
 
 /obj/item/reagent_containers/food/drinks/chicken_soup
-	name = "консервированный куриный суп"
+	name = "Консервированный куриный суп"
 	desc = "Вкусная и успокаивающая банка куриного супа с лапшой; точно так же, как мамаша-техник использовала его для микроволновки."
 	icon_state = "soupcan"
 	item_state = "soupcan"
 	list_reagents = list("chicken_soup" = 30)
 
 /obj/item/reagent_containers/food/drinks/sillycup
-	name = "бумажный стаканчик"
+	name = "Бумажный стаканчик"
 	desc = "Бумажный стаканчик с водой."
 	icon_state = "water_cup_e"
 	item_state = "coffee"
@@ -274,7 +274,7 @@
 //	icon states.
 
 /obj/item/reagent_containers/food/drinks/shaker
-	name = "шейкер"
+	name = "Шейкер"
 	desc = "Металлический шейкер для смешивания напитков."
 	icon_state = "shaker"
 	materials = list(MAT_METAL=1500)
@@ -282,76 +282,76 @@
 	volume = 100
 
 /obj/item/reagent_containers/food/drinks/flask
-	name = "фляжка"
+	name = "Фляжка"
 	desc = "Каждый хороший космонавт знает, что это хорошая идея - взять с собой пару пинт виски, куда бы они не отправились."
 	icon_state = "flask"
 	materials = list(MAT_METAL=250)
 	volume = 60
 
 /obj/item/reagent_containers/food/drinks/flask/barflask
-	name = "фляжка"
+	name = "Фляжка"
 	desc = "Для тех, кто не может побеспокоиться о том, чтобы потусоваться в баре и выпить."
 	icon_state = "barflask"
 
 /obj/item/reagent_containers/food/drinks/flask/gold
-	name = "фляжка капитана"
+	name = "Фляжка капитана"
 	desc = "Золотая фляжка, принадлежащая капитану."
 	icon_state = "flask_gold"
 	materials = list(MAT_GOLD=500)
 
 /obj/item/reagent_containers/food/drinks/flask/detflask
-	name = "фляжка детектива"
+	name = "Фляжка детектива"
 	desc = "Единственный настоящий друг детектива."
 	icon_state = "detflask"
 	list_reagents = list("whiskey" = 30)
 
 /obj/item/reagent_containers/food/drinks/flask/hand_made
-	name = "самодельная фляжка"
+	name = "Самодельная фляжка"
 	desc = "Деревянная фляжка с серебряной крышкой и дном. На нем матовая темно-синяя краска с выгравированными черными инициалами 'W.H.'."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "williamhackett"
 	materials = list()
 
 /obj/item/reagent_containers/food/drinks/flask/thermos
-	name = "винтажный термос"
+	name = "Винтажный термос"
 	desc = "Старый термос со тусклым блеском."
 	icon_state = "thermos"
 	volume = 50
 
 /obj/item/reagent_containers/food/drinks/flask/shiny
-	name = "shiny flask"
-	desc = "A shiny metal flask. It appears to have a Greek symbol inscribed on it."
+	name = "Блестящая фляжка"
+	desc = "Блестящая металлическая фляжка. На нем, похоже, начертан греческий символ."
 	icon_state = "shinyflask"
 	volume = 50
 
 /obj/item/reagent_containers/food/drinks/flask/lithium
-	name = "lithium flask"
-	desc = "A flask with a Lithium Atom symbol on it."
+	name = "Литиевая фляжка"
+	desc = "Фляжка с символом атома лития на ней."
 	icon = 'icons/obj/custom_items.dmi'
 	icon_state = "lithiumflask"
 	volume = 50
 
 
 /obj/item/reagent_containers/food/drinks/britcup
-	name = "чашка"
+	name = "Чашка"
 	desc = "Чашка с изображенным на ней британским флагом."
 	icon_state = "britcup"
 	volume = 30
 
 /obj/item/reagent_containers/food/drinks/bag
-	name = "пакет для напитков"
-	desc = "Обычно кладут в винные коробки или спускают штаны на стадионах."
+	name = "Пакет для напитков"
+	desc = "Обычно кладут в винные коробки или когда спускают туда."
 	icon_state = "goonbag"
 	volume = 70
 
 /obj/item/reagent_containers/food/drinks/bag/goonbag
-	name = "гунбэг из специального выпуска Blue Toolbox"
+	name = "Пакет для напитков из специального выпуска Blue Toolbox"
 	desc = "Самый дешевый винный напиток из известных природе. Вино из под земли, где бродят черти."
 	icon_state = "goonbag"
 	list_reagents = list("wine" = 70)
 
 /obj/item/reagent_containers/food/drinks/oilcan
-	name = "канистра с маслом"
+	name = "Канистра с маслом"
 	desc = "Содержит масло, предназначенное для использования на киборгах, роботах и других синтетах."
 	icon = 'icons/goonstation/objects/oil.dmi'
 	icon_state = "oilcan"
