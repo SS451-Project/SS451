@@ -29150,7 +29150,7 @@
                           width: "50%",
                           children: (0, o.createComponentVNode)(2, a.LabeledList, {
                               children: [(0, o.createComponentVNode)(2, a.LabeledList.Item, {
-                                  label: "Temperature",
+                                  label: "Температура",
                                   children: (0, o.createComponentVNode)(2, a.ProgressBar, {
                                       value: L,
                                       ranges: {
@@ -36277,14 +36277,14 @@
                               labelColor: e.seen_color,
                               color: e.seen_color,
                               buttons: (0, o.createFragment)([(0, o.createComponentVNode)(2, a.Button, {
-                                  content: e.cut ? "Mend" : "Cut",
+                                  content: e.cut ? "Починить" : "Отрезать",
                                   onClick: function() {
                                       return i("cut", {
                                           wire: e.color
                                       })
                                   }
                               }), (0, o.createComponentVNode)(2, a.Button, {
-                                  content: "Pulse",
+                                  content: "Пульсы",
                                   onClick: function() {
                                       return i("pulse", {
                                           wire: e.color

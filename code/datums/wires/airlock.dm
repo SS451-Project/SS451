@@ -30,13 +30,13 @@
 	var/obj/machinery/door/airlock/A = holder
 	var/haspower = A.arePowerSystemsOn()
 
-	. += "The door bolts [A.locked ? "have fallen!" : "look up."]"
-	. += "The door bolt lights are [(A.lights && haspower) ? "on." : "off!"]"
-	. += "The test light is [haspower ? "on." : "off!"]"
-	. += "The 'AI control allowed' light is [(A.aiControlDisabled == AICONTROLDISABLED_OFF && !A.emagged && haspower) ? "on" : "off"]."
-	. += "The 'Check Wiring' light is [(A.safe == 0 && haspower) ? "on" : "off"]."
-	. += "The 'Check Timing Mechanism' light is [(A.normalspeed == 0 && haspower) ? "on" : "off"]."
-	. += "The emergency lights are [(A.emergency && haspower) ? "on" : "off"]."
+	. += "Болты - [A.locked ? "спущены!" : "подняты."]"
+	. += "Диод дверных болтов - [(A.lights && haspower) ? "вкл." : "выкл!"]"
+	. += "Тест индикатор - [haspower ? "вкл." : "выкл!"]"
+	. += "Диод 'Разрешен контроль ИИ' - [(A.aiControlDisabled == AICONTROLDISABLED_OFF && !A.emagged && haspower) ? "вкл" : "выкл"]."
+	. += "Диод 'Проверка проводки' - [(A.safe == 0 && haspower) ? "вкл" : "выкл"]."
+	. += "Диод 'Контроль времени' - [(A.normalspeed == 0 && haspower) ? "вкл" : "выкл"]."
+	. += "Аварийный диод - [(A.emergency && haspower) ? "вкл" : "выкл"]."
 
 /datum/wires/airlock/on_cut(wire, mend)
 	var/obj/machinery/door/airlock/A = holder
@@ -127,9 +127,9 @@
 			//raises them if they are down (only if power's on)
 			if(!A.locked)
 				if(A.lock())
-					A.audible_message("<span class='italics'>You hear a click from the bottom of the door.</span>", hearing_distance =  1)
+					A.audible_message("<span class='italics'>Вы слышите щелчок снизу двери.</span>", hearing_distance =  1)
 			else if(A.unlock())
-				A.audible_message("<span class='italics'>You hear a click from the bottom of the door.</span>", hearing_distance =  1)
+				A.audible_message("<span class='italics'>Вы слышите щелчок снизу двери.</span>", hearing_distance =  1)
 
 		if(WIRE_BACKUP_POWER1)
 			//two wires for backup power. Sending a pulse through either one causes a breaker to trip, but this does not disable it unless main power is down too (in which case it is disabled for 1 minute or however long it takes main power to come back, whichever is shorter).

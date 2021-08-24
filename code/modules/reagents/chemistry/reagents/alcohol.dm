@@ -396,7 +396,7 @@
 /datum/reagent/consumable/ethanol/vodkamartini
 	name = "Vodka Martini"
 	id = "vodkamartini"
-	description = "Водка с джином. Не совсем так, как 007 понравилось, но все равно вкусно".
+	description = "Водка с джином. Не совсем так, как 007 понравилось, но все равно вкусно."
 	reagent_state = LIQUID
 	color = "#664300" // rgb: 102, 67, 0
 	alcohol_perc = 0.4

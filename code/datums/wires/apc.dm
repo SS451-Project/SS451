@@ -14,7 +14,7 @@
 	var/obj/machinery/power/apc/A = holder
 	. += "ЛКП [A.locked ? "за" : "раз"]блокирован."
 	. += A.shorted ? "Питание ЛКП было закорочено." : "ЛКП работает исправно!"
-	. += "The 'AI control allowed' light is [A.aidisabled ? "off" : "on"]."
+	. += "Диод 'Разрешен контроль ИИ' - [A.aidisabled ? "выкл" : "вкл"]."
 
 
 /datum/wires/apc/interactable(mob/user)

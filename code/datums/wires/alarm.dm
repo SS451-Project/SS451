@@ -22,9 +22,9 @@
 /datum/wires/alarm/get_status()
 	. = ..()
 	var/obj/machinery/alarm/A = holder
-	. += "The Air Alarm is [A.locked ? "" : "un"]locked."
-	. += "The Air Alarm is [(A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "offline." : "working properly!"]"
-	. += "The 'AI control allowed' light is [A.aidisabled ? "off" : "on"]."
+	. += "Воздушная cигнализация [A.locked ? "за" : "раз"]блокирована."
+	. += "Воздушная cигнализация [(A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "отключена." : "работает исправно!"]"
+	. += "Диод 'Разрешен контроль ИИ' - [A.aidisabled ? "выкл" : "вкл"]."
 
 /datum/wires/alarm/on_cut(wire, mend)
 	var/obj/machinery/alarm/A = holder
