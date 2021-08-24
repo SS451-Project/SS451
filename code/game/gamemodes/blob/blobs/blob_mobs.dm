@@ -41,7 +41,7 @@
 
 /mob/living/simple_animal/hostile/blob/blobspore
 	name = "blob"
-	desc = "Some blob thing."
+	desc = "Какой-то блоб."
 	icon_state = "blobpod"
 	icon_living = "blobpod"
 	health = 40
@@ -91,7 +91,7 @@
 	maxHealth += 40
 	health = maxHealth
 	name = "blob zombie"
-	desc = "A shambling corpse animated by the blob."
+	desc = "Неуклюжий труп, оживленный блобом."
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	icon = H.icon
@@ -104,7 +104,7 @@
 	update_icons()
 	H.forceMove(src)
 	oldguy = H
-	visible_message("<span class='warning'>The corpse of [H.name] suddenly rises!</span>")
+	visible_message("<span class='warning'>Труп [H.name] внезапно восстает!</span>")
 
 /mob/living/simple_animal/hostile/blob/blobspore/death(gibbed)
 	// Only execute the below if we successfuly died
@@ -159,7 +159,7 @@
 
 /mob/living/simple_animal/hostile/blob/blobbernaut
 	name = "blobbernaut"
-	desc = "Some HUGE blob thing."
+	desc = "Какой-то ОГРОМНЫЙ блоб"
 	icon_state = "blobbernaut"
 	icon_living = "blobbernaut"
 	icon_dead = "blobbernaut_dead"
@@ -207,15 +207,15 @@
 
 /mob/living/simple_animal/hostile/blob/blobbernaut/verb/communicate_overmind()
 	set category = "Blobbernaut"
-	set name = "Blob Telepathy"
-	set desc = "Send a message to the Overmind"
+	set name = "Блоб Телепатия"
+	set desc = "Отправьте сообщение Высшему Разуму"
 
 	if(stat != DEAD)
 		blob_talk()
 
 /mob/living/simple_animal/hostile/blob/blobbernaut/proc/blob_talk()
-	var/message = input(src, "Announce to the overmind", "Blob Telepathy")
-	var/rendered = "<font color=\"#EE4000\"><i><span class='game say'>Blob Telepathy, <span class='name'>[name]([overmind])</span> <span class='message'>states, \"[message]\"</span></span></i></font>"
+	var/message = input(src, "Объявите высшему разуму", "Блоб Телепатия")
+	var/rendered = "<font color=\"#EE4000\"><i><span class='game say'>Блоб Телепатия, <span class='name'>[name]([overmind])</span> <span class='message'>заявляет, \"[message]\"</span></span></i></font>"
 	if(message)
 		for(var/mob/M in GLOB.mob_list)
 			if(isovermind(M) || isobserver(M) || istype((M), /mob/living/simple_animal/hostile/blob/blobbernaut))
