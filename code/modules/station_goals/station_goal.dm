@@ -9,11 +9,11 @@
 	var/required_crew = 10
 	var/list/gamemode_blacklist = list()
 	var/completed = FALSE
-	var/report_message = "Complete this goal."
+	var/report_message = "Выполните эту цель."
 
 /datum/station_goal/proc/send_report()
-	GLOB.priority_announcement.Announce("Priority Nanotrasen directive received. Project \"[name]\" details inbound.", "Incoming Priority Message", 'sound/AI/commandreport.ogg')
-	print_command_report(get_report(), "Nanotrasen Directive [pick(GLOB.phonetic_alphabet)] \Roman[rand(1,50)]", FALSE)
+	GLOB.priority_announcement.Announce("Получена приоритетная директива Nanotrasen. Сведения о проекте \"[name]\".", "Входящее Приоритетное Сообщение", 'sound/AI/commandreport.ogg')
+	print_command_report(get_report(), "Директива Nanotrasen [pick(GLOB.phonetic_alphabet)] \Roman[rand(1,50)]", FALSE)
 	on_report()
 
 /datum/station_goal/proc/on_report()
@@ -28,9 +28,9 @@
 
 /datum/station_goal/proc/print_result()
 	if(check_completion())
-		to_chat(world, "<b>Station Goal</b>: [name]:  <span class='greenannounce'>Completed!</span>")
+		to_chat(world, "<b>Цель Станции</b>: [name]:  <span class='greenannounce'>Выполнена!</span>")
 	else
-		to_chat(world, "<b>Station Goal</b>: [name]: <span class='boldannounce'>Failed!</span>")
+		to_chat(world, "<b>Цель Станции</b>: [name]: <span class='boldannounce'>Провалена!</span>")
 
 /datum/station_goal/Destroy()
 	SSticker.mode.station_goals -= src

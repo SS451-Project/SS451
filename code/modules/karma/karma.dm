@@ -246,75 +246,75 @@ GLOBAL_LIST_EMPTY(karma_spenders)
 		specieslist = splittext(dbspecies,",")
 
 	var/dat = {"<html><meta charset="UTF-8"><body><center>"}
-	dat += "<a href='?src=[UID()];karmashop=tab;tab=0' [karma_tab == 0 ? "class='linkOn'" : ""]>Job Unlocks</a>"
-	dat += "<a href='?src=[UID()];karmashop=tab;tab=1' [karma_tab == 1 ? "class='linkOn'" : ""]>Species Unlocks</a>"
-	dat += "<a href='?src=[UID()];karmashop=tab;tab=2' [karma_tab == 2 ? "class='linkOn'" : ""]>Karma Refunds</a>"
+	dat += "<a href='?src=[UID()];karmashop=tab;tab=0' [karma_tab == 0 ? "class='linkOn'" : ""]>Профессии</a>"
+	dat += "<a href='?src=[UID()];karmashop=tab;tab=1' [karma_tab == 1 ? "class='linkOn'" : ""]>Виды</a>"
+	dat += "<a href='?src=[UID()];karmashop=tab;tab=2' [karma_tab == 2 ? "class='linkOn'" : ""]>Возврат Кармы</a>"
 	dat += "</center>"
 	dat += "<HR>"
 
 	var/currentkarma = verify_karma()
-	dat += "You have <b>[currentkarma]</b> available.<br><HR>"
+	dat += "У вас есть на данный момент <b>[currentkarma]</b> KP<br><HR>"
 
 	switch(karma_tab)
 		if(0) // Job Unlocks
 			if(!("Barber" in joblist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=1'>Unlock Barber -- 5KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=1'>Разблокировать Парикмахера -- 5KP</a><br>"
 			else
-				dat += "Barber  - <font color='green'>Unlocked</font><br>"
+				dat += "Парикмахер  - <font color='green'>Разблокирован</font><br>"
 			if(!("Brig Physician" in joblist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=2'>Unlock Brig Physician -- 5KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=2'>Разблокировать Бриг Врача -- 5KP</a><br>"
 			else
-				dat += "Brig Physician - <font color='green'>Unlocked</font><br>"
+				dat += "Бриг Врач - <font color='green'>Разблокирован</font><br>"
 			if(!("Nanotrasen Representative" in joblist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=3'>Unlock Nanotrasen Representative -- 30KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=3'>Разблокировать Представителя Nanotrasen -- 30KP</a><br>"
 			else
-				dat += "Nanotrasen Representative - <font color='green'>Unlocked</font><br>"
+				dat += "Представителя Nanotrasen - <font color='green'>Разблокирован</font><br>"
 			if(!("Blueshield" in joblist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=5'>Unlock Blueshield -- 30KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=5'>Разблокировать Blueshield -- 30KP</a><br>"
 			else
-				dat += "Blueshield - <font color='green'>Unlocked</font><br>"
+				dat += "Blueshield - <font color='green'>Разблокирован</font><br>"
 			if(!("Security Pod Pilot" in joblist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=9'>Unlock Security Pod Pilot -- 30KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=9'>Разблокировать Пилота Капсулы -- 30KP</a><br>"
 			else
-				dat += "Security Pod Pilot - <font color='green'>Unlocked</font><br>"
+				dat += "Пилот Капсулы - <font color='green'>Разблокирован</font><br>"
 			if(!("Mechanic" in joblist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=6'>Unlock Mechanic -- 30KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=6'>Разблокировать Механика -- 30KP</a><br>"
 			else
-				dat += "Mechanic - <font color='green'>Unlocked</font><br>"
+				dat += "Механик - <font color='green'>Разблокирован</font><br>"
 			if(!("Magistrate" in joblist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=7'>Unlock Magistrate -- 45KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy=7'>Разблокировать Магистрата -- 45KP</a><br>"
 			else
-				dat+= "Magistrate - <font color='green'>Unlocked</font><br>"
+				dat+= "Магистрат - <font color='green'>Разблокирован</font><br>"
 
 		if(1) // Species Unlocks
 			if(!("Machine" in specieslist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=1'>Unlock Machine People -- 15KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=1'>Разблокировать КПБ (машины) -- 15KP</a><br>"
 			else
-				dat += "Machine People - <font color='green'>Unlocked</font><br>"
+				dat += "КПБ (машины) - <font color='green'>Разблокированы</font><br>"
 			if(!("Kidan" in specieslist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=2'>Unlock Kidan -- 30KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=2'>Разблокировать Кидан -- 30KP</a><br>"
 			else
-				dat += "Kidan - <font color='green'>Unlocked</font><br>"
+				dat += "Кидан - <font color='green'>Разблокированы</font><br>"
 			if(!("Grey" in specieslist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=3'>Unlock Grey -- 30KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=3'>Разблокировать Грейев -- 30KP</a><br>"
 			else
-				dat += "Grey - <font color='green'>Unlocked</font><br>"
+				dat += "Греи - <font color='green'>Разблокированы</font><br>"
 			if(!("Drask" in specieslist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=7'>Unlock Drask -- 30KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=7'>Разблокировать Драсков -- 30KP</a><br>"
 			else
-				dat += "Drask - <font color='green'>Unlocked</font><br>"
+				dat += "Драски - <font color='green'>Разблокированы</font><br>"
 			if(!("Vox" in specieslist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=4'>Unlock Vox -- 45KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=4'>Разблокировать Воксов -- 45KP</a><br>"
 			else
-				dat += "Vox - <font color='green'>Unlocked</font><br>"
+				dat += "Воксы - <font color='green'>Разблокированы</font><br>"
 			if(!("Slime People" in specieslist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=5'>Unlock Slime People -- 45KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=5'>Разблокировать Слаймоменов -- 45KP</a><br>"
 			else
-				dat += "Slime People - <font color='green'>Unlocked</font><br>"
+				dat += "Слаймомены - <font color='green'>Разблокированы</font><br>"
 			if(!("Plasmaman" in specieslist))
-				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=6'>Unlock Plasmaman -- 45KP</a><br>"
+				dat += "<a href='?src=[UID()];karmashop=shop;KarmaBuy2=6'>Разблокировать Плазмаменов -- 45KP</a><br>"
 			else
-				dat += "Plasmaman - <font color='green'>Unlocked</font><br>"
+				dat += "Плазмамены - <font color='green'>Разблокированы</font><br>"
 
 		if(2) // Karma Refunds
 			var/list/refundable = list()
@@ -351,12 +351,12 @@ GLOBAL_LIST_EMPTY(karma_spenders)
 				dat += "<a href='?src=[UID()];karmashop=shop;KarmaRefund=Nanotrasen Recruiter;KarmaRefundType=job;KarmaRefundCost=10'>Refund Nanotrasen Recruiter -- 10KP</a><br>"
 
 			if(!refundable.len)
-				dat += "You do not have any refundable karma purchases.<br>"
+				dat += "У вас нет никаких возвращаемых покупок кармы.<br>"
 
-	dat += "<br><B>PLEASE NOTE THAT PEOPLE WHO TRY TO GAME THE KARMA SYSTEM WILL END UP ON THE WALL OF SHAME. THIS INCLUDES BUT IS NOT LIMITED TO TRADES, OOC KARMA BEGGING, CODE EXPLOITS, ETC.</B>"
+	dat += "<br><B>ПОЖАЛУЙСТА, ОБРАТИТЕ ВНИМАНИЕ, ЧТО ЛЮДИ, КОТОРЫЕ ПОПЫТАЮТСЯ ОБОЙТИ СИСТЕМУ КАРМЫ, БУДУТ ОТПИЗЖЕНЫ ССАНЫМИ ТРЯПКАМИ У ВСЕХ НА ВИДУ. ЭТО ВКЛЮЧАЕТ В СЕБЯ СДЕЛКИ, ВЫПРАШИВАНИЕ КАРМЫ В OOC, ЗЛОУПОТРЕБЛЕНИЕМ КОДА И Т.Д.</B>"
 	dat += "</center></body></html>"
 
-	var/datum/browser/popup = new(usr, "karmashop", "<div align='center'>Karma Shop</div>", 400, 400)
+	var/datum/browser/popup = new(usr, "karmashop", "<div align='center'>Магазин Кармы</div>", 400, 400)
 	popup.set_content(dat)
 	popup.open(0)
 

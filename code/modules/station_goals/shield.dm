@@ -35,7 +35,7 @@
 	return coverage.len
 
 /obj/item/circuitboard/computer/sat_control
-	name = "Управление Спутниковой Сетью (Компьютерная плата)"
+	name = "Управление Спутниковой Сетью (компьютерная плата)"
 	build_path = /obj/machinery/computer/sat_control
 	origin_tech = "engineering=3"
 

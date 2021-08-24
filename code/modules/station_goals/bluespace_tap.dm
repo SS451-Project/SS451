@@ -4,15 +4,15 @@
 	var/goal = 45000
 
 /datum/station_goal/bluespace_tap/get_report()
-	return {"<b>Bluespace Harvester Experiment</b><br>
-	Another research station has developed a device called a Bluespace Harvester.
-	It reaches through bluespace into other dimensions to shift through them for interesting objects.<br>
-	Due to unforseen circumstances the large-scale test of the prototype could not be completed on the original research station. It will instead be carried out on your station.
-	Acquire the circuit board, construct the device over a wire knot and feed it enough power to generate [goal] mining points by shift end.
+	return {"<b>Bluespace Сборщик</b><br>
+	Другая исследовательская станция разработала устройство, называемое Bluespace Сборщик.
+	Он проникает через пространство в другие измерения, чтобы перемещаться по ним в поисках интересных объектов.<br>
+	Из-за непредвиденных обстоятельств крупномасштабные испытания прототипа не смогли быть завершены на оригинальной исследовательской станции. Вместо этого это будет выполняться на вашей станции.
+	Приобретите плату, постройте устройство на проволочном узле и подайте ему достаточно энергии для генерации [goal] очков добычи к концу смены.
 	<br><br>
-	Be advised that the device is experimental and might act in slightly unforseen ways if sufficiently powered.
+	Имейте в виду, что устройство является экспериментальным и может действовать несколько непредвиденным образом при достаточном питании.
 	<br>
-	Nanotrasen Science Directorate"}
+	Научный Директорат Nanotrasen"}
 
 /datum/station_goal/bluespace_tap/on_report()
 	var/datum/supply_packs/misc/station_goal/bluespace_tap/P = SSshuttle.supply_packs["[/datum/supply_packs/misc/station_goal/bluespace_tap]"]
@@ -24,7 +24,7 @@
 	var/highscore = 0
 	for(var/obj/machinery/power/bluespace_tap/T in GLOB.machines)
 		highscore = max(highscore, T.total_points)
-	to_chat(world, "<b>Bluespace Harvester Highscore</b>: [highscore >= goal ? "<span class='greenannounce'>": "<span class='boldannounce'>"][highscore]</span>")
+	to_chat(world, "<b>Рекорд Bluespace Сборщика</b>: [highscore >= goal ? "<span class='greenannounce'>": "<span class='boldannounce'>"][highscore]</span>")
 	if(highscore >= goal)
 		return TRUE
 	return FALSE
@@ -42,7 +42,7 @@
 	product_cost = cost
 
 /obj/item/circuitboard/machine/bluespace_tap
-	name = "Bluespace Harvester (Machine Board)"
+	name = "Bluespace Сборщик (плата)"
 	build_path = /obj/machinery/power/bluespace_tap
 	origin_tech = "engineering=2;combat=2;bluespace=3"
 	req_components = list(
@@ -433,22 +433,22 @@
 	return ..()
 
 /obj/item/paper/bluespace_tap
-	name = "paper- 'The Experimental NT Bluespace Harvester - Mining other universes for science and profit!'"
-	info = "<h1>Important Instructions!</h1>Please follow all setup instructions to ensure proper operation. <br>\
-	1. Create a wire node with ample access to spare power. The device operates independently of APCs. <br>\
-	2. Create a machine frame as normal on the wire node, taking into account the device's dimensions (3 by 3 meters). <br>\
-	3. Insert wiring, circuit board and required components and finish construction according to NT engineering standards. <br>\
-	4. Ensure the device is connected to the proper power network and the network contains sufficient power. <br>\
-	5. Set machine to desired level. Check periodically on machine progress. <br>\
-	6. Optionally, spend earned points on fun and exciting rewards. <br><hr>\
-	<h2>Operational Principles</h2> \
-	<p>The Bluespace Harvester is capable of accepting a nearly limitless amount of power to search other universes for valuables to recover. The speed of this search is controlled via the 'level' control of the device. \
-	While it can be run on a low level by almost any power generation system, higher levels require work by a dedicated engineering team to power. \
-	As we are interested in testing how the device performs under stress, we wish to encourage you to stress-test it and see how much power you can provide it. \
-	For this reason, total shift point production will be calculated and announced at shift end. High totals may result in bonus payments to members of the Engineering department. <p>\
-	<p>NT Science Directorate, Extradimensional Exploitation Research Group</p> \
-	<p><small>Device highly experimental. Not for sale. Do not operate near small children or vital NT assets. Do not tamper with machine. In case of existential dread, stop machine immediately. \
-	Please document any and all extradimensional incursions. In case of imminent death, please leave said documentation in plain sight for clean-up teams to recover.</small></p>"
+	name = "'Экспериментальный Bluespace Сборщик NT - Добыча полезных ископаемых в других вселенных для науки и получения прибыли!'"
+	info = "<h1>Важные Инструкции!</h1>Пожалуйста, следуйте всем инструкциям по настройке, чтобы обеспечить правильную работу. <br>\
+	1. Создайте проводной узел с достаточным доступом к запасному питанию. Устройство работает независимо от ЛКП. <br>\
+	2. Создайте каркас машины как обычно на проводном узле с учетом размеров устройства (3 на 3 метра). <br>\
+	3. Вставьте проводку, плату и необходимые компоненты. Завершите строительство в соответствии со стандартами Инженерии NT. <br>\
+	4. Убедитесь, что устройство подключено к соответствующей сети электропитания и что имеется достаточно питания. <br>\
+	5. Установите машину на нужный уровень. Периодически проверяйте ход работы машины. <br>\
+	6. По желанию, потратьте заработанные очки на веселые и увлекательные награды. <br><hr>\
+	<h2>Операционные Принципы</h2> \
+	<p>Bluespace Сборщик способен принимать почти безграничное количество энергии для поиска в других вселенных ценностей, которые можно вернуть. Скорость этого поиска контролируется с помощью управления 'уровня' устройства. \
+	В то время как он может быть запущен на низком уровне практически любой системой выработки электроэнергии, более высокие уровни требуют работы специальной инженерной команды для питания. \
+	Поскольку мы заинтересованы в тестировании того, как устройство работает в условиях стресса, мы хотим призвать вас провести стресс-тестирование и посмотреть, сколько энергии вы можете выделять. \
+	По этой причине общее производство очков смены будет рассчитано и объявлено в конце смены. Высокие итоговые суммы могут привести к премиальной выплате сотрудникам инженерного отдела. <p>\
+	<p>Научный Директорат Nanotrasen, Исследовательская группа по экстрапространственной эксплуатации</p> \
+	<p><small>Устройство в высшей степени экспериментальности. Не продается. Не работайте рядом с маленькими детьми или жизненно важными активами NT. Не вмешивайтесь в работу машины. В случае экзистенциального страха немедленно остановите машину. \
+	Пожалуйста, документируйте любые вторжения в другие измерения. В случае неминуемой смерти, пожалуйста, оставьте указанную документацию на виду, чтобы команды по очистке могли восстановить её.</small></p>"
 
 #undef kW
 #undef MW
