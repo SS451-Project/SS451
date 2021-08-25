@@ -1,103 +1,103 @@
 //toggles
 /client/verb/toggle_ghost_ears()
-	set name = "Show/Hide GhostEars"
+	set name = "Переключить GhostEars"
 	set category = "Preferences"
-	set desc = ".Toggle Between seeing all mob speech, and only speech of nearby mobs"
+	set desc = "Переключитесь между просмотром всей речи мобов или только речью ближайших мобов"
 	prefs.toggles ^= PREFTOGGLE_CHAT_GHOSTEARS
-	to_chat(src, "As a ghost, you will now [(prefs.toggles & PREFTOGGLE_CHAT_GHOSTEARS) ? "see all speech in the world" : "only see speech from nearby mobs"].")
+	to_chat(src, "Как призрак, ты теперь будешь [(prefs.toggles & PREFTOGGLE_CHAT_GHOSTEARS) ? "видеть всю речь" : "видеть речь только ближайших мобов"].")
 	prefs.save_preferences(src)
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle GhostEars") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/toggle_ghost_sight()
-	set name = "Show/Hide GhostSight"
+	set name = "Переключить GhostSight"
 	set category = "Preferences"
-	set desc = ".Toggle Between seeing all mob emotes, and only emotes of nearby mobs"
+	set desc = "Переключитесь между просмотром всех эмоций мобов или только эмоций ближайших мобов"
 	prefs.toggles ^= PREFTOGGLE_CHAT_GHOSTSIGHT
-	to_chat(src, "As a ghost, you will now [(prefs.toggles & PREFTOGGLE_CHAT_GHOSTSIGHT) ? "see all emotes in the world" : "only see emotes from nearby mobs"].")
+	to_chat(src, "Как призрак, ты теперь будешь [(prefs.toggles & PREFTOGGLE_CHAT_GHOSTSIGHT) ? "видеть все эмоции" : "видеть эмоции только ближайших мобов"].")
 	prefs.save_preferences(src)
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle GhostSight") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/toggle_ghost_radio()
-	set name = "Enable/Disable GhostRadio"
+	set name = "Переключить GhostRadio"
 	set category = "Preferences"
-	set desc = ".Toggle between hearing all radio chatter, or only from nearby speakers"
+	set desc = "Переключитесь между просмотром всех радиопереговоров или только из ближайших источников"
 	prefs.toggles ^= PREFTOGGLE_CHAT_GHOSTRADIO
-	to_chat(src, "As a ghost, you will now [(prefs.toggles & PREFTOGGLE_CHAT_GHOSTRADIO) ? "hear all radio chat in the world" : "only hear from nearby speakers"].")
+	to_chat(src, "Как призрак, ты теперь будешь [(prefs.toggles & PREFTOGGLE_CHAT_GHOSTRADIO) ? "видеть все радиопереговоры" : "видеть только ближайших переговорщиков"].")
 	prefs.save_preferences(src)
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle GhostRadio")
 
 /client/proc/toggle_hear_radio()
-	set name = "Show/Hide RadioChatter"
+	set name = "Вкл/Выкл RadioChatter"
 	set category = "Preferences"
-	set desc = "Toggle seeing radiochatter from radios and speakers"
+	set desc = "Переключите просмотр всплывающего текста радиопереговоров из радиоприемников и динамиков"
 	if(!check_rights(R_ADMIN))
 		return
 	prefs.toggles ^= PREFTOGGLE_CHAT_RADIO
 	prefs.save_preferences(src)
-	to_chat(usr, "You will [(prefs.toggles & PREFTOGGLE_CHAT_RADIO) ? "now" : "no longer"] see radio chatter from radios or speakers")
+	to_chat(usr, "Теперь ты[(prefs.toggles & PREFTOGGLE_CHAT_RADIO) ? "" : " не"] видишь всплывающий текст радиопереговора из радиоприемников или динамиков")
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle RadioChatter") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/toggle_ai_voice_annoucements()
-	set name = "Hear/Silence AI Voice Announcements"
+	set name = "Слышать/Заглушить объявления ИИ"
 	set category = "Preferences"
-	set desc = "Toggle hearing AI annoucements in voice form or in text form"
+	set desc = "Переключение объявления от ИИ - хотите ли вы слышать голос ИИ во время объявления?"
 	prefs.sound ^= SOUND_AI_VOICE
 	prefs.save_preferences(src)
-	to_chat(usr, "[(prefs.sound & SOUND_AI_VOICE) ? "You will now hear AI announcements." : "AI annoucements will now be converted to text."] ")
+	to_chat(usr, "[(prefs.sound & SOUND_AI_VOICE) ? "Теперь вы услышите объявления ИИ." : "Объявления ИИ теперь будут только в текст."] ")
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle AI Voice") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggleadminhelpsound()
-	set name = "Hear/Silence Admin Bwoinks"
+	set name = "Слышать/Заглушить звук Админ-ПМ"
 	set category = "Preferences"
-	set desc = "Toggle hearing a notification when admin PMs are recieved"
+	set desc = "Переключите прослушивание уведомления при получении ПM администратора"
 	if(!check_rights(R_ADMIN))
 		return
 	prefs.sound ^= SOUND_ADMINHELP
 	prefs.save_preferences(src)
-	to_chat(usr, "You will [(prefs.sound & SOUND_ADMINHELP) ? "now" : "no longer"] hear a sound when adminhelps arrive.")
+	to_chat(usr, "Теперт ты[(prefs.sound & SOUND_ADMINHELP) ? "" : " НЕ"] услышишь звук, когда администраторы ответят в Ахелп.")
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle Admin Bwoinks") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/togglementorhelpsound()
-	set name = "Hear/Silence Mentorhelp Bwoinks"
+	set name = "Слышать/Заглушить звук Ментор-ПМ"
 	set category = "Preferences"
-	set desc = "Toggle hearing a notification when mentorhelps are recieved"
+	set desc = "Переключите прослушивание уведомления при получении ПM ментора"
 	if(!check_rights(R_ADMIN|R_MENTOR))
 		return
 	prefs.sound ^= SOUND_MENTORHELP
 	prefs.save_preferences(src)
-	to_chat(usr, "You will [(prefs.sound & SOUND_MENTORHELP) ? "now" : "no longer"] hear a sound when mentorhelps arrive.")
+	to_chat(usr, "Теперт ты[(prefs.sound & SOUND_MENTORHELP) ? "" : " НЕ"] услышишь звук, когда менторы ответят в Менторхелп.")
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle Mentor Bwoinks") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/deadchat() // Deadchat toggle is usable by anyone.
-	set name = "Show/Hide Deadchat"
+	set name = "Переключить чат мёртвых"
 	set category = "Preferences"
-	set desc ="Toggles seeing deadchat"
+	set desc ="Переключает просмотр чата мёртвых игроков"
 	prefs.toggles ^= PREFTOGGLE_CHAT_DEAD
 	prefs.save_preferences(src)
 
 	if(src.holder)
-		to_chat(src, "You will [(prefs.toggles & PREFTOGGLE_CHAT_DEAD) ? "now" : "no longer"] see deadchat.")
+		to_chat(src, "Теперь ты[(prefs.toggles & PREFTOGGLE_CHAT_DEAD) ? "" : " не"] видишь чат мёртвых.")
 	else
-		to_chat(src, "As a ghost, you will [(prefs.toggles & PREFTOGGLE_CHAT_DEAD) ? "now" : "no longer"] see deadchat.")
+		to_chat(src, "Как призрак, ты теперь[(prefs.toggles & PREFTOGGLE_CHAT_DEAD) ? "" : " не"] видишь чат мёртвых.")
 
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle Deadchat") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggleprayers()
-	set name = "Show/Hide Prayers"
+	set name = "Переключить молитвы"
 	set category = "Preferences"
-	set desc = "Toggles seeing prayers"
+	set desc = "Переключает просмотр молящихся игроков"
 	prefs.toggles ^= PREFTOGGLE_CHAT_PRAYER
 	prefs.save_preferences(src)
-	to_chat(src, "You will [(prefs.toggles & PREFTOGGLE_CHAT_PRAYER) ? "now" : "no longer"] see prayerchat.")
+	to_chat(src, "Теперь ты[(prefs.toggles & PREFTOGGLE_CHAT_PRAYER) ? "" : " не"] видишь молитвы от игроков.")
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle Prayers") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/toggleprayernotify()
-	set name = "Hear/Silence Prayer Notification Sound"
+	set name = "Слышать/Заглушить уведомления о молитве"
 	set category = "Preferences"
-	set desc = "Toggles hearing when prayers are made"
+	set desc = "Переключает слышимость уведомления, когда игрок произносит молитву"
 	prefs.sound ^= SOUND_PRAYERNOTIFY
 	prefs.save_preferences(src)
-	to_chat(src, "You will [(prefs.sound & SOUND_PRAYERNOTIFY) ? "now" : "no longer"] hear when prayers are made.")
+	to_chat(src, "Теперь ты[(prefs.sound & SOUND_PRAYERNOTIFY) ? "" : " не"] слышите, когда прилетают молитвы.")
 	SSblackbox.record_feedback("tally", "toggle_verbs", 1, "Toggle Prayer Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/togglescoreboard()

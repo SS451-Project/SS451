@@ -76,11 +76,11 @@
 
 	if(target.is_refillable()) //Something like a glass. Player probably wants to transfer TO it.
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>[src] пуст!</span>")
+			to_chat(user, "<span class='warning'>Пусто!</span>")
 			return
 
 		if(target.reagents.holder_full())
-			to_chat(user, "<span class='warning'>[target] заполнен.</span>")
+			to_chat(user, "<span class='warning'>[target] полон!</span>")
 			return
 
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this)

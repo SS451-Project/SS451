@@ -50,21 +50,21 @@
 
 /obj/structure/closet/secure_closet/proc/togglelock(mob/user)
 	if(opened)
-		to_chat(user, "<span class='notice'>Close the locker first.</span>")
+		to_chat(user, "<span class='notice'>Сначала закрой шкафчик.</span>")
 		return
 	if(broken)
-		to_chat(user, "<span class='warning'>The locker appears to be broken.</span>")
+		to_chat(user, "<span class='warning'>Похоже шкафчик сломан.</span>")
 		return
 	if(user.loc == src)
-		to_chat(user, "<span class='notice'>You can't reach the lock from inside.</span>")
+		to_chat(user, "<span class='notice'>Вы не можете добраться до замка изнутри.</span>")
 		return
 	if(allowed(user))
 		locked = !locked
 		playsound(loc, 'sound/machines/click.ogg', 15, 1, -3)
-		visible_message("<span class='notice'>The locker has been [locked ? null : "un"]locked by [user].</span>")
+		visible_message("<span class='notice'>Шкафчик был [locked ? "закрыт" : "открыт"] [user].</span>")
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>Access Denied</span>")
+		to_chat(user, "<span class='notice'>Доступ запрещен.</span>")
 
 /obj/structure/closet/secure_closet/closed_item_click(mob/user)
 	togglelock(user)
@@ -80,7 +80,7 @@
 		locked = FALSE
 		icon_state = icon_off
 		flick(icon_broken, src)
-		to_chat(user, "<span class='notice'>You break the lock on \the [src].</span>")
+		to_chat(user, "<span class='notice'>Ты ломаешь замок на [src].</span>")
 
 /obj/structure/closet/secure_closet/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -92,7 +92,7 @@
 /obj/structure/closet/secure_closet/verb/verb_togglelock()
 	set src in oview(1) // One square distance
 	set category = "Object"
-	set name = "Toggle Lock"
+	set name = "Закрыть/открыть шкафчик"
 
 	if(usr.incapacitated()) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
 		return
@@ -101,7 +101,7 @@
 		add_fingerprint(usr)
 		togglelock(usr)
 	else
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		to_chat(usr, "<span class='warning'>Этот тип моба не может использовать данное действие.</span>")
 
 /obj/structure/closet/secure_closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	overlays.Cut()
@@ -125,9 +125,9 @@
 		return //It's a secure closet, but isn't locked. Easily escapable from, no need to 'resist'
 
 	//okay, so the closet is either welded or locked... resist!!!
-	to_chat(L, "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>")
+	to_chat(L, "<span class='warning'>Вы опираетесь на спинку [src] и начинаете давить на дверь. (это займёт около [breakout_time] минут)</span>")
 	for(var/mob/O in viewers(src))
-		O.show_message("<span class='danger'>The [src] begins to shake violently!</span>", 1)
+		O.show_message("<span class='danger'>[src] начинает сильно трястись!</span>", 1)
 
 
 	spawn(0)

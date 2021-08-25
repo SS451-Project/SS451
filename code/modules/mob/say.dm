@@ -62,7 +62,7 @@
 		if(client.handle_spam_prevention(message, MUTE_DEADCHAT))
 			return
 
-	say_dead_direct("[pick("жалуется", "стонет", "скулит", "причетает", "плачет", "солит")], <span class='message'>\"[message]\"</span>", src)
+	say_dead_direct("[pick("жалуется", "вопит", "скулит", "стонет", "плачет", "шепчет")], <span class='message'>\"[message]\"</span>", src)
 	create_log(DEADCHAT_LOG, message)
 	log_ghostsay(message, src)
 

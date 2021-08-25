@@ -349,9 +349,9 @@
 
 
 	if(prefs.toggles & PREFTOGGLE_DISABLE_KARMA) // activates if karma is disabled
-		to_chat(src,"<span class='notice'>You have disabled karma gains.") // reminds those who have it disabled
+		to_chat(src,"<span class='notice'>У вас отключено получение кармы.") // reminds those who have it disabled
 	else
-		to_chat(src,"<span class='notice'>You have enabled karma gains.")
+		to_chat(src,"<span class='notice'>У вас включено получение кармы.")
 
 	generate_clickcatcher()
 	apply_clickcatcher()
@@ -362,13 +362,13 @@
 	check_forum_link()
 
 	if(GLOB.custom_event_msg && GLOB.custom_event_msg != "")
-		to_chat(src, "<h1 class='alert'>Custom Event</h1>")
-		to_chat(src, "<h2 class='alert'>A custom event is taking place. OOC Info:</h2>")
+		to_chat(src, "<h1 class='alert'>Пользовательское Событие</h1>")
+		to_chat(src, "<h2 class='alert'>Идёт пользовательское событие. OOC инфо:</h2>")
 		to_chat(src, "<span class='alert'>[html_encode(GLOB.custom_event_msg)]</span>")
 		to_chat(src, "<br>")
 
 	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
-		to_chat(src, "<span class='warning'>Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you.</span>")
+		to_chat(src, "<span class='warning'>Не удается получить доступ к браузеру кэша ресурсов, если вы используете пользовательский skin файл, пожалуйста, разрешите DS загрузить обновленную версию, если нет, то отправьте сообщение об ошибке. Это не является критической проблемой, но может вызвать проблемы с загрузкой ресурсов, так как невозможно узнать, когда к вам были загружены ресурсы.</span>")
 
 	if(!geoip)
 		geoip = new(src, address)
@@ -390,11 +390,11 @@
 
 	if((playercount > threshold) && (GLOB.panic_bunker_enabled == FALSE))
 		GLOB.panic_bunker_enabled = TRUE
-		message_admins("Panic bunker has been automatically enabled due to playercount rising above [threshold]")
+		message_admins("Panic Bunker был автоматически включен из-за роста числа игроков выше [threshold]")
 
 	if((playercount < threshold) && (GLOB.panic_bunker_enabled == TRUE))
 		GLOB.panic_bunker_enabled = FALSE
-		message_admins("Panic bunker has been automatically disabled due to playercount dropping below [threshold]")
+		message_admins("Panic Bunker был автоматически отключен из-за того, что количество игроков упало ниже [threshold]")
 
 /client/proc/is_connecting_from_localhost()
 	var/localhost_addresses = list("127.0.0.1", "::1") // Adresses
@@ -528,8 +528,8 @@
 
 	var/watchreason = check_watchlist(ckey)
 	if(watchreason)
-		message_admins("<font color='red'><B>Notice: </B></font><font color='blue'>[key_name_admin(src)] is on the watchlist and has just connected - Reason: [watchreason]</font>")
-		SSdiscord.send2discord_simple_noadmins("**\[Watchlist]** [key_name(src)] is on the watchlist and has just connected - Reason: [watchreason]")
+		message_admins("<font color='red'><B>Нотис: </B></font><font color='blue'>[key_name_admin(src)] находится в списке наблюдения и только что подключился - Причина: [watchreason]</font>")
+		SSdiscord.send2discord_simple_noadmins("**\[Watchlist]** [key_name(src)] находится в списке наблюдения и только что подключился - Причина: [watchreason]")
 
 
 	//Just the standard check to see if it's actually a number
@@ -563,7 +563,7 @@
 		// Check new peeps for panic bunker
 		if(GLOB.panic_bunker_enabled)
 			var/threshold = config.panic_bunker_threshold
-			src << "Server is not accepting connections from never-before-seen players until player count is less than [threshold]. Please try again later."
+			src << "Сервер не принимает подключения от невиданных ранее игроков до тех пор, пока количество игроков не станет меньше [threshold]. Пожалуйста, повторите попытку позднее."
 			qdel(src)
 			return // Dont insert or they can just go in again
 
@@ -617,14 +617,14 @@
 		var/detailsurl = config.ipintel_detailsurl ? "(<a href='[config.ipintel_detailsurl][address]'>IP Info</a>)" : ""
 		if(config.ipintel_whitelist)
 			spawn(40) // This is necessary because without it, they won't see the message, and addtimer cannot be used because the timer system may not have initialized yet
-				message_admins("<span class='adminnotice'>IPIntel: [key_name_admin(src)] on IP [address] was rejected. [detailsurl]</span>")
-				var/blockmsg = "<B>Error: proxy/VPN detected. Proxy/VPN use is not allowed here. Deactivate it before you reconnect.</B>"
+				message_admins("<span class='adminnotice'>IPIntel: [key_name_admin(src)] - IP [address] был отклонен. [detailsurl]</span>")
+				var/blockmsg = "<B>Ошибка: обнаружен прокси/VPN. Использование прокси/VPN запрещено. Отключите его перед повторным подключением.</B>"
 				if(config.banappeals)
-					blockmsg += "\nIf you are not actually using a proxy/VPN, or have no choice but to use one, request whitelisting at: [config.banappeals]"
+					blockmsg += "\n Если вы на самом деле не используете прокси/VPN или у вас нет другого выбора, кроме как использовать его, запросите доступ в вайтлист здесь: [config.banappeals]"
 				to_chat(src, blockmsg)
 				qdel(src)
 		else
-			message_admins("<span class='adminnotice'>IPIntel: [key_name_admin(src)] on IP [address] is likely to be using a Proxy/VPN. [detailsurl]</span>")
+			message_admins("<span class='adminnotice'>IPIntel: [key_name_admin(src)] - IP [address] скорее всего, пользуется прокси/VPN. [detailsurl]</span>")
 
 
 /client/proc/check_forum_link()
@@ -634,7 +634,7 @@
 		var/living_hours = get_exp_type_num(EXP_TYPE_LIVING) / 60
 		if(living_hours < 20)
 			return
-	to_chat(src, "<B>You have no verified forum account. <a href='?src=[UID()];link_forum_account=true'>VERIFY FORUM ACCOUNT</a></B>")
+	to_chat(src, "<B>У вас нет подтвержденной учетной записи на форуме. <a href='?src=[UID()];link_forum_account=true'>ПОДТВЕРДИТЬ УЧЕТНУЮ ЗАПИСЬ</a></B>")
 
 /client/proc/create_oauth_token()
 	var/datum/db_query/query_find_token = SSdbcore.NewQuery("SELECT token FROM [format_table_name("oauth_tokens")] WHERE ckey=:ckey limit 1", list(
@@ -667,11 +667,11 @@
 	if(!config.forum_link_url)
 		return
 	if(IsGuestKey(key))
-		to_chat(src, "Guest keys cannot be linked.")
+		to_chat(src, "Гости не могут быть привязаны.")
 		return
 	if(prefs && prefs.fuid)
 		if(!fromban)
-			to_chat(src, "Your forum account is already set.")
+			to_chat(src, "Ваша учетная запись на форуме уже привязана.")
 		return
 	var/datum/db_query/query_find_link = SSdbcore.NewQuery("SELECT fuid FROM [format_table_name("player")] WHERE ckey=:ckey LIMIT 1", list(
 		"ckey" = ckey
