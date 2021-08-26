@@ -37,13 +37,13 @@
 			playsound(loc, 'sound/weapons/egloves.ogg', 80, TRUE)
 
 /obj/structure/holosign/wetsign
-	name = "wet floor sign"
-	desc = "The words flicker as if they mean nothing."
+	name = "Знак 'мокрый пол'"
+	desc = "Слова мелькают, как будто они ничего не значат."
 	icon_state = "holosign"
 
 /obj/structure/holosign/barrier
-	name = "holo barrier"
-	desc = "A short holographic barrier which can only be passed by walking."
+	name = "Голографический барьер"
+	desc = "Небольшой голографический барьер, через который можно пройти только пешком."
 	icon_state = "holosign_sec"
 	pass_flags = LETPASSTHROW
 	density = TRUE
@@ -59,7 +59,7 @@
 		var/mob/living/carbon/C = mover
 		if(allow_walk && (C.m_intent == MOVE_INTENT_WALK || (C.pulledby && C.pulledby.m_intent == MOVE_INTENT_WALK)))
 			return TRUE
-else if(issilicon(mover))
+	else if(issilicon(mover))
 		var/mob/living/silicon/S = mover
 		if(allow_walk && (S.m_intent == MOVE_INTENT_WALK || (S.pulledby && S.pulledby.m_intent == MOVE_INTENT_WALK)))
 			return TRUE
@@ -68,8 +68,8 @@ else if(issilicon(mover))
 	icon_state = "holosign_engi"
 
 /obj/structure/holosign/barrier/atmos
-	name = "holo firelock"
-	desc = "A holographic barrier resembling a firelock. Though it does not prevent solid objects from passing through, gas is kept out."
+	name = "Голограмма пожарного шлюза"
+	desc = "Голографический барьер, напоминающий пожарный шлюз. Хоть это и не препятствует прохождению твердых предметов, газ не проходит."
 	icon_state = "holo_firelock"
 	density = FALSE
 	layer = ABOVE_MOB_LAYER
@@ -90,8 +90,8 @@ else if(issilicon(mover))
 	T.air_update_turf(TRUE)
 
 /obj/structure/holosign/barrier/cyborg
-	name = "Energy Field"
-	desc = "A fragile energy field that blocks movement. Excels at blocking lethal projectiles."
+	name = "Энергетическое поле"
+	desc = "Хрупкое энергетическое поле, которое блокирует движение. И также отлично блокирует смертоносные снаряды."
 	density = TRUE
 	max_integrity = 10
 	allow_walk = FALSE
@@ -104,8 +104,8 @@ else if(issilicon(mover))
 		take_damage(5, BRUTE, "melee", 1)	//Disablers aren't harmful.
 
 /obj/structure/holosign/barrier/cyborg/hacked
-	name = "Charged Energy Field"
-	desc = "A powerful energy field that blocks movement. Energy arcs off it."
+	name = "Заряженное энергетическое поле"
+	desc = "Мощное энергетическое поле, блокирующее движение. От него исходит энергетическая дуга."
 	max_integrity = 20
 	var/shockcd = 0
 

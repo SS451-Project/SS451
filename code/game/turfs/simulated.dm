@@ -113,7 +113,7 @@
 
 
 /turf/simulated/ChangeTurf(path, defer_change = FALSE, keep_icon = TRUE, ignore_air = FALSE)
-if(air && !defer_change && !ignore_air)
+	if(air && !defer_change && !ignore_air)
 		var/aoxy = air.oxygen
 		var/anitro = air.nitrogen
 		var/aco = air.carbon_dioxide
