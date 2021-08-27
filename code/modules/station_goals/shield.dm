@@ -2,7 +2,7 @@
 // A chain of satellites encircles the station
 // Satellites be actived to generate a shield that will block unorganic matter from passing it.
 /datum/station_goal/station_shield
-	name = "Station Shield"
+	name = "Спутники с метеорными щитами"
 	var/coverage_goal = 5000
 
 /datum/station_goal/station_shield/get_report()

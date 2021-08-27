@@ -59708,8 +59708,8 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/warning_stripes/yellow,
 /obj/item/reagent_containers/food/snacks/beetsoup{
-	desc = "With the taste of execution";
-	name = "borsch"
+	desc = "Со вкусом выполнения";
+	name = "Борщ"
 	},
 /turf/simulated/floor/plasteel{
 	icon_state = "redfull";

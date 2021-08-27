@@ -1379,7 +1379,7 @@
 		primary_tastes = list("[alcohol_description] алкаголь")
 	flavor += english_list(primary_tastes)
 	if(secondary_tastes.len)
-		flavor += ", с нотками "
+		flavor += ", с привкусом, как "
 		flavor += english_list(secondary_tastes)
 	taste_description = flavor
 	if(holder.my_atom)

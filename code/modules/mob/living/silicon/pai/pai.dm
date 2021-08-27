@@ -339,7 +339,7 @@
 
 
 /mob/living/silicon/pai/lay_down()
-	set name = "Отдыхать"
+	set name = "Лечь"
 	set category = "IC"
 
 	// Pass lying down or getting up to our pet human, if we're in a rig.

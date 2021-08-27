@@ -12,7 +12,7 @@
 #define VAULT_QUICK "Arm Muscle Stimulus"
 
 /datum/station_goal/dna_vault
-	name = "DNA Vault"
+	name = "Хранилище ДНК"
 	var/animal_count
 	var/human_count
 	var/plant_count

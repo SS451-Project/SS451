@@ -12,35 +12,35 @@
 /datum/reagent/consumable/drink/paradise_punch
 	name = "Paradise Punch"
 	id = "paradise_punch"
-	description = "Tastes just how you'd think Paradise would if you could bottle it."
+	description = "На вкус именно такой, каким, по-вашему, был бы Рай, если бы вы могли разлить его по бутылкам."
 	reagent_state = LIQUID
 	color = "#cc0044"
-	taste_description = "paradise"
+	taste_description = "рай"
 
 //Apple-pocalypse: Low chance to cause a goonchem vortex that pulls things within a very small radius (2 tiles?) towards the drinker
 /datum/reagent/consumable/drink/apple_pocalypse
 	name = "Apple-pocalypse"
 	id = "apple-pocalypse"
-	description = "If doomsday came in fruit form, it'd probably be apples."
+	description = "Если бы судный день пришел в виде фруктов, это, вероятно, были бы яблоки."
 	reagent_state = LIQUID
 	color = "#44FF44"
-	taste_description = "doomsday"
+	taste_description = "судный день"
 
 /datum/reagent/consumable/drink/apple_pocalypse/on_mob_life(mob/living/M)
 	if(prob(1))
 		var/turf/simulated/T = get_turf(M)
 		goonchem_vortex(T, 1, 0)
-		to_chat(M, "<span class='notice'>You briefly feel super-massive, like a black hole. Probably just your imagination...</span>")
+		to_chat(M, "<span class='notice'>Вы на мгновение чувствуете себя сверхмассивным, как черная дыра. Возможно, это просто твое воображение...</span>")
 	return ..()
 
 //Berry Banned: This one is tasty and safe to drink, might have a low chance of healing a random damage type?
 /datum/reagent/consumable/drink/berry_banned
 	name = "Berry Banned"
 	id = "berry_banned"
-	description = "Reason for ban: Excessive Flavor."
+	description = "Причина: Чрезмерный аромат."
 	reagent_state = LIQUID
 	color = "#FF44FF"
-	taste_description = "a permaban"
+	taste_description = "пермабан"
 
 /datum/reagent/consumable/drink/berry_banned/on_mob_life(mob/living/M)
 	var/update_flags = STATUS_UPDATE_NONE
@@ -59,51 +59,51 @@
 				update_flags |= M.adjustCloneLoss(-0.5*REAGENTS_EFFECT_MULTIPLIER, FALSE)
 			if(5)
 				update_flags |= M.adjustBrainLoss(-1*REAGENTS_EFFECT_MULTIPLIER, FALSE)
-		to_chat(M, "<span class='notice'>You feel slightly rejuvinated!</span>")
+		to_chat(M, "<span class='notice'>Вы чувствуете себя слегка обновленным!</span>")
 	return ..() | update_flags
 
 //Berry Banned 2: This one is tasty and toxic. Deals toxin damage and MAYBE plays the "BWOINK!" sound if it kills someone?
 /datum/reagent/consumable/drink/berry_banned2
 	name = "Berry Banned"
 	id = "berry_banned2"
-	description = "Reason for ban: Excessive Flavor."
+	description = "Причина: Чрезмерный аромат."
 	reagent_state = LIQUID
 	color = "#FF44FF"
-	taste_description = "a permaban"
+	taste_description = "пермабан"
 
 /datum/reagent/consumable/drink/berry_banned2/on_mob_life(mob/living/M)
 	var/update_flags = STATUS_UPDATE_NONE
 	if(prob(50))
 		update_flags |= M.adjustToxLoss(2*REAGENTS_EFFECT_MULTIPLIER, FALSE)		//double strength of poison berry juice alone, because it's concentrated (this is equal to the damage of normal toxin, less often)
 	if(prob(10))
-		to_chat(M, "<span class='notice'>You feel slightly rejuvinated!</span>")		//meta this!
+		to_chat(M, "<span class='notice'>Вы чувствуете себя слегка обновленным!</span>")		//meta this!
 	return ..() | update_flags
 
 /datum/reagent/consumable/drink/berry_banned2/on_mob_death(mob/living/M)
 	M << sound('sound/effects/adminhelp.ogg',0,1,0,25)
-	to_chat(M, "<span class='adminhelp'>PM from-<b>Administrator</b>: BWOINK!</span>")
+	to_chat(M, "<span class='adminhelp'>ПМ от-<b>Administrator</b>: БАН!</span>")
 	..()
 
 //Blackeye Brew: Chance to make the drinker say greytider-themed things like "I thought clown was valid!"
 /datum/reagent/consumable/drink/blackeye_brew
 	name = "Blackeye Brew"
 	id = "blackeye_brew"
-	description = "Creamy, smooth flavor, just like the bald heads of the masses. Supposedly aged for 30 years."
+	description = "Сливочный, мягкий вкус, совсем как лысые головы. Предположительно 30 лет."
 	reagent_state = LIQUID
 	color = "#4d2600"
-	taste_description = "greytide"
+	taste_description = "грейтайд"
 
 /datum/reagent/consumable/drink/blackeye_brew/on_mob_life(mob/living/M)
 	if(prob(25))
-		var/list/tider_talk = list("I OWN THIS STATION NOW, I JUST BOUGHT IT.",
-									"SECRET TECHNIQUE: TOOLBOX TO THE FACE!",
-									"SECRET TECHNIQUE: PLASMA CANISTER FIRE!",
-									"SECRET TECHNIQUE: TABLE AND DISPOSAL!",
-									"[pick("MY BROTHER", " MY DOG", "MY BEST FRIEND", "THE BORER", "GEORGE MELONS", "BADMINS")] DID IT!",
-									";s WHATS SPACE LAW?!",
-									"I BOUGHT THESE GLOVES, NOT STEAL THEM",
-									"THIS DOOR WAS SHOCKED WHEN I GOT HERE",
-									"ANIMALS ARE NOT CREW")
+		var/list/tider_talk = list("ТЕПЕРЬ ЭТА СТАНЦИЯ ПРИНАДЛЕЖИТ МНЕ, Я ЕЕ ТОЛЬКО ЧТО КУПИЛ.",
+									"СЕКРЕТНАЯ ТЕХНИКА: ЯЩИК С ИНСТРУМЕНТАМИ В ЛИЦО!",
+									"СЕКРЕТНАЯ ТЕХНИКА: ОГОНЬ ИЗ ПЛАЗМЕННОГО БАЛЛОНА!",
+									"СЕКРЕТНАЯ ТЕХНИКА: СТОЛ И УТИЛИЗАЦИЯ!",
+									"[pick("МОЙ БРАТ", "МОЙ ПЁС", "МОЙ ЛУЧШИЙ ДРУГ", "МОЁ СВЕРЛО", "ДЖОРДЖ МЕЛОНС", "АДМИНЫ")] СДЕЛАЛИ ЭТО!",
+									"ЧТО ТАКОЕ КОСМИЧЕСКИЙ ЗАКОН?!",
+									"Я КУПИЛ ЭТИ ПЕРЧАТКИ, А НЕ УКРАЛ ИХ",
+									"ДВЕРЬ БЫЛА ПРОСТО ПОТРЯСЕНА, КОГДА Я ПРИШЕЛ СЮДА",
+									"ЖИВОТНЫЕ - НЕ ЧЛЕНЫ ЭКИПАЖА")
 		M.say(pick(tider_talk))
 	return ..()
 
@@ -111,7 +111,7 @@
 /datum/reagent/consumable/drink/grape_granade
 	name = "Grape Granade"
 	id = "grape_granade"
-	description = "Exploding with grape flavor and a favorite among ERT members system-wide."
+	description = "Взрывающийся ароматом винограда и любимый среди членов ОБР по всей системе."
 	reagent_state = LIQUID
 	color = "#9933ff"
 	taste_description = "old people"
@@ -121,7 +121,7 @@
 		var/turf/simulated/T = get_turf(M)
 		goonchem_vortex(T, 0, 0)
 		M.emote("burp")
-		to_chat(M, "<span class='notice'>You feel ready to burst! Oh wait, just a burp...</span>")
+		to_chat(M, "<span class='notice'>Вы чувствуете, что готовы взорваться! Погодь, это просто отрыжка...</span>")
 	else if(prob(25))
 		M.emote("burp")
 	return ..()
@@ -130,10 +130,10 @@
 /datum/reagent/consumable/drink/meteor_malt
 	name = "Meteor Malt"
 	id = "meteor_malt"
-	description = "Soft drinks have been detected on collision course with your tastebuds."
+	description = "Безалкогольные напитки были обнаружены при столкновении с вашими вкусовыми рецепторами."
 	reagent_state = LIQUID
 	color = "#cc9900"
-	taste_description = "flying space rocks"
+	taste_description = "летящие космические камни"
 
 /datum/reagent/consumable/drink/meteor_malt/on_mob_life(mob/living/M)
 	if(prob(25))

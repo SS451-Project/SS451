@@ -47,7 +47,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 		infected_crew += blob
 		blob.special_role = SPECIAL_ROLE_BLOB
 		blob.restricted_roles = restricted_jobs
-		log_game("[key_name(blob)] has been selected as a Blob")
+		log_game("[key_name(blob)] был выбран в качестве Блоба")
 		possible_blobs -= blob
 
 	if(!infected_crew.len)
@@ -72,9 +72,9 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 	blobmind.special_role = SPECIAL_ROLE_BLOB
 	update_blob_icons_added(blobmind)
 
-	log_game("[key_name(blob)] has been selected as a Blob")
+	log_game("[key_name(blob)] был выбран в качестве Блоба")
 	greet_blob(blobmind)
-	to_chat(blob, "<span class='userdanger'>You feel very tired and bloated!  You don't have long before you burst!</span>")
+	to_chat(blob, "<span class='userdanger'>Вы чувствуете себя очень усталым и раздутым! У тебя не так много времени, прежде чем ты лопнешь!</span>")
 	spawn(600)
 		burst_blob(blobmind)
 	return 1
@@ -92,17 +92,17 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 
 /datum/game_mode/blob/announce()
-	to_chat(world, "<B>The current game mode is - <font color='green'>Blob</font>!</B>")
-	to_chat(world, "<B>A dangerous alien organism is rapidly spreading throughout the station!</B>")
-	to_chat(world, "You must kill it all while minimizing the damage to the station.")
+	to_chat(world, "<B>Текущий режим игры - <font color='green'>Блоб</font>!</B>")
+	to_chat(world, "<B>Опасный инопланетный организм быстро распространяющийся по всей станции!</B>")
+	to_chat(world, "Вы должны убить это, минимизировав ущерб станции.")
 
 
 /datum/game_mode/blob/proc/greet_blob(var/datum/mind/blob)
-	to_chat(blob.current, "<span class='userdanger'>You are infected by the Blob!</span>")
-	to_chat(blob.current, "<b>Your body is ready to give spawn to a new blob core which will eat this station.</b>")
-	to_chat(blob.current, "<b>Find a good location to spawn the core and then take control and overwhelm the station!</b>")
-	to_chat(blob.current, "<b>When you have found a location, wait until you spawn; this will happen automatically and you cannot speed up the process.</b>")
-	to_chat(blob.current, "<b>If you go outside of the station level, or in space, then you will die; make sure your location has lots of ground to cover.</b>")
+	to_chat(blob.current, "<span class='userdanger'>Вы заражены Блобом!</span>")
+	to_chat(blob.current, "<b>Ваше тело готово дать отпрыска новому ядру Блоба, которое съест эту станцию.</b>")
+	to_chat(blob.current, "<b>Найдите хорошее место для создания ядра, а затем возьмите под свой контроль и сокрушите станцию!</b>")
+	to_chat(blob.current, "<b>Когда вы нашли местоположение, подождите, пока вы не появитесь; это произойдет автоматически, и вы не сможете ускорить процесс.</b>")
+	to_chat(blob.current, "<b>Если вы выйдете за пределы уровня станции или в космос, то вы умрете; убедитесь, что в вашем местоположении есть много места для расположения.</b>")
 	SEND_SOUND(blob.current, 'sound/magic/mutate.ogg')
 	return
 
@@ -125,14 +125,14 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			location = get_turf(C)
 			if(!is_station_level(location.z) || istype(location, /turf/space))
 				if(!warned)
-					to_chat(C, "<span class='userdanger'>You feel ready to burst, but this isn't an appropriate place!  You must return to the station!</span>")
-					message_admins("[key_name_admin(C)] was in space when the blobs burst, and will die if [C.p_they()] [C.p_do()] not return to the station.")
+					to_chat(C, "<span class='userdanger'>Вы чувствуете, что готовы взорваться, но это неподходящее место! Вы должны вернуться на станцию!</span>")
+					message_admins("[key_name_admin(C)] был в космосе, когда блоб лопнул, и умрет, если [C.p_they()] [C.p_do()] не вернётся на станцию.")
 					spawn(300)
 						burst_blob(blob, 1)
 				else
 					burst++
-					log_admin("[key_name(C)] was in space when attempting to burst as a blob.")
-					message_admins("[key_name_admin(C)] was in space when attempting to burst as a blob.")
+					log_admin("[key_name(C)] был в космосе, когда пытался взорваться как блоб.")
+					message_admins("[key_name_admin(C)] был в космосе, когда пытался взорваться как блоб.")
 					C.gib()
 					make_blobs(1)
 					check_finished() //Still needed in case we can't make any blobs
@@ -166,11 +166,11 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 
 		sleep(100)
 
-		show_message("<span class='userdanger'>You feel tired and bloated.</span>")
+		show_message("<span class='userdanger'>Вы чувствуете усталость и отеки.</span>")
 
 		sleep(wait_time)
 
-		show_message("<span class='userdanger'>You feel like you are about to burst.</span>")
+		show_message("<span class='userdanger'>Вы чувствуете, что вот-вот лопнете.</span>")
 
 		sleep(wait_time / 2)
 
@@ -196,7 +196,7 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			send_intercept(1)
 			declared = 1
 		if(1)
-			GLOB.event_announcement.Announce("Confirmed outbreak of level 5 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", 'sound/AI/outbreak5.ogg')
+			GLOB.event_announcement.Announce("Подтверждена вспышка биологической опасности 5-го уровня на борту [station_name()]. Весь персонал должен сдерживать вспышку.", "Предупреждение о биологической опасности", 'sound/AI/outbreak5.ogg')
 		if(2)
 			send_intercept(2)
 

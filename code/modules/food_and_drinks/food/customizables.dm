@@ -39,8 +39,8 @@
 		..()
 
 /obj/item/trash/bowl
-	name = "bowl"
-	desc = "An empty bowl. Put some food in it to start making a soup."
+	name = "Тарелка"
+	desc = "Пустая тарелка. Положите сюда немного еды, чтобы начать готовить суп."
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "soup"
 
@@ -54,8 +54,8 @@
 		..()
 
 /obj/item/reagent_containers/food/snacks/customizable/sandwich
-	name = "sandwich"
-	desc = "A sandwich! A timeless classic."
+	name = "Сэндвич"
+	desc = "Сэндвич! Вечная классика."
 	icon_state = "breadslice"
 	baseicon = "sandwichcustom"
 	basename = "sandwich"
@@ -64,8 +64,8 @@
 
 
 /obj/item/reagent_containers/food/snacks/customizable
-	name = "sandwich"
-	desc = "A sandwich! A timeless classic."
+	name = "Сэндвич"
+	desc = "Сэндвич! Вечная классика."
 	icon = 'icons/obj/food/custom.dmi'
 	icon_state = "sandwichcustom"
 	var/baseicon = "sandwichcustom"
@@ -82,18 +82,18 @@
 	list_reagents = list("nutriment" = 8)
 
 /obj/item/reagent_containers/food/snacks/customizable/pizza
-	name = "personal pizza"
-	desc = "A personalized pan pizza meant for only one person."
+	name = "Персонализированная пицца"
+	desc = "Персонализированная пицца на сковороде, предназначенная только для одного человека."
 	icon_state = "personal_pizza"
 	baseicon = "personal_pizza"
 	basename = "personal pizza"
 	snack_overlays = 0
 	top = 0
-	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1)
+	tastes = list("корка" = 1, "помидор" = 1, "сыр" = 1)
 
 /obj/item/reagent_containers/food/snacks/customizable/pasta
-	name = "spaghetti"
-	desc = "Noodles. With stuff. Delicious."
+	name = "Спагетти"
+	desc = "Лапша. Со штучками. Вкусная."
 	icon_state = "pasta_bot"
 	baseicon = "pasta_bot"
 	basename = "pasta"
@@ -101,38 +101,38 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/bread
-	name = "bread"
-	desc = "Tasty bread."
+	name = "Хлеб"
+	desc = "Вкусный хлеб."
 	icon_state = "breadcustom"
 	baseicon = "breadcustom"
 	basename = "bread"
 	snack_overlays = 0
 	top = 0
-	tastes = list("bread" = 10)
+	tastes = list("хлеб" = 10)
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/pie
-	name = "pie"
-	desc = "Tasty pie."
+	name = "Пирог"
+	desc = "Вкусный пирог."
 	icon_state = "piecustom"
 	baseicon = "piecustom"
 	basename = "pie"
 	snack_overlays = 0
 	top = 0
-	tastes = list("pie" = 1)
+	tastes = list("пирог" = 1)
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/cake
-	name = "cake"
-	desc = "A popular band."
+	name = "Торт"
+	desc = "Популярная группа альтернативной рок музыки."
 	icon_state = "cakecustom"
 	baseicon = "cakecustom"
 	basename = "cake"
 	snack_overlays = 0
 	top = 0
-	tastes = list("cake" = 1)
+	tastes = list("Cake" = 1)
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/jelly
-	name = "jelly"
-	desc = "Totally jelly."
+	name = "Желе"
+	desc = "Просто желе."
 	icon_state = "jellycustom"
 	baseicon = "jellycustom"
 	basename = "jelly"
@@ -140,8 +140,8 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/donkpocket
-	name = "donk pocket"
-	desc = "You wanna put a bangin-Oh nevermind."
+	name = "Шаурма"
+	desc = "Ты хочешь устроить взры... ай, неважно."
 	icon_state = "donkcustom"
 	baseicon = "donkcustom"
 	basename = "donk pocket"
@@ -149,47 +149,47 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/kebab
-	name = "kebab"
-	desc = "Kebab or Kabab?"
+	name = "Кебаб"
+	desc = "Кебаб или Кабаб?"
 	icon_state = "kababcustom"
 	baseicon = "kababcustom"
 	basename = "kebab"
 	snack_overlays = 0
 	top = 0
-	tastes = list("meat" = 3, "metal" = 1)
+	tastes = list("мясо" = 3, "металл" = 1)
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/salad
-	name = "salad"
-	desc = "Very tasty."
+	name = "Салат"
+	desc = "Очень вкусно."
 	icon_state = "saladcustom"
 	baseicon = "saladcustom"
 	basename = "salad"
 	snack_overlays = 0
 	top = 0
-	tastes = list("leaves" = 1)
+	tastes = list("листья" = 1)
 
 /obj/item/reagent_containers/food/snacks/customizable/cook/waffles
-	name = "waffles"
-	desc = "Made with love."
+	name = "Вафли"
+	desc = "Сделаны с любовью."
 	icon_state = "wafflecustom"
 	baseicon = "wafflecustom"
 	basename = "waffles"
 	snack_overlays = 0
 	top = 0
-	tastes = list("waffles" = 1)
+	tastes = list("вафли" = 1)
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/cookie
-	name = "cookie"
-	desc = "COOKIE!!1!"
+	name = "Печенье"
+	desc = "ПЕЧЕНЬКИ!!1!"
 	icon_state = "cookiecustom"
 	baseicon = "cookiecustom"
 	basename = "cookie"
 	snack_overlays = 0
 	top = 0
-	tastes = list("cookie" = 1)
+	tastes = list("печенье" = 1)
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/cotton
-	name = "flavored cotton candy"
+	name = "Ароматная сахарная вата"
 	desc = "Who can take a sunrise, sprinkle it with dew,"
 	icon_state = "cottoncandycustom"
 	baseicon = "cottoncandycustom"
@@ -198,7 +198,7 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/gummybear
-	name = "flavored giant gummy bear"
+	name = "Ароматный гигантский мармеладный медведь"
 	desc = "Cover it in chocolate and a miracle or two,"
 	icon_state = "gummybearcustom"
 	baseicon = "gummybearcustom"
@@ -207,7 +207,7 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/gummyworm
-	name = "flavored giant gummy worm"
+	name = "Ароматный гигантский мармеладный червь"
 	desc = "The Candy Man can 'cause he mixes it with love,"
 	icon_state = "gummywormcustom"
 	baseicon = "gummywormcustom"
@@ -216,7 +216,7 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/jellybean
-	name = "flavored giant jelly bean"
+	name = "Ароматный гигантский желейный боб"
 	desc = "And makes the world taste good."
 	icon_state = "jellybeancustom"
 	baseicon = "jellybeancustom"
@@ -225,7 +225,7 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/jawbreaker
-	name = "flavored jawbreaker"
+	name = "Ароматная зубодробилка"
 	desc = "Who can take a rainbow, Wrap it in a sigh,"
 	icon_state = "jawbreakercustom"
 	baseicon = "jawbreakercustom"
@@ -234,7 +234,7 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/candycane
-	name = "flavored candy cane"
+	name = "Ароматный тростик леденец"
 	desc = "Soak it in the sun and make strawberry-lemon pie,"
 	icon_state = "candycanecustom"
 	baseicon = "candycanecustom"
@@ -243,8 +243,8 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/gum
-	name = "flavored gum"
-	desc = "The Candy Man can 'cause he mixes it with love and makes the world taste good. And the world tastes good 'cause the Candy Man thinks it should..."
+	name = "Ароматная жвачка"
+	desc = "The Candy Man can 'cause he mixes it with love and makes the world taste good. And the world tastes good 'cause the Candy Man thinks it should... Это текст Primus - Candy Man."
 	icon_state = "gumcustom"
 	baseicon = "gumcustom"
 	basename = "flavored gum"
@@ -252,8 +252,8 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/donut
-	name = "filled donut"
-	desc = "Donut eat this!" // kill me
+	name = "Наполненный пончик"
+	desc = "Неишь это!" // kill me
 	icon_state = "donutcustom"
 	baseicon = "donutcustom"
 	basename = "filled donut"
@@ -261,8 +261,8 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/bar
-	name = "flavored chocolate bar"
-	desc = "Made in a factory downtown."
+	name = "Ароматный батончик шоколада"
+	desc = "Сделано на фабрике в центре города."
 	icon_state = "barcustom"
 	baseicon = "barcustom"
 	basename = "flavored chocolate bar"
@@ -270,8 +270,8 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/sucker
-	name = "flavored sucker"
-	desc = "Suck suck suck."
+	name = "Сосалка"
+	desc = "Чтоб сосать."
 	icon_state = "suckercustom"
 	baseicon = "suckercustom"
 	basename = "flavored sucker"
@@ -279,8 +279,8 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/cash
-	name = "flavored chocolate cash"
-	desc = "I got piles!"
+	name = "Шоколадные деньги"
+	desc = "У меня их куча!"
 	icon_state = "cashcustom"
 	baseicon = "cashcustom"
 	basename = "flavored cash"
@@ -288,8 +288,8 @@
 	top = 0
 
 /obj/item/reagent_containers/food/snacks/customizable/candy/coin
-	name = "flavored chocolate coin"
-	desc = "Clink, clink, clink."
+	name = "Шоколадная монета"
+	desc = "Динь, динь, динь!"
 	icon_state = "coincustom"
 	baseicon = "coincustom"
 	basename = "flavored coin"

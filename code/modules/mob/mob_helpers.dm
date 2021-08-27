@@ -421,7 +421,7 @@ GLOBAL_LIST_INIT(intents, list(INTENT_HELP,INTENT_DISARM,INTENT_GRAB,INTENT_HARM
 			SetSleeping(20) //Short nap
 
 /mob/living/verb/lay_down()
-	set name = "Отдыхать"
+	set name = "Лечь"
 	set category = "IC"
 
 	if(!resting)

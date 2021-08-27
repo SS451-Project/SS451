@@ -1,7 +1,7 @@
 #define OP_COMPUTER_COOLDOWN 60
 
 /obj/machinery/computer/operating
-	name = "operating computer"
+	name = "Операционный компьютер"
 	density = 1
 	anchored = 1.0
 	icon_keyboard = "med_key"
@@ -186,15 +186,15 @@
 	var/isNewPatient = (table.patient != currentPatient) //Is this a new Patient?
 
 	if(table.patient.stat == DEAD || table.patient.status_flags & FAKEDEATH)
-		patientStatus = "Dead"
+		patientStatus = "мёртв"
 	else if(table.patient.stat == CONSCIOUS)
-		patientStatus = "Awake"
+		patientStatus = "бодрствует"
 	else if(table.patient.stat == UNCONSCIOUS)
-		patientStatus = "Asleep"
+		patientStatus = "спит"
 
 	if(isNewPatient)
-		atom_say("New patient detected, loading stats")
-		atom_say("[table.patient], [table.patient.dna.blood_type] blood, [patientStatus]")
+		atom_say("Обнаружен новый пациент, загружается информация")
+		atom_say("[table.patient], группа крови - [table.patient.dna.blood_type], [patientStatus]")
 		SStgui.update_uis(src)
 		patientStatusHolder = table.patient.stat
 		currentPatient = table.patient
@@ -208,5 +208,5 @@
 		if(healthAnnounce && table.patient.health <= healthAlarm)
 			atom_say("[round(table.patient.health)]")
 		if(table.patient.stat != patientStatusHolder)
-			atom_say("Patient is now [patientStatus]")
+			atom_say("Пациент сейчас [patientStatus]")
 			patientStatusHolder = table.patient.stat
