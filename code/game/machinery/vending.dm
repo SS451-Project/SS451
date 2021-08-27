@@ -885,7 +885,7 @@
 	products = list(	/obj/item/assembly/prox_sensor = 5,/obj/item/assembly/igniter = 3,/obj/item/assembly/signaler = 4,
 						/obj/item/wirecutters = 1, /obj/item/cartridge/signal = 4)
 	contraband = list(/obj/item/flashlight = 5,/obj/item/assembly/timer = 2, /obj/item/assembly/voice = 2, /obj/item/assembly/health = 2)
-	ads_list = list("Only the finest!","Have some tools.","The most robust equipment.","The finest gear in space!")
+	ads_list = list("Только самые лучшие!","У меня есть кое-какие инструменты.","Самое надежное оборудование.","Лучшее снаряжение в космосе!")
 	refill_canister = /obj/item/vending_refill/assist
 
 /obj/machinery/vending/assist/Initialize(mapload)
@@ -898,8 +898,8 @@
 	return ..()
 
 /obj/machinery/vending/boozeomat
-	name = "\improper Booze-O-Mat"
-	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
+	name = "Booze-O-Mat"
+	desc = "Технологическое чудо, предположительно способное смешивать именно ту смесь, которую вы хотели бы выпить, как только попросите."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_deny = "boozeomat-deny"
 	products = list(/obj/item/reagent_containers/food/drinks/bottle/gin = 5,
@@ -928,8 +928,8 @@
 	contraband = list(/obj/item/reagent_containers/food/drinks/tea = 10,
 					  /obj/item/reagent_containers/food/drinks/bottle/fernet = 5)
 	vend_delay = 15
-	slogan_list = list("I hope nobody asks me for a bloody cup o' tea...","Alcohol is humanity's friend. Would you abandon a friend?","Quite delighted to serve you!","Is nobody thirsty on this station?")
-	ads_list = list("Drink up!","Booze is good for you!","Alcohol is humanity's best friend.","Quite delighted to serve you!","Care for a nice, cold beer?","Nothing cures you like booze!","Have a sip!","Have a drink!","Have a beer!","Beer is good for you!","Only the finest alcohol!","Best quality booze since 2053!","Award-winning wine!","Maximum alcohol!","Man loves beer.","A toast for progress!")
+	slogan_list = list("Надеюсь, никто не попросит у меня чертову чашку чая...","Алкоголь - друг человечества. Ты бы бросил друга?","Очень рад служить вам!","Неужели на этой станции никто не хочет пить?")
+	ads_list = list("Пей до дна!","Выпивка тебе на пользу!","Алкоголь - друг человечества.","Очень рад служить вам!","Хотите хорошенького холодного пива?","Ничто так не лечит, как выпивка!","Сделай глоток!","Выпей чего-нибудь!","Выпей пива!","Пиво полезно для вас!","Только лучший алкоголь!","Лучшая качественная выпивка с 2053 года!","Отмеченное наградами вино!","Максимум алкоголя!","Мужик любит пиво.","Тост за прогресс!")
 	refill_canister = /obj/item/vending_refill/boozeomat
 
 /obj/machinery/vending/boozeomat/syndicate_access
@@ -946,9 +946,9 @@
 
 
 /obj/machinery/vending/coffee
-	name = "\improper Hot Drinks machine"
-	desc = "A vending machine which dispenses hot drinks."
-	ads_list = list("Have a drink!","Drink up!","It's good for you!","Would you like a hot joe?","I'd kill for some coffee!","The best beans in the galaxy.","Only the finest brew for you.","Mmmm. Nothing like a coffee.","I like coffee, don't you?","Coffee helps you work!","Try some tea.","We hope you like the best!","Try our new chocolate!","Admin conspiracies")
+	name = "Автомат для горячих напитков"
+	desc = "Торговый автомат, в котором раздают горячие напитки."
+	ads_list = list("Выпей чего-нибудь!","Пей до дна!","Это хорошо для тебя!","Хочешь горячего шоколада?","Я бы убил за чашечку кофе!","Лучшие бобы в галактике.","Только лучшее варка для тебя.","Мммм. Нет ничего лучше кофе.","Я люблю кофе, а ты?","Кофе помогает вам работать!","Попробуй чаю.","Мы надеемся, что вам понравится!","Попробуйте наш новый шоколад!","Административные заговоры")
 	icon_state = "coffee"
 	icon_vend = "coffee-vend"
 	item_slot = TRUE
@@ -980,7 +980,7 @@
 	if(!..())
 		return FALSE
 	if(!I.is_open_container())
-		to_chat(user, "<span class='warning'>You need to open [I] before inserting it.</span>")
+		to_chat(user, "<span class='warning'>Вам нужно открыть [I], прежде чем вставлять его.</span>")
 		return FALSE
 	return TRUE
 
@@ -1013,10 +1013,10 @@
 
 
 /obj/machinery/vending/snack
-	name = "\improper Getmore Chocolate Corp"
-	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
-	slogan_list = list("Try our new nougat bar!","Twice the calories for half the price!")
-	ads_list = list("The healthiest!","Award-winning chocolate bars!","Mmm! So good!","Oh my god it's so juicy!","Have a snack.","Snacks are good for you!","Have some more Getmore!","Best quality snacks straight from mars.","We love chocolate!","Try our new jerky!")
+	name = "Getmore Chocolate Corp"
+	desc = "Автомат для закусок, любезно предоставленный шоколадной корпорацией Getmore, базирующейся на Марсе."
+	slogan_list = list("Попробуйте наш новый батончик с нугой!","Вдвое больше калорий за полцены!")
+	ads_list = list("Самая здоровая пища!","Отмеченные наградами шоколадные батончики!","Ммм! Хорошо!","О боже, так сочно!","Перекуси.","Закуски, полезные для вас!","Возьми еще немного 'Getmore'!","Закуски высшего качества прямо с Марса.","Мы любим шоколад!","Попробуйте наше новое вяленое мясо!")
 	icon_state = "snack"
 	products = list(/obj/item/reagent_containers/food/snacks/candy/candybar = 6,/obj/item/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/reagent_containers/food/snacks/chips =6,
 					/obj/item/reagent_containers/food/snacks/sosjerky = 6,/obj/item/reagent_containers/food/snacks/no_raisin = 6,/obj/item/reagent_containers/food/snacks/pistachios =6,

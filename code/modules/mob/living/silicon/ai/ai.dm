@@ -241,8 +241,8 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		show_borg_info()
 
 /mob/living/silicon/ai/proc/ai_alerts()
-	var/list/dat = list("<HEAD><TITLE>Текущие Оповещения Станции</TITLE><META HTTP-EQUIV='Обновить' CONTENT='10'></HEAD><BODY>\n")
-	dat += "<A HREF='?src=[UID()];mach_close=aialerts'>Закрыть</A><BR><BR>"
+	var/list/dat = list("<HEAD><TITLE>Current Station Alerts</TITLE><META HTTP-EQUIV='UPDATE' CONTENT='10'></HEAD><BODY>\n")
+	dat += "<A HREF='?src=[UID()];mach_close=aialerts'>Close</A><BR><BR>"
 	var/list/list/temp_alarm_list = SSalarm.alarms.Copy()
 	for(var/cat in temp_alarm_list)
 		if(!(cat in alarms_listend_for))
@@ -266,14 +266,14 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 						var/obj/machinery/camera/I = locateUID(cam)
 						if(!QDELETED(I))
 							dat2 += text("[]<A HREF=?src=[UID()];switchcamera=[cam]>[]</A>", (dat2 == "") ? "" : " | ", I.c_tag)
-					dat += text("-- [] ([])", area_name, (dat2 != "") ? dat2 : "Нет камеры")
+					dat += text("-- [] ([])", area_name, (dat2 != "") ? dat2 : "NO CAMERA")
 				else
-					dat += text("-- [] (Нет камеры)", area_name)
+					dat += text("-- [] (NO CAMERA)", area_name)
 				if(sources.len > 1)
 					dat += text("- [] sources", sources.len)
 				dat += "</NOBR><BR>\n"
 		if(!L.len)
-			dat += "-- Все системы в норме<BR>\n"
+			dat += "-- All systems are normal<BR>\n"
 		dat += "<BR>\n"
 
 	viewalerts = TRUE
