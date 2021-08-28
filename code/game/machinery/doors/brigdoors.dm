@@ -113,9 +113,9 @@
 /obj/machinery/door_timer/proc/notify_prisoner(notifytext)
 	for(var/mob/living/carbon/human/H in range(4, get_turf(src)))
 		if(occupant == H.name)
-			to_chat(H, "[src] beeps, \"[notifytext]\"")
+			to_chat(H, "[src] пищит, \"[notifytext]\"")
 			return
-	atom_say("[src] beeps, \"[occupant]: [notifytext]\"")
+	atom_say("[src] пищит, \"[occupant]: [notifytext]\"")
 
 /obj/machinery/door_timer/Initialize()
 	..()

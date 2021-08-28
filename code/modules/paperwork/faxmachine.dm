@@ -280,9 +280,9 @@ GLOBAL_LIST_EMPTY(fax_blacklist)
 		F.sent_by = sender
 		F.sent_at = world.time
 
-		visible_message("[src] beeps, \"Message transmitted successfully.\"")
+		visible_message("[src] пищит, \"Message transmitted successfully.\"")
 	else
-		visible_message("[src] beeps, \"Error transmitting message.\"")
+		visible_message("[src] пищит, \"Error transmitting message.\"")
 
 /obj/machinery/photocopier/faxmachine/proc/receivefax(var/obj/item/incoming)
 	if(stat & (BROKEN|NOPOWER))
@@ -314,7 +314,7 @@ GLOBAL_LIST_EMPTY(fax_blacklist)
 	use_power(active_power_usage)
 
 	if(!(istype(copyitem, /obj/item/paper) || istype(copyitem, /obj/item/paper_bundle) || istype(copyitem, /obj/item/photo)))
-		visible_message("[src] beeps, \"Error transmitting message.\"")
+		visible_message("[src] пищит, \"Error transmitting message.\"")
 		return
 
 	var/datum/fax/admin/A = new /datum/fax/admin()
@@ -335,7 +335,7 @@ GLOBAL_LIST_EMPTY(fax_blacklist)
 	for(var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if(F.department == destination)
 			F.receivefax(copyitem)
-	visible_message("[src] beeps, \"Message transmitted successfully.\"")
+	visible_message("[src] пищит, \"Message transmitted successfully.\"")
 
 /obj/machinery/photocopier/faxmachine/proc/cooldown_seconds()
 	if(sendcooldown < world.time)

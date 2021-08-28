@@ -455,7 +455,7 @@
 			being_built = new /list()
 			return 0
 		if(!can_build(D, multiplier))
-			visible_message("[bicon(src)] <b>\The [src]</b> beeps, \"Not enough resources. Queue processing terminated.\"")
+			visible_message("[bicon(src)] <b>\The [src]</b> пищит, \"Not enough resources. Queue processing terminated.\"")
 			queue = list()
 			being_built = new /list()
 			return 0

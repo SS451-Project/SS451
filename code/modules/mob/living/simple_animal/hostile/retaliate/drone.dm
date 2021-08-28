@@ -12,11 +12,11 @@
 	minimum_distance = 3
 	speak_chance = 5
 	turns_per_move = 3
-	response_help = "pokes the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
-	speak = list("ALERT.", "Hostile-ile-ile entities dee-twhoooo-wected.", "Threat parameterszzzz- szzet.", "Bring sub-sub-sub-systems uuuup to combat alert alpha-a-a.")
-	emote_see = list("beeps menacingly.", "whirrs threateningly.", "scans for targets.")
+	response_help = "тычет в"
+	response_disarm = "осторожно отодвигает в сторону"
+	response_harm = "попадает в"
+	speak = list("ТРЕВОГА.", "Враждебные-ые-ые сущности, о-о-о-го-го-го-го.", "Параметры угрозы ззззз - зззт.", "Приведите под-под-под-под-подсистемы в бо-о-о-оевую готовность альфа-а-а.")
+	emote_see = list("угрожающе пищит.", "угрожающе жужжит.", "сканирует на предмет цели.")
 	a_intent = INTENT_HARM
 	stop_automated_movement_when_pulled = FALSE
 	health = 200

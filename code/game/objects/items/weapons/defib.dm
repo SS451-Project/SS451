@@ -124,11 +124,11 @@
 		deductcharge(1000 / severity)
 	if(safety)
 		safety = FALSE
-		visible_message("<span class='notice'>[src] beeps: Safety protocols disabled!</span>")
+		visible_message("<span class='notice'>[src] пищит: Safety protocols disabled!</span>")
 		playsound(get_turf(src), 'sound/machines/defib_saftyoff.ogg', 50, 0)
 	else
 		safety = TRUE
-		visible_message("<span class='notice'>[src] beeps: Safety protocols enabled!</span>")
+		visible_message("<span class='notice'>[src] пищит: Safety protocols enabled!</span>")
 		playsound(get_turf(src), 'sound/machines/defib_saftyon.ogg', 50, 0)
 	update_icon()
 	..()
@@ -203,10 +203,10 @@
 	spawn(50)
 		if(cell)
 			if(cell.charge >= paddles.revivecost)
-				user.visible_message("<span class='notice'>[src] beeps: Unit ready.</span>")
+				user.visible_message("<span class='notice'>[src] пищит: Unit ready.</span>")
 				playsound(get_turf(src), 'sound/machines/defib_ready.ogg', 50, 0)
 			else
-				user.visible_message("<span class='notice'>[src] beeps: Charge depleted.</span>")
+				user.visible_message("<span class='notice'>[src] пищит: Charge depleted.</span>")
 				playsound(get_turf(src), 'sound/machines/defib_failed.ogg', 50, 0)
 		paddles.cooldown = FALSE
 		paddles.update_icon()
@@ -325,7 +325,7 @@
 	if(busy)
 		return
 	if(!defib.powered)
-		user.visible_message("<span class='notice'>[defib] beeps: Unit is unpowered.</span>")
+		user.visible_message("<span class='notice'>[defib] пищит: Unit is unpowered.</span>")
 		playsound(get_turf(src), 'sound/machines/defib_failed.ogg', 50, 0)
 		return
 	if(!wielded)

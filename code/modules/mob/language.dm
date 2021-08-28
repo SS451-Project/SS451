@@ -620,7 +620,7 @@
 	for(var/mob/living/M in listening)
 		if(issilicon(M) || M.binarycheck())
 			continue
-		M.show_message("<i><span class='game say'><span class='name'>synthesised voice</span> <span class='message'>beeps, \"beep beep beep\"</span></span></i>",2)
+		M.show_message("<i><span class='game say'><span class='name'>synthesised voice</span> <span class='message'>пищит, \"бип бип бип\"</span></span></i>",2)
 
 /datum/language/binary/drone
 	name = "Drone Talk"
