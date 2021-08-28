@@ -3,7 +3,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Онлайн Игроков:</b>\n"
+	var/msg = "<b>Игроков онлайн:</b>\n"
 
 
 	var/list/Lines = list()
@@ -62,7 +62,7 @@
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
 
-	msg += "<b>Всего Игроков: [length(Lines)]</b>"
+	msg += "<b>Всего игроков: [length(Lines)]</b>"
 	to_chat(src, msg)
 
 /client/verb/adminwho()
@@ -127,11 +127,11 @@
 				num_mods_online++
 
 	var/noadmins_info = "\n<span class='notice'><small>Если никого из админсостава нет онлайн, все равно создавайте тикеты.<small></span>"
-	msg = "<b>Онлайн Админов ([num_admins_online]):</b>\n" + msg + "\n<b>Онлайн Менторов/Модераторов ([num_mods_online]):</b>\n" + modmsg + noadmins_info
-	msg = replacetext(msg, "\[Хост\]",	"\[<font color='#1ABC9C'>Хост</font>\]")
-	msg = replacetext(msg, "\[Старший Админ\]",	"\[<font color='#f02f2f'>Старший Админ</font>\]")
-	msg = replacetext(msg, "\[Админ\]",	"\[<font color='#ee8f29'>Админ</font>\]")
-	msg = replacetext(msg, "\[Триал Админ\]",	"\[<font color='#cfc000'>Триал Админ</font>\]")
-	msg = replacetext(msg, "\[Модератор\]",	"\[<font color='#9db430'>Модератор</font>\]")
-	msg = replacetext(msg, "\[Ментор\]",	"\[<font color='#67761e'>Ментор</font>\]")
+	msg = "<b>Админов онлайн ([num_admins_online]):</b>\n" + msg + "\n<b>Менторов/Модераторов онлайн ([num_mods_online]):</b>\n" + modmsg + noadmins_info
+	msg = replacetext(msg, "\[HostingProvider\]",	"\[<font color='#1ABC9C'>Хост</font>\]")
+	msg = replacetext(msg, "\[HeadofStaff\]",	"\[<font color='#f02f2f'>Старший Админ</font>\]")
+	msg = replacetext(msg, "\[Admin\]",	"\[<font color='#ee8f29'>Админ</font>\]")
+	msg = replacetext(msg, "\[TrialAdmin\]",	"\[<font color='#cfc000'>Триал Админ</font>\]")
+	msg = replacetext(msg, "\[Moderator\]",	"\[<font color='#9db430'>Модератор</font>\]")
+	msg = replacetext(msg, "\[Mentor\]",	"\[<font color='#67761e'>Ментор</font>\]")
 	to_chat(src, msg)

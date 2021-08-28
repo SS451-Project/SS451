@@ -432,7 +432,7 @@ SUBSYSTEM_DEF(ticker)
 	if(captainless)
 		for(var/mob/M in GLOB.player_list)
 			if(!isnewplayer(M))
-				to_chat(M, "Капитанство никому не поставлено.")
+				to_chat(M, "Никто не назначен на Капитана.")
 
 /datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
 	var/m
@@ -457,7 +457,7 @@ SUBSYSTEM_DEF(ticker)
 	var/station_integrity = min(round( 100.0 *  GLOB.start_state.score(ending_station_state), 0.1), 100.0)
 
 	to_chat(world, "<BR>[TAB]Продолжительность смены: <B>[round(ROUND_TIME / 36000)]:[add_zero("[ROUND_TIME / 600 % 60]", 2)]:[ROUND_TIME / 100 % 6][ROUND_TIME / 100 % 10]</B>")
-	to_chat(world, "<BR>[TAB]Целостность станции: <B>[mode.station_was_nuked ? "<font color='red'>Destroyed</font>" : "[station_integrity]%"]</B>")
+	to_chat(world, "<BR>[TAB]Целостность станции: <B>[mode.station_was_nuked ? "<font color='red'>Уничтожена</font>" : "[station_integrity]%"]</B>")
 	to_chat(world, "<BR>")
 
 	//Silicon laws report
@@ -471,7 +471,7 @@ SUBSYSTEM_DEF(ticker)
 		if(aiPlayer.connected_robots.len)
 			var/robolist = "<b>Верными приспешниками ИИ были:</b> "
 			for(var/mob/living/silicon/robot/robo in aiPlayer.connected_robots)
-				robolist += "[robo.name][robo.stat?" (Deactivated) (Played by: [robo.key]), ":" (Played by: [robo.key]), "]"
+				robolist += "[robo.name][robo.stat?" (Деактивирован) (В исполнении: [robo.key]), ":" (В исполнении: [robo.key]), "]"
 			to_chat(world, "[robolist]")
 
 	var/dronecount = 0
@@ -545,8 +545,8 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/setup_news_feeds()
 	var/datum/feed_channel/newChannel = new /datum/feed_channel
-	newChannel.channel_name = "Public Station Announcements"
-	newChannel.author = "Automated Announcement Listing"
+	newChannel.channel_name = "Общественных Объявления Станции"
+	newChannel.author = "Автоматический Список Объявлений"
 	newChannel.icon = "bullhorn"
 	newChannel.frozen = TRUE
 	newChannel.admin_locked = TRUE
@@ -554,7 +554,7 @@ SUBSYSTEM_DEF(ticker)
 
 	newChannel = new /datum/feed_channel
 	newChannel.channel_name = "Nyx Daily"
-	newChannel.author = "CentComm Minister of Information"
+	newChannel.author = "Министр Информации Центрального Командования"
 	newChannel.icon = "meteor"
 	newChannel.frozen = TRUE
 	newChannel.admin_locked = TRUE
@@ -562,7 +562,7 @@ SUBSYSTEM_DEF(ticker)
 
 	newChannel = new /datum/feed_channel
 	newChannel.channel_name = "The Gibson Gazette"
-	newChannel.author = "Editor Mike Hammers"
+	newChannel.author = "Редактор Майк Хаммерс"
 	newChannel.icon = "star"
 	newChannel.frozen = TRUE
 	newChannel.admin_locked = TRUE
@@ -587,7 +587,7 @@ SUBSYSTEM_DEF(ticker)
 		// Use default restart timeout
 		delay = restart_timeout
 
-	to_chat(world, "<span class='boldannounce'>Перезагрузка мира через [delay/10] [delay > 10 ? "seconds" : "second"]. [reason]</span>")
+	to_chat(world, "<span class='boldannounce'>Перезагрузка мира через [delay/10] [delay > 10 ? "секунд" : "секунд"]. [reason]</span>")
 
 	real_reboot_time = world.time + delay
 	UNTIL(world.time > real_reboot_time) // Hold it here
