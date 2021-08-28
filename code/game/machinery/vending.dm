@@ -12,8 +12,8 @@
 	var/price = 0  // Price to buy one
 
 /obj/machinery/vending
-	name = "\improper Vendomat"
-	desc = "A generic vending machine."
+	name = "Vendomat"
+	desc = "Универсальный торговый автомат."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
 	layer = 2.9
@@ -258,7 +258,7 @@
 
 	var/obj/item/vending_refill/R = locate() in component_parts
 	if(!R)
-		CRASH("Constructible vending machine did not have a refill canister")
+		CRASH("В конструкции торгового автомата не было канистры для заправки")
 
 	R.products = unbuild_inventory(product_records)
 	R.contraband = unbuild_inventory(hidden_records)
@@ -284,35 +284,35 @@
 /obj/machinery/vending/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin))
 		if(!premium.len)
-			to_chat(user, "<span class='warning'>[src] does not accept coins.</span>")
+			to_chat(user, "<span class='warning'>[src] не принимает монеты.</span>")
 			return
 		if(coin)
-			to_chat(user, "<span class='warning'>There is already a coin in this machine!</span>")
+			to_chat(user, "<span class='warning'>В этом автомате уже есть монета!</span>")
 			return
 		if(!user.drop_item())
 			return
 		I.forceMove(src)
 		coin = I
-		to_chat(user, "<span class='notice'>You insert [I] into the [src]</span>")
+		to_chat(user, "<span class='notice'>Ты вставил [I] в [src]</span>")
 		SStgui.update_uis(src)
 		return
 	if(refill_canister && istype(I, refill_canister))
 		if(!panel_open)
-			to_chat(user, "<span class='warning'>You should probably unscrew the service panel first!</span>")
+			to_chat(user, "<span class='warning'>Вероятно, вам следует сначала открутить сервисную панель!</span>")
 		else if (stat & (BROKEN|NOPOWER))
-			to_chat(user, "<span class='notice'>[src] does not respond.</span>")
+			to_chat(user, "<span class='notice'>[src] не отвечает.</span>")
 		else
 			//if the panel is open we attempt to refill the machine
 			var/obj/item/vending_refill/canister = I
 			if(canister.get_part_rating() == 0)
-				to_chat(user, "<span class='warning'>[canister] is empty!</span>")
+				to_chat(user, "<span class='warning'>[canister] пуста!</span>")
 			else
 				// instantiate canister if needed
 				var/transferred = restock(canister)
 				if(transferred)
-					to_chat(user, "<span class='notice'>You loaded [transferred] items in [src].</span>")
+					to_chat(user, "<span class='notice'>Вы загрузили [transferred] предметы в [src].</span>")
 				else
-					to_chat(user, "<span class='warning'>There's nothing to restock!</span>")
+					to_chat(user, "<span class='warning'>Ничего нет для пополнения запасов!</span>")
 		return
 	if(item_slot_check(user, I))
 		insert_item(user, I)
@@ -359,7 +359,7 @@
 	if(!item_slot)
 		return FALSE
 	if(inserted_item)
-		to_chat(user, "<span class='warning'>There is something already inserted!</span>")
+		to_chat(user, "<span class='warning'>Здесь что-то уже вставлено!</span>")
 		return FALSE
 	return TRUE
 
@@ -391,7 +391,7 @@
 	else
 		to_chat(user, display_parts(user))
 	if(moved)
-		to_chat(user, "[moved] items restocked.")
+		to_chat(user, "[moved] предметы пополнены.")
 		W.play_rped_sound()
 	return TRUE
 
@@ -403,11 +403,11 @@
 	if(!item_slot || inserted_item)
 		return
 	if(!user.drop_item())
-		to_chat(user, "<span class='warning'>[I] is stuck to your hand, you can't seem to put it down!</span>")
+		to_chat(user, "<span class='warning'>[I] прилип к твоей руке. Ты, кажется, не можешь это опустить!</span>")
 		return
 	inserted_item = I
 	I.forceMove(src)
-	to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+	to_chat(user, "<span class='notice'>Ты вставил [I] в [src].</span>")
 	SStgui.update_uis(src)
 
 /obj/machinery/vending/proc/eject_item(mob/user)
@@ -425,14 +425,14 @@
 
 /obj/machinery/vending/emag_act(user as mob)
 	emagged = TRUE
-	to_chat(user, "You short out the product lock on [src]")
+	to_chat(user, "Вы отключаете блокировку продукта [src]")
 
 
 /obj/machinery/vending/proc/pay_with_cash(obj/item/stack/spacecash/cashmoney, mob/user)
 	if(currently_vending.price > cashmoney.amount)
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		to_chat(usr, "[bicon(cashmoney)] <span class='warning'>That is not enough money.</span>")
+		to_chat(usr, "[bicon(cashmoney)] <span class='warning'>Недостаточно денег.</span>")
 		return FALSE
 
 	// Bills (banknotes) cannot really have worth different than face value,
@@ -440,7 +440,7 @@
 	// This is really dirty, but there's no superclass for all bills, so we
 	// just assume that all spacecash that's not something else is a bill
 
-	visible_message("<span class='info'>[usr] inserts a credit chip into [src].</span>")
+	visible_message("<span class='info'>[usr] вставляет кредитный чип в [src].</span>")
 	cashmoney.use(currently_vending.price)
 
 	// Vending machines have no idea who paid with cash
@@ -449,31 +449,31 @@
 
 
 /obj/machinery/vending/proc/pay_with_card(obj/item/card/id/I, mob/M)
-	visible_message("<span class='info'>[M] swipes a card through [src].</span>")
+	visible_message("<span class='info'>[M] проводит карточкой по [src].</span>")
 	return pay_with_account(get_card_account(I), M)
 
 /obj/machinery/vending/proc/pay_with_account(datum/money_account/customer_account, mob/M)
 	if(!customer_account)
-		to_chat(M, "<span class='warning'>Error: Unable to access account. Please contact technical support if problem persists.</span>")
+		to_chat(M, "<span class='warning'>Ошибка: Не удалось получить доступ к учетной записи. Пожалуйста, обратитесь в службу технической поддержки, если проблема не устранена.</span>")
 		return FALSE
 	if(customer_account.suspended)
-		to_chat(M, "<span class='warning'>Unable to access account: account suspended.</span>")
+		to_chat(M, "<span class='warning'>Не удается получить доступ к учетной записи: учетная запись приостановлена.</span>")
 		return FALSE
 	// Have the customer punch in the PIN before checking if there's enough money.
 	// Prevents people from figuring out acct is empty at high security levels
 	if(customer_account.security_level != 0)
 		// If card requires pin authentication (ie seclevel 1 or 2)
-		var/attempt_pin = input("Enter pin code", "Vendor transaction") as num
+		var/attempt_pin = input("Введите пин-код", "Транзакция с продавцом") as num
 		if(!attempt_account_access(customer_account.account_number, attempt_pin, 2))
-			to_chat(M, "<span class='warning'>Unable to access account: incorrect credentials.</span>")
+			to_chat(M, "<span class='warning'>Не удается получить доступ к учетной записи: неверные учетные данные.</span>")
 			return FALSE
 	if(currently_vending.price > customer_account.money)
-		to_chat(M, "<span class='warning'>Your bank account has insufficient money to purchase this.</span>")
+		to_chat(M, "<span class='warning'>На вашем банковском счете недостаточно денег для покупки этого.</span>")
 		return FALSE
 	// Okay to move the money at this point
 	customer_account.charge(currently_vending.price, GLOB.vendor_account,
-		"Purchase of [currently_vending.name]", name, GLOB.vendor_account.owner_name,
-		"Sale of [currently_vending.name]", customer_account.owner_name)
+		"Покупка [currently_vending.name]", name, GLOB.vendor_account.owner_name,
+		"Продажа [currently_vending.name]", customer_account.owner_name)
 	return TRUE
 
 
@@ -507,7 +507,7 @@
 	var/list/data = list()
 	var/mob/living/carbon/human/H
 	var/obj/item/card/id/C
-	data["guestNotice"] = "No valid ID card detected. Wear your ID, or present cash.";
+	data["guestNotice"] = "Не обнаружено действительной ID-карты. Наденьте свою ID-карту или предъявите наличные.";
 	data["userMoney"] = 0
 	data["user"] = null
 	if(ishuman(user))
@@ -516,7 +516,7 @@
 		var/obj/item/stack/spacecash/S = H.get_active_hand()
 		if(istype(S))
 			data["userMoney"] = S.amount
-			data["guestNotice"] = "Accepting Cash. You have: [S.amount] credits."
+			data["guestNotice"] = "Прием наличных. У тебя есть: [S.amount] кредитов."
 		else if(istype(C))
 			var/datum/money_account/A = get_card_account(C)
 			if(istype(A))
@@ -525,7 +525,7 @@
 				data["userMoney"] = A.money
 				data["user"]["job"] = (istype(C) && C.rank) ? C.rank : "No Job"
 			else
-				data["guestNotice"] = "Unlinked ID detected. Present cash to pay.";
+				data["guestNotice"] = "Обнаружен несвязанный ID. Предъявите наличные для оплаты.";
 	data["stock"] = list()
 	for (var/datum/data/vending_product/R in product_records + coin_records + hidden_records)
 		data["stock"][R.name] = R.amount
@@ -592,7 +592,7 @@
 	if(.)
 		return
 	if(issilicon(usr) && !isrobot(usr))
-		to_chat(usr, "<span class='warning'>The vending machine refuses to interface with you, as you are not in its target demographic!</span>")
+		to_chat(usr, "<span class='warning'>Торговый автомат отказывается взаимодействовать с вами, так как вы не входите в его целевую аудиторию!</span>")
 		return
 	switch(action)
 		if("toggle_voice")
@@ -604,50 +604,50 @@
 			. = TRUE
 		if("remove_coin")
 			if(!coin)
-				to_chat(usr, "<span class='warning'>There is no coin in this machine.</span>")
+				to_chat(usr, "<span class='warning'>В этом автомате нет монет.</span>")
 				return
 			if(istype(usr, /mob/living/silicon))
-				to_chat(usr, "<span class='warning'>You lack hands.</span>")
+				to_chat(usr, "<span class='warning'>У тебя нет рук.</span>")
 				return
-			to_chat(usr, "<span class='notice'>You remove [coin] from [src].</span>")
+			to_chat(usr, "<span class='notice'>Ты изъял [coin] из [src].</span>")
 			usr.put_in_hands(coin)
 			coin = null
 			. = TRUE
 		if("vend")
 			if(!vend_ready)
-				to_chat(usr, "<span class='warning'>The vending machine is busy!</span>")
+				to_chat(usr, "<span class='warning'>Торговый автомат занят!</span>")
 				return
 			if(panel_open)
-				to_chat(usr, "<span class='warning'>The vending machine cannot dispense products while its service panel is open!</span>")
+				to_chat(usr, "<span class='warning'>Торговый автомат не может выдавать продукты, пока открыта панель обслуживания!</span>")
 				return
 			var/key = text2num(params["inum"])
 			var/list/display_records = product_records + coin_records
 			if(extended_inventory)
 				display_records = product_records + coin_records + hidden_records
 			if(key < 1 || key > length(display_records))
-				to_chat(usr, "<span class='warning'>ERROR: invalid inum passed to vendor. Report this bug.</span>")
+				to_chat(usr, "<span class='warning'>ОШИБКА: неверный inum, переданный поставщику. Сообщите об этой ошибке.</span>")
 				return
 			var/datum/data/vending_product/R = display_records[key]
 			if(!istype(R))
-				to_chat(usr, "<span class='warning'>ERROR: unknown vending_product record. Report this bug.</span>")
+				to_chat(usr, "<span class='warning'>ОШИБКА: неизвестная запись vending_product. Сообщите об этой ошибке.</span>")
 				return
 			var/list/record_to_check = product_records + coin_records
 			if(extended_inventory)
 				record_to_check = product_records + coin_records + hidden_records
 			if(!R || !istype(R) || !R.product_path)
-				to_chat(usr, "<span class='warning'>ERROR: unknown product record. Report this bug.</span>")
+				to_chat(usr, "<span class='warning'>ОШИБКА: запись неизвестного продукта. Сообщите об этой ошибке.</span>")
 				return
 			if(R in hidden_records)
 				if(!extended_inventory)
 					// Exploit prevention, stop the user purchasing hidden stuff if they haven't hacked the machine.
-					to_chat(usr, "<span class='warning'>ERROR: machine does not allow extended_inventory in current state. Report this bug.</span>")
+					to_chat(usr, "<span class='warning'>ОШИБКА: машина не разрешает extended_inventory в текущем состоянии. Сообщите об этой ошибке.</span>")
 					return
 			else if (!(R in record_to_check))
 				// Exploit prevention, stop the user
-				message_admins("Vending machine exploit attempted by [ADMIN_LOOKUPFLW(usr)]!")
+				message_admins("Попытка эксплойта торгового автомата - [ADMIN_LOOKUPFLW(usr)]!")
 				return
 			if (R.amount <= 0)
-				to_chat(usr, "Sold out of [R.name].")
+				to_chat(usr, "Распродано из [R.name].")
 				flick(icon_deny, src)
 				return
 
@@ -668,7 +668,7 @@
 			var/obj/item/card/id/C = H.get_idcard(TRUE)
 
 			if(!GLOB.vendor_account || GLOB.vendor_account.suspended)
-				to_chat(usr, "Vendor account offline. Unable to process transaction.")
+				to_chat(usr, "Учетная запись поставщика отключена. Не удается обработать транзакцию.")
 				flick(icon_deny, src)
 				vend_ready = TRUE
 				return
@@ -685,10 +685,10 @@
 				// this is important because it lets people buy stuff with someone else's ID by holding it while using the vendor
 				paid = pay_with_card(C, usr)
 			else if(usr.can_advanced_admin_interact())
-				to_chat(usr, "<span class='notice'>Vending object due to admin interaction.</span>")
+				to_chat(usr, "<span class='notice'>Торговый объект из-за взаимодействия с администратором.</span>")
 				paid = TRUE
 			else
-				to_chat(usr, "<span class='warning'>Payment failure: you have no ID or other method of payment.")
+				to_chat(usr, "<span class='warning'>Сбой платежа: у вас нет ID-карты или другого способа оплаты.")
 				vend_ready = TRUE
 				flick(icon_deny, src)
 				. = TRUE // we set this because they shouldn't even be able to get this far, and we want the UI to update.
@@ -697,7 +697,7 @@
 				vend(currently_vending, usr)
 				. = TRUE
 			else
-				to_chat(usr, "<span class='warning'>Payment failure: unable to process payment.")
+				to_chat(usr, "<span class='warning'>Сбой платежа: не удается обработать платеж.")
 				vend_ready = TRUE
 	if(.)
 		add_fingerprint(usr)
@@ -707,13 +707,13 @@
 
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
 	if(!allowed(user) && !user.can_admin_interact() && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-		to_chat(user, "<span class='warning'>Access denied.</span>")//Unless emagged of course
+		to_chat(user, "<span class='warning'>Доступ запрещен.</span>")//Unless emagged of course
 		flick(icon_deny, src)
 		vend_ready = TRUE
 		return
 
 	if(!R.amount)
-		to_chat(user, "<span class='warning'>The vending machine has ran out of that product.</span>")
+		to_chat(user, "<span class='warning'>В торговом автомате закончился этот продукт.</span>")
 		vend_ready = TRUE
 		return
 
@@ -721,14 +721,14 @@
 
 	if(coin_records.Find(R))
 		if(!coin)
-			to_chat(user, "<span class='notice'>You need to insert a coin to get this item.</span>")
+			to_chat(user, "<span class='notice'>Вам нужно вставить монету, чтобы получить этот предмет.</span>")
 			vend_ready = TRUE
 			return
 		if(coin.string_attached)
 			if(prob(50))
-				to_chat(user, "<span class='notice'>You successfully pull the coin out before [src] could swallow it.</span>")
+				to_chat(user, "<span class='notice'>Вы успешно вытаскиваете монету до того, как [src] успевает ее проглотить.</span>")
 			else
-				to_chat(user, "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>")
+				to_chat(user, "<span class='notice'>Вы не смогли вытащить монету достаточно быстро и машина съела ее, и веревочку и все такое.</span>")
 				QDEL_NULL(coin)
 		else
 			QDEL_NULL(coin)
@@ -859,7 +859,7 @@
 	if(!throw_item)
 		return
 	throw_item.throw_at(target, 16, 3)
-	visible_message("<span class='danger'>[src] launches [throw_item.name] at [target.name]!</span>")
+	visible_message("<span class='danger'>[src] запускает [throw_item.name] в [target.name]!</span>")
 
 /obj/machinery/vending/onTransitZ()
 	return
@@ -980,7 +980,7 @@
 	if(!..())
 		return FALSE
 	if(!I.is_open_container())
-		to_chat(user, "<span class='warning'>Вам нужно открыть [I], прежде чем вставлять его.</span>")
+		to_chat(user, "<span class='warning'>Вам нужно открыть [I], прежде чем вставлять это.</span>")
 		return FALSE
 	return TRUE
 
@@ -1016,7 +1016,7 @@
 	name = "Getmore Chocolate Corp"
 	desc = "Автомат для закусок, любезно предоставленный шоколадной корпорацией Getmore, базирующейся на Марсе."
 	slogan_list = list("Попробуйте наш новый батончик с нугой!","Вдвое больше калорий за полцены!")
-	ads_list = list("Самая здоровая пища!","Отмеченные наградами шоколадные батончики!","Ммм! Хорошо!","О боже, так сочно!","Перекуси.","Закуски, полезные для вас!","Возьми еще немного 'Getmore'!","Закуски высшего качества прямо с Марса.","Мы любим шоколад!","Попробуйте наше новое вяленое мясо!")
+	ads_list = list("Самая здоровая пища!","Отмеченные наградами шоколадные батончики!","Ммм! Отлично!","О боже, так сочно!","Перекуси.","Закуски, полезные для вас!","Возьми еще немного 'Getmore'!","Закуски высшего качества прямо с Марса.","Мы любим шоколад!","Попробуйте наше новое вяленое мясо!")
 	icon_state = "snack"
 	products = list(/obj/item/reagent_containers/food/snacks/candy/candybar = 6,/obj/item/reagent_containers/food/drinks/dry_ramen = 6,/obj/item/reagent_containers/food/snacks/chips =6,
 					/obj/item/reagent_containers/food/snacks/sosjerky = 6,/obj/item/reagent_containers/food/snacks/no_raisin = 6,/obj/item/reagent_containers/food/snacks/pistachios =6,
@@ -1040,9 +1040,9 @@
 	return ..()
 
 /obj/machinery/vending/chinese
-	name = "\improper Mr. Chang"
-	desc = "A self-serving Chinese food machine, for all your Chinese food needs."
-	slogan_list = list("Taste 5000 years of culture!","Mr. Chang, approved for safe consumption in over 10 sectors!","Chinese food is great for a date night, or a lonely night!","You can't go wrong with Mr. Chang's authentic Chinese food!")
+	name = "Mr. Chang"
+	desc = "Самодостаточная китайская пищевая машина для всех ваших потребностей в китайской еде."
+	slogan_list = list("Попробуйте 5000 - летнюю культуру!","Мистер Чанг одобрен для безопасного потребления в более чем 10 секторах!","Китайская еда отлично подходит для свидания или одинокой ночи!","Вы не ошибетесь с аутентичной китайской кухней мистера Чанга!")
 	icon_state = "chang"
 	products = list(/obj/item/reagent_containers/food/snacks/chinese/chowmein = 6, /obj/item/reagent_containers/food/snacks/chinese/tao = 6, /obj/item/reagent_containers/food/snacks/chinese/sweetsourchickenball = 6, /obj/item/reagent_containers/food/snacks/chinese/newdles = 6,
 					/obj/item/reagent_containers/food/snacks/chinese/rice = 6, /obj/item/reagent_containers/food/snacks/fortunecookie = 6)
@@ -1063,11 +1063,11 @@
 	return ..()
 
 /obj/machinery/vending/cola
-	name = "\improper Robust Softdrinks"
-	desc = "A soft drink vendor provided by Robust Industries, LLC."
+	name = "Robust Softdrinks"
+	desc = "Поставщик безалкогольных напитков, предоставляемый компанией Robust Industries, LLC."
 	icon_state = "Cola_Machine"
-	slogan_list = list("Robust Softdrinks: More robust than a toolbox to the head!")
-	ads_list = list("Refreshing!","Hope you're thirsty!","Over 1 million drinks sold!","Thirsty? Why not cola?","Please, have a drink!","Drink up!","The best drinks in space.")
+	slogan_list = list("Robust Softdrinks: Более надежные, чем набор инструментов для головы!")
+	ads_list = list("Освежает!","Надеюсь, ты хочешь пить!","Продано более 1 миллиона напитков!","Хочешь пить? Почему не колу?","Пожалуйста, выпейте чего-нибудь!","Пей до дна!","Лучшие напитки в космосе.")
 	products = list(/obj/item/reagent_containers/food/drinks/cans/cola = 10,/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
 					/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,/obj/item/reagent_containers/food/drinks/cans/starkist = 10,
 					/obj/item/reagent_containers/food/drinks/cans/space_up = 10,/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10)
@@ -1091,9 +1091,9 @@
 
 
 /obj/machinery/vending/cart
-	name = "\improper PTech"
-	desc = "Cartridges for PDA's."
-	slogan_list = list("Carts to go!")
+	name = "PTech"
+	desc = "Картриджи для ПДА."
+	slogan_list = list("Телеги в путь!")
 	icon_state = "cart"
 	icon_deny = "cart-deny"
 	products = list(/obj/item/pda =10,/obj/item/cartridge/mob_hunt_game = 25,/obj/item/cartridge/medical = 10,/obj/item/cartridge/chemistry = 10,
@@ -1118,13 +1118,13 @@
 	return ..()
 
 /obj/machinery/vending/liberationstation
-	name = "\improper Liberation Station"
-	desc = "An overwhelming amount of <b>ancient patriotism</b> washes over you just by looking at the machine."
+	name = "Liberation Station"
+	desc = "Подавляющее количество <b>древнего патриотизма</b> захлестывает вас, просто взглянув на машину."
 	icon_state = "liberationstation"
 	req_access_txt = "1"
-	slogan_list = list("Liberation Station: Your one-stop shop for all things second amendment!","Be a patriot today, pick up a gun!","Quality weapons for cheap prices!","Better dead than red!")
-	ads_list = list("Float like an astronaut, sting like a bullet!","Express your second amendment today!","Guns don't kill people, but you can!","Who needs responsibilities when you have guns?")
-	vend_reply = "Remember the name: Liberation Station!"
+	slogan_list = list("Liberation Station: Ваш универсальный магазин для всех вещей второй поправки!","Будь патриотом сегодня, возьми оружие!","Качественное оружие по дешевым ценам!","Лучше умереть, чем покраснеть!")
+	ads_list = list("Порхай как космонавт, жаль как пуля!","Выразите свою вторую поправку сегодня!","Оружие не убивает людей, но ты можешь!","Кому нужны обязанности, когда у тебя есть оружие?")
+	vend_reply = "Запомните название: Liberation Station!"
 	products = list(/obj/item/gun/projectile/automatic/pistol/deagle/gold = 2,/obj/item/gun/projectile/automatic/pistol/deagle/camo = 2,
 					/obj/item/gun/projectile/automatic/pistol/m1911 = 2,/obj/item/gun/projectile/automatic/proto = 2,
 					/obj/item/gun/projectile/shotgun/automatic/combat = 2,/obj/item/gun/projectile/automatic/gyropistol = 1,
@@ -1136,12 +1136,12 @@
 
 
 /obj/machinery/vending/toyliberationstation
-	name = "\improper Syndicate Donksoft Toy Vendor"
-	desc = "An ages 8 and up approved vendor that dispenses toys. If you were to find the right wires, you can unlock the adult mode setting!"
+	name = "Syndicate Donksoft Toy Vendor"
+	desc = "Одобренный поставщик в возрасте от 8 лет и старше, который раздает игрушки. Если бы вы нашли нужные провода, вы могли бы разблокировать настройку режима для взрослых!"
 	icon_state = "syndi"
-	slogan_list = list("Get your cool toys today!","Trigger a valid hunter today!","Quality toy weapons for cheap prices!","Give them to HoPs for all access!","Give them to HoS to get permabrigged!")
-	ads_list = list("Feel robust with your toys!","Express your inner child today!","Toy weapons don't kill people, but valid hunters do!","Who needs responsibilities when you have toy weapons?","Make your next murder FUN!")
-	vend_reply = "Come back for more!"
+	slogan_list = list("Получите свои классные игрушки сегодня!","Спусти настоящего охотника сегодня!","Качественное игрушечное оружие по низким ценам!","Отдайте их Главе Персонала для общего доступа!","Отдай их Главе Службы Безопасности для пермабрига!")
+	ads_list = list("Чувствуйте себя уверенно со своими игрушками!","Выразите своего внутреннего ребенка сегодня!","Игрушечное оружие не убивает людей, но настоящие охотники убивают!","Кому нужны обязанности, когда у тебя есть игрушечное оружие?","Сделайте свое следующее убийство ВЕСЕЛЫМ!")
+	vend_reply = "Возвращайся!"
 	products = list(/obj/item/gun/projectile/automatic/toy = 10,
 					/obj/item/gun/projectile/automatic/toy/pistol= 10,
 					/obj/item/gun/projectile/shotgun/toy = 10,
@@ -1163,10 +1163,10 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/machinery/vending/cigarette
-	name = "cigarette machine"
-	desc = "If you want to get cancer, might as well do it in style."
-	slogan_list = list("Space cigs taste good like a cigarette should.","I'd rather toolbox than switch.","Smoke!","Don't believe the reports - smoke today!")
-	ads_list = list("Probably not bad for you!","Don't believe the scientists!","It's good for you!","Don't quit, buy more!","Smoke!","Nicotine heaven.","Best cigarettes since 2150.","Award-winning cigs.")
+	name = "Сигаретный автомат"
+	desc = "Если вы хотите заболеть раком, с таким же успехом можете сделать это стильно."
+	slogan_list = list("Космические сигареты хороши на вкус, как и положено сигаретам.","Я бы предпочел ящик с инструментами, чем переключаться.","Кури!","Не верьте отчётам - курите сегодня!")
+	ads_list = list("Наверное, неплохо для тебя!","Не верьте ученым!","Это хорошо для тебя!","Не бросай, покупай больше!","Кури!","Никотиновый рай.","Лучшие сигареты с 2150 года.","Отмеченные наградами сигареты.")
 	vend_delay = 34
 	icon_state = "cigs"
 	products = list(/obj/item/storage/fancy/cigarettes/cigpack_robust = 12, /obj/item/storage/fancy/cigarettes/cigpack_uplift = 6, /obj/item/storage/fancy/cigarettes/cigpack_random = 6, /obj/item/reagent_containers/food/pill/patch/nicotine = 10, /obj/item/storage/box/matches = 10,/obj/item/lighter/random = 4,/obj/item/storage/fancy/rollingpapers = 5)
@@ -1192,10 +1192,10 @@
 	prices = list()
 
 /obj/machinery/vending/cigarette/beach //Used in the lavaland_biodome_beach.dmm ruin
-	name = "\improper ShadyCigs Ultra"
-	desc = "Now with extra premium products!"
-	ads_list = list("Probably not bad for you!","Dope will get you through times of no money better than money will get you through times of no dope!","It's good for you!")
-	slogan_list = list("Turn on, tune in, drop out!","Better living through chemistry!","Toke!","Don't forget to keep a smile on your lips and a song in your heart!")
+	name = "ShadyCigs Ultra"
+	desc = "Теперь с продуктами премиум-класса!"
+	ads_list = list("Наверное, неплохо для тебя!","Наркотики помогут вам пережить времена без денег лучше, чем деньги помогут вам пережить времена без наркотиков!","Это хорошо для тебя!")
+	slogan_list = list("Включай, настраивай, уходи!","Жить лучше - с помощью химии!","Затянись!","Не забудь сохранить улыбку на губах и песню в сердце!")
 	products = list(/obj/item/storage/fancy/cigarettes = 5,
 					/obj/item/storage/fancy/cigarettes/cigpack_uplift = 3,
 					/obj/item/storage/fancy/cigarettes/cigpack_robust = 3,
@@ -1219,11 +1219,11 @@
 	return ..()
 
 /obj/machinery/vending/medical
-	name = "\improper NanoMed Plus"
-	desc = "Medical drug dispenser."
+	name = "NanoMed Plus"
+	desc = "Диспенсер для медицинских препаратов."
 	icon_state = "med"
 	icon_deny = "med-deny"
-	ads_list = list("Go save some lives!","The best stuff for your medbay.","Only the finest tools.","Natural chemicals!","This stuff saves lives.","Don't you want some?","Ping!")
+	ads_list = list("Иди, спаси несколько жизней!","Самое лучшее для твоего медпункта.","Только лучшие инструменты.","Натуральные химикаты!","Штука, которая спасает жизни.","Не хочешь немного?","Ping!","Pong!")
 	req_access_txt = "5"
 	products = list(/obj/item/reagent_containers/syringe = 12, /obj/item/reagent_containers/food/pill/patch/styptic = 4, /obj/item/reagent_containers/food/pill/patch/silver_sulf = 4, /obj/item/reagent_containers/applicator/brute = 3, /obj/item/reagent_containers/applicator/burn = 3,
 					/obj/item/reagent_containers/glass/bottle/charcoal = 4, /obj/item/reagent_containers/glass/bottle/epinephrine = 4, /obj/item/reagent_containers/glass/bottle/diphenhydramine = 4,
@@ -1253,16 +1253,16 @@
 	return ..()
 
 /obj/machinery/vending/plasmaresearch
-	name = "\improper Toximate 3000"
-	desc = "All the fine parts you need in one vending machine!"
+	name = "Toximate 3000"
+	desc = "Все необходимые вам мелкие детали в одном торговом автомате!"
 	products = list(/obj/item/assembly/prox_sensor = 8, /obj/item/assembly/igniter = 8, /obj/item/assembly/signaler = 8,
 					/obj/item/wirecutters = 1, /obj/item/assembly/timer = 8)
 	contraband = list(/obj/item/flashlight = 5, /obj/item/assembly/voice = 3, /obj/item/assembly/health = 3, /obj/item/assembly/infra = 3)
 
 /obj/machinery/vending/wallmed
-	name = "\improper NanoMed"
-	desc = "Wall-mounted Medical Equipment dispenser."
-	ads_list = list("Go save some lives!","The best stuff for your medbay.","Only the finest tools.","Natural chemicals!","This stuff saves lives.","Don't you want some?")
+	name = "NanoMed"
+	desc = "Настенный дозатор медицинского оборудования."
+	ads_list = list("Иди и спаси несколько жизней!","Лучшее для твоего медпункта","Только лучшие инструменты","Натуральные химикаты!","Штука, которая спасает жизни.","Не хочешь немного?")
 	icon_state = "wallmed"
 	icon_deny = "wallmed-deny"
 	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
@@ -1282,19 +1282,19 @@
 	return ..()
 
 /obj/machinery/vending/wallmed/syndicate
-	name = "\improper SyndiMed Plus"
-	desc = "<b>EVIL</b> wall-mounted Medical Equipment dispenser."
+	name = "SyndiMed Plus"
+	desc = "<b>ЗЛОЙ</b> настенный диспенсер для медицинского оборудования."
 	icon_state = "syndimed"
 	icon_deny = "syndimed-deny"
-	ads_list = list("Go end some lives!","The best stuff for your ship.","Only the finest tools.","Natural chemicals!","This stuff saves lives.","Don't you want some?","Ping!")
+	ads_list = list("Иди, покончи с несколькими жизнями!","Лучшее для твоего корабля","Только лучшие инструменты","Натуральные химикаты!","Штука, которая спасает жизни","Не хочешь немного?","Ping!","Pong!")
 	req_access_txt = "150"
 	products = list(/obj/item/stack/medical/bruise_pack = 2,/obj/item/stack/medical/ointment = 2,/obj/item/reagent_containers/hypospray/autoinjector = 4,/obj/item/healthanalyzer = 1)
 	contraband = list(/obj/item/reagent_containers/syringe/charcoal = 4,/obj/item/reagent_containers/syringe/antiviral = 4,/obj/item/reagent_containers/food/pill/tox = 1)
 
 /obj/machinery/vending/security
-	name = "\improper SecTech"
-	desc = "A security equipment vendor."
-	ads_list = list("Crack capitalist skulls!","Beat some heads in!","Don't forget - harm is good!","Your weapons are right here.","Handcuffs!","Freeze, scumbag!","Don't tase me bro!","Tase them, bro.","Why not have a donut?")
+	name = "SecTech"
+	desc = "Поставщик оборудования для обеспечения безопасности."
+	ads_list = list("Пробивайте черепа капиталистов!","Бей по головам!","Не забывайте, вред - это хорошо!","Ваше оружие прямо здесь","Наручники!","Замри, подонок!","Не дразни меня, браток!","Дразни их, брат.","Почему бы тебе не съесть пончик?")
 	icon_state = "sec"
 	icon_deny = "sec-deny"
 	req_access_txt = "1"
@@ -1314,10 +1314,10 @@
 	return ..()
 
 /obj/machinery/vending/hydronutrients
-	name = "\improper NutriMax"
-	desc = "A plant nutrients vendor"
-	slogan_list = list("Aren't you glad you don't have to fertilize the natural way?","Now with 50% less stink!","Plants are people too!")
-	ads_list = list("We like plants!","Don't you want some?","The greenest thumbs ever.","We like big plants.","Soft soil...")
+	name = "NutriMax"
+	desc = "Поставщик питательных веществ для растений."
+	slogan_list = list("Разве ты не рад, что тебе не нужно удобрять всё естественным способом?","Теперь на 50% меньше вони!","Растения - тоже люди!")
+	ads_list = list("Мы любим растения!","Не хочешь немного?","Самые зеленые пальцы на свете.","Мы любим большие растения.","Мягкая почва...")
 	icon_state = "nutri"
 	icon_deny = "nutri-deny"
 	products = list(/obj/item/reagent_containers/glass/bottle/nutrient/ez = 20,/obj/item/reagent_containers/glass/bottle/nutrient/l4z = 13,/obj/item/reagent_containers/glass/bottle/nutrient/rh = 6,/obj/item/reagent_containers/spray/pestspray = 20,
@@ -1335,10 +1335,10 @@
 	return ..()
 
 /obj/machinery/vending/hydroseeds
-	name = "\improper MegaSeed Servitor"
-	desc = "When you need seeds fast!"
-	slogan_list = list("THIS'S WHERE TH' SEEDS LIVE! GIT YOU SOME!","Hands down the best seed selection on the station!","Also certain mushroom varieties available, more for experts! Get certified today!")
-	ads_list = list("We like plants!","Grow some crops!","Grow, baby, growww!","Aw h'yeah son!")
+	name = "MegaSeed Servitor"
+	desc = "Когда вам быстро нужны семена!"
+	slogan_list = list("ВОТ ГДЕ ЖИВУТ СЕМЕНА! ДАДИМ И ТЕБЕ НЕМНОГО!","Лучший выбор семян на станции!","Также доступны некоторые сорта грибов и больше для экспертов! Получите сертификат сегодня!")
+	ads_list = list("Мы любим растения!","Выращивай!","Расти, детка, расти!","Привет, сынок!")
 	icon_state = "seeds"
 	products = list(/obj/item/seeds/aloe =3,
 					/obj/item/seeds/ambrosia = 3,
@@ -1404,13 +1404,13 @@
 	return ..()
 
 /obj/machinery/vending/magivend
-	name = "\improper MagiVend"
-	desc = "A magic vending machine."
+	name = "MagiVend"
+	desc = "Волшебный торговый автомат."
 	icon_state = "MagiVend"
-	slogan_list = list("Sling spells the proper way with MagiVend!","Be your own Houdini! Use MagiVend!")
+	slogan_list = list("Правильно произноси заклинания с помощью MagiVend!","Будь своим собственным Гудини! Используй MagiVend!")
 	vend_delay = 15
-	vend_reply = "Have an enchanted evening!"
-	ads_list = list("FJKLFJSD","AJKFLBJAKL","1234 LOONIES LOL!",">MFW","Kill them fuckers!","GET DAT FUKKEN DISK","HONK!","EI NATH","Destroy the station!","Admin conspiracies since forever!","Space-time bending hardware!")
+	vend_reply = "Приятного вам вечера!"
+	ads_list = list("FJKLFJSD","AJKFLBJAKL","1234 ПСИХИ ПХАХ!",">MFW","Убейте этих уёбищ!","ПАЛУЧИ ЭТАТ ЕБАНЫЙ ДИСК","ХОНК!","EI NATH","Уничтожьте станцию!","Административные заговоры с незапамятных времен!","Оборудование для изгиба пространства-времени!")
 	products = list(/obj/item/clothing/head/wizard = 1,
 					/obj/item/clothing/suit/wizrobe = 1,
 					/obj/item/clothing/head/wizard/red = 1,
@@ -1430,11 +1430,11 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/machinery/vending/autodrobe
-	name = "\improper AutoDrobe"
-	desc = "A vending machine for costumes."
+	name = "AutoDrobe"
+	desc = "Автомат по продаже костюмов."
 	icon_state = "theater"
 	icon_deny = "theater-deny"
-	slogan_list = list("Dress for success!","Suited and booted!","It's show time!","Why leave style up to fate? Use AutoDrobe!")
+	slogan_list = list("Одевайся для успеха!","Одет и ботинках!","Пришло время шоу!","Зачем оставлять стиль на произвол судьбы? Используйте AutoDrobe!")
 	vend_delay = 15
 	vend_reply = "Thank you for using AutoDrobe!"
 	products = list(/obj/item/clothing/suit/chickensuit = 1,
@@ -1574,9 +1574,9 @@
 	return ..()
 
 /obj/machinery/vending/dinnerware
-	name = "\improper Plasteel Chef's Dinnerware Vendor"
-	desc = "A kitchen and restaurant equipment vendor."
-	ads_list = list("Mm, food stuffs!","Food and food accessories.","Get your plates!","You like forks?","I like forks.","Woo, utensils.","You don't really need these...")
+	name = "Поставщик посуды для шеф-повара из пластали"
+	desc = "Поставщик кухонного и ресторанного оборудования."
+	ads_list = list("Ммм, продукты питания!","Еда и аксессуары для еды.","Возьмите свои тарелки!","Вам нравятся вилки?","Мне нравятся вилки.","Ууу, посуда.","Вам это действительно не нужно...")
 	icon_state = "dinnerware"
 	products = list(/obj/item/storage/bag/tray = 8,/obj/item/kitchen/utensil/fork = 6,
 					/obj/item/kitchen/knife = 3,/obj/item/kitchen/rollingpin = 2,
@@ -1605,10 +1605,10 @@
 	return ..()
 
 /obj/machinery/vending/sovietsoda
-	name = "\improper BODA"
-	desc = "Old sweet water vending machine."
+	name = "BODA"
+	desc = "Старый автомат по продаже сладкой воды."
 	icon_state = "sovietsoda"
-	ads_list = list("For Tsar and Country.","Have you fulfilled your nutrition quota today?","Very nice!","We are simple people, for this is all we eat.","If there is a person, there is a problem. If there is no person, then there is no problem.")
+	ads_list = list("За Царя и Страну.","Выполнили ли вы сегодня свою норму питания?","Очень приятно!","Мы простые люди, потому что это все, что мы едим.","Если есть человек, то есть проблема. Если нет человека, то и нет проблемы.")
 	products = list(/obj/item/reagent_containers/food/drinks/drinkingglass/soda = 30)
 	contraband = list(/obj/item/reagent_containers/food/drinks/drinkingglass/cola = 20)
 	resistance_flags = FIRE_PROOF
@@ -1624,8 +1624,8 @@
 	return ..()
 
 /obj/machinery/vending/tool
-	name = "\improper YouTool"
-	desc = "Tools for tools."
+	name = "YouTool"
+	desc = "Инструменты для инструментов."
 	icon_state = "tool"
 	icon_deny = "tool-deny"
 	products = list(/obj/item/stack/cable_coil/random = 10,/obj/item/crowbar = 5,/obj/item/weldingtool = 3,/obj/item/wirecutters = 5,
@@ -1636,8 +1636,8 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/machinery/vending/engivend
-	name = "\improper Engi-Vend"
-	desc = "Spare tool vending. What? Did you expect some witty description?"
+	name = "Engi-Vend"
+	desc = "Торговля запасными инструментами. Что? Вы ожидали какого-нибудь остроумного описания?"
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
 	req_one_access_txt = "11;24" // Engineers and atmos techs can use this
@@ -1656,8 +1656,8 @@
 	return ..()
 
 /obj/machinery/vending/engineering
-	name = "\improper Robco Tool Maker"
-	desc = "Everything you need for do-it-yourself station repair."
+	name = "Robco Tool Maker"
+	desc = "Все, что вам нужно для ремонта станции 'Сделай сам'."
 	icon_state = "engi"
 	icon_deny = "engi-deny"
 	req_access_txt = "11"
@@ -1679,8 +1679,8 @@
 	return ..()
 
 /obj/machinery/vending/robotics
-	name = "\improper Robotech Deluxe"
-	desc = "All the tools you need to create your own robot army."
+	name = "Robotech Deluxe"
+	desc = "Все инструменты, необходимые для создания собственной армии роботов."
 	icon_state = "robotics"
 	icon_deny = "robotics-deny"
 	req_access_txt = "29"
@@ -1700,10 +1700,10 @@
 	return ..()
 
 /obj/machinery/vending/sustenance
-	name = "\improper Sustenance Vendor"
-	desc = "A vending machine which vends food, as required by section 47-C of the NT's Prisoner Ethical Treatment Agreement."
-	slogan_list = list("Enjoy your meal.","Enough calories to support strenuous labor.")
-	ads_list = list("The healthiest!","Award-winning chocolate bars!","Mmm! So good!","Oh my god it's so juicy!","Have a snack.","Snacks are good for you!","Have some more Getmore!","Best quality snacks straight from mars.","We love chocolate!","Try our new jerky!")
+	name = "Sustenance Vendor"
+	desc = "Торговый автомат, который выдает еду, как того требует раздел 47-C Соглашения NT об этическом обращении с заключенными."
+	slogan_list = list("Приятного аппетита.","Достаточно калорий, чтобы поддерживать напряженный труд.")
+	ads_list = list("Самая здоровая пища!","Отмеченные наградами шоколадные батончики!","Ммм! Отлично!","О боже, это так сочно!","Перекуси.","Закуски - полезные для тебя!","Выпей еще немного!","Лучшие закуски прямо с Марса.","Мы любим шоколад!","Попробуй наше новое вяленое мясо!")
 	icon_state = "sustenance"
 	products = list(/obj/item/reagent_containers/food/snacks/tofu = 24,
 					/obj/item/reagent_containers/food/drinks/ice = 12,
@@ -1724,10 +1724,10 @@
 	return ..()
 
 /obj/machinery/vending/hatdispenser
-	name = "\improper Hatlord 9000"
-	desc = "It doesn't seem the slightest bit unusual. This frustrates you immensely."
+	name = "Hatlord 9000"
+	desc = "Это не кажется ни в малейшей степени необычным. Это вас безмерно расстраивает."
 	icon_state = "hats"
-	ads_list = list("Warning, not all hats are dog/monkey compatible. Apply forcefully with care.","Apply directly to the forehead.","Who doesn't love spending cash on hats?!","From the people that brought you collectable hat crates, Hatlord!")
+	ads_list = list("Внимание, не все шляпы совместимы с собакой/обезьяной. Наносите с силой и осторожностью.","Наносите прямо на лоб.","Кто не любит тратить деньги на шляпы?!","От людей, которые принесли вам коллекционные коробки для шляп, Шляпный лорд!")
 	products = list(/obj/item/clothing/head/bowlerhat = 10,
 					/obj/item/clothing/head/beaverhat = 10,
 					/obj/item/clothing/head/boaterhat = 10,
@@ -1748,10 +1748,10 @@
 	return ..()
 
 /obj/machinery/vending/suitdispenser
-	name = "\improper Suitlord 9000"
-	desc = "You wonder for a moment why all of your shirts and pants come conjoined. This hurts your head and you stop thinking about it."
+	name = "Suitlord 9000"
+	desc = "На мгновение вы задаетесь вопросом, почему все ваши рубашки и брюки соединены вместе. У тебя болит голова, и ты перестаешь думать об этом."
 	icon_state = "suits"
-	ads_list = list("Pre-Ironed, Pre-Washed, Pre-Wor-*BZZT*","Blood of your enemies washes right out!","Who are YOU wearing?","Look dapper! Look like an idiot!","Dont carry your size? How about you shave off some pounds you fat lazy- *BZZT*")
+	ads_list = list("Предварительно выглажено, предварительно выстирано, предварительно - *БЗЗЗ*","Кровь твоих врагов смывается сразу!","Кто на ТЕБЕ надет?","Выглядишь щеголевато! Как идиот!","Не носишь свой размер? Как насчет того, чтобы сбросить несколько кило, ты, жирный - *БЗЗЗЖ*")
 	products = list(/obj/item/clothing/under/color/black = 10,/obj/item/clothing/under/color/blue = 10,/obj/item/clothing/under/color/green = 10,/obj/item/clothing/under/color/grey = 10,/obj/item/clothing/under/color/pink = 10,/obj/item/clothing/under/color/red = 10,
 					/obj/item/clothing/under/color/white = 10, /obj/item/clothing/under/color/yellow = 10,/obj/item/clothing/under/color/lightblue = 10,/obj/item/clothing/under/color/aqua = 10,/obj/item/clothing/under/color/purple = 10,/obj/item/clothing/under/color/lightgreen = 10,
 					/obj/item/clothing/under/color/lightblue = 10,/obj/item/clothing/under/color/lightbrown = 10,/obj/item/clothing/under/color/brown = 10,/obj/item/clothing/under/color/yellowgreen = 10,/obj/item/clothing/under/color/darkblue = 10,/obj/item/clothing/under/color/lightred = 10, /obj/item/clothing/under/color/darkred = 10)
@@ -1769,10 +1769,10 @@
 	return ..()
 
 /obj/machinery/vending/shoedispenser
-	name = "\improper Shoelord 9000"
-	desc = "Wow, hatlord looked fancy, suitlord looked streamlined, and this is just normal. The guy who designed these must be an idiot."
+	name = "Shoelord 9000"
+	desc = "Ух ты, Hatlord выглядел шикарно, Suitlord выглядел обтекаемо, и этот - нормальный. Парень, который их разработал - идиот."
 	icon_state = "shoes"
-	ads_list = list("Put your foot down!","One size fits all!","IM WALKING ON SUNSHINE!","No hobbits allowed.","NO PLEASE WILLY, DONT HURT ME- *BZZT*")
+	ads_list = list("Опусти ногу!","Один размер, подходящий всем!","Я ИДУ ПО СОЛНЕЧНОМУ СВЕТУ!","Хоббитам вход воспрещен","НЕТ, ПОЖАЛУЙСТА, ВИЛЛИ, НЕ ДЕЛАЙ МНЕ БОЛЬНО - *БЗЗЖЖЖ*")
 	products = list(/obj/item/clothing/shoes/black = 10,/obj/item/clothing/shoes/brown = 10,/obj/item/clothing/shoes/blue = 10,/obj/item/clothing/shoes/green = 10,/obj/item/clothing/shoes/yellow = 10,/obj/item/clothing/shoes/purple = 10,/obj/item/clothing/shoes/red = 10,/obj/item/clothing/shoes/white = 10,/obj/item/clothing/shoes/sandal=10)
 	contraband = list(/obj/item/clothing/shoes/orange = 5)
 	premium = list(/obj/item/clothing/shoes/rainbow = 1)
@@ -1788,31 +1788,31 @@
 	return ..()
 
 /obj/machinery/vending/syndicigs
-	name = "\improper Suspicious Cigarette Machine"
-	desc = "Smoke 'em if you've got 'em."
-	slogan_list = list("Space cigs taste good like a cigarette should.","I'd rather toolbox than switch.","Smoke!","Don't believe the reports - smoke today!")
-	ads_list = list("Probably not bad for you!","Don't believe the scientists!","It's good for you!","Don't quit, buy more!","Smoke!","Nicotine heaven.","Best cigarettes since 2150.","Award-winning cigs.")
+	name = "Подозрительный сигаретный автомат"
+	desc = "Выкури их, если они у тебя есть."
+	slogan_list = list("Космические сигареты хороши на вкус, как и должна быть сигарета.","Я бы предпочел использовать инструменты, чем переключаться.","Курите!","Не верьте отчётам - курите сегодня!")
+	ads_list = list("Вероятно, это неплохо для вас!","Не верьте ученым!","Это полезно для вас!","Не бросайте, покупайте больше!","Курите!","Никотиновый рай.","Лучшие сигареты с 2150 года.","Отмеченные наградами сигары.")
 	vend_delay = 34
 	icon_state = "cigs"
 	products = list(/obj/item/storage/fancy/cigarettes/syndicate = 10,/obj/item/lighter/random = 5)
 
 /obj/machinery/vending/syndisnack
-	name = "\improper Getmore Chocolate Corp"
-	desc = "A modified snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars"
-	slogan_list = list("Try our new nougat bar!","Twice the calories for half the price!")
-	ads_list = list("The healthiest!","Award-winning chocolate bars!","Mmm! So good!","Oh my god it's so juicy!","Have a snack.","Snacks are good for you!","Have some more Getmore!","Best quality snacks straight from mars.","We love chocolate!","Try our new jerky!")
+	name = "Getmore Chocolate Corp"
+	desc = "Модифицированная машина для закусок, любезно предоставленная шоколадной корпорацией Getmore, базирующейся на Марсе"
+	slogan_list = list("Попробуйте наш новый батончик с нугой!","Вдвое больше калорий за пол цены!")
+	ads_list = list("Самая здоровая пища!","Отмеченные наградами шоколадные батончики!","Ммм! Отлично!","О боже, это так сочно!","Перекуси.","Закуски полезны для тебя!","Выпей еще немного!","Лучшие закуски прямо с Марса.","Мы любим шоколад!","Попробуй наше новое вяленое мясо!")
 	icon_state = "snack"
 	products = list(/obj/item/reagent_containers/food/snacks/chips =6,/obj/item/reagent_containers/food/snacks/sosjerky = 6,
 					/obj/item/reagent_containers/food/snacks/syndicake = 6, /obj/item/reagent_containers/food/snacks/cheesiehonkers = 6)
 
 //don't forget to change the refill size if you change the machine's contents!
 /obj/machinery/vending/clothing
-	name = "\improper  ClothesMate" //renamed to make the slogan rhyme
-	desc = "A vending machine for clothing."
+	name = "ClothesMate" //renamed to make the slogan rhyme
+	desc = "Торговый автомат для одежды."
 	icon_state = "clothes"
-	slogan_list = list("Dress for success!","Prepare to look swagalicious!","Look at all this free swag!","Why leave style up to fate? Use the ClothesMate!")
+	slogan_list = list("Одевайся для успеха!","Приготовься выглядеть шикарно!","Посмотри на всю эту бесплатную одежду!","Зачем оставлять стиль на произвол судьбы? Используй ClothesMate!")
 	vend_delay = 15
-	vend_reply = "Thank you for using the ClothesMate!"
+	vend_reply = "Благодарим вас за использование ClothesMate!"
 	products = list(/obj/item/clothing/head/that = 2,
 					/obj/item/clothing/head/fedora = 1,
 					/obj/item/clothing/glasses/monocle = 1,
@@ -1910,10 +1910,10 @@
 	return ..()
 
 /obj/machinery/vending/artvend
-	name = "\improper ArtVend"
-	desc = "A vending machine for art supplies."
-	slogan_list = list("Stop by for all your artistic needs!","Color the floors with crayons, not blood!","Don't be a starving artist, use ArtVend. ","Don't fart, do art!")
-	ads_list = list("Just like Kindergarten!","Now with 1000% more vibrant colors!","Screwing with the janitor was never so easy!","Creativity is at the heart of every spessman.")
+	name = "ArtVend"
+	desc = "Торговый автомат для художественных принадлежностей."
+	slogan_list = list("Заходите по всем своим художественным нуждам!","Раскрасьте полы мелками, а не кровью!","Не будьте голодающим художником, используйте ArtVend.","Не бзди, а твори!")
+	ads_list = list("Прямо как в детском саду!","Теперь на 1000% больше ярких цветов!","Ебаться с уборщиком никогда не было так просто!","Творчество - в сердце каждого космонавта.")
 	vend_delay = 15
 	icon_state = "artvend"
 	products = list(/obj/item/stack/cable_coil/random = 10,/obj/item/camera = 4,/obj/item/camera_film = 6,
@@ -1925,10 +1925,10 @@
 	premium = list(/obj/item/poster/random_contraband = 5)
 
 /obj/machinery/vending/crittercare
-	name = "\improper CritterCare"
-	desc = "A vending machine for pet supplies."
-	slogan_list = list("Stop by for all your animal's needs!","Cuddly pets deserve a stylish collar!","Pets in space, what could be more adorable?","Freshest fish eggs in the system!","Rocks are the perfect pet, buy one today!")
-	ads_list = list("House-training costs extra!","Now with 1000% more cat hair!","Allergies are a sign of weakness!","Dogs are man's best friend. Remember that Vulpkanin!"," Heat lamps for Unathi!"," Vox-y want a cracker?")
+	name = "CritterCare"
+	desc = "Торговый автомат товаров для домашних животных."
+	slogan_list = list("Заходите для всех потребностей вашего животного!","Милые домашние животные заслуживают стильного ошейника!","Домашние животные в космосе, что может быть очаровательнее?","Самые свежие рыбьи яйца в системе!","Камни - идеальные домашние животные, купите сегодня!")
+	ads_list = list("Домашнее обучение стоит дополнительно!","Теперь на 1000% больше кошачьей шерсти!","Аллергия - признак слабости!","Собаки - лучший друг человека. Запомни этого Вулпканина!"," Нагрейте лампы для Унатхи!"," Вокси, хочешь крекер?")
 	vend_delay = 15
 	icon_state = "crittercare"
 	products = list(/obj/item/clothing/accessory/petcollar = 5, /obj/item/storage/firstaid/aquatic_kit/full =5, /obj/item/fish_eggs/goldfish = 5,
