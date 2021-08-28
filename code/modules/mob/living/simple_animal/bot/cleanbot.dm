@@ -78,7 +78,7 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>[src] buzzes and beeps.</span>")
+			to_chat(user, "<span class='danger'>[src] жужжит и пищит.</span>")
 
 /mob/living/simple_animal/bot/cleanbot/process_scan(obj/effect/decal/cleanable/D)
 	for(var/T in target_types)

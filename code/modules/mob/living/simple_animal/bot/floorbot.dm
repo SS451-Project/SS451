@@ -115,7 +115,7 @@
 	..()
 	if(emagged == 2)
 		if(user)
-			to_chat(user, "<span class='danger'>[src] buzzes and beeps.</span>")
+			to_chat(user, "<span class='danger'>[src] жужжит и пищит.</span>")
 
 /mob/living/simple_animal/bot/floorbot/Topic(href, href_list)
 	if(..())

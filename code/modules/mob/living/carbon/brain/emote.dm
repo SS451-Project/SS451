@@ -15,34 +15,34 @@
 	switch(act)
 
 		if("alarm")
-			to_chat(src, "You sound an alarm.")
-			message = "<B>\The [src]</B> sounds an alarm."
+			to_chat(src, "Ты бьешь тревогу.")
+			message = "<B>[src]</B> издает сигнал тревоги."
 			m_type = 2
 		if("alert")
-			to_chat(src, "You let out a distressed noise.")
-			message = "<B>\The [src]</B> lets out a distressed noise."
+			to_chat(src, "Ты издал огорченный звук.")
+			message = "<B>[src]</B> издает огорченный звук."
 			m_type = 2
 		if("notice")
-			to_chat(src, "You play a loud tone.")
-			message = "<B>\The [src]</B> plays a loud tone."
+			to_chat(src, "Ты играешь громким тоном.")
+			message = "<B>[src]</B> играет громким тоном."
 			m_type = 2
 		if("flash")
-			message = "The lights on <B>\the [src]</B> flash quickly."
+			message = "Индикаторы на <B>[src]</B> быстро мигают."
 			m_type = 1
 		if("blink")
-			message = "<B>\The [src]</B> blinks."
+			message = "<B>[src]</B> моргает."
 			m_type = 1
 		if("whistle")
-			to_chat(src, "You whistle.")
-			message = "<B>\The [src]</B> whistles."
+			to_chat(src, "Ты свистишь.")
+			message = "<B>[src]</B> свистит."
 			m_type = 2
 		if("beep")
-			to_chat(src, "You beep.")
-			message = "<B>\The [src]</B> beeps."
+			to_chat(src, "Ты пищишь.")
+			message = "<B>[src]</B> пищит."
 			m_type = 2
 		if("boop")
-			to_chat(src, "You boop.")
-			message = "<B>\The [src]</B> boops."
+			to_chat(src, "Ты издаешь звук 'буп'.")
+			message = "<B>[src]</B> издает звук 'буп'."
 			m_type = 2
 		if("help")
 			to_chat(src, "alarm, alert, notice, flash,blink, whistle, beep, boop")
