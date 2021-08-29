@@ -115,7 +115,7 @@
 
 /obj/item/reagent_containers/glass/beaker
 	name = "Мензурка"
-	desc = "Мензурка. Может содержать 50 едениц."
+	desc = "Мензурка. Может содержать 50 юнитов."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"

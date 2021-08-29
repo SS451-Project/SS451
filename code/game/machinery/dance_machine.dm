@@ -4,7 +4,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "disco0"
 	anchored = FALSE
-	atom_say_verb = "states"
+	atom_say_verb = "заявляет"
 	density = TRUE
 	var/active = FALSE
 	var/list/rangers = list()

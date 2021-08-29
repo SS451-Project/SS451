@@ -90,7 +90,7 @@
 					return
 	// Added voice muffling for Issue 41.
 	if(stat == UNCONSCIOUS || (sleeping > 0 && stat != DEAD))
-		to_chat(src, "<I>... You can almost hear someone talking ...</I>")
+		to_chat(src, "<I>... Ты почти слышишь, как кто-то говорит ...</I>")
 	else
 		to_chat(src, msg)
 	return
@@ -344,7 +344,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list( \
 			if(slot_belt)
 				if(!H.w_uniform)
 					if(!disable_warning)
-						to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+						to_chat(H, "<span class='warning'>Вам нужен комбинезон, прежде чем вы сможете прикрепить [name].</span>")
 					return 0
 				if( !(slot_flags & SLOT_BELT) )
 					return 0

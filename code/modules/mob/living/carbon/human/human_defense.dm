@@ -426,7 +426,7 @@ emp_act
 	if(!I.force)
 		return 0 //item force is zero
 
-	var/armor = run_armor_check(affecting, "melee", "<span class='warning'>Your armour has protected your [hit_area].</span>", "<span class='warning'>Your armour has softened hit to your [hit_area].</span>", armour_penetration = I.armour_penetration)
+	var/armor = run_armor_check(affecting, "melee", "<span class='warning'>Твоя броня защитила [hit_area].</span>", "<span class='warning'>Твоя броня защитила твою [hit_area].</span>", armour_penetration = I.armour_penetration)
 	var/weapon_sharp = is_sharp(I)
 	if(weapon_sharp && prob(getarmor(user.zone_selected, "melee")))
 		weapon_sharp = 0

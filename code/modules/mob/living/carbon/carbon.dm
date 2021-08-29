@@ -1052,21 +1052,21 @@ GLOBAL_LIST_INIT(ventcrawl_machinery, list(/obj/machinery/atmospherics/unary/ven
 
 /mob/living/carbon/proc/selfFeed(var/obj/item/reagent_containers/food/toEat, fullness)
 	if(ispill(toEat))
-		to_chat(src, "<span class='notify'>You [toEat.apply_method] [toEat].</span>")
+		to_chat(src, "<span class='notify'>Ты [toEat.apply_method] [toEat].</span>")
 	else
 		if(toEat.junkiness && satiety < -150 && nutrition > NUTRITION_LEVEL_STARVING + 50 )
-			to_chat(src, "<span class='notice'>You don't feel like eating any more junk food at the moment.</span>")
+			to_chat(src, "<span class='notice'>В данный момент тебе больше не хочется есть нездоровую пищу.</span>")
 			return 0
 		if(fullness <= 50)
-			to_chat(src, "<span class='warning'>You hungrily chew out a piece of [toEat] and gobble it!</span>")
+			to_chat(src, "<span class='warning'>Ты жадно жуешь кусок [toEat] и проглатываешь его!</span>")
 		else if(fullness > 50 && fullness < 150)
-			to_chat(src, "<span class='notice'>You hungrily begin to eat [toEat].</span>")
+			to_chat(src, "<span class='notice'>Ты с жадностью начинаешь есть [toEat].</span>")
 		else if(fullness > 150 && fullness < 500)
-			to_chat(src, "<span class='notice'>You take a bite of [toEat].</span>")
+			to_chat(src, "<span class='notice'>Ты откусываешь кусочек [toEat].</span>")
 		else if(fullness > 500 && fullness < 600)
-			to_chat(src, "<span class='notice'>You unwillingly chew a bit of [toEat].</span>")
+			to_chat(src, "<span class='notice'>Ты неохотно жуешь немного [toEat].</span>")
 		else if(fullness > (600 * (1 + overeatduration / 2000)))	// The more you eat - the more you can eat
-			to_chat(src, "<span class='warning'>You cannot force any more of [toEat] to go down your throat.</span>")
+			to_chat(src, "<span class='warning'>Ты не можешь заставить себя съесть больше [toEat], и протолкнуть в горло.</span>")
 			return 0
 	return 1
 

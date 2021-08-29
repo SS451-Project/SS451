@@ -261,12 +261,12 @@ Gunshots/explosions/opening doors/less rare audio (done)
 		for(var/i in 0 to 10)
 			walk_to(borer, get_step(borer, get_cardinal_dir(borer, T)))
 			if(borer.Adjacent(T))
-				to_chat(T, "<span class='userdanger'>You feel a creeping, horrible sense of dread come over you, freezing your limbs and setting your heart racing.</span>")
+				to_chat(T, "<span class='userdanger'>Вы чувствуете, как вас охватывает ползучее, ужасное чувство страха, от которого замерзают конечности и учащается сердцебиение.</span>")
 				T.Stun(4)
 				sleep(50)
 				qdel(borer)
 				sleep(rand(60, 90))
-				to_chat(T, "<span class='changeling'><i>Primary [rand(1000,9999)] states:</i> [pick("Hello","Hi","You're my slave now!","Don't try to get rid of me...")]</span>")
+				to_chat(T, "<span class='changeling'><i>Primary [rand(1000,9999)] states:</i> [pick("Привет","Здарова","Теперь ты мой раб!","Даже не пытайся избавиться от меня...")]</span>")
 				break
 			sleep(4)
 		if(!QDELETED(borer))
@@ -528,7 +528,7 @@ Gunshots/explosions/opening doors/less rare audio (done)
 			A = image(custom_icon_file, target, custom_icon)
 	A.override = 1
 	if(target.client)
-		to_chat(target, "<span class='italics'>...wabbajack...wabbajack...</span>")
+		to_chat(target, "<span class='italics'>...терьям...терьям...</span>")
 		target.playsound_local(target,'sound/magic/staff_change.ogg', 50, 1, -1)
 		delusion = A
 		target.client.images |= A
@@ -774,17 +774,17 @@ GLOBAL_LIST_INIT(non_fakeattack_weapons, list(/obj/item/gun/projectile, /obj/ite
 /obj/effect/hallucination/message/New(loc,var/mob/living/carbon/T)
 	. = ..()
 	target = T
-	var/chosen = pick("<span class='userdanger'>The light burns you!</span>",
-		"<span class='danger'>You don't feel like yourself.</span>",
-		"<span class='userdanger'>Unknown has punched [target]!</span>",
-		"<span class='notice'>You hear something squeezing through the ducts...</span>",
-		"<span class='notice'>You hear a distant scream.</span>",
-		"<span class='notice'>You feel invincible, nothing can hurt you!</span>",
-		"<span class='warning'>You feel a tiny prick!</span>",
-		"<B>[target]</B> sneezes.",
-		"<span class='warning'>You feel faint.</span>",
-		"<span class='noticealien'>You hear a strange, alien voice in your head...</span> [pick("Hiss","Ssss")]",
-		"<span class='notice'>You can see...everything!</span>")
+	var/chosen = pick("<span class='userdanger'>Свет обжигает тебя!</span>",
+		"<span class='danger'>Ты не чувствуешь себя собой.</span>",
+		"<span class='userdanger'>Неизвестный ударил [target]!</span>",
+		"<span class='notice'>Вы слышите, как что-то протискивается по воздуховодам...</span>",
+		"<span class='notice'>Вы слышите далекий крик.</span>",
+		"<span class='notice'>Ты чувствуешь себя непобедимым, ничто не может причинить тебе боль!</span>",
+		"<span class='warning'>Ты чувствуешь крошечный укол!</span>",
+		"<B>[target]</B> чихает.",
+		"<span class='warning'>Ты чувствуешь слабость.</span>",
+		"<span class='noticealien'>Ты слышишь странный, чужой голос в своей голове...</span> [pick("Хссс","Сссс")]",
+		"<span class='notice'>Ты можешь видеть...все!</span>")
 	to_chat(target, chosen)
 	qdel(src)
 

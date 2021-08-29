@@ -7,7 +7,7 @@ GLOBAL_LIST_EMPTY(doppler_arrays)
 	icon_state = "tdoppler"
 	density = 1
 	anchored = 1
-	atom_say_verb = "states coldly"
+	atom_say_verb = "с холодом заявляет"
 	var/list/logged_explosions = list()
 	var/explosion_target
 	var/datum/tech/toxins/toxins_tech

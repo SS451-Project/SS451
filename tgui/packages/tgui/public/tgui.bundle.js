@@ -36284,14 +36284,14 @@
                                       })
                                   }
                               }), (0, o.createComponentVNode)(2, a.Button, {
-                                  content: "Пульсы",
+                                  content: "Пульс",
                                   onClick: function() {
                                       return i("pulse", {
                                           wire: e.color
                                       })
                                   }
                               }), (0, o.createComponentVNode)(2, a.Button, {
-                                  content: e.attached ? "Detach" : "Attach",
+                                  content: e.attached ? "Открепить" : "Прикрепить",
                                   onClick: function() {
                                       return i("attach", {
                                           wire: e.color

@@ -39,8 +39,8 @@
 
 /datum/dna/gene/disability/hallucinate
 	name = "Hallucinate"
-	activation_message = "Your mind says 'Hello'."
-	deactivation_message = "Sanity returns. Or does it?"
+	activation_message = "Твой разум говорит 'Привет'."
+	deactivation_message = "Здравомыслие возвращается. Или так оно и есть?"
 	instability = -GENE_INSTABILITY_MODERATE
 	mutation = HALLUCINATE
 
@@ -54,8 +54,8 @@
 
 /datum/dna/gene/disability/epilepsy
 	name = "Epilepsy"
-	activation_message = "You get a headache."
-	deactivation_message = "Your headache is gone, at last."
+	activation_message = "У тебя начинает болеть голова."
+	deactivation_message = "Наконец-то твоя головная боль прошла."
 	instability = -GENE_INSTABILITY_MODERATE
 	mutation = EPILEPSY
 
@@ -65,14 +65,14 @@
 
 /datum/dna/gene/disability/epilepsy/OnMobLife(mob/living/carbon/human/H)
 	if((prob(1) && H.paralysis < 1))
-		H.visible_message("<span class='danger'>[H] starts having a seizure!</span>","<span class='alert'>You have a seizure!</span>")
+		H.visible_message("<span class='danger'>У [H] начинается припадок!</span>","<span class='alert'>У тебя припадок!</span>")
 		H.Paralyse(10)
 		H.Jitter(1000)
 
 /datum/dna/gene/disability/cough
 	name = "Coughing"
-	activation_message = "You start coughing."
-	deactivation_message = "Your throat stops aching."
+	activation_message = "Ты начинаешь кашлять."
+	deactivation_message = "Твое горло перестает болеть."
 	instability = -GENE_INSTABILITY_MINOR
 	mutation = COUGHING
 
@@ -87,8 +87,8 @@
 
 /datum/dna/gene/disability/clumsy
 	name = "Clumsiness"
-	activation_message = "You feel lightheaded."
-	deactivation_message = "You regain some control of your movements"
+	activation_message = "У тебя кружится голова."
+	deactivation_message = "Вы восстанавливаете некоторый контроль над своими движениями."
 	instability = -GENE_INSTABILITY_MINOR
 	mutation = CLUMSY
 
@@ -98,8 +98,8 @@
 
 /datum/dna/gene/disability/tourettes
 	name = "Tourettes"
-	activation_message = "You twitch."
-	deactivation_message = "Your mouth tastes like soap."
+	activation_message = "Тебя трясёт."
+	deactivation_message = "У тебя во рту вкус мыла."
 	instability = -GENE_INSTABILITY_MODERATE
 	mutation = TOURETTES
 
@@ -114,7 +114,7 @@
 			if(1)
 				H.emote("twitch")
 			if(2 to 3)
-				H.say("[prob(50) ? ";" : ""][pick("ГОВНО", "МОЧА", "БЛЯТЬ", "ПИЗДА", "ХУЕСОС", "ВЫБЛЯДОК", "ХУЙ", "ХОС ХУЕСОС", "СУКА", "ПОШЁЛ НАХУЙ", "ХЕРНЯ", "КОКПИТАН", "ДОЛБАЁБ", "ЕБЛЯ", "НАМ ПИЗДА")]")
+				H.say("[prob(50) ? ";" : ""][pick("ГОВНО", "МОЧА", "БЛЯТЬ", "ПИЗДА", "ХУЕСОС", "ВЫБЛЯДОК", "ХУЙ", "ХОС ХУЕСОС", "СУКА", "ПОШЁЛ НАХУЙ", "ХЕРНЯ", "КОКПИТАН", "ДОЛБАЁБ", "ЕБЛЯ", "НАМ ПИЗДА", "МРАЗЬ", "МУДАК", "ЖОПА", "СРАНЬ")]")
 		var/x_offset_old = H.pixel_x
 		var/y_offset_old = H.pixel_y
 		var/x_offset = H.pixel_x + rand(-2, 2)
@@ -124,8 +124,8 @@
 
 /datum/dna/gene/disability/nervousness
 	name = "Nervousness"
-	activation_message="You feel nervous."
-	deactivation_message ="You feel much calmer."
+	activation_message="Ты начинаешь нервничать."
+	deactivation_message ="Ты чувствуешь себя намного спокойнее."
 	mutation = NERVOUS
 
 /datum/dna/gene/disability/nervousness/New()
@@ -138,8 +138,8 @@
 
 /datum/dna/gene/disability/blindness
 	name = "Blindness"
-	activation_message = "You can't seem to see anything."
-	deactivation_message = "You can see now, in case you didn't notice..."
+	activation_message = "Кажется, ты ничего не видишь."
+	deactivation_message = "Теперь ты можешь видеть, если ещё не заметили..."
 	instability = -GENE_INSTABILITY_MAJOR
 	mutation = BLINDNESS
 
@@ -158,8 +158,8 @@
 
 /datum/dna/gene/disability/colourblindness
 	name = "Colourblindness"
-	activation_message = "You feel a peculiar prickling in your eyes while your perception of colour changes."
-	deactivation_message ="Your eyes tingle unsettlingly, though everything seems to become alot more colourful."
+	activation_message = "Ты чувствуешь странное покалывание в глазах, в то время как восприятие цвета меняется."
+	deactivation_message ="Твои глаза тревожно щиплет, хотя все, кажется, становится намного красочнее."
 	instability = -GENE_INSTABILITY_MODERATE
 	mutation = COLOURBLIND
 
@@ -179,8 +179,8 @@
 
 /datum/dna/gene/disability/deaf
 	name = "Deafness"
-	activation_message="It's kinda quiet."
-	deactivation_message ="You can hear again!"
+	activation_message="Здесь как-то тихо."
+	deactivation_message ="Ты снова можешь слышать!"
 	instability = -GENE_INSTABILITY_MAJOR
 	mutation = DEAF
 
@@ -194,8 +194,8 @@
 
 /datum/dna/gene/disability/nearsighted
 	name = "Nearsightedness"
-	activation_message="Your eyes feel weird..."
-	deactivation_message ="You can see clearly now"
+	activation_message="У тебя странно ведут себя глаза..."
+	deactivation_message ="Теперь ты ясно видишь."
 	instability = -GENE_INSTABILITY_MODERATE
 	mutation = NEARSIGHTED
 
@@ -213,9 +213,9 @@
 
 /datum/dna/gene/disability/lisp
 	name = "Lisp"
-	desc = "I wonder wath thith doeth."
-	activation_message = "Thomething doethn't feel right."
-	deactivation_message = "You now feel able to pronounce consonants."
+	desc = "Интересно, что оно делает."
+	activation_message = "Сто-то не так, как казетшя."
+	deactivation_message = "Теперь ты чувствуешь, что можете произносить согласные."
 	mutation = LISP
 
 /datum/dna/gene/disability/lisp/New()
@@ -227,9 +227,9 @@
 
 /datum/dna/gene/disability/comic
 	name = "Comic"
-	desc = "This will only bring death and destruction."
-	activation_message = "<span class='sans'>Uh oh!</span>"
-	deactivation_message = "Well thank god that's over with."
+	desc = "Привносит только смерть и разрушение."
+	activation_message = "<span class='sans'>О ёй!</span>"
+	deactivation_message = "Ну, хвала Богу, с этим покончено."
 	mutation = COMIC
 
 /datum/dna/gene/disability/comic/New()
@@ -238,9 +238,9 @@
 
 /datum/dna/gene/disability/wingdings
 	name = "Alien Voice"
-	desc = "Garbles the subject's voice into an incomprehensible speech."
-	activation_message = "<span class='wingdings'>Your vocal cords feel alien.</span>"
-	deactivation_message = "Your vocal cords no longer feel alien."
+	desc = "Искажает голос субъекта в непонятную речь."
+	activation_message = "<span class='wingdings'>Твои голосовые связки кажутся инопланетными.</span>"
+	deactivation_message = "Ваши голосовые связки больше не чувствуют себя инопланетными."
 	instability = -GENE_INSTABILITY_MINOR
 	mutation = WINGDINGS
 

@@ -527,7 +527,7 @@
 		return
 
 	to_chat(src, "<span class='warning'>You focus your psychic lance on [M] and freeze [M.p_their()] limbs with a wave of terrible dread.</span>")
-	to_chat(M, "<span class='warning'>You feel a creeping, horrible sense of dread come over you, freezing your limbs and setting your heart racing.</span>")
+	to_chat(M, "<span class='warning'>Вы чувствуете, как вас охватывает ползучее, ужасное чувство страха, от которого замерзают конечности и учащается сердцебиение.</span>")
 	M.Weaken(3)
 
 	used_dominate = world.time

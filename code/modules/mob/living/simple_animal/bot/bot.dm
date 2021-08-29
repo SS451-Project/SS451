@@ -16,7 +16,7 @@
 	status_flags = 0 //no default canpush
 	can_strip = 0
 
-	speak_emote = list("states")
+	speak_emote = list("заявляет")
 	friendly = "boops"
 	bubble_icon = "machine"
 	faction = list("neutral", "silicon")

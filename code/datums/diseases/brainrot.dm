@@ -22,7 +22,7 @@
 			if(prob(2))
 				affected_mob.emote("yawn")
 			if(prob(2))
-				to_chat(affected_mob, "<span class='danger'>You don't feel like yourself.</span>")
+				to_chat(affected_mob, "<span class='danger'>Ты не чувствуешь себя собой.</span>")
 			if(prob(5))
 				affected_mob.adjustBrainLoss(1)
 		if(3)

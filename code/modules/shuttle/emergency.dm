@@ -34,7 +34,7 @@
 			to_chat(user, "Уровень доступа карты [W:registered_name] недостаточно высок для этой операции. ")
 			return 0
 
-		var/choice = alert(user, text("Хотели бы вы (не)разрешить сокращение времени запуска? [] авторизация все еще необходима. Используйте 'Прервать', чтобы отменить все разрешения.", src.auth_need - src.authorized.len), "Shuttle Launch", "Authorize", "Repeal", "Abort")
+		var/choice = alert(user, text("Хотели бы вы (не)разрешить сокращение времени запуска? [] авторизации все еще необходимы. Используйте 'Прервать', чтобы отменить все разрешения.", src.auth_need - src.authorized.len), "Shuttle Launch", "Authorize", "Repeal", "Abort")
 		if(SSshuttle.emergency.mode != SHUTTLE_DOCKED || user.get_active_hand() != W)
 			return 0
 
@@ -43,7 +43,7 @@
 			return 0
 
 		switch(choice)
-			if("Авторизовать")
+			if("Authorize")
 				if(!authorized.Find(W:registered_name))
 					authorized += W:registered_name
 					if(auth_need - authorized.len > 0)
@@ -56,11 +56,11 @@
 						GLOB.minor_announcement.Announce("Аварийный шаттл стартует через 10 секунд")
 						SSshuttle.emergency.setTimer(100)
 
-			if("Аннулировать")
+			if("Repeal")
 				if(authorized.Remove(W:registered_name))
 					GLOB.minor_announcement.Announce("[auth_need - authorized.len] разрешения необходимы до тех пор, пока шаттл не будет запущен раньше.")
 
-			if("Прервать")
+			if("Abort")
 				if(authorized.len)
 					GLOB.minor_announcement.Announce("Все разрешения на ранний запуск шаттла были отозваны.")
 					authorized.Cut()

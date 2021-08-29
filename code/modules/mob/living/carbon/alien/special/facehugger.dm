@@ -59,11 +59,11 @@
 	if(real)//So that giant red text about probisci doesn't show up for fake ones
 		switch(stat)
 			if(DEAD,UNCONSCIOUS)
-				. += "<span class='boldannounce'>[src] is not moving.</span>"
+				. += "<span class='boldannounce'>[src] не двигается.</span>"
 			if(CONSCIOUS)
-				. += "<span class='boldannounce'>[src] seems to be active!</span>"
+				. += "<span class='boldannounce'>[src] кажется, активен!</span>"
 		if(sterile)
-			. += "<span class='boldannounce'>It looks like the proboscis has been removed.</span>"
+			. += "<span class='boldannounce'>Похоже, хоботок был удален.</span>"
 
 /obj/item/clothing/mask/facehugger/temperature_expose(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	..()
@@ -122,13 +122,13 @@
 	if(stat != CONSCIOUS)
 		return 0
 	if(!sterile) M.take_organ_damage(strength,0) //done here so that even borgs and humans in helmets take damage
-	M.visible_message("<span class='danger'>[src] leaps at [M]'s face!</span>", \
-						"<span class='userdanger'>[src] leaps at [M]'s face!</span>")
+	M.visible_message("<span class='danger'>[src] прыгает на лицо [M]!</span>", \
+						"<span class='userdanger'>[src] прыгает на лицо [M]!</span>")
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.head && H.head.flags_cover & HEADCOVERSMOUTH)
-			H.visible_message("<span class='danger'>[src] smashes against [H]'s [H.head]!</span>", \
-								"<span class='userdanger'>[src] smashes against [H]'s [H.head]!</span>")
+			H.visible_message("<span class='danger'>[src] разбивается о голову [H]!</span>", \
+								"<span class='userdanger'>[src] разбивается о голову [H]!</span>")
 			Die()
 			return 0
 	if(iscarbon(M))
@@ -139,15 +139,15 @@
 			if(istype(target.wear_mask, /obj/item/clothing/mask/muzzle))
 				var/obj/item/clothing/mask/muzzle/S = target.wear_mask
 				if(S.do_break())
-					target.visible_message("<span class='danger'>[src] spits acid onto [S] melting the lock!</span>", \
-									"<span class='userdanger'>[src] spits acid onto [S] melting the lock!</span>")
+					target.visible_message("<span class='danger'>[src] плюет кислотой на [S], расплавляя замок!</span>", \
+									"<span class='userdanger'>[src] плюет кислотой на [S], расплавляя замок!</span>")
 			var/obj/item/clothing/W = target.wear_mask
 			if(W.flags & NODROP)
 				return 0
 			target.unEquip(W)
 
-			target.visible_message("<span class='danger'>[src] tears [W] off of [target]'s face!</span>", \
-									"<span class='userdanger'>[src] tears [W] off of [target]'s face!</span>")
+			target.visible_message("<span class='danger'>[src] отрывает [W] от лица [target]!</span>", \
+									"<span class='userdanger'>[src] отрывает [W] от лица [target]!</span>")
 
 		src.loc = target
 		target.equip_to_slot_if_possible(src, slot_wear_mask, FALSE, TRUE)
@@ -177,8 +177,8 @@
 
 	if(!sterile)
 		//target.contract_disease(new /datum/disease/alien_embryo(0)) //so infection chance is same as virus infection chance
-		target.visible_message("<span class='danger'>[src] falls limp after violating [target]'s face!</span>", \
-								"<span class='userdanger'>[src] falls limp after violating [target]'s face!</span>")
+		target.visible_message("<span class='danger'>[src] падает обмякшим после порчи лица [target]!</span>", \
+								"<span class='userdanger'>[src] падает обмякшим после порчи лица [target]!</span>")
 
 		Die()
 		icon_state = "[initial(icon_state)]_impregnated"
@@ -186,8 +186,8 @@
 		if(!target.get_int_organ(/obj/item/organ/internal/body_egg/alien_embryo))
 			new /obj/item/organ/internal/body_egg/alien_embryo(target)
 	else
-		target.visible_message("<span class='danger'>[src] violates [target]'s face!</span>", \
-								"<span class='userdanger'>[src] violates [target]'s face!</span>")
+		target.visible_message("<span class='danger'>[src] портит лицо [target]!</span>", \
+								"<span class='userdanger'>[src] портит лицо [target]!</span>")
 
 /obj/item/clothing/mask/facehugger/proc/GoActive()
 	if(stat == DEAD || stat == CONSCIOUS)
@@ -238,7 +238,7 @@
 	return 0
 
 /obj/item/clothing/mask/facehugger/lamarr
-	name = "Lamarr"
-	desc = "The worst she might do is attempt to... couple with your head." //hope we don't get sued over a harmless reference, rite?
+	name = "Ламарр"
+	desc = "Худшее, что она может сделать, это попытаться... совокупиться с твоей головой." //hope we don't get sued over a harmless reference, rite?
 	sterile = 1
 	gender = FEMALE
