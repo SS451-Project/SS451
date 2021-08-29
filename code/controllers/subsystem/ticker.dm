@@ -84,7 +84,10 @@ SUBSYSTEM_DEF(ticker)
 	'sound/music/18.ogg',\
 	'sound/music/19.ogg',\
 	'sound/music/20.ogg',\
-	'sound/music/21.ogg',)
+	'sound/music/21.ogg',\
+	'sound/music/22.ogg',\
+	'sound/music/23.ogg',\
+	'sound/music/24.ogg',)
 
 	return ..()
 
