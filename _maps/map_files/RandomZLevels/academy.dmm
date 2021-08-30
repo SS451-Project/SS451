@@ -6233,9 +6233,9 @@
 /area/awaymission/academy/headmaster)
 "GG" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/snacks/beetsoup{
-	desc = "Со вкусом выполнения";
-	name = "Борщ";
+/obj/item/reagent_containers/food/snacks/soup/beetsoup{
+	desc = "With the taste of execution";
+	name = "borsch";
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/food/drinks/britcup{

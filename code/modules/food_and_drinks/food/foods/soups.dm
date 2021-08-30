@@ -2,8 +2,16 @@
 //////////////////////
 //		Soups		//
 //////////////////////
+// Base object for soups, should never appear ingame.
+/obj/item/reagent_containers/food/snacks/soup
+	name = "Невероятный суп"
+	desc = "Этот суп настолько хорош, что его даже не должно быть!"
+	icon_state = "beans" // If you don't have a sprite, you get beans.
+	consume_sound = 'sound/items/drink.ogg'
+	trash = /obj/item/trash/snack_bowl
+	bitesize = 5
 
-/obj/item/reagent_containers/food/snacks/meatballsoup
+/obj/item/reagent_containers/food/snacks/soup/meatballsoup
 	name = "Суп с фрикадельками"
 	desc = "У тебя есть шары, малыш, ШАРЫ!"
 	icon_state = "meatballsoup"
@@ -13,7 +21,7 @@
 	list_reagents = list("nutriment" = 8, "water" = 5, "vitamin" = 4)
 	tastes = list("фрикаделька" = 1)
 
-/obj/item/reagent_containers/food/snacks/slimesoup
+/obj/item/reagent_containers/food/snacks/soup/slimesoup
 	name = "Суп из слизи"
 	desc = "Если воды нет, вы можете заменить ее слезами."
 	icon_state = "slimesoup"
@@ -22,7 +30,7 @@
 	list_reagents = list("nutriment" = 5, "slimejelly" = 5, "water" = 5, "vitamin" = 4)
 	tastes = list("слизь" = 1)
 
-/obj/item/reagent_containers/food/snacks/bloodsoup
+/obj/item/reagent_containers/food/snacks/soup/bloodsoup
 	name = "Томатный суп"
 	desc = "Пахнет медью."
 	icon_state = "tomatosoup"
@@ -31,7 +39,7 @@
 	list_reagents = list("nutriment" = 2, "blood" = 10, "water" = 5, "vitamin" = 4)
 	tastes = list("железо" = 1)
 
-/obj/item/reagent_containers/food/snacks/clownstears
+/obj/item/reagent_containers/food/snacks/soup/clownstears
 	name = "Клоунские слезы"
 	desc = "Не очень смешно"
 	icon_state = "clownstears"
@@ -40,7 +48,7 @@
 	list_reagents = list("nutriment" = 4, "banana" = 5, "water" = 5, "vitamin" = 8)
 	tastes = list("плохая шутка" = 1)
 
-/obj/item/reagent_containers/food/snacks/vegetablesoup
+/obj/item/reagent_containers/food/snacks/soup/vegetablesoup
 	name = "Овощной суп"
 	desc = "Настоящая веганская еда." //TODO
 	icon_state = "vegetablesoup"
@@ -50,7 +58,7 @@
 	list_reagents = list("nutriment" = 8, "water" = 5, "vitamin" = 4)
 	tastes = list("овощи" = 1)
 
-/obj/item/reagent_containers/food/snacks/nettlesoup
+/obj/item/reagent_containers/food/snacks/soup/nettlesoup
 	name = "Суп из крапивы"
 	desc = "Подумать только, ботаник забил бы тебя до смерти одним из таких."
 	icon_state = "nettlesoup"
@@ -60,7 +68,7 @@
 	list_reagents = list("nutriment" = 8, "water" = 5, "vitamin" = 4)
 	tastes = list("крапива" = 1)
 
-/obj/item/reagent_containers/food/snacks/mysterysoup
+/obj/item/reagent_containers/food/snacks/soup/mysterysoup
 	name = "Таинственный суп"
 	desc = "Загадка в том, почему ты его не ешь?"
 	icon_state = "mysterysoup"
@@ -69,12 +77,12 @@
 	list_reagents = list("nutriment" = 6)
 	tastes = list("хаос" = 1)
 
-/obj/item/reagent_containers/food/snacks/mysterysoup/New()
+/obj/item/reagent_containers/food/snacks/soup/mysterysoup/New()
 	..()
 	extra_reagent = pick("capsaicin", "frostoil", "omnizine", "banana", "blood", "slimejelly", "toxin", "banana", "carbon", "oculine")
 	reagents.add_reagent("[extra_reagent]", 5)
 
-/obj/item/reagent_containers/food/snacks/wishsoup
+/obj/item/reagent_containers/food/snacks/soup/wishsoup
 	name = "Суп из желаний"
 	desc = "Я бы хотел, чтобы это был суп."
 	icon_state = "wishsoup"
@@ -84,14 +92,14 @@
 	list_reagents = list("water" = 10)
 	tastes = list("желания" = 1)
 
-/obj/item/reagent_containers/food/snacks/wishsoup/New()
+/obj/item/reagent_containers/food/snacks/soup/wishsoup/New()
 	..()
 	if(prob(25))
 		desc = "Желание сбылось!" // hue
 		reagents.add_reagent("nutriment", 9)
 		reagents.add_reagent("vitamin", 1)
 
-/obj/item/reagent_containers/food/snacks/tomatosoup
+/obj/item/reagent_containers/food/snacks/soup/tomatosoup
 	name = "Томатный суп"
 	desc = "Пить это - все равно что быть вампиром! Помидорным..."
 	icon_state = "tomatosoup"
@@ -101,7 +109,7 @@
 	list_reagents = list("nutriment" = 5, "tomatojuice" = 10, "vitamin" = 3)
 	tastes = list("помидоры" = 1)
 
-/obj/item/reagent_containers/food/snacks/misosoup
+/obj/item/reagent_containers/food/snacks/soup/misosoup
 	name = "Суп мисо"
 	desc = "Лучший суп во вселенной! Ням!!!"
 	icon_state = "misosoup"
@@ -110,7 +118,7 @@
 	list_reagents = list("nutriment" = 7, "vitamin" = 2)
 	tastes = list("мисо" = 1)
 
-/obj/item/reagent_containers/food/snacks/mushroomsoup
+/obj/item/reagent_containers/food/snacks/soup/mushroomsoup
 	name = "Суп шантрель"
 	desc = "Вкусный и сытный грибной суп."
 	icon_state = "mushroomsoup"
@@ -120,7 +128,7 @@
 	list_reagents = list("nutriment" = 8, "vitamin" = 4)
 	tastes = list("грибы" = 1)
 
-/obj/item/reagent_containers/food/snacks/beetsoup
+/obj/item/reagent_containers/food/snacks/soup/beetsoup
 	name = "Свекольный суп"
 	desc = "Подожди, как там пишется?.."
 	icon_state = "beetsoup"
@@ -130,7 +138,7 @@
 	list_reagents = list("nutriment" = 7, "vitamin" = 2)
 	tastes = list("свекла" = 1)
 
-/obj/item/reagent_containers/food/snacks/beetsoup/New()
+/obj/item/reagent_containers/food/snacks/soup/beetsoup/New()
 	..()
 	name = pick("Борсш","Борщ","Борсщ","Боршщ","Борш","Порщ")
 
@@ -139,7 +147,7 @@
 //		Stews		//
 //////////////////////
 
-/obj/item/reagent_containers/food/snacks/stew
+/obj/item/reagent_containers/food/snacks/soup/stew
 	name = "Рагу"
 	desc = "Вкусное и тёплое рагу. Здоровый и сильный."
 	icon_state = "stew"
@@ -148,7 +156,7 @@
 	list_reagents = list("nutriment" = 10, "oculine" = 5, "tomatojuice" = 5, "vitamin" = 5)
 	tastes = list("помидор" = 1, "морковь" = 1)
 
-/obj/item/reagent_containers/food/snacks/stewedsoymeat
+/obj/item/reagent_containers/food/snacks/soup/stewedsoymeat
 	name = "Соевое рагу"
 	desc = "Даже не вегетарианцам это ПОНРАВИТСЯ!"
 	icon_state = "stewedsoymeat"
@@ -161,8 +169,8 @@
 //		Chili		//
 //////////////////////
 
-/obj/item/reagent_containers/food/snacks/hotchili
-	name = "Острый чили"
+/obj/item/reagent_containers/food/snacks/soup/hotchili
+	name = "Горячий чили"
 	desc = "Техасский Чили с пятью сигналами тревоги!"
 	icon_state = "hotchili"
 	trash = /obj/item/trash/snack_bowl
@@ -171,7 +179,7 @@
 	list_reagents = list("nutriment" = 5, "capsaicin" = 1, "tomatojuice" = 2, "vitamin" = 2)
 	tastes = list("острый перец" = 1, "помидоры" = 1)
 
-/obj/item/reagent_containers/food/snacks/coldchili
+/obj/item/reagent_containers/food/snacks/soup/coldchili
 	name = "Холодный чили"
 	desc = "Эта слякоть едва ли похожа на жидкость!"
 	icon_state = "coldchili"

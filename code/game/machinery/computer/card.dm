@@ -125,7 +125,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 /obj/machinery/computer/card/verb/eject_id()
 	set category = null
-	set name = "Eject ID Card"
+	set name = "Извлечь ID-карту"
 	set src in oview(1)
 
 	if(usr.incapacitated())

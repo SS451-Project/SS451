@@ -1012,7 +1012,7 @@ $(function() {
 		fontSize = fontSize - 1 + 'px';
 		$messages.css({'font-size': fontSize});
 		setCookie('fontsize', fontSize, 365);
-		internalOutput('<span class="internal boldnshit">Font size set to '+fontSize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер шрифта установлен на '+fontSize+'</span>', 'internal');
 	});
 
 	$('#increaseFont').click(function(e) {
@@ -1020,14 +1020,14 @@ $(function() {
 		fontSize = fontSize + 1 + 'px';
 		$messages.css({'font-size': fontSize});
 		setCookie('fontsize', fontSize, 365);
-		internalOutput('<span class="internal boldnshit">Font size set to '+fontSize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер шрифта установлен на '+fontSize+'</span>', 'internal');
 	});
 
 	$('#chooseFont').click(function(e) {
 		if ($('.popup .changeFont').is(':visible')) {return;}
 		var popupContent = '<div class="head">Change Font</div>' +
 			'<div id="changeFont" class="changeFont">'+
-				'<a href="#" data-font="Verdana" style="font-family: Verdana;">Verdana (Default)</a>'+
+				'<a href="#" data-font="Verdana" style="font-family: Verdana;">Verdana (По умолчанию)</a>'+
 				'<a href="#" data-font="\'Helvetica Neue\', Helvetica, Arial" style="font-family: \'Helvetica Neue\', Helvetica, Arial;">Arial / Helvetica</a>'+
 				'<a href="#" data-font="Times New Roman" style="font-family: Times New Roman;">Times New Roman</a>'+
 				'<a href="#" data-font="Georgia" style="font-family: Georgia;">Georgia</a>'+
@@ -1114,6 +1114,30 @@ $(function() {
 		// css needs special headers
 		xmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		xmlHttp.send(null);
+	});
+
+	$('#logtofile').click(function(e) {
+		// Supported only under IE 10+.
+		if (window.Blob) {
+			$.ajax({
+				type: 'GET',
+				url: 'browserOutput.css',
+				success: function(styleData) {
+					var chatLogHtml = '<head><title>Chat Log</title><style>' + styleData + '</style></head><body>' + $messages.html() + '</body>';
+
+					var currentData = new Date();
+					var formattedDate = (currentData.getMonth() + 1) + '.' + currentData.getDate() + '.' + currentData.getFullYear();
+					var formattedTime = currentData.getHours() + '-' + currentData.getMinutes();
+
+					var blobObject = new Blob([chatLogHtml]);
+					var fileName = 'ChatLog (' + formattedDate + ' ' + formattedTime + ').html';
+
+					window.navigator.msSaveBlob(blobObject, fileName);
+				}
+			});
+		} else {
+			output('<span class="big red">This function does not supported on your version of Internet Explorer (9 or less). Please, update to the latest version.</span>', 'internal');
+		}
 	});
 
 	$('#highlightTerm').click(function(e) {
