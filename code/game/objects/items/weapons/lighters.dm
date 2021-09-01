@@ -1,7 +1,7 @@
 // Basic lighters
 /obj/item/lighter
-	name = "дешевая зажигалка"
-	desc = "Дешевая, как бесплатная зажигалка."
+	name = "Дешевая зажигалка"
+	desc = "Дешевая, почти как бесплатная."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
@@ -97,7 +97,7 @@
 
 // Zippo lighters
 /obj/item/lighter/zippo
-	name = "зажигалка zippo"
+	name = "Зажигалка Zippo"
 	desc = "Zippo."
 	icon_state = "zippo"
 	item_state = "zippo"
@@ -109,7 +109,7 @@
 /obj/item/lighter/zippo/turn_on_lighter(mob/living/user)
 	. = ..()
 	if(world.time > next_on_message)
-		user.visible_message("<span class='rose'>Не сбавляя шага, [user] открывает и зажигает [src] одним плавным движением.</span>")
+		user.visible_message("<span class='rose'>Не сбавляя темп, [user] открывает и зажигает [src] одним плавным движением.</span>")
 		playsound(src.loc, 'sound/items/zippolight.ogg', 25, 1)
 		next_on_message = world.time + 5 SECONDS
 	else
@@ -132,77 +132,77 @@
 
 //EXTRA LIGHTERS
 /obj/item/lighter/zippo/nt_rep
-	name = "zippo с золотой гравировкой"
+	name = "Zippo с золотой гравировкой"
 	desc = "Золотая зажигалка Zippo с гравировкой и буквами NT на ней."
 	icon_state = "zippo_nt_off"
 	icon_on = "zippo_nt_on"
 	icon_off = "zippo_nt_off"
 
 /obj/item/lighter/zippo/blue
-	name = "синяя зажигалка zippo"
+	name = "Синяя зажигалка zippo"
 	desc = "Зажигалка zippo из какого-то синего металла."
 	icon_state = "bluezippo"
 	icon_on = "bluezippoon"
 	icon_off = "bluezippo"
 
 /obj/item/lighter/zippo/black
-	name = "черная зажигалка zippo"
-	desc = "Черная зажигалка zippo."
+	name = "Черная зажигалка Zippo"
+	desc = "Черная зажигалка Zippo."
 	icon_state = "blackzippo"
 	icon_on = "blackzippoon"
 	icon_off = "blackzippo"
 
 /obj/item/lighter/zippo/engraved
-	name = "зажигалка zippo с гравировкой"
-	desc = "Зажигалка zippo с замысловатой гравировкой."
+	name = "Зажигалка Zippo с гравировкой"
+	desc = "Зажигалка Zippo с замысловатой гравировкой."
 	icon_state = "engravedzippo"
 	icon_on = "engravedzippoon"
 	icon_off = "engravedzippo"
 
 /obj/item/lighter/zippo/gonzofist
-	name = "zippo Кулака Гонзо"
+	name = "Zippo Кулака Гонзо"
 	desc = "Зажигалка Zippo с культовым кулаком Гонзо на матовой черной отделке."
 	icon_state = "gonzozippo"
 	icon_on = "gonzozippoon"
 	icon_off = "gonzozippo"
 
 /obj/item/lighter/zippo/cap
-	name = "zippo Капитана"
-	desc = "Золотой zippo с ограниченным тиражом, специально для капитанов NT. Выглядит очень дорого."
+	name = "Zippo Капитана"
+	desc = "Золотой Zippo с ограниченным тиражом, специально для капитанов NT. Выглядит очень дорого."
 	icon_state = "zippo_cap"
 	icon_on = "zippo_cap_on"
 	icon_off = "zippo_cap"
 
 /obj/item/lighter/zippo/hop
-	name = "zippo Главы Персонала"
+	name = "Zippo Главы Персонала"
 	desc = "Ограниченная серия Zippo для глав NT. Старается изо всех сил выглядеть как у капитана."
 	icon_state = "zippo_hop"
 	icon_on = "zippo_hop_on"
 	icon_off = "zippo_hop"
 
 /obj/item/lighter/zippo/hos
-	name = "zippo Начальника службы безопасности"
+	name = "Zippo Начальника Службы Безопасности"
 	desc = "Ограниченная серия Zippo для глав NT. Заправлен слезами клоунов."
 	icon_state = "zippo_hos"
 	icon_on = "zippo_hos_on"
 	icon_off = "zippo_hos"
 
 /obj/item/lighter/zippo/cmo
-	name = "zippo Главного Врача"
+	name = "Zippo Главного Врача"
 	desc = "Ограниченная серия Zippo для глав NT. Изготовлен из гипоаллергенной стали."
 	icon_state = "zippo_cmo"
 	icon_on = "zippo_cmo_on"
 	icon_off = "zippo_cmo"
 
 /obj/item/lighter/zippo/ce
-	name = "zippo Главного инженера"
+	name = "Zippo Главного Инженера"
 	desc = "Ограниченная серия Zippo для глав NT. Кто-то пытался починить крышку синей изолентой."
 	icon_state = "zippo_ce"
 	icon_on = "zippo_ce_on"
 	icon_off = "zippo_ce"
 
 /obj/item/lighter/zippo/rd
-	name = "zippo Директора по Исследованиям"
+	name = "Zippo Директора по Исследованиям"
 	desc = "Ограниченная серия Zippo для глав NT. Использует передовые технологии для создания огня из плазмы."
 	icon_state = "zippo_rd"
 	icon_on = "zippo_rd_on"
@@ -212,7 +212,7 @@
 //MATCHES//
 ///////////
 /obj/item/match
-	name = "спичка"
+	name = "Спичка"
 	desc = "Простая спичка, используемая для подкуривания."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
@@ -244,9 +244,9 @@
 		force = 3
 		hitsound = 'sound/items/welder.ogg'
 		item_state = "cigon"
-		name = "зажженная спичка"
+		name = "Зажженная спичка"
 		desc = "Спичка. И она горит."
-		attack_verb = list("burnt","singed")
+		attack_verb = list("обжёг", "опалил")
 		START_PROCESSING(SSobj, src)
 		update_icon()
 		return TRUE
@@ -259,9 +259,9 @@
 		force = initial(force)
 		icon_state = "match_burnt"
 		item_state = "cigoff"
-		name = "сгоревшая спичка"
+		name = "Сгоревшая спичка"
 		desc = "Спичка. Отжигала свои лучшие дни."
-		attack_verb = list("flicked")
+		attack_verb = list("щёлкнул")
 		STOP_PROCESSING(SSobj, src)
 		return TRUE
 
@@ -299,7 +299,7 @@
 		return mask_item
 
 /obj/item/match/firebrand
-	name = "головешка"
+	name = "Головешка"
 	desc = "Незажженная головешка. Заставляет задуматься, почему это не просто палка."
 	smoketime = 20 //40 seconds
 
